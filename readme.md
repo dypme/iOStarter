@@ -1,6 +1,7 @@
 Persiapan
 - Copy and paste folder ProjectTemplate ke folder Project mu
 - Rename folder ProjectTemplate yang dicopy menjadi nama project baru
+- Tekan Shift+Cmd+. akan memunculkan hidden file, hapus folder git. Agar project baru tidak terkoneksi dengan repository project template
 
 Pastikan
 - Di build settings, ubah lokasi bridging header menjadi:
