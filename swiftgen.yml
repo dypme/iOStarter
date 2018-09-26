@@ -1,0 +1,16 @@
+xcassets:
+    paths: ProjectTemplate/Resource/Assets.xcassets
+    templateName: swift4
+    output: ProjectTemplate/Constants/AppAssets.swift
+fonts:
+    paths: ProjectTemplate/Resource/font
+    templateName: swift4
+    output: ProjectTemplate/Constants/AppFont.swift
+colors:
+    paths: ProjectTemplate/Resource/colors.json
+    templateName: swift4
+    output: ProjectTemplate/Constants/AppColor.swift
+storyboards:
+    paths: ProjectTemplate/Storyboard/Base.lproj
+    templateName: swift4
+    output: ProjectTemplate/Constants/AppStoryboard.swift

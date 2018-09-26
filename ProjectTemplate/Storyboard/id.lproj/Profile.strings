@@ -1,0 +1,36 @@
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "216-dl-LBJ"; */
+"216-dl-LBJ.title" = "Profile";
+
+/* Class = "UIButton"; normalTitle = "Edit Password"; ObjectID = "8LN-LL-nIv"; */
+"8LN-LL-nIv.normalTitle" = "Edit Password";
+
+/* Class = "UITextField"; placeholder = "Retype New Password"; ObjectID = "8rK-J5-izO"; */
+"8rK-J5-izO.placeholder" = "Retype New Password";
+
+/* Class = "UITextField"; placeholder = "Old Password"; ObjectID = "JQq-2t-4dM"; */
+"JQq-2t-4dM.placeholder" = "Old Password";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "JwU-1d-Qk2"; */
+"JwU-1d-Qk2.placeholder" = "Email";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "Nc5-Pp-hew"; */
+"Nc5-Pp-hew.placeholder" = "Name";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "WcE-NT-6cI"; */
+"WcE-NT-6cI.title" = " ";
+
+/* Class = "UINavigationItem"; title = "Edit Profile"; ObjectID = "Wf2-IS-HoJ"; */
+"Wf2-IS-HoJ.title" = "Edit Profile";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "g10-WV-dlE"; */
+"g10-WV-dlE.placeholder" = "Email";
+
+/* Class = "UITextField"; placeholder = "New Password"; ObjectID = "gul-1v-2Ud"; */
+"gul-1v-2Ud.placeholder" = "New Password";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "jRW-1L-43C"; */
+"jRW-1L-43C.placeholder" = "Name";
+
+/* Class = "UINavigationItem"; title = "Edit Password"; ObjectID = "ugl-fl-yvj"; */
+"ugl-fl-yvj.title" = "Edit Password";
