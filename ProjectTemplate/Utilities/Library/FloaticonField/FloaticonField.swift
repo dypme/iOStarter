@@ -221,8 +221,8 @@ class FloaticonField: FloaticonFieldEffects {
     override open func animateViewsForTextEntry() {
         UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1.0, options: .beginFromCurrentState, animations: ({
             self.placeholderLabel.font = self.placeholderFontFromFont(self.font!, resize: true)
+            self.placeholderLabel.textColor = self.floatingPlaceholderColor
             if self.isFirstResponder {
-                self.placeholderLabel.textColor = self.floatingPlaceholderColor
                 self.placeholderLabel.text = (self.floatingPlaceholder ?? self.placeholder)
                 self.activeBorderLayer.backgroundColor = self.borderActiveColor?.cgColor
             } else {

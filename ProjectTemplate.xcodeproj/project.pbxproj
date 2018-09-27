@@ -862,7 +862,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = $PODS_ROOT/SwiftGen/bin/swiftgen;
+			shellScript = "\"$PODS_ROOT/SwiftGen/bin/swiftgen\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
