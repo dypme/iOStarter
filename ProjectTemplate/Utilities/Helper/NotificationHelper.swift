@@ -18,7 +18,6 @@ class NotificationHelper {
     // [START setup]
     /// Setup all need for notification first
     func setupNotif(delegate: AppDelegate, application: UIApplication) {
-        FirebaseApp.configure()
         // [START set_messaging_delegate]
         Messaging.messaging().delegate = delegate
         // [END set_messaging_delegate]

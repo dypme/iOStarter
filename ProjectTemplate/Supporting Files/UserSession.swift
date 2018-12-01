@@ -31,16 +31,24 @@ class UserSession {
     ///
     /// - Parameter profile: new profile data
     func setProfile(_ profile: Profile) {
+        NSKeyedArchiver.setClassName("Profile", for: Profile.self)
         let data = NSKeyedArchiver.archivedData(withRootObject: profile)
         userStandard.set(data, forKey: profileKey)
     }
     
     /// Getting stored profile data
     var profile: Profile? {
+        NSKeyedUnarchiver.setClass(Profile.self, forClassName: "Profile")
         guard let data = userStandard.data(forKey: profileKey) else {
             return nil
         }
-        return NSKeyedUnarchiver.unarchiveObject(with: data) as? Profile
+        
+        do {
+            let aProfile = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? Profile
+            return aProfile
+        } catch {
+            return nil
+        }
     }
     
     /// Set and store new token registration id for push notification

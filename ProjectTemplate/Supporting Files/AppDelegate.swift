@@ -21,8 +21,9 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    /// Change return value with your main menu controller
-    var mainVC: UIViewController? {
+    
+    /// INitialize main controller, Change return value with your main menu controller
+    private var mainFirstVC: UIViewController? {
         // Grid menu viewcontoller
         let gridMenu = StoryboardScene.Main.gridMenuVCNav.instantiate()
         
@@ -37,8 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Tabbar menu viewcontroller
         let tabBarMenu = StoryboardScene.Main.tabBarMenuVC.instantiate()
         
-        return gridMenu
+        return drawerMenu
     }
+    /// Main view controller
+    var mainVC: UIViewController?
 
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
@@ -61,6 +64,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Make sure setting package name first before running
 //        Fabric.with([Crashlytics.self])
         
+        FirebaseApp.configure()
+        
         KeyboardManager.shared.start()
         
         NVActivityIndicatorView.DEFAULT_TYPE = .ballPulse
@@ -75,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Make root in login if application need login first
         if UserSession.shared.isUserLoggedIn {
             // Change root viewcontroller with your first main menu
+            mainVC = mainFirstVC
             window?.rootViewController = mainVC
         } else {
             let vc = StoryboardScene.Auth.loginVC.instantiate()

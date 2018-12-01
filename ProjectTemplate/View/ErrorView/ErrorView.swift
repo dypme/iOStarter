@@ -99,10 +99,39 @@ extension UIView {
     ///   - image: image for error view
     ///   - message: Text to inform user what error happen
     ///   - tapReload: Action to reload fetch data while error occur
-    func setErrorView(frame: CGRect? = nil, image: UIImage? = nil, message: String, tapReload: (() -> Void)?) {
-        self.superview?.layoutIfNeeded()
-        self.layoutIfNeeded()
-        let aFrame = frame ?? self.frame
-        ErrorView.shared.show(in: self.superview, frame: aFrame, image: image, message: message, tapReload: tapReload)
+    ///   - tag: Mark of error view in superview
+    func setErrorView(frame: CGRect? = nil, image: UIImage? = nil, message: String, tapReload: (() -> Void)?, tag: Int = 1431) {
+        let controller = self.viewContainingController()
+        let controllerView = controller?.view
+        
+        let errorView = ErrorView()
+        errorView.view.tag = tag
+        
+        if self == controllerView {
+            if !self.subviews.contains(where: { $0.tag == tag }) {
+                errorView.show(in: self, frame: frame, image: image, message: message, tapReload: tapReload)
+            }
+        } else {
+            if let superview = self.superview, !superview.subviews.contains(where: { $0.tag == tag }) {
+                errorView.show(in: self.superview, frame: frame, image: image, message: message, tapReload: tapReload)
+            }
+        }
+    }
+    
+    /// Stop animating activity indicator in superview of current view
+    /// - Parameter tag: Mark of error view in superview
+    func removeErrorView(tag: Int = 1431) {
+        let controller = self.viewContainingController()
+        let controllerView = controller?.view
+        
+        if self == controllerView {
+            if let errorView = self.subviews.filter({ $0.tag == tag}).first {
+                errorView.removeFromSuperview()
+            }
+        } else {
+            if let errorView = self.superview?.subviews.filter({ $0.tag == tag}).first {
+                errorView.removeFromSuperview()
+            }
+        }
     }
 }

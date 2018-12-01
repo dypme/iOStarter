@@ -351,7 +351,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14g-TA-Ptj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="793" y="1480"/>
+            <point key="canvasLocation" x="793" y="1724"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dhR-3D-p9a">
@@ -364,7 +364,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7L-I6-Ier" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="142" y="1481"/>
+            <point key="canvasLocation" x="142" y="1724"/>
         </scene>
     </scenes>
     <resources>

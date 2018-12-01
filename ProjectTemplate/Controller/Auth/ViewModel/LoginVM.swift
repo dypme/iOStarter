@@ -24,7 +24,7 @@ class LoginVM {
     ///   - success: Action when request success
     func login(userid: String, password: String, error: ((String) -> Void)?, success: ((String) -> Void)?) {
         if userid.isEmpty || password.isEmpty {
-            error?(ErrorConstant.completeForm)
+            error(ErrorConstant.completeForm)
             return
         }
 //        if !userid.isValidEmail {
@@ -32,7 +32,7 @@ class LoginVM {
 //            return
 //        }
         if password.count < 6 {
-            error?(ErrorConstant.passwordLength)
+            error(ErrorConstant.passwordLength)
             return
         }
         

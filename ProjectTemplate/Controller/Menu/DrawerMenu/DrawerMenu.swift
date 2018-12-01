@@ -22,7 +22,7 @@ class DrawerMenu {
     func setupDrawer(centerViewController: UIViewController) {
         let sideMenu = StoryboardScene.Main.drawerMenuVC.instantiate()
         
-        guard self.drawerController != nil else {
+        guard self.drawerController == nil else {
             self.drawerController?.centerViewController = centerViewController
             return
         }
