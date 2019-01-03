@@ -8,9 +8,6 @@
 
 import UIKit
 
-import Fabric
-import Crashlytics
-
 import NVActivityIndicatorView
 import IQKeyboardManagerSwift
 
@@ -60,10 +57,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /// Setting all application need
     func setApp() {
-        // Don't forget to setting fabric https://fabric.io/kits/ios/crashlytics/install
-        // Make sure setting package name first before running
-//        Fabric.with([Crashlytics.self])
-        
         FirebaseApp.configure()
         
         KeyboardManager.shared.start()
