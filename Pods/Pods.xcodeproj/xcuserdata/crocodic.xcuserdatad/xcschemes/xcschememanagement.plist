@@ -67,14 +67,14 @@
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
-		<key>Pods-ProjectTemplate.xcscheme</key>
+		<key>Pods-iOS-Starter.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>10</integer>
 		</dict>
-		<key>Pods-ProjectTemplateUITests.xcscheme</key>
+		<key>Pods-iOS-StarterUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

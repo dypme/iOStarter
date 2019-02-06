@@ -1,21 +1,21 @@
 Cara merubah nama proyek secara full
 1. Siapkan folder untuk melakukan perubahan pada proyek, pastikan di folder tsb tidak ada file apapun (Contoh folder: "NewProjectFolder")
-2. Copy proyek (ProjectTemplate) ke folder yg telah dibuat 
+2. Copy proyek (iOS-Starter) ke folder yg telah dibuat 
 3. Buka terminal
 4. Masuk ke folder yg telah dibuat
 cd /Path/NewProjectFolder
 5. Install tool tambahan (bila sudah pernah, lewati)
 brew install rename ack
 6. Masukkan code 
-find . -name 'ProjectTemplate*' -print0 | xargs -0 rename --subst-all 'ProjectTemplate' 'NamaProjekBaru'
+find . -name 'iOS-Starter*' -print0 | xargs -0 rename --subst-all 'iOS-Starter' 'NamaProjekBaru'
 Tidak masalah bila output ada error
 7. Ulangi langkah nomor 6 hingga tidak ada output error
-8. Cek ulang bahwa semua kata ProjectTemplate sudah berubah semua (Hasil outpu akan kosong) dengan code 
-find . -name 'ProjectTemplate*'
+8. Cek ulang bahwa semua kata iOS-Starter sudah berubah semua (Hasil outpu akan kosong) dengan code 
+find . -name 'iOS-Starter*'
 9. Masukkan code
-ack --literal --files-with-matches 'ProjectTemplate' --print0 | xargs -0 sed -i '' 's/ProjectTemplate/NamaProjekBaru/g'
+ack --literal --files-with-matches 'iOS-Starter' --print0 | xargs -0 sed -i '' 's/iOS-Starter/NamaProjekBaru/g'
 10. Cek lagi
-ack --literal 'ProjectTemplate'
+ack --literal 'iOS-Starter'
 11. Install ulang pod
 pod install
 12. Build proyek

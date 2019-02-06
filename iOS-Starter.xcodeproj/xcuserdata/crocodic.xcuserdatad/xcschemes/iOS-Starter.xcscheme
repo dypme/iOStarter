@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "0940"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2900FFC00DE8E1E03F17C35A708542C2"
-               BuildableName = "Pods_iOS-Starter.framework"
-               BlueprintName = "Pods-iOS-Starter"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "ED836FB820F6E18100CFC549"
+               BuildableName = "iOS-Starter.app"
+               BlueprintName = "iOS-Starter"
+               ReferencedContainer = "container:iOS-Starter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "ED836FCC20F6E18100CFC549"
+               BuildableName = "iOS-StarterUITests.xctest"
+               BlueprintName = "iOS-StarterUITests"
+               ReferencedContainer = "container:iOS-Starter.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "ED836FB820F6E18100CFC549"
+            BuildableName = "iOS-Starter.app"
+            BlueprintName = "iOS-Starter"
+            ReferencedContainer = "container:iOS-Starter.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +61,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2900FFC00DE8E1E03F17C35A708542C2"
-            BuildableName = "Pods_iOS-Starter.framework"
-            BlueprintName = "Pods-iOS-Starter"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "ED836FB820F6E18100CFC549"
+            BuildableName = "iOS-Starter.app"
+            BlueprintName = "iOS-Starter"
+            ReferencedContainer = "container:iOS-Starter.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,6 +80,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "ED836FB820F6E18100CFC549"
+            BuildableName = "iOS-Starter.app"
+            BlueprintName = "iOS-Starter"
+            ReferencedContainer = "container:iOS-Starter.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

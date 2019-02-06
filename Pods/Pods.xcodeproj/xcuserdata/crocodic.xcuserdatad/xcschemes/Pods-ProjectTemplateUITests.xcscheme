@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F59F9CFC769B98E0F93A07D4FD66572C"
-               BuildableName = "Pods_ProjectTemplateUITests.framework"
-               BlueprintName = "Pods-ProjectTemplateUITests"
+               BuildableName = "Pods_iOS-StarterUITests.framework"
+               BlueprintName = "Pods-iOS-StarterUITests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F59F9CFC769B98E0F93A07D4FD66572C"
-            BuildableName = "Pods_ProjectTemplateUITests.framework"
-            BlueprintName = "Pods-ProjectTemplateUITests"
+            BuildableName = "Pods_iOS-StarterUITests.framework"
+            BlueprintName = "Pods-iOS-StarterUITests"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

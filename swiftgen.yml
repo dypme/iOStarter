@@ -1,16 +1,16 @@
 xcassets:
-    paths: ProjectTemplate/Resource/Assets.xcassets
+    paths: iOS-Starter/Resource/Assets.xcassets
     templateName: swift4
-    output: ProjectTemplate/Constants/AppAssets.swift
+    output: iOS-Starter/Constants/AppAssets.swift
 fonts:
-    paths: ProjectTemplate/Resource/font
+    paths: iOS-Starter/Resource/font
     templateName: swift4
-    output: ProjectTemplate/Constants/AppFont.swift
+    output: iOS-Starter/Constants/AppFont.swift
 colors:
-    paths: ProjectTemplate/Resource/colors.json
+    paths: iOS-Starter/Resource/colors.json
     templateName: swift4
-    output: ProjectTemplate/Constants/AppColor.swift
+    output: iOS-Starter/Constants/AppColor.swift
 storyboards:
-    paths: ProjectTemplate/Storyboard/Base.lproj
+    paths: iOS-Starter/Storyboard/Base.lproj
     templateName: swift4
-    output: ProjectTemplate/Constants/AppStoryboard.swift
+    output: iOS-Starter/Constants/AppStoryboard.swift
