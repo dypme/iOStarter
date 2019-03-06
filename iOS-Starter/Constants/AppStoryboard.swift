@@ -56,13 +56,13 @@ internal enum StoryboardScene {
   internal enum Auth: StoryboardType {
     internal static let storyboardName = "Auth"
 
-    internal static let initialScene = InitialSceneType<iOS-Starter.LoginVC>(storyboard: Auth.self)
+    internal static let initialScene = InitialSceneType<iOS_Starter.LoginVC>(storyboard: Auth.self)
 
-    internal static let forgotPassVC = SceneType<iOS-Starter.ForgotPassVC>(storyboard: Auth.self, identifier: "ForgotPassVC")
+    internal static let forgotPassVC = SceneType<iOS_Starter.ForgotPassVC>(storyboard: Auth.self, identifier: "ForgotPassVC")
 
-    internal static let loginVC = SceneType<iOS-Starter.LoginVC>(storyboard: Auth.self, identifier: "LoginVC")
+    internal static let loginVC = SceneType<iOS_Starter.LoginVC>(storyboard: Auth.self, identifier: "LoginVC")
 
-    internal static let registerVC = SceneType<iOS-Starter.RegisterVC>(storyboard: Auth.self, identifier: "RegisterVC")
+    internal static let registerVC = SceneType<iOS_Starter.RegisterVC>(storyboard: Auth.self, identifier: "RegisterVC")
   }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
@@ -74,17 +74,17 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UINavigationController>(storyboard: Main.self)
 
-    internal static let drawerMenuVC = SceneType<iOS-Starter.DrawerMenuVC>(storyboard: Main.self, identifier: "DrawerMenuVC")
+    internal static let drawerMenuVC = SceneType<iOS_Starter.DrawerMenuVC>(storyboard: Main.self, identifier: "DrawerMenuVC")
 
-    internal static let gridMenuVC = SceneType<iOS-Starter.GridMenuVC>(storyboard: Main.self, identifier: "GridMenuVC")
+    internal static let gridMenuVC = SceneType<iOS_Starter.GridMenuVC>(storyboard: Main.self, identifier: "GridMenuVC")
 
     internal static let gridMenuVCNav = SceneType<UINavigationController>(storyboard: Main.self, identifier: "GridMenuVCNav")
 
-    internal static let tabBarMenuVC = SceneType<iOS-Starter.TabBarMenuVC>(storyboard: Main.self, identifier: "TabBarMenuVC")
+    internal static let tabBarMenuVC = SceneType<iOS_Starter.TabBarMenuVC>(storyboard: Main.self, identifier: "TabBarMenuVC")
 
     internal static let tabBarMenuVCNav = SceneType<UINavigationController>(storyboard: Main.self, identifier: "TabBarMenuVCNav")
 
-    internal static let viewController = SceneType<iOS-Starter.ViewController>(storyboard: Main.self, identifier: "ViewController")
+    internal static let viewController = SceneType<iOS_Starter.ViewController>(storyboard: Main.self, identifier: "ViewController")
 
     internal static let viewControllerNav = SceneType<UINavigationController>(storyboard: Main.self, identifier: "ViewControllerNav")
   }
@@ -93,11 +93,11 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UINavigationController>(storyboard: Profile.self)
 
-    internal static let editPassVC = SceneType<iOS-Starter.EditPassVC>(storyboard: Profile.self, identifier: "EditPassVC")
+    internal static let editPassVC = SceneType<iOS_Starter.EditPassVC>(storyboard: Profile.self, identifier: "EditPassVC")
 
-    internal static let editProfileVC = SceneType<iOS-Starter.EditProfileVC>(storyboard: Profile.self, identifier: "EditProfileVC")
+    internal static let editProfileVC = SceneType<iOS_Starter.EditProfileVC>(storyboard: Profile.self, identifier: "EditProfileVC")
 
-    internal static let profileVC = SceneType<iOS-Starter.ProfileVC>(storyboard: Profile.self, identifier: "ProfileVC")
+    internal static let profileVC = SceneType<iOS_Starter.ProfileVC>(storyboard: Profile.self, identifier: "ProfileVC")
 
     internal static let profileVCNav = SceneType<UINavigationController>(storyboard: Profile.self, identifier: "ProfileVCNav")
   }
@@ -106,7 +106,7 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UINavigationController>(storyboard: TabStripPager.self)
 
-    internal static let tabStripPagerVC = SceneType<iOS-Starter.TabStripPagerVC>(storyboard: TabStripPager.self, identifier: "TabStripPagerVC")
+    internal static let tabStripPagerVC = SceneType<iOS_Starter.TabStripPagerVC>(storyboard: TabStripPager.self, identifier: "TabStripPagerVC")
 
     internal static let tabStripPagerVCNav = SceneType<UINavigationController>(storyboard: TabStripPager.self, identifier: "TabStripPagerVCNav")
   }
@@ -115,9 +115,9 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<UINavigationController>(storyboard: TemplateContent.self)
 
-    internal static let templateContentDetailVC = SceneType<iOS-Starter.TemplateContentDetailVC>(storyboard: TemplateContent.self, identifier: "TemplateContentDetailVC")
+    internal static let templateContentDetailVC = SceneType<iOS_Starter.TemplateContentDetailVC>(storyboard: TemplateContent.self, identifier: "TemplateContentDetailVC")
 
-    internal static let templateContentListVC = SceneType<iOS-Starter.TemplateContentListVC>(storyboard: TemplateContent.self, identifier: "TemplateContentListVC")
+    internal static let templateContentListVC = SceneType<iOS_Starter.TemplateContentListVC>(storyboard: TemplateContent.self, identifier: "TemplateContentListVC")
 
     internal static let templateContentListVCNav = SceneType<UINavigationController>(storyboard: TemplateContent.self, identifier: "TemplateContentListVCNav")
   }

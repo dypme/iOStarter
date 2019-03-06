@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		544B128D2B4BCA114F3139E7 /* Pods_iOS_StarterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8539D4E3E900E093A136DDEA /* Pods_iOS_StarterUITests.framework */; };
-		D0331F5EECBBFFAFAE4C2428 /* Pods_iOS-Starter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1DAAB233AAA55337EDEE4A /* Pods_iOS-Starter.framework */; };
 		D818E8E83B0F4E943E8C645C /* Pods_iOS-StarterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097E2CA4E0088C40F9F93164 /* Pods_iOS-StarterUITests.framework */; };
 		DAB8E77A0F9FB0144FEDD46F /* Pods_iOS_Starter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82ED2ECC42052BADCAE7EDC0 /* Pods_iOS_Starter.framework */; };
 		ED19EAB421213B8400C82E8F /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19EAB321213B8400C82E8F /* LocationHelper.swift */; };
@@ -217,7 +216,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0331F5EECBBFFAFAE4C2428 /* Pods_iOS-Starter.framework in Frameworks */,
 				DAB8E77A0F9FB0144FEDD46F /* Pods_iOS_Starter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
