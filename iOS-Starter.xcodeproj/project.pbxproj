@@ -238,15 +238,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		ED2E698A210976630086385A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				ED2E698B210976AC0086385A /* TemplateContentVM.swift */,
-				EDB7C3A2210AF61600E8C887 /* TemplateContentItemVM.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		ED2E698F2109AB390086385A /* ErrorView */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,8 +287,6 @@
 		ED493935210972E20064C50C /* TemplateContent */ = {
 			isa = PBXGroup;
 			children = (
-				ED2E698A210976630086385A /* ViewModel */,
-				EDB7C3A4210AF70800E8C887 /* Cell */,
 				ED2E69882109741B0086385A /* TemplateContentListVC.swift */,
 				EDB7C3A7210B06F000E8C887 /* TemplateContentDetailVC.swift */,
 			);
@@ -333,6 +322,8 @@
 				ED836FDC20F6E32C00CFC549 /* Resource */,
 				ED836FE020F6F4AE00CFC549 /* Utilities */,
 				ED83702720F70CCB00CFC549 /* Model */,
+				FACD939E22310DC0004D6251 /* ViewModel */,
+				EDCE31AD210861CD00DE0957 /* Cell */,
 				ED836FDF20F6E3E200CFC549 /* Controller */,
 				ED3978E021030AD600FA6BDF /* View */,
 				ED836FDD20F6E3A400CFC549 /* Storyboard */,
@@ -445,7 +436,6 @@
 		ED83700F20F7094000CFC549 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				ED83701220F7094000CFC549 /* ViewModel */,
 				ED83701120F7094000CFC549 /* LoginVC.swift */,
 				ED3978DC2103044100FA6BDF /* RegisterVC.swift */,
 				ED83701020F7094000CFC549 /* ForgotPassVC.swift */,
@@ -453,20 +443,9 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		ED83701220F7094000CFC549 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				ED83701420F7094000CFC549 /* LoginVM.swift */,
-				ED3978DE2103047C00FA6BDF /* RegisterVM.swift */,
-				ED83701320F7094000CFC549 /* ForgotPassVM.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		ED83701E20F70A0A00CFC549 /* DrawerMenu */ = {
 			isa = PBXGroup;
 			children = (
-				EDCE31AD210861CD00DE0957 /* Cell */,
 				EDCE31A821082CB100DE0957 /* DrawerMenu.swift */,
 				EDCE31A2210828A100DE0957 /* DrawerMenuVC.swift */,
 			);
@@ -540,32 +519,14 @@
 		ED85802E21119D4100BE9D95 /* TabStripPager */ = {
 			isa = PBXGroup;
 			children = (
-				ED8580362111A06100BE9D95 /* ViewModel */,
 				ED85803421119F9900BE9D95 /* TabStripPagerVC.swift */,
 			);
 			path = TabStripPager;
 			sourceTree = "<group>";
 		};
-		ED8580362111A06100BE9D95 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				ED8580372111A08600BE9D95 /* TabStripVM.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		EDB7C3A4210AF70800E8C887 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				EDB7C3A5210AF73B00E8C887 /* TemplateContentCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		EDB7C3A9210C0B5B00E8C887 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				EDB7C3B5210C164400E8C887 /* ViewModel */,
 				EDB7C3AA210C0B7F00E8C887 /* ProfileVC.swift */,
 				EDB7C3B1210C148100E8C887 /* EditProfileVC.swift */,
 				EDB7C3B3210C15FA00E8C887 /* EditPassVC.swift */,
@@ -573,18 +534,9 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		EDB7C3B5210C164400E8C887 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EDB7C3B6210C165100E8C887 /* ProfileVM.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		EDCE31A4210829D300DE0957 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				EDCE31A5210829E600DE0957 /* ViewModel */,
 				ED83701E20F70A0A00CFC549 /* DrawerMenu */,
 				EDCE31B321087E0600DE0957 /* GridMenu */,
 				ED49392D21096D440064C50C /* TabBarMenu */,
@@ -592,19 +544,12 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
-		EDCE31A5210829E600DE0957 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EDCE31A621082A2000DE0957 /* MenuVM.swift */,
-				EDCE31B0210863C800DE0957 /* MenuItemVM.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		EDCE31AD210861CD00DE0957 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				EDCE31AE2108621300DE0957 /* DrawerMenuCell.swift */,
+				FACD93A422310E56004D6251 /* TemplateContent */,
+				FACD93A122310DFF004D6251 /* DrawerMenu */,
+				FACD93A222310E17004D6251 /* GridMenu */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -612,18 +557,9 @@
 		EDCE31B321087E0600DE0957 /* GridMenu */ = {
 			isa = PBXGroup;
 			children = (
-				EDCE31B621087FDA00DE0957 /* Cell */,
 				EDCE31B421087E8600DE0957 /* GridMenuVC.swift */,
 			);
 			path = GridMenu;
-			sourceTree = "<group>";
-		};
-		EDCE31B621087FDA00DE0957 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				EDCE31B72108806100DE0957 /* GridMenuCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		EDCEE55021071D8B001EE0FF /* JVFloatingDrawer */ = {
@@ -650,6 +586,86 @@
 				8539D4E3E900E093A136DDEA /* Pods_iOS_StarterUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FACD939E22310DC0004D6251 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FACD93A022310DE5004D6251 /* Menu */,
+				FACD939F22310DD3004D6251 /* Auth */,
+				FACD93A522310E85004D6251 /* TabStripPager */,
+				FACD93A322310E3E004D6251 /* TemplateContent */,
+				FACD93A622310E9C004D6251 /* Profile */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FACD939F22310DD3004D6251 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				ED83701420F7094000CFC549 /* LoginVM.swift */,
+				ED3978DE2103047C00FA6BDF /* RegisterVM.swift */,
+				ED83701320F7094000CFC549 /* ForgotPassVM.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		FACD93A022310DE5004D6251 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				EDCE31A621082A2000DE0957 /* MenuVM.swift */,
+				EDCE31B0210863C800DE0957 /* MenuItemVM.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		FACD93A122310DFF004D6251 /* DrawerMenu */ = {
+			isa = PBXGroup;
+			children = (
+				EDCE31AE2108621300DE0957 /* DrawerMenuCell.swift */,
+			);
+			path = DrawerMenu;
+			sourceTree = "<group>";
+		};
+		FACD93A222310E17004D6251 /* GridMenu */ = {
+			isa = PBXGroup;
+			children = (
+				EDCE31B72108806100DE0957 /* GridMenuCell.swift */,
+			);
+			path = GridMenu;
+			sourceTree = "<group>";
+		};
+		FACD93A322310E3E004D6251 /* TemplateContent */ = {
+			isa = PBXGroup;
+			children = (
+				ED2E698B210976AC0086385A /* TemplateContentVM.swift */,
+				EDB7C3A2210AF61600E8C887 /* TemplateContentItemVM.swift */,
+			);
+			path = TemplateContent;
+			sourceTree = "<group>";
+		};
+		FACD93A422310E56004D6251 /* TemplateContent */ = {
+			isa = PBXGroup;
+			children = (
+				EDB7C3A5210AF73B00E8C887 /* TemplateContentCell.swift */,
+			);
+			path = TemplateContent;
+			sourceTree = "<group>";
+		};
+		FACD93A522310E85004D6251 /* TabStripPager */ = {
+			isa = PBXGroup;
+			children = (
+				ED8580372111A08600BE9D95 /* TabStripVM.swift */,
+			);
+			path = TabStripPager;
+			sourceTree = "<group>";
+		};
+		FACD93A622310E9C004D6251 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EDB7C3B6210C165100E8C887 /* ProfileVM.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
