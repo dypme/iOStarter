@@ -1,16 +1,22 @@
+input_dir: iOS-Starter/
+output_dir: iOS-Starter/Constants/
 xcassets:
-    paths: iOS-Starter/Resource/Assets.xcassets
-    templateName: swift4
-    output: iOS-Starter/Constants/AppAssets.swift
+    inputs: Resource/Assets.xcassets
+    outputs:
+        templateName: swift4
+        output: AppAssets.swift
 fonts:
-    paths: iOS-Starter/Resource/font
-    templateName: swift4
-    output: iOS-Starter/Constants/AppFont.swift
+    inputs: Resource/font
+    outputs:
+        templateName: swift4
+        output: AppFont.swift
+ib:
+    inputs: Storyboard/Base.lproj
+    outputs:
+        templateName: scenes-swift4
+        output: AppStoryboard.swift
 colors:
-    paths: iOS-Starter/Resource/colors.json
-    templateName: swift4
-    output: iOS-Starter/Constants/AppColor.swift
-storyboards:
-    paths: iOS-Starter/Storyboard/Base.lproj
-    templateName: swift4
-    output: iOS-Starter/Constants/AppStoryboard.swift
+    inputs: Resource/colors.json
+    outputs:
+        templateName: swift4
+        output: AppColor.swift
