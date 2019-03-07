@@ -102,13 +102,13 @@ class Notify: UIView {
     
     override func didMoveToWindow() {
         if self.window != nil {
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification(_:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardNotification(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         }
     }
     
     override func willMove(toWindow newWindow: UIWindow?) {
         if newWindow == nil {
-            NotificationCenter.default.removeObserver(self, name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         }
     }
     
@@ -117,13 +117,13 @@ class Notify: UIView {
     /// - Parameter notification: Notification keyboard change frame
     @objc private func keyboardNotification(_ notification: Notification) {
         if let userInfo = notification.userInfo {
-            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
 //            keyboardFrame = endFrame!
-            let duration: TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
             
             let animationCurveRaw = CUnsignedLong(truncating: animationCurveRawNSN!)
-            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
             let screenMain = UIScreen.main.bounds
             if direction == .bottom {
                 if (endFrame?.origin.y)! >= screenMain.size.height {
@@ -272,7 +272,7 @@ class Notify: UIView {
     func calculateHeight(withConstrainedWidth width: CGFloat, string: String) -> CGFloat {
         
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = string.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: appearance.titleFont], context: nil)
+        let boundingBox = string.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: appearance.titleFont], context: nil)
         
         return ceil(boundingBox.height)
     }

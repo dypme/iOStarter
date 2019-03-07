@@ -275,7 +275,7 @@ public class WormTabStrip: UIView, UIScrollViewDelegate {
         for i in 0 ..< delegate!.wtsNumberOfTabs() {
             let string = delegate!.wtsTitleForTab(index: i)
             let constraintRect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: eyStyle.kHeightOfTopScrollView)
-            let boundingBox = string.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: eyStyle.tabItemDefaultFont], context: nil)
+            let boundingBox = string.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: eyStyle.tabItemDefaultFont], context: nil)
             
             minContentWidth += (6 + boundingBox.width) + eyStyle.spacingBetweenTabs + (eyStyle.kPaddingOfIndicator * 2)
         }

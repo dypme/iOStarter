@@ -80,7 +80,7 @@ class ToastView: NSObject {
     private func calculateHeight(withConstrainedWidth width: CGFloat, font: UIFont,  string: String) -> CGFloat {
         
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = string.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        let boundingBox = string.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         
         return ceil(boundingBox.height)
     }

@@ -141,7 +141,7 @@ class PickerField: UIView {
     ///   - datePicker: Custom date picker
     ///   - mode: Date picker mode for use in input field
     ///   - callback: Action when selected date picker
-    func setDatePicker(_ datePicker: UIDatePicker? = nil, mode: UIDatePickerMode? = nil, completion callback: ((Date) -> Void)? = nil) {
+    func setDatePicker(_ datePicker: UIDatePicker? = nil, mode: UIDatePicker.Mode? = nil, completion callback: ((Date) -> Void)? = nil) {
         removePicker()
         
         self.type = .date
@@ -313,15 +313,15 @@ class PickerField: UIView {
         toolBarView.addSubview(titleLabel)
         
         let doneButton = UIButton(frame: CGRect(x: currentWindow.maxX - 80, y: 0, width: 80, height: 50))
-        doneButton.setTitleColor(appearance.selectColor, for: UIControlState())
-        doneButton.setTitle(appearance.selectText, for: UIControlState())
+        doneButton.setTitleColor(appearance.selectColor, for: UIControl.State())
+        doneButton.setTitle(appearance.selectText, for: UIControl.State())
         doneButton.titleLabel?.font = appearance.toolbarFont
         doneButton.addTarget(self, action: #selector(done), for: .touchUpInside)
         toolBarView.addSubview(doneButton)
         
         let cancelButton = UIButton(frame: CGRect(x: 0, y: 0, width: 80, height: 50))
-        cancelButton.setTitleColor(appearance.cancelColor, for: UIControlState())
-        cancelButton.setTitle(appearance.cancelText, for: UIControlState())
+        cancelButton.setTitleColor(appearance.cancelColor, for: UIControl.State())
+        cancelButton.setTitle(appearance.cancelText, for: UIControl.State())
         cancelButton.titleLabel?.font = appearance.toolbarFont
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         toolBarView.addSubview(cancelButton)
@@ -438,7 +438,7 @@ extension PickerField: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         let titleData = data[row]
-        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.font: appearance.pickerFont!, NSAttributedStringKey.foregroundColor: appearance.pickerColor])
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedString.Key.font: appearance.pickerFont!, NSAttributedString.Key.foregroundColor: appearance.pickerColor])
         return myTitle
     }
 }

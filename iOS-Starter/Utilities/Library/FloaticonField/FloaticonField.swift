@@ -54,15 +54,15 @@ class FloaticonField: FloaticonFieldEffects {
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return UIEdgeInsetsInsetRect(bounds, padding)
+        return bounds.inset(by: padding)
     }
     
     override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        return UIEdgeInsetsInsetRect(bounds, padding)
+        return bounds.inset(by: padding)
     }
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return UIEdgeInsetsInsetRect(bounds, padding)
+        return bounds.inset(by: padding)
     }
     
     
@@ -263,7 +263,7 @@ class FloaticonField: FloaticonFieldEffects {
     
     override open func animateViewsForTextDisplay() {
         if text!.isEmpty {
-            UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIViewAnimationOptions.beginFromCurrentState, animations: ({
+            UIView.animate(withDuration: 0.35, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 2.0, options: UIView.AnimationOptions.beginFromCurrentState, animations: ({
                 self.placeholderLabel.alpha = 1
                 self.placeholderLabel.textColor = self.placeholderColor
                 self.placeholderLabel.text = self.placeholder
@@ -395,7 +395,7 @@ class FloaticonField: FloaticonFieldEffects {
     private func calculateHeight(withConstrainedWidth width: CGFloat, string: String) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = string.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [
-            NSAttributedStringKey.font: placeholderFontFromFont(font!)
+            NSAttributedString.Key.font: placeholderFontFromFont(font!)
             ], context: nil)
         
         return ceil(boundingBox.height)
@@ -508,9 +508,9 @@ extension UIImage {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         let attributes = [
-            NSAttributedStringKey.paragraphStyle: paragraphStyle,
-            NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: fontSize),
-            NSAttributedStringKey.foregroundColor: color.contrastColor
+            NSAttributedString.Key.paragraphStyle: paragraphStyle,
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: fontSize),
+            NSAttributedString.Key.foregroundColor: color.contrastColor
         ]
         
         let myText = "!"

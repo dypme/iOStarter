@@ -102,10 +102,10 @@ class CheckBox: UIButton {
         let usedColor: UIColor = tintColor
         if isChecked {
             let image = self.checkedStateImage?.mask(color: usedColor)
-            self.setImage(image, for: UIControlState())
+            self.setImage(image, for: UIControl.State())
         } else {
             let image = self.uncheckedStateImage?.mask(color: usedColor)
-            self.setImage(image, for: UIControlState())
+            self.setImage(image, for: UIControl.State())
         }
         
         self.titleLabel?.adjustsFontSizeToFitWidth = true

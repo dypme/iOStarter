@@ -103,9 +103,9 @@ open class FloaticonFieldEffects : UITextField {
     
     override open func willMove(toSuperview newSuperview: UIView!) {
         if newSuperview != nil {
-            NotificationCenter.default.addObserver(self, selector: #selector(fieldDidEndEditing), name: NSNotification.Name.UITextFieldTextDidEndEditing, object: self)
+            NotificationCenter.default.addObserver(self, selector: #selector(fieldDidEndEditing), name: UITextField.textDidEndEditingNotification, object: self)
             
-            NotificationCenter.default.addObserver(self, selector: #selector(fieldDidBeginEditing), name: NSNotification.Name.UITextFieldTextDidBeginEditing, object: self)
+            NotificationCenter.default.addObserver(self, selector: #selector(fieldDidBeginEditing), name: UITextField.textDidBeginEditingNotification, object: self)
         } else {
             NotificationCenter.default.removeObserver(self)
         }

@@ -35,9 +35,9 @@ target 'iOS-Starter' do
 
   # Pods for iOS-Starter
 
-  target 'iOS-StarterUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+#  target 'iOS-StarterUITests' do
+#    inherit! :search_paths
+#    # Pods for testing
+#  end
 
 end

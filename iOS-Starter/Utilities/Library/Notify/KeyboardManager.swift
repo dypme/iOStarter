@@ -21,15 +21,15 @@ class KeyboardManager: NSObject {
     /// Starting keyboard manager
     func start() {
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(willShow(_:)), name: Notification.Name.UIKeyboardWillShow, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(willHide(_:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(willChangeFrame(_:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(willShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(willHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(willChangeFrame(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     /// Action when keyboard moving show or hide, getting actual size of keyboard
     @objc func willChangeFrame(_ notification: Notification) {
         if let userInfo = notification.userInfo {
-            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             let screenMain = UIScreen.main.bounds
             if (endFrame?.origin.y)! >= screenMain.size.height {
                 isVisible = false
@@ -44,7 +44,7 @@ class KeyboardManager: NSObject {
     @objc func willShow(_ notification: Notification) {
         isVisible = true
         if let userInfo = notification.userInfo {
-            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             keyboardFrame = endFrame!
         }
     }
@@ -53,7 +53,7 @@ class KeyboardManager: NSObject {
     @objc func willHide(_ notification: Notification) {
         isVisible = false
         if let userInfo = notification.userInfo {
-            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             keyboardFrame = endFrame!
         }
     } 

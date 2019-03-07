@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		544B128D2B4BCA114F3139E7 /* Pods_iOS_StarterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8539D4E3E900E093A136DDEA /* Pods_iOS_StarterUITests.framework */; };
-		D818E8E83B0F4E943E8C645C /* Pods_iOS-StarterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097E2CA4E0088C40F9F93164 /* Pods_iOS-StarterUITests.framework */; };
 		DAB8E77A0F9FB0144FEDD46F /* Pods_iOS_Starter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82ED2ECC42052BADCAE7EDC0 /* Pods_iOS_Starter.framework */; };
 		ED19EAB421213B8400C82E8F /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19EAB321213B8400C82E8F /* LocationHelper.swift */; };
 		ED19EAD42122DB7900C82E8F /* LocalizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19EAD32122DB7900C82E8F /* LocalizeHelper.swift */; };
@@ -91,6 +89,7 @@
 		EDCEE55921071D8B001EE0FF /* JVFloatingDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55521071D8B001EE0FF /* JVFloatingDrawerView.m */; };
 		EDCEE55A21071D8B001EE0FF /* JVFloatingDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55721071D8B001EE0FF /* JVFloatingDrawerViewController.m */; };
 		EDCEE55C21071EB3001EE0FF /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55B21071EB3001EE0FF /* Menu.swift */; };
+		FA64B24C2230B78B000CA340 /* Pods_iOS_StarterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA64B24B2230B78B000CA340 /* Pods_iOS_StarterUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,9 +108,7 @@
 		82ED2ECC42052BADCAE7EDC0 /* Pods_iOS_Starter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Starter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8539D4E3E900E093A136DDEA /* Pods_iOS_StarterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_StarterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2FAA04184147F7E3C117360 /* Pods-iOS-Starter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-Starter.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-Starter/Pods-iOS-Starter.release.xcconfig"; sourceTree = "<group>"; };
-		A9D340634975B6117248209B /* Pods-iOS-StarterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-StarterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-StarterUITests/Pods-iOS-StarterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC1DAAB233AAA55337EDEE4A /* Pods_iOS-Starter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_iOS-Starter.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E824C8D9077A623A141B80D4 /* Pods-iOS-StarterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-StarterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-StarterUITests/Pods-iOS-StarterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ED19EAB321213B8400C82E8F /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		ED19EAC62122D07000C82E8F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Main.strings; sourceTree = "<group>"; };
 		ED19EAC72122D07100C82E8F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -209,6 +206,7 @@
 		EDCEE55621071D8B001EE0FF /* JVFloatingDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatingDrawerViewController.h; sourceTree = "<group>"; };
 		EDCEE55721071D8B001EE0FF /* JVFloatingDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatingDrawerViewController.m; sourceTree = "<group>"; };
 		EDCEE55B21071EB3001EE0FF /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		FA64B24B2230B78B000CA340 /* Pods_iOS_StarterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_iOS_StarterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA64B24C2230B78B000CA340 /* Pods_iOS_StarterUITests.framework in Frameworks */,
 				DAB8E77A0F9FB0144FEDD46F /* Pods_iOS_Starter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,8 +223,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D818E8E83B0F4E943E8C645C /* Pods_iOS-StarterUITests.framework in Frameworks */,
-				544B128D2B4BCA114F3139E7 /* Pods_iOS_StarterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,8 +234,6 @@
 			children = (
 				418DF91B5980E661D64A40FD /* Pods-iOS-Starter.debug.xcconfig */,
 				A2FAA04184147F7E3C117360 /* Pods-iOS-Starter.release.xcconfig */,
-				A9D340634975B6117248209B /* Pods-iOS-StarterUITests.debug.xcconfig */,
-				E824C8D9077A623A141B80D4 /* Pods-iOS-StarterUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -648,6 +643,7 @@
 		F81EBD5F822151E6BCBF0AD6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA64B24B2230B78B000CA340 /* Pods_iOS_StarterUITests.framework */,
 				BC1DAAB233AAA55337EDEE4A /* Pods_iOS-Starter.framework */,
 				097E2CA4E0088C40F9F93164 /* Pods_iOS-StarterUITests.framework */,
 				82ED2ECC42052BADCAE7EDC0 /* Pods_iOS_Starter.framework */,
@@ -684,7 +680,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED836FD920F6E18100CFC549 /* Build configuration list for PBXNativeTarget "iOS-StarterUITests" */;
 			buildPhases = (
-				8898B317E7F5C0FD1977BC6D /* [CP] Check Pods Manifest.lock */,
 				ED836FC920F6E18100CFC549 /* Sources */,
 				ED836FCA20F6E18100CFC549 /* Frameworks */,
 				ED836FCB20F6E18100CFC549 /* Resources */,
@@ -711,6 +706,7 @@
 				TargetAttributes = {
 					ED836FB820F6E18100CFC549 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -723,6 +719,7 @@
 					};
 					ED836FCC20F6E18100CFC549 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = ED836FB820F6E18100CFC549;
 					};
@@ -837,24 +834,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS-Starter/Pods-iOS-Starter-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8898B317E7F5C0FD1977BC6D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-iOS-StarterUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED83700420F6F62000CFC549 /* SwiftGen */ = {
@@ -1168,7 +1147,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.crocodic.template;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(EXECUTABLE_NAME)/Supporting Files/Project-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1186,14 +1165,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.crocodic.template;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(EXECUTABLE_NAME)/Supporting Files/Project-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		ED836FDA20F6E18100CFC549 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9D340634975B6117248209B /* Pods-iOS-StarterUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1202,7 +1180,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.crocodic.iOS-StarterUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "iOS-Starter";
 			};
@@ -1210,7 +1188,6 @@
 		};
 		ED836FDB20F6E18100CFC549 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E824C8D9077A623A141B80D4 /* Pods-iOS-StarterUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1219,7 +1196,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.crocodic.iOS-StarterUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "iOS-Starter";
 			};

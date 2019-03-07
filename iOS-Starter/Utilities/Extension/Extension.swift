@@ -174,7 +174,7 @@ extension UIView {
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = color.cgColor
         shapeLayer.lineWidth = width
-        shapeLayer.lineJoin = kCALineJoinRound
+        shapeLayer.lineJoin = CAShapeLayerLineJoin.round
         shapeLayer.lineDashPattern = [6, 3]
         shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).cgPath
         self.layer.addSublayer(shapeLayer)
@@ -273,9 +273,9 @@ extension UITextField {
     /// - Parameter color: Color of placeholder
     func placeholderColor(color: UIColor) {
         let attributeString = [
-            NSAttributedStringKey.foregroundColor: color.withAlphaComponent(0.6),
-            NSAttributedStringKey.font: self.font!
-            ] as [NSAttributedStringKey : Any]
+            NSAttributedString.Key.foregroundColor: color.withAlphaComponent(0.6),
+            NSAttributedString.Key.font: self.font!
+            ] as [NSAttributedString.Key : Any]
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder!,
                                                              attributes: attributeString)
     }
@@ -313,17 +313,17 @@ extension UIImage {
     }
     
     /// Uncompressed image data
-    var uncompressedPNGData: Data?    { return UIImagePNGRepresentation(self)!       }
+    var uncompressedPNGData: Data?    { return self.pngData()!       }
     /// Uncompressed image data without transparent in image
-    var highestQualityJPEGData: Data? { return UIImageJPEGRepresentation(self, 1.0)  }
+    var highestQualityJPEGData: Data? { return self.jpegData(compressionQuality: 1.0)  }
     /// Compressed image data to 75% of original image without transparent in image
-    var highQualityJPEGData: Data?    { return UIImageJPEGRepresentation(self, 0.75) }
+    var highQualityJPEGData: Data?    { return self.jpegData(compressionQuality: 0.75) }
     /// Compressed image data to 50% of original image without transparent in image
-    var mediumQualityJPEGData: Data?  { return UIImageJPEGRepresentation(self, 0.5)  }
+    var mediumQualityJPEGData: Data?  { return self.jpegData(compressionQuality: 0.5)  }
     /// Compressed image data to 25% of original image without transparent in image
-    var lowQualityJPEGData: Data?     { return UIImageJPEGRepresentation(self, 0.25) }
+    var lowQualityJPEGData: Data?     { return self.jpegData(compressionQuality: 0.25) }
     /// Compressed image data to 0% of original image without transparent in image
-    var lowestQualityJPEGData:Data?   { return UIImageJPEGRepresentation(self, 0.0)  }
+    var lowestQualityJPEGData:Data?   { return self.jpegData(compressionQuality: 0.0)  }
     
     /// Change size image to new size
     ///
@@ -352,7 +352,7 @@ extension UITableView {
                 self.layoutIfNeeded()
                 
                 let bottomView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 40))
-                let activityId = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+                let activityId = UIActivityIndicatorView(style: .gray)
                 activityId.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
                 activityId.startAnimating()
                 bottomView.addSubview(activityId)

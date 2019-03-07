@@ -28,20 +28,20 @@ class LocationHelper: NSObject {
     override init() {
         super.init()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationEnterBackground), name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationBecomeActive), name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationEnterBackground), name: Notification.Name.UIApplicationWillTerminate, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationEnterBackground), name: UIApplication.willTerminateNotification, object: nil)
         
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didEnterBackgroundNotification, object: nil)
         
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
         
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UIApplicationWillTerminate, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willTerminateNotification, object: nil)
     }
     
     /// Call action when application enter to background or application not use
@@ -103,7 +103,7 @@ class LocationHelper: NSObject {
     private func permissionAlert(title: String? = nil, message: String) {
         let vc = AppDelegate.shared.window?.rootViewController
         vc?.simpleAlert(title: title, message: message, handler: { (action) in
-            if let url = URL(string: UIApplicationOpenSettingsURLString), UIApplication.shared.canOpenURL(url) {
+            if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.openURL(url)
             }
         })
@@ -138,7 +138,7 @@ class LocationHelper: NSObject {
             })
             if let taskId = previousTaskId {
                 UIApplication.shared.endBackgroundTask(taskId)
-                previousTaskId = UIBackgroundTaskInvalid
+                previousTaskId = UIBackgroundTaskIdentifier(rawValue: convertFromUIBackgroundTaskIdentifier(UIBackgroundTaskIdentifier.invalid))
             }
         }
         
@@ -182,4 +182,9 @@ extension LocationHelper: CLLocationManagerDelegate {
             beginNewBackgroundTask()
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIBackgroundTaskIdentifier(_ input: UIBackgroundTaskIdentifier) -> Int {
+	return input.rawValue
 }
