@@ -28,7 +28,7 @@ def shared_pods
     
 end
 
-target 'ReimbustPro' do
+target 'iOS-Starter' do
     # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
     use_frameworks!
     shared_pods
