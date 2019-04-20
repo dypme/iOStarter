@@ -1,5 +1,5 @@
-input_dir: iOS-Starter/
-output_dir: iOS-Starter/Constants/
+input_dir: iOS_Starter/
+output_dir: iOS_Starter/Constants/
 xcassets:
     inputs: Resource/Assets.xcassets
     outputs:
