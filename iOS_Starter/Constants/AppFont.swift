@@ -1,4 +1,5 @@
-// Generated using SwiftGen, by O.Halligon — https://github.com/SwiftGen/SwiftGen
+// swiftlint:disable all
+// Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
 
 #if os(OSX)
   import AppKit.NSFont
@@ -11,6 +12,27 @@
 // swiftlint:disable superfluous_disable_command
 // swiftlint:disable file_length
 
+// MARK: - Fonts
+
+// swiftlint:disable identifier_name line_length type_body_length
+internal enum FontFamily {
+  internal enum ProximaNova {
+    internal static let black = FontConvertible(name: "ProximaNova-Black", family: "Proxima Nova", path: "ProximaNovaBlack.otf")
+    internal static let bold = FontConvertible(name: "ProximaNova-Bold", family: "Proxima Nova", path: "ProximaNovaBold.otf")
+    internal static let extrabold = FontConvertible(name: "ProximaNova-Extrabld", family: "Proxima Nova", path: "ProximaNovaExtrabold.otf")
+    internal static let regular = FontConvertible(name: "ProximaNova-Regular", family: "Proxima Nova", path: "ProximaNova-Regular.otf")
+    internal static let thin = FontConvertible(name: "ProximaNovaT-Thin", family: "Proxima Nova", path: "ProximaNovaThin.otf")
+    internal static let all: [FontConvertible] = [black, bold, extrabold, regular, thin]
+  }
+  internal static let allCustomFonts: [FontConvertible] = [ProximaNova.all].flatMap { $0 }
+  internal static func registerAllCustomFonts() {
+    allCustomFonts.forEach { $0.register() }
+  }
+}
+// swiftlint:enable identifier_name line_length type_body_length
+
+// MARK: - Implementation Details
+
 internal struct FontConvertible {
   internal let name: String
   internal let family: String
@@ -21,9 +43,9 @@ internal struct FontConvertible {
   }
 
   internal func register() {
+    // swiftlint:disable:next conditional_returns_on_newline
     guard let url = url else { return }
-    var errorRef: Unmanaged<CFError>?
-    CTFontManagerRegisterFontsForURL(url as CFURL, .process, &errorRef)
+    CTFontManagerRegisterFontsForURL(url as CFURL, .process, nil)
   }
 
   fileprivate var url: URL? {
@@ -47,17 +69,5 @@ internal extension Font {
     self.init(name: font.name, size: size)
   }
 }
-
-// swiftlint:disable identifier_name line_length type_body_length
-internal enum FontFamily {
-  internal enum ProximaNova {
-    internal static let black = FontConvertible(name: "ProximaNova-Black", family: "Proxima Nova", path: "ProximaNovaBlack.otf")
-    internal static let bold = FontConvertible(name: "ProximaNova-Bold", family: "Proxima Nova", path: "ProximaNovaBold.otf")
-    internal static let extrabold = FontConvertible(name: "ProximaNova-Extrabld", family: "Proxima Nova", path: "ProximaNovaExtrabold.otf")
-    internal static let regular = FontConvertible(name: "ProximaNova-Regular", family: "Proxima Nova", path: "ProximaNova-Regular.otf")
-    internal static let thin = FontConvertible(name: "ProximaNovaT-Thin", family: "Proxima Nova", path: "ProximaNovaThin.otf")
-  }
-}
-// swiftlint:enable identifier_name line_length type_body_length
 
 private final class BundleToken {}

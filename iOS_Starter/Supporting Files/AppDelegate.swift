@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /// Setting all application need
     func setApp() {
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
         
         KeyboardManager.shared.start()
         

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DAB8E77A0F9FB0144FEDD46F /* Pods_iOS_Starter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82ED2ECC42052BADCAE7EDC0 /* Pods_iOS_Starter.framework */; };
+		7D7CF0DF31CF35F3021EB5F5 /* Pods_iOS_Starter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1DAAB233AAA55337EDEE4A /* Pods_iOS_Starter.framework */; };
 		ED19EAB421213B8400C82E8F /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19EAB321213B8400C82E8F /* LocationHelper.swift */; };
 		ED19EAD42122DB7900C82E8F /* LocalizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19EAD32122DB7900C82E8F /* LocalizeHelper.swift */; };
 		ED19EAD72122E10700C82E8F /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = ED19EAD92122E10700C82E8F /* Localizable.stringsdict */; };
@@ -89,7 +89,6 @@
 		EDCEE55921071D8B001EE0FF /* JVFloatingDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55521071D8B001EE0FF /* JVFloatingDrawerView.m */; };
 		EDCEE55A21071D8B001EE0FF /* JVFloatingDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55721071D8B001EE0FF /* JVFloatingDrawerViewController.m */; };
 		EDCEE55C21071EB3001EE0FF /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55B21071EB3001EE0FF /* Menu.swift */; };
-		FA64B24C2230B78B000CA340 /* Pods_iOS_StarterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA64B24B2230B78B000CA340 /* Pods_iOS_StarterUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,17 +97,17 @@
 			containerPortal = ED836FB120F6E18000CFC549 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = ED836FB820F6E18100CFC549;
-			remoteInfo = "iOS_Starter";
+			remoteInfo = iOS_Starter;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		097E2CA4E0088C40F9F93164 /* Pods_iOS_StarterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_iOS_StarterUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		097E2CA4E0088C40F9F93164 /* Pods_iOS_StarterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_StarterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		418DF91B5980E661D64A40FD /* Pods-iOS_Starter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Starter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_Starter/Pods-iOS_Starter.debug.xcconfig"; sourceTree = "<group>"; };
 		82ED2ECC42052BADCAE7EDC0 /* Pods_iOS_Starter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Starter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8539D4E3E900E093A136DDEA /* Pods_iOS_StarterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_StarterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2FAA04184147F7E3C117360 /* Pods-iOS_Starter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Starter.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_Starter/Pods-iOS_Starter.release.xcconfig"; sourceTree = "<group>"; };
-		BC1DAAB233AAA55337EDEE4A /* Pods_iOS_Starter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_iOS_Starter.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC1DAAB233AAA55337EDEE4A /* Pods_iOS_Starter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Starter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED19EAB321213B8400C82E8F /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		ED19EAC62122D07000C82E8F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Main.strings; sourceTree = "<group>"; };
 		ED19EAC72122D07100C82E8F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -137,14 +136,14 @@
 		ED49392E21096E650064C50C /* TabBarMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarMenuVC.swift; sourceTree = "<group>"; };
 		ED49393321096F4F0064C50C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TemplateContent.storyboard; sourceTree = "<group>"; };
 		ED69DB4D21438A7A001273FB /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
-		ED836FB920F6E18100CFC549 /* iOS_Starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS_Starter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED836FB920F6E18100CFC549 /* iOS_Starter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Starter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED836FBC20F6E18100CFC549 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED836FC120F6E18100CFC549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED836FC320F6E18100CFC549 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED836FC620F6E18100CFC549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED836FC820F6E18100CFC549 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED836FCD20F6E18100CFC549 /* iOS_StarterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS_StarterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED836FD120F6E18100CFC549 /* iOS_StarterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "iOS_StarterUITests.swift"; sourceTree = "<group>"; };
+		ED836FCD20F6E18100CFC549 /* iOS_StarterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_StarterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED836FD120F6E18100CFC549 /* iOS_StarterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_StarterUITests.swift; sourceTree = "<group>"; };
 		ED836FD320F6E18100CFC549 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED836FE120F6F4AE00CFC549 /* ApiHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
 		ED836FE220F6F4AE00CFC549 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -214,8 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA64B24C2230B78B000CA340 /* Pods_iOS_StarterUITests.framework in Frameworks */,
-				DAB8E77A0F9FB0144FEDD46F /* Pods_iOS_Starter.framework in Frameworks */,
+				7D7CF0DF31CF35F3021EB5F5 /* Pods_iOS_Starter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +327,7 @@
 				ED836FDD20F6E3A400CFC549 /* Storyboard */,
 				ED836FDE20F6E3BA00CFC549 /* Supporting Files */,
 			);
-			path = "iOS_Starter";
+			path = iOS_Starter;
 			sourceTree = "<group>";
 		};
 		ED836FD020F6E18100CFC549 /* iOS_StarterUITests */ = {
@@ -338,7 +336,7 @@
 				ED836FD120F6E18100CFC549 /* iOS_StarterUITests.swift */,
 				ED836FD320F6E18100CFC549 /* Info.plist */,
 			);
-			path = "iOS_StarterUITests";
+			path = iOS_StarterUITests;
 			sourceTree = "<group>";
 		};
 		ED836FDC20F6E32C00CFC549 /* Resource */ = {
@@ -687,8 +685,8 @@
 			);
 			dependencies = (
 			);
-			name = "iOS_Starter";
-			productName = "iOS_Starter";
+			name = iOS_Starter;
+			productName = iOS_Starter;
 			productReference = ED836FB920F6E18100CFC549 /* iOS_Starter.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -705,8 +703,8 @@
 			dependencies = (
 				ED836FCF20F6E18100CFC549 /* PBXTargetDependency */,
 			);
-			name = "iOS_StarterUITests";
-			productName = "iOS_StarterUITests";
+			name = iOS_StarterUITests;
+			productName = iOS_StarterUITests;
 			productReference = ED836FCD20F6E18100CFC549 /* iOS_StarterUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -822,7 +820,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-iOS_Starter/Pods-iOS_Starter-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_Starter/Pods-iOS_Starter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -849,7 +847,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOS_Starter/Pods-iOS_Starter-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS_Starter/Pods-iOS_Starter-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED83700420F6F62000CFC549 /* SwiftGen */ = {
@@ -1192,13 +1190,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JB73KN4XYE;
-				INFOPLIST_FILE = "iOS_StarterUITests/Info.plist";
+				INFOPLIST_FILE = iOS_StarterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.crocodic.iOS_StarterUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crocodic.iOS_StarterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "iOS_Starter";
+				TEST_TARGET_NAME = iOS_Starter;
 			};
 			name = Debug;
 		};
@@ -1208,13 +1206,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JB73KN4XYE;
-				INFOPLIST_FILE = "iOS_StarterUITests/Info.plist";
+				INFOPLIST_FILE = iOS_StarterUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.crocodic.iOS_StarterUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crocodic.iOS_StarterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "iOS_Starter";
+				TEST_TARGET_NAME = iOS_Starter;
 			};
 			name = Release;
 		};
