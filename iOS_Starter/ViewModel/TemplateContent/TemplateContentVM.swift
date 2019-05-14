@@ -33,11 +33,11 @@ class TemplateContentVM {
         return TemplateContentItemVM(content: content)
     }
     
-    func fetch(isRefresh: Bool = false, isLoadMore: Bool = false, searchText: String, completion: ((String) -> Void)?) {
+    func fetch(isLoadMore: Bool = false, searchText: String, completion: ((String) -> Void)?) {
         if isLoading {
             return
         }
-        if isRefresh {
+        if !isLoadMore {
             offset = 0
             limit = 10
             canLoadMore = false

@@ -89,6 +89,7 @@
 		EDCEE55921071D8B001EE0FF /* JVFloatingDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55521071D8B001EE0FF /* JVFloatingDrawerView.m */; };
 		EDCEE55A21071D8B001EE0FF /* JVFloatingDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55721071D8B001EE0FF /* JVFloatingDrawerViewController.m */; };
 		EDCEE55C21071EB3001EE0FF /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55B21071EB3001EE0FF /* Menu.swift */; };
+		FAA2BF16228A6EE400688422 /* StandardListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2BF15228A6EE400688422 /* StandardListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +207,7 @@
 		EDCEE55721071D8B001EE0FF /* JVFloatingDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatingDrawerViewController.m; sourceTree = "<group>"; };
 		EDCEE55B21071EB3001EE0FF /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		FA64B24B2230B78B000CA340 /* Pods_iOS_StarterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_iOS_StarterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA2BF15228A6EE400688422 /* StandardListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				ED49392B210882360064C50C /* ViewController.swift */,
+				FAA2BF14228A6EBD00688422 /* Base */,
 				ED83700F20F7094000CFC549 /* Auth */,
 				EDCE31A4210829D300DE0957 /* Menu */,
 				ED493935210972E20064C50C /* TemplateContent */,
@@ -584,6 +587,14 @@
 				8539D4E3E900E093A136DDEA /* Pods_iOS_StarterUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FAA2BF14228A6EBD00688422 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				FAA2BF15228A6EE400688422 /* StandardListController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		FACD939E22310DC0004D6251 /* ViewModel */ = {
@@ -823,7 +834,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-iOS_Starter/Pods-iOS_Starter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/L10n-swift/L10n_swift.framework",
@@ -836,7 +847,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/L10n_swift.framework",
@@ -862,7 +873,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/SwiftGen/bin/swiftgen\"";
+			shellScript = "\"$PODS_ROOT/SwiftGen/bin/swiftgen\"\n";
 		};
 		FA86480B21DDC68900407363 /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -881,7 +892,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+			shellScript = "#\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -900,6 +911,7 @@
 				ED836FE620F6F4AE00CFC549 /* ApiHelper.swift in Sources */,
 				EDCE31A3210828A100DE0957 /* DrawerMenuVC.swift in Sources */,
 				ED83700C20F708D700CFC549 /* AppFont.swift in Sources */,
+				FAA2BF16228A6EE400688422 /* StandardListController.swift in Sources */,
 				ED836FE920F6F4AE00CFC549 /* TextFieldEffects.swift in Sources */,
 				ED3978DD2103044100FA6BDF /* RegisterVC.swift in Sources */,
 				ED83702420F70AC400CFC549 /* DatabaseHelper.swift in Sources */,

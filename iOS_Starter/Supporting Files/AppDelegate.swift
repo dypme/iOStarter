@@ -70,10 +70,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupView() {
         window?.backgroundColor = UIColor.white
         
+        mainVC = mainFirstVC
         // Make root in login if application need login first
         if UserSession.shared.isUserLoggedIn {
             // Change root viewcontroller with your first main menu
-            mainVC = mainFirstVC
             window?.rootViewController = mainVC
         } else {
             let vc = StoryboardScene.Auth.loginVC.instantiate()

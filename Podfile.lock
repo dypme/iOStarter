@@ -1,58 +1,89 @@
 PODS:
   - Alamofire (4.8.2)
-  - Crashlytics (3.10.1):
-    - Fabric (~> 1.7.5)
-  - Fabric (1.7.6)
-  - Firebase/Core (5.0.1):
+  - Crashlytics (3.13.0):
+    - Fabric (~> 1.10.0)
+  - Fabric (1.10.0)
+  - Firebase/Core (6.0.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 5.0.0)
-  - Firebase/CoreOnly (5.0.1):
-    - FirebaseCore (= 5.0.1)
-  - Firebase/Messaging (5.0.1):
+    - FirebaseAnalytics (= 6.0.0)
+  - Firebase/CoreOnly (6.0.0):
+    - FirebaseCore (= 6.0.0)
+  - Firebase/Messaging (6.0.0):
     - Firebase/CoreOnly
-    - FirebaseMessaging (= 3.0.0)
-  - FirebaseAnalytics (5.0.0):
-    - FirebaseCore (~> 5.0)
-    - FirebaseInstanceID (~> 3.0)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - FirebaseMessaging (~> 4.0.0)
+  - FirebaseAnalytics (6.0.0):
+    - FirebaseCore (~> 6.0)
+    - FirebaseInstanceID (~> 4.0)
+    - GoogleAppMeasurement (= 6.0.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (~> 0.3)
-  - FirebaseCore (5.0.1):
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseInstanceID (3.0.0):
-    - FirebaseCore (~> 5.0)
-  - FirebaseMessaging (3.0.0):
-    - FirebaseCore (~> 5.0)
-    - FirebaseInstanceID (~> 3.0)
-    - GoogleToolboxForMac/Logger (~> 2.1)
+  - FirebaseAnalyticsInterop (1.2.0)
+  - FirebaseCore (6.0.0):
+    - GoogleUtilities/Environment (~> 6.0)
+    - GoogleUtilities/Logger (~> 6.0)
+  - FirebaseInstanceID (4.0.0):
+    - FirebaseCore (~> 6.0)
+    - GoogleUtilities/Environment (~> 6.0)
+    - GoogleUtilities/UserDefaults (~> 6.0)
+  - FirebaseMessaging (4.0.0):
+    - FirebaseAnalyticsInterop (~> 1.1)
+    - FirebaseCore (~> 6.0)
+    - FirebaseInstanceID (~> 4.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/Environment (~> 6.0)
+    - GoogleUtilities/Reachability (~> 6.0)
+    - GoogleUtilities/UserDefaults (~> 6.0)
     - Protobuf (~> 3.1)
   - FSPagerView (0.8.2)
-  - GoogleToolboxForMac/Defines (2.1.4)
-  - GoogleToolboxForMac/Logger (2.1.4):
-    - GoogleToolboxForMac/Defines (= 2.1.4)
-  - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
-    - GoogleToolboxForMac/Defines (= 2.1.4)
-  - IQKeyboardManagerSwift (6.2.1)
+  - GoogleAppMeasurement (6.0.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (~> 0.3)
+  - GoogleUtilities/AppDelegateSwizzler (6.0.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.0.0)
+  - GoogleUtilities/Logger (6.0.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.0.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (6.0.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.0.0)"
+  - GoogleUtilities/Reachability (6.0.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (6.0.0):
+    - GoogleUtilities/Logger
+  - IQKeyboardManagerSwift (6.3.0)
   - Kingfisher (4.10.1)
-  - L10n-swift (5.4.0):
-    - L10n-swift/Core (= 5.4.0)
-    - L10n-swift/Extension (= 5.4.0)
-    - L10n-swift/IBInspectable (= 5.4.0)
-  - L10n-swift/Core (5.4.0)
-  - L10n-swift/Extension (5.4.0):
+  - L10n-swift (5.4.1):
+    - L10n-swift/Core (= 5.4.1)
+    - L10n-swift/Extension (= 5.4.1)
+    - L10n-swift/IBInspectable (= 5.4.1)
+  - L10n-swift/Core (5.4.1)
+  - L10n-swift/Extension (5.4.1):
     - L10n-swift/Core
-  - L10n-swift/IBInspectable (5.4.0):
+  - L10n-swift/IBInspectable (5.4.1):
     - L10n-swift/Core
-  - nanopb (0.3.8):
-    - nanopb/decode (= 0.3.8)
-    - nanopb/encode (= 0.3.8)
-  - nanopb/decode (0.3.8)
-  - nanopb/encode (0.3.8)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
   - NVActivityIndicatorView (4.6.1):
     - NVActivityIndicatorView/Presenter (= 4.6.1)
   - NVActivityIndicatorView/Presenter (4.6.1)
-  - Protobuf (3.5.0)
+  - Protobuf (3.7.0)
   - SwiftGen (6.1.0)
-  - SwiftyJSON (4.2.0)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8)
@@ -76,11 +107,13 @@ SPEC REPOS:
     - Fabric
     - Firebase
     - FirebaseAnalytics
+    - FirebaseAnalyticsInterop
     - FirebaseCore
     - FirebaseInstanceID
     - FirebaseMessaging
     - FSPagerView
-    - GoogleToolboxForMac
+    - GoogleAppMeasurement
+    - GoogleUtilities
     - IQKeyboardManagerSwift
     - Kingfisher
     - L10n-swift
@@ -92,23 +125,25 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
-  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
-  Firebase: d6861c2059d8c32d1e6dd8932e22ada346d90a3a
-  FirebaseAnalytics: 19812b49fa5f283dd6b23edf8a14b5d477029ab8
-  FirebaseCore: cafc814b2d84fc8733f09e653041cc2165332ad7
-  FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
-  FirebaseMessaging: f2360a966ecfb0d14facf0fbdf306efc2df0ddbe
+  Crashlytics: 1f5f752c7feac0add0cc1774756f96444fa3b1a7
+  Fabric: 09de1e053eb7dc415593166ad3e53d4c88123405
+  Firebase: fa80b9d987ca014a1ba9357496ef2a0178b28b12
+  FirebaseAnalytics: 1743c5f4de3687d0745709dfdc4b1dea1484f44c
+  FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
+  FirebaseCore: e38f025287b413255a53acc1945d048a112047f7
+  FirebaseInstanceID: 0e0348a3c00a734fa376a070f5ad4533ad975cb5
+  FirebaseMessaging: c796d50864dc822a3c06c9c1c1444b37732b795b
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
-  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
-  IQKeyboardManagerSwift: 0f0ae8935360b4003e6ea1ac7c19898f01e2f7c7
+  GoogleAppMeasurement: 7f028ea162b72c8f326daec74afc95d94f7a47d6
+  GoogleUtilities: f1faafc033ea203adf1783ce00af455bb99d0e5b
+  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  L10n-swift: b22dcef71cac3ed8d8c552dd680f6070137511e1
-  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  L10n-swift: 8d7edb9c113ac4859a27d6417b47a6bc6cdebf7c
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
-  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
 PODFILE CHECKSUM: ac406859dc5a7cd2c28128f5d21b547dd93c5814
 

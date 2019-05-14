@@ -50,9 +50,11 @@ class NotificationHelper {
             Messaging.messaging().setAPNSToken(deviceToken, type: .prod)
         #endif
         
-        if let refreshedToken = InstanceID.instanceID().token() {
-            print("InstanceID token: \(refreshedToken)")
-            UserSession.shared.setRegid(string: refreshedToken)
+        InstanceID.instanceID().instanceID { (result, error) in
+            if let result = result {
+                print("InstanceID token: \(result)")
+                UserSession.shared.setRegid(string: result.token)
+            }
         }
         if let token = Messaging.messaging().fcmToken {
             print("Fir token \(token)")
@@ -64,9 +66,11 @@ class NotificationHelper {
     ///
     /// - Parameter notification: Notification sender when token refresh
     @objc func tokenRefreshNotification(notification: NSNotification) {
-        if let refreshedToken = InstanceID.instanceID().token() {
-            print("InstanceID token: \(refreshedToken)")
-            UserSession.shared.setRegid(string: refreshedToken)
+        InstanceID.instanceID().instanceID { (result, error) in
+            if let result = result {
+                print("InstanceID token: \(result)")
+                UserSession.shared.setRegid(string: result.token)
+            }
         }
         if let token = Messaging.messaging().fcmToken {
             print("Fir token \(token)")
