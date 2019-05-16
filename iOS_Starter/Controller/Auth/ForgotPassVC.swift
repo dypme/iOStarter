@@ -10,22 +10,20 @@ import UIKit
 
 class ForgotPassVC: UIViewController {
 
+    // MARK: - Property
     @IBOutlet weak var useridFld: FloaticonField!
     @IBOutlet weak var sendBtn: UIButton!
     @IBOutlet weak var loginBtn: UIButton!
     
+    // MARK: - Data
     let viewModel = ForgotPassVM()
     
+    // MARK: - Starting
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupMethod()
         setupView()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     /// Setup add function/ action in object (ex: add button action, add delegate, add gesture)
@@ -39,6 +37,7 @@ class ForgotPassVC: UIViewController {
         UITextField.connect(fields: [useridFld])
     }
     
+    // MARK: - Action
     /// Starting make forgot password request to server, to get reset password
     @objc func send() {
         view.endEditing(true)
@@ -46,12 +45,12 @@ class ForgotPassVC: UIViewController {
         LoadIndicatorView.shared.startAnimating()
         
         let userid = useridFld.text!
-        viewModel.forgotPass(userid: userid, error: { (text) in
-            self.toastView(message: text)
+        viewModel.forgotPassRequest(userid: userid, onFailed: { [weak self] (text) in
+            self?.toastView(message: text)
             
             LoadIndicatorView.shared.stopAnimating()
-        }) { (text) in
-            self.login()
+        }) { [weak self] (text) in
+            self?.login()
             
             LoadIndicatorView.shared.stopAnimating()
         }

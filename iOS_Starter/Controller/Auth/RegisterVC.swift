@@ -10,23 +10,21 @@ import UIKit
 
 class RegisterVC: UIViewController {
 
+    // MARK: - Property
     @IBOutlet weak var useridFld: FloaticonField!
     @IBOutlet weak var passwordFld: FloaticonField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
     
+    // MARK: - Data
     let viewModel = RegisterVM()
     
+    // MARK: - Starting
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupMethod()
         setupView()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     /// Setup add function/ action in object (ex: add button action, add delegate, add gesture)
@@ -40,6 +38,7 @@ class RegisterVC: UIViewController {
         UITextField.connect(fields: [useridFld, passwordFld])
     }
     
+    // MARK: - Action
     /// Dismiss current view controller and show login view controller
     @objc func login() {
         self.dismiss(animated: true, completion: nil)
@@ -54,11 +53,15 @@ class RegisterVC: UIViewController {
         let userid = useridFld.text!
         let password = passwordFld.text!
         
-        viewModel.register(userid: userid, password: password, error: { (text) in
-            self.toastView(message: text)
-        }) { (text) in
-            self.cAlertShow(title: nil, message: text, action: {
-                self.login()
+        viewModel.registerRequest(userid: userid, password: password, onFailed: { [weak self] (text) in
+            LoadIndicatorView.shared.stopAnimating()
+            
+            self?.toastView(message: text)
+        }) { [weak self] (text) in
+            LoadIndicatorView.shared.stopAnimating()
+            
+            self?.cAlertShow(title: nil, message: text, action: {
+                self?.login()
             })
         }
     }

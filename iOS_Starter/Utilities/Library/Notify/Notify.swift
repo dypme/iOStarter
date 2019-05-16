@@ -49,6 +49,9 @@ class Notify: UIView {
         self.tapAction = action
     }
     
+    private var margin: CGFloat = 8
+    private var imageSize: CGFloat = 34
+    
     /// Setting appeance of notify
     let appearance = Appearance()
     
@@ -152,6 +155,7 @@ class Notify: UIView {
         } else {
             statusBarHeight = UIApplication.shared.statusBarFrame.height
         }
+        print("Status bar height = \(statusBarHeight)")
         let addDirectionHeight: CGFloat = direction == .top ? statusBarHeight : 0
         
         self.frame = CGRect(x: 0, y: 0, width: screenMain.bounds.width, height: screenMain.bounds.height)
@@ -161,20 +165,20 @@ class Notify: UIView {
         
         var imagePadding: CGFloat = 0
         if let myImage = self.image {
-            let imageView = UIImageView(frame: CGRect(x: 20, y: 14 + addDirectionHeight, width: 40, height: 40))
+            let imageView = UIImageView(frame: CGRect(x: 20, y: margin + addDirectionHeight, width: imageSize, height: imageSize))
             self.tag = 2
             imageView.image = myImage
             imageView.contentMode = .scaleAspectFit
             self.addSubview(imageView)
             
-            imagePadding = 60
+            imagePadding = imageSize + margin
         }
         
-        let titleWidth = screenMain.bounds.width - (imagePadding + 40)
-        let textHeight = calculateHeight(withConstrainedWidth: titleWidth, string: title)
-        let text2Height = calculateHeight(withConstrainedWidth: titleWidth, string: "a\na")
+        let titleWidth = screenMain.bounds.width - (imagePadding + imageSize)
+        let textHeight = calculateHeight(withConstrainedWidth: titleWidth, string: title, font: appearance.titleFont)
+        let text2Height = calculateHeight(withConstrainedWidth: titleWidth, string: "a\na", font: appearance.titleFont)
         let titleHeight = min(textHeight, text2Height)
-        let titleLbl = UILabel(frame: CGRect(x: 20 + imagePadding, y: 14 + addDirectionHeight, width: titleWidth, height: titleHeight))
+        let titleLbl = UILabel(frame: CGRect(x: 20 + imagePadding, y: margin + addDirectionHeight, width: titleWidth, height: titleHeight))
         titleLbl.tag = 0
         titleLbl.numberOfLines = 2
         titleLbl.font = appearance.titleFont
@@ -183,8 +187,8 @@ class Notify: UIView {
         titleLbl.text = title
         self.addSubview(titleLbl)
         
-        let detailWidth = screenMain.bounds.width - (imagePadding + 40)
-        let detailHeight = !detail.isEmpty ? calculateHeight(withConstrainedWidth: detailWidth, string: detail) : 0
+        let detailWidth = screenMain.bounds.width - (imagePadding + imageSize)
+        let detailHeight = !detail.isEmpty ? calculateHeight(withConstrainedWidth: detailWidth, string: detail, font: appearance.detailFont) : 0
         let descriptionLbl = UILabel(frame: CGRect(x: 20 + imagePadding, y: titleHeight + titleLbl.frame.origin.y, width: detailWidth, height: detailHeight))
         if !detail.isEmpty {
             descriptionLbl.tag = 1
@@ -200,15 +204,16 @@ class Notify: UIView {
         if #available(iOS 11.0, *) {
             bottomSafeArea = direction == .top || isKeyboardShow ? 0 : UIApplication.shared.keyWindow!.safeAreaInsets.bottom
         }
-        self.frame.size.height = addDirectionHeight + titleHeight + 28 + detailHeight + bottomSafeArea
+        let contentHeight = max(imageSize, (titleHeight + detailHeight))
+        self.frame.size.height = addDirectionHeight + (margin * 2) + bottomSafeArea + contentHeight
         
         // exception when to long text
-        if self.frame.size.height > (screenMain.bounds.height / 8) - (addDirectionHeight + bottomSafeArea) {
-            self.frame.size.height = (screenMain.bounds.height / 8) + addDirectionHeight
-            let newHeight = self.frame.size.height - (titleHeight + titleLbl.frame.origin.y) - 14
+        if self.frame.size.height > (screenMain.bounds.height / 4) - (addDirectionHeight + bottomSafeArea) {
+            self.frame.size.height = (screenMain.bounds.height / 4) + addDirectionHeight
+            let newHeight = self.frame.size.height - (titleHeight + titleLbl.frame.origin.y) - margin
             descriptionLbl.frame = CGRect(x: 20 + imagePadding, y: titleHeight + titleLbl.frame.origin.y, width: detailWidth, height: newHeight)
             
-            self.frame.size.height = (screenMain.bounds.height / 8) + (addDirectionHeight + bottomSafeArea)
+            self.frame.size.height = (screenMain.bounds.height / 4) + (addDirectionHeight + bottomSafeArea)
         }
         
         if let window = UIApplication.shared.keyWindow {
@@ -269,10 +274,10 @@ class Notify: UIView {
     ///   - width: Width used for calculate height
     ///   - string: Text for use calculate height based on length text
     /// - Returns: Height of view with specific width and text
-    func calculateHeight(withConstrainedWidth width: CGFloat, string: String) -> CGFloat {
+    func calculateHeight(withConstrainedWidth width: CGFloat, string: String, font: UIFont) -> CGFloat {
         
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = string.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: appearance.titleFont], context: nil)
+        let boundingBox = string.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         
         return ceil(boundingBox.height)
     }
@@ -282,7 +287,7 @@ class Notify: UIView {
         var titleColor = UIColor.black
         var detailColor = UIColor.black
         var titleFont: UIFont = FontFamily.ProximaNova.bold.font(size: 16)
-        var detailFont: UIFont = FontFamily.ProximaNova.regular.font(size: 14)
+        var detailFont: UIFont = FontFamily.ProximaNova.regular.font(size: 12)
         var backgroundColor = UIColor.white
         var textAlign: NSTextAlignment = .center
     }

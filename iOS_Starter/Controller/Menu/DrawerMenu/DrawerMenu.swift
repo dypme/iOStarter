@@ -13,19 +13,16 @@ import UIKit
 class DrawerMenu {
     static let shared = DrawerMenu()
     
+    // MARK: - Property
     /// Drawer controller used for application
     var drawerController: JVFloatingDrawerViewController?
     
+    // MARK: - Action
     /// Initialize setup of drawer controller, setting center and left controller
     ///
     /// - Parameter centerViewController: Center viewcontroller that will show
     func setupDrawer(centerViewController: UIViewController) {
         let sideMenu = StoryboardScene.Main.drawerMenuVC.instantiate()
-        
-        guard self.drawerController == nil else {
-            self.drawerController?.centerViewController = centerViewController
-            return
-        }
         
         let drawerController = JVFloatingDrawerViewController()
         drawerController.leftViewController = sideMenu
@@ -47,6 +44,7 @@ class DrawerMenu {
         drawerController?.centerViewController = viewController
     }
     
+    // MARK: -
     /// Open drawer function
     @objc func openDrawer() {
 //        if let menuDrawer = drawerController?.leftViewController as? MenuDrawer {

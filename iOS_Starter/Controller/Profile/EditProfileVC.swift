@@ -65,18 +65,18 @@ class EditProfileVC: UIViewController {
         let email = emailFld.text!
         
         LoadIndicatorView.shared.startAnimating()
-        viewModel.editProfile(name: name, email: email, error: { (text) in
+        viewModel.editProfile(name: name, email: email, onFailed: { [weak self] (text) in
             LoadIndicatorView.shared.stopAnimating()
             
-            self.toastView(message: text)
-        }) { (text) in
+            self?.toastView(message: text)
+        }) { [weak self] (text) in
             LoadIndicatorView.shared.stopAnimating()
-            if let nc = self.presentingViewController as? UINavigationController, let vc = nc.topViewController as? ProfileVC {
+            if let nc = self?.presentingViewController as? UINavigationController, let vc = nc.topViewController as? ProfileVC {
                 vc.setupView()
             }
             
-            self.cAlertShow(title: nil, message: text, isCancelable: false, action: {
-                self.dismiss(animated: true, completion: nil)
+            self?.cAlertShow(title: nil, message: text, isCancelable: false, action: {
+                self?.dismiss(animated: true, completion: nil)
             })
         }
     }
@@ -85,12 +85,12 @@ class EditProfileVC: UIViewController {
     ///
     /// - Parameter image: new image that want to update
     func savePhotoProfile(image: UIImage?) {
-        viewModel.editPhoto(image, error: { (message) in
-            self.cAlertShow(message: message)
-        }) { (message) in
-            self.setupView()
+        viewModel.editPhoto(image, onFailed: { [weak self] (message) in
+            self?.cAlertShow(message: message)
+        }) { [weak self] (message) in
+            self?.setupView()
             
-            self.cAlertShow(message: message)
+            self?.cAlertShow(message: message)
         }
     }
     
@@ -103,14 +103,14 @@ class EditProfileVC: UIViewController {
     
     /// Present action sheet make chaice to select photo
     @objc func browsePhoto() {
-        let actionSheet = UIAlertController(title: nil, message: "Take a photo from...", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: nil, message: "Take a photo from...", preferredStyle: .alert)
         let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
             self.takePhoto(from: .camera)
         }
         let gallery = UIAlertAction(title: "Gallery", style: .default) { (action) in
             self.takePhoto(from: .photoLibrary)
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         actionSheet.addAction(camera)
         actionSheet.addAction(gallery)
         actionSheet.addAction(cancel)
@@ -148,8 +148,8 @@ class EditProfileVC: UIViewController {
 
 extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-// Local variable inserted by Swift 4.2 migrator.
-let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+        // Local variable inserted by Swift 4.2 migrator.
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
 
         let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage
         savePhotoProfile(image: image)

@@ -21,6 +21,8 @@ class TemplateContentItemVM {
     }
     
     func setPhoto(in view: UIImageView) {
+        view.image = UIImage(named: content.image)
+        return;
         if let url = URL(string: content.image) {
             view.kf.indicatorType = .activity
             view.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "blank_image"))

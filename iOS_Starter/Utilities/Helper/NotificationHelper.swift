@@ -15,6 +15,8 @@ import AVKit
 class NotificationHelper {
     static var shared = NotificationHelper()
     
+    private var player: AVAudioPlayer?
+    
     // [START setup]
     /// Setup all need for notification first
     func setupNotif(delegate: AppDelegate, application: UIApplication) {
@@ -85,6 +87,32 @@ class NotificationHelper {
         Messaging.messaging().shouldEstablishDirectChannel = state
     }
     // [END setup]
+    
+    /// Sound of notification in foreground
+    private func playSound() {
+        // Play sound with built in sound from iOS
+        // Change sound ID if want change other sound
+        // Comment this if want to use custum sound
+        AudioServicesPlayAlertSound(SystemSoundID(1007))
+        
+        // Play customize sound
+        // Import sound as usual import and adjust resource name and extension
+        // Uncomment hits if want to use custom sound
+//        guard let url = Bundle.main.url(forResource: "notification", withExtension: "mp3") else { return }
+//        do {
+//            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+//            try AVAudioSession.sharedInstance().setActive(true)
+//
+//            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+//
+//            guard let player = player else { return }
+//
+//            player.play()
+//
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+    }
     
     /// Make action in application with received notification
     ///

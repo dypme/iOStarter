@@ -20,11 +20,11 @@ class LoginVM {
     /// - Parameters:
     ///   - userid: User identity difference in every user (ex: email, code)
     ///   - password: Password for userid
-    ///   - error: Action when request error
-    ///   - success: Action when request success
-    func login(userid: String, password: String, error: ((String) -> Void)?, success: ((String) -> Void)?) {
+    ///   - onFailed: Action when request error
+    ///   - onSuccess: Action when request success
+    func loginRequest(userid: String, password: String, onFailed: ((String) -> Void)?, onSuccess: ((String) -> Void)?) {
         if userid.isEmpty || password.isEmpty {
-            error?(ErrorConstant.completeForm)
+            onFailed?(ErrorConstant.completeForm)
             return
         }
 //        if !userid.isValidEmail {
@@ -32,21 +32,21 @@ class LoginVM {
 //            return
 //        }
         if password.count < 6 {
-            error?(ErrorConstant.passwordLength)
+            onFailed?(ErrorConstant.passwordLength)
             return
         }
         
         let profile = Profile(id: 1, userid: userid, image: "blank_image", name: "Hallo World", email: "hallo@world.com", password: password)
         UserSession.shared.setProfile(profile)
         
-        success?("Sukses")
+        onSuccess?("Sukses")
         
         // Make request to server
 //        ApiHelper.shared.example(value: <#T##String#>) { (json, isSuccess, message) in
 //            is isSuccess {
-//                success?("Sukses")
+//                onSuccess?("Sukses")
 //            } else {
-//                error?(message)
+//                onFailed?(message)
 //            }
 //        }
     }

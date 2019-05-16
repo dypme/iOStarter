@@ -10,6 +10,7 @@ import UIKit
 
 class GridMenuVC: UIViewController {
 
+    // MARK: - Property
     @IBOutlet var imageSlideshow: ImagePagerView!
     @IBOutlet var slideShowActivityId: UIActivityIndicatorView!
     @IBOutlet var errorSlideshowView: UIView!
@@ -18,8 +19,10 @@ class GridMenuVC: UIViewController {
     
     fileprivate let cellIdentifier = "GridMenuCell"
     
+    // MARK: - Data
     var viewModel = MenuVM()
     
+    // MARK: - Starting
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,16 +50,16 @@ class GridMenuVC: UIViewController {
         imageSlideshow.transfomerType = .linear
         
         slideShowActivityId.startAnimating()
-        viewModel.fetchImageSlider(error: { (text) in
-            self.slideShowActivityId.stopAnimating()
+        viewModel.fetchImageSlider(onFailed: { [weak self] (text) in
+            self?.slideShowActivityId.stopAnimating()
             
-            self.errorSlideshowLbl.text = text
-            self.errorSlideshowView.isHidden = false
-        }) { (sources) in
-            self.slideShowActivityId.stopAnimating()
+            self?.errorSlideshowLbl.text = text
+            self?.errorSlideshowView.isHidden = false
+        }) { [weak self] (sources) in
+            self?.slideShowActivityId.stopAnimating()
             
-            self.errorSlideshowView.isHidden = true
-            self.imageSlideshow.setImage(urlString: sources)
+            self?.errorSlideshowView.isHidden = true
+            self?.imageSlideshow.setImage(urlString: sources)
         }
     }
     
@@ -72,6 +75,7 @@ class GridMenuVC: UIViewController {
 
 }
 
+// MARK: - Collection Data Source
 extension GridMenuVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfMenus
@@ -92,18 +96,19 @@ extension GridMenuVC: UICollectionViewDataSource {
     }
 }
 
+// MARK: - Collection Data Source
 extension GridMenuVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let type = viewModel.typeOfMenu(at: indexPath.row)
         switch type {
         case .logout:
-            self.cAlertShow(title: nil, message: "Apakah Anda yakin ingin keluar?", isCancelable: true) {
+            self.cAlertShow(title: nil, message: "Apakah Anda yakin ingin keluar?", isCancelable: true) { [weak self] in
                 UserSession.shared.setLoggedOut()
                 if let root = AppDelegate.shared.window?.rootViewController, root is LoginVC {
                     AppDelegate.shared.mainVC?.dismiss(animated: true, completion: nil)
                 } else {
                     let vc = StoryboardScene.Auth.loginVC.instantiate()
-                    self.present(vc, animated: true, completion: nil)
+                    self?.present(vc, animated: true, completion: nil)
                 }
             }
         default:

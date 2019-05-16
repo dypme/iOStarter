@@ -56,15 +56,15 @@ class EditPassVC: UIViewController {
         let retypePass = retypePassFld.text!
         
         LoadIndicatorView.shared.startAnimating()
-        viewModel.editPass(oldPass: oldPass, newPass: newPass, retypePass: retypePass, error: { (text) in
+        viewModel.editPass(oldPass: oldPass, newPass: newPass, retypePass: retypePass, onFailed: { [weak self] (text) in
             LoadIndicatorView.shared.stopAnimating()
             
-            self.cAlertShow(message: text)
-        }) { (text) in
+            self?.cAlertShow(message: text)
+        }) { [weak self] (text) in
             LoadIndicatorView.shared.stopAnimating()
             
-            self.cAlertShow(title: nil, message: text, isCancelable: false, action: {
-                self.dismiss(animated: true, completion: nil)
+            self?.cAlertShow(title: nil, message: text, isCancelable: false, action: {
+                self?.dismiss(animated: true, completion: nil)
             })
         }
     }

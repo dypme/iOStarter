@@ -27,7 +27,7 @@ class StandardListController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        refreshControl.addTarget(self, action: #selector(fetch), for: .touchUpInside)
+        refreshControl.addTarget(self, action: #selector(fetch), for: .valueChanged)
     }
     
     open func setupView() {

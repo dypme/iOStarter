@@ -60,9 +60,9 @@ class ProfileVM {
     ///   - data: Data image that will upload
     ///   - error: Error response request
     ///   - success: Response success update photo profile
-    func editPhoto(_ image: UIImage?, error: ((String) -> Void)?, success: ((String) -> Void)?) {
+    func editPhoto(_ image: UIImage?, onFailed: ((String) -> Void)?, onSuccess: ((String) -> Void)?) {
         guard let image = image else {
-            error?("Image not found")
+            onFailed?("Image not found")
             return
         }
         // Example convert image to data
@@ -73,7 +73,7 @@ class ProfileVM {
         self.profile.image = "blank_image"
         UserSession.shared.setProfile(self.profile)
         
-        success?("Success")
+        onSuccess?("Success")
         
 //        ApiHelper.shared.exampleUpload(value: "Image", photo: data) { (json, isSuccess, message) in
 //            if isSuccess {
@@ -83,21 +83,21 @@ class ProfileVM {
 //                self.profile.image = image
 //                UserSession.shared.setProfile(self.profile)
 //
-//                success?(message)
+//                onSuccess?(message)
 //            } else {
-//                error?(message)
+//                onFailed?(message)
 //            }
 //        }
     }
     
-    func editProfile(name: String, email: String, error: ((String) -> Void)?, success: ((String) -> Void)?) {
+    func editProfile(name: String, email: String, onFailed: ((String) -> Void)?, onSuccess: ((String) -> Void)?) {
         if name.isEmpty || email.isEmpty {
-            error?("Please complete data")
+            onFailed?("Please complete data")
             return
         }
         
         if !email.isValidEmail {
-            error?("Please use valid email")
+            onFailed?("Please use valid email")
             return
         }
         
@@ -106,7 +106,7 @@ class ProfileVM {
         
         UserSession.shared.setProfile(profile)
         
-        success?("Success")
+        onSuccess?("Success")
         
 //        ApiHelper.shared.example(value: name) { (json, isSuccess, message) in
 //            if isSuccess {
@@ -115,32 +115,32 @@ class ProfileVM {
 //
 //                UserSession.shared.setProfile(self.profile)
 //
-//                success?(message)
+//                onSuccess?(message)
 //            } else {
-//                error?(message)
+//                onFailed?(message)
 //            }
 //        }
     }
     
-    func editPass(oldPass: String, newPass: String, retypePass: String, error: ((String) -> Void)?, success: ((String) -> Void)?) {
+    func editPass(oldPass: String, newPass: String, retypePass: String, onFailed: ((String) -> Void)?, onSuccess: ((String) -> Void)?) {
         if oldPass.isEmpty || newPass.isEmpty || retypePass.isEmpty {
-            error?("Please complete data")
+            onFailed?("Please complete data")
             return
         }
         if oldPass.count < 6 || newPass.count < 6 || retypePass.count < 6 {
-            error?("Password minimal 6 charcters")
+            onFailed?("Password minimal 6 charcters")
             return
         }
         if oldPass != profile.password {
-            error?("Old password not match")
+            onFailed?("Old password not match")
             return
         }
         if newPass == oldPass {
-            error?("Please use difference new password")
+            onFailed?("Please use difference new password")
             return
         }
         if newPass != retypePass {
-            error?("Please retype new password correctly")
+            onFailed?("Please retype new password correctly")
             return
         }
         
@@ -148,7 +148,7 @@ class ProfileVM {
         
         UserSession.shared.setProfile(profile)
         
-        success?("Success")
+        onSuccess?("Success")
         
 //        ApiHelper.shared.example(value: name) { (json, isSuccess, message) in
 //            if isSuccess {
@@ -157,9 +157,9 @@ class ProfileVM {
 //
 //                UserSession.shared.setProfile(self.profile)
 //
-//                success?(message)
+//                onSuccess?(message)
 //            } else {
-//                error?(message)
+//                onFailed?(message)
 //            }
 //        }
     }

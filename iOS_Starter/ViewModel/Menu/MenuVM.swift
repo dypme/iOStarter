@@ -16,7 +16,7 @@ class MenuVM {
     /// Number of column that used for in grid menu
     let numberOfColumn: CGFloat = 1
     /// Spacing in every cell item
-    let cellSpacing: CGFloat = 8
+    let cellSpacing: CGFloat    = 8
     
     /// Make height cell ratio of collectionview height, set 0 if want cell height fit with number of item
     let heightCellRatio: CGFloat = 0.35
@@ -159,12 +159,12 @@ class MenuVM {
         return UserSession.shared.profile?.name
     }
     
-    func fetchImageSlider(error: ((String) -> Void)?, success: (([String]) -> Void)?) {
+    func fetchImageSlider(onFailed: ((String) -> Void)?, onSuccess: (([String]) -> Void)?) {
         var sources = [String]()
         sources.append("https://images.pexels.com/photos/658687/pexels-photo-658687.jpeg?auto=compress&cs=tinysrgb&h=350")
         sources.append("https://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg")
         sources.append("https://demo.phpgang.com/crop-images/demo_files/pool.jpg")
-        success?(sources)
+        onSuccess?(sources)
 //        ApiHelper.shared.example(value: name ?? "") { (json, isSuccess, message) in
 //            if isSuccess {
 //                let data = json["data"].arrayValue
@@ -175,7 +175,7 @@ class MenuVM {
 //                }
 //                success?(sources)
 //            } else {
-//                error?(message)
+//                onFailed?(message)
 //            }
 //        }
     }

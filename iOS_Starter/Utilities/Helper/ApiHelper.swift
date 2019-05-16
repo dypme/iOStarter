@@ -87,6 +87,10 @@ struct ApiHelper {
                     completion(json, status == 1, message)
                 }
             } else {
+                if let error = response.result.error {
+                    completion("", false, error.localizedDescription)
+                    return
+                }
                 print(response.result.debugDescription)
                 completion("", false, "Terjadi suatu kesalahan")
             }

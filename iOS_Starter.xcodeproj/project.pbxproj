@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		7D7CF0DF31CF35F3021EB5F5 /* Pods_iOS_Starter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1DAAB233AAA55337EDEE4A /* Pods_iOS_Starter.framework */; };
 		ED19EAB421213B8400C82E8F /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19EAB321213B8400C82E8F /* LocationHelper.swift */; };
-		ED19EAD42122DB7900C82E8F /* LocalizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19EAD32122DB7900C82E8F /* LocalizeHelper.swift */; };
-		ED19EAD72122E10700C82E8F /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = ED19EAD92122E10700C82E8F /* Localizable.stringsdict */; };
 		ED2A4336212A5E2F00F0379E /* DownloadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A4335212A5E2F00F0379E /* DownloadFile.swift */; };
 		ED2A4338212A5E3A00F0379E /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A4337212A5E3A00F0379E /* CheckBox.swift */; };
 		ED2A433A212A5E4800F0379E /* PickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A4339212A5E4800F0379E /* PickerField.swift */; };
@@ -90,6 +88,10 @@
 		EDCEE55A21071D8B001EE0FF /* JVFloatingDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55721071D8B001EE0FF /* JVFloatingDrawerViewController.m */; };
 		EDCEE55C21071EB3001EE0FF /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55B21071EB3001EE0FF /* Menu.swift */; };
 		FAA2BF16228A6EE400688422 /* StandardListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2BF15228A6EE400688422 /* StandardListController.swift */; };
+		FAA8278F228D1C0300B91749 /* PluralLocalizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8278E228D1C0200B91749 /* PluralLocalizeHelper.swift */; };
+		FAA82799228D2B1300B91749 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAA8277D228D0DDB00B91749 /* Localizable.strings */; };
+		FAA8279F228D2BE500B91749 /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8279E228D2BE500B91749 /* AppStrings.swift */; };
+		FAA827A6228D2FF000B91749 /* PluralLocalizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = FAA827A4228D2FF000B91749 /* PluralLocalizable.stringsdict */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,9 +118,6 @@
 		ED19EAC92122D07300C82E8F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/TemplateContent.strings; sourceTree = "<group>"; };
 		ED19EACA2122D07400C82E8F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Profile.strings; sourceTree = "<group>"; };
 		ED19EACB2122D07500C82E8F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/TabStripPager.strings; sourceTree = "<group>"; };
-		ED19EAD32122DB7900C82E8F /* LocalizeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeHelper.swift; sourceTree = "<group>"; };
-		ED19EAD82122E10700C82E8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
-		ED19EADC2122E2C000C82E8F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = id; path = id.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		ED2A4335212A5E2F00F0379E /* DownloadFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFile.swift; sourceTree = "<group>"; };
 		ED2A4337212A5E3A00F0379E /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		ED2A4339212A5E4800F0379E /* PickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerField.swift; sourceTree = "<group>"; };
@@ -208,6 +207,12 @@
 		EDCEE55B21071EB3001EE0FF /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		FA64B24B2230B78B000CA340 /* Pods_iOS_StarterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_iOS_StarterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA2BF15228A6EE400688422 /* StandardListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardListController.swift; sourceTree = "<group>"; };
+		FAA8277E228D0DE400B91749 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FAA8278E228D1C0200B91749 /* PluralLocalizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluralLocalizeHelper.swift; sourceTree = "<group>"; };
+		FAA8279B228D2B1C00B91749 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FAA8279E228D2BE500B91749 /* AppStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
+		FAA827A5228D2FF000B91749 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/PluralLocalizable.stringsdict; sourceTree = "<group>"; };
+		FAA827A7228D301100B91749 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = id; path = id.lproj/PluralLocalizable.stringsdict; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,12 +372,12 @@
 		ED836FDE20F6E3BA00CFC549 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FAA827A0228D2FA600B91749 /* Localizable */,
 				ED836FBC20F6E18100CFC549 /* AppDelegate.swift */,
 				ED83702A20F70D4D00CFC549 /* UserSession.swift */,
 				EDB7C3B8210C237400E8C887 /* Config.swift */,
 				ED836FC820F6E18100CFC549 /* Info.plist */,
 				ED83701F20F70A3500CFC549 /* Project-Bridging-Header.h */,
-				ED19EAD92122E10700C82E8F /* Localizable.stringsdict */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 				ED83700520F708D600CFC549 /* AppColor.swift */,
 				ED83700720F708D700CFC549 /* AppFont.swift */,
 				ED83700920F708D700CFC549 /* AppStoryboard.swift */,
+				FAA8279E228D2BE500B91749 /* AppStrings.swift */,
 				ED83700820F708D700CFC549 /* ErrorConstant.swift */,
 			);
 			path = Constants;
@@ -475,7 +481,6 @@
 				ED83702320F70AC400CFC549 /* DatabaseHelper.swift */,
 				ED83702C20F70E5700CFC549 /* NotificationHelper.swift */,
 				ED19EAB321213B8400C82E8F /* LocationHelper.swift */,
-				ED19EAD32122DB7900C82E8F /* LocalizeHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -595,6 +600,16 @@
 				FAA2BF15228A6EE400688422 /* StandardListController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		FAA827A0228D2FA600B91749 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				FAA8278E228D1C0200B91749 /* PluralLocalizeHelper.swift */,
+				FAA827A4228D2FF000B91749 /* PluralLocalizable.stringsdict */,
+				FAA8277D228D0DDB00B91749 /* Localizable.strings */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		FACD939E22310DC0004D6251 /* ViewModel */ = {
@@ -787,11 +802,12 @@
 				ED85803121119E7E00BE9D95 /* TabStripPager.storyboard in Resources */,
 				ED83701D20F709A900CFC549 /* Auth.storyboard in Resources */,
 				ED2E69932109AB760086385A /* ErrorView.xib in Resources */,
-				ED19EAD72122E10700C82E8F /* Localizable.stringsdict in Resources */,
 				EDB7C3AE210C0C1C00E8C887 /* Profile.storyboard in Resources */,
+				FAA827A6228D2FF000B91749 /* PluralLocalizable.stringsdict in Resources */,
 				ED83700020F6F5DA00CFC549 /* Proxima Nova Bold.otf in Resources */,
 				ED836FC420F6E18100CFC549 /* Assets.xcassets in Resources */,
 				ED836FC220F6E18100CFC549 /* Main.storyboard in Resources */,
+				FAA82799228D2B1300B91749 /* Localizable.strings in Resources */,
 				ED3978EA2103141800FA6BDF /* CAlertView.xib in Resources */,
 				ED836FEB20F6F5B400CFC549 /* swiftgen.yml in Resources */,
 			);
@@ -905,7 +921,6 @@
 				EDCE31AB2108502D00DE0957 /* ToastView.swift in Sources */,
 				ED49392F21096E650064C50C /* TabBarMenuVC.swift in Sources */,
 				ED83703220F7121200CFC549 /* KeyboardManager.swift in Sources */,
-				ED19EAD42122DB7900C82E8F /* LocalizeHelper.swift in Sources */,
 				ED85802D21119AA500BE9D95 /* WormTabStripButton.swift in Sources */,
 				ED83702620F70AE100CFC549 /* UIColorExtension.swift in Sources */,
 				ED836FE620F6F4AE00CFC549 /* ApiHelper.swift in Sources */,
@@ -918,7 +933,9 @@
 				EDB7C3B7210C165100E8C887 /* ProfileVM.swift in Sources */,
 				EDCE31A921082CB100DE0957 /* DrawerMenu.swift in Sources */,
 				ED83702D20F70E5700CFC549 /* NotificationHelper.swift in Sources */,
+				FAA8278F228D1C0300B91749 /* PluralLocalizeHelper.swift in Sources */,
 				ED83700A20F708D700CFC549 /* AppColor.swift in Sources */,
+				FAA8279F228D2BE500B91749 /* AppStrings.swift in Sources */,
 				ED83703120F7121200CFC549 /* Notify.swift in Sources */,
 				ED83702920F70CD800CFC549 /* Profile.swift in Sources */,
 				ED83702B20F70D4D00CFC549 /* UserSession.swift in Sources */,
@@ -985,15 +1002,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		ED19EAD92122E10700C82E8F /* Localizable.stringsdict */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED19EAD82122E10700C82E8F /* en */,
-				ED19EADC2122E2C000C82E8F /* id */,
-			);
-			name = Localizable.stringsdict;
-			sourceTree = "<group>";
-		};
 		ED49393421096F4F0064C50C /* TemplateContent.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1046,6 +1054,24 @@
 				ED19EACA2122D07400C82E8F /* id */,
 			);
 			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		FAA8277D228D0DDB00B91749 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAA8277E228D0DE400B91749 /* en */,
+				FAA8279B228D2B1C00B91749 /* id */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		FAA827A4228D2FF000B91749 /* PluralLocalizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAA827A5228D2FF000B91749 /* en */,
+				FAA827A7228D301100B91749 /* id */,
+			);
+			name = PluralLocalizable.stringsdict;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

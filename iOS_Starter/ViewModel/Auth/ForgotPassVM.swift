@@ -17,18 +17,18 @@ class ForgotPassVM {
     ///
     /// - Parameters:
     ///   - userid: User identity used when register difference in every user (ex: email, code)
-    ///   - error: Action when request error
-    ///   - success: Action when request success
-    func forgotPass(userid: String, error: ((String) -> Void)?, success: ((String) -> Void)?) {
+    ///   - onFailed: Action when request error
+    ///   - onSuccess: Action when request success
+    func forgotPassRequest(userid: String, onFailed: ((String) -> Void)?, onSuccess: ((String) -> Void)?) {
         if userid.isEmpty {
-            error?(ErrorConstant.completeForm)
+            onFailed?(ErrorConstant.completeForm)
             return
         }
         if !userid.isValidEmail {
-            error?(ErrorConstant.emailValidity)
+            onFailed?(ErrorConstant.emailValidity)
             return
         }
-        success?("Sukses")
+        onSuccess?("Sukses")
         
         // Make request to server
 //        ApiHelper.shared.example(value: <#T##String#>) { (json, isSuccess, message) in

@@ -10,25 +10,24 @@ import UIKit
 
 class LoginVC: UIViewController {
     
+    // MARK: Property
+    
     @IBOutlet weak var useridFld: FloaticonField!
     @IBOutlet weak var passwordFld: FloaticonField!
     @IBOutlet weak var forgotPassBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
     @IBOutlet weak var loginBtn: UIButton!
 
+    // MARK: - Data
     let viewModel = LoginVM()
     
+    // MARK: - Starting
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupMethod()
         setupView()
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     /// Setup add function/ action in object (ex: add button action, add delegate, add gesture)
@@ -43,6 +42,7 @@ class LoginVC: UIViewController {
         UITextField.connect(fields: [useridFld, passwordFld])
     }
     
+    // MARK: - Action
     /// Present forgot password controller modally
     @objc func forgotPass() {
         let vc = StoryboardScene.Auth.forgotPassVC.instantiate()
@@ -64,18 +64,22 @@ class LoginVC: UIViewController {
         let userid = useridFld.text!
         let password = passwordFld.text!
 
-        viewModel.login(userid: userid, password: password, error: { (text) in
-            self.toastView(message: text)
+        viewModel.loginRequest(userid: userid, password: password, onFailed: { [weak self] (text) in
+            self?.toastView(message: text)
 
             LoadIndicatorView.shared.stopAnimating()
-        }) { (text) in
+        }) { [weak self] (text) in
             LoadIndicatorView.shared.stopAnimating()
 
             guard let main = AppDelegate.shared.mainVC else { return }
-            self.present(main, animated: true, completion: {
-                self.useridFld.text = ""
-                self.passwordFld.text = ""
-            })
+            if AppDelegate.shared.window?.rootViewController == main {
+                self?.dismiss(animated: true, completion: nil)
+            } else {
+                self?.present(main, animated: true, completion: {
+                    self?.useridFld.text = ""
+                    self?.passwordFld.text = ""
+                })
+            }
         }
     }
 

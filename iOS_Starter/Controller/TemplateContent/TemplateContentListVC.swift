@@ -40,25 +40,25 @@ class TemplateContentListVC: StandardListController {
     ///
     /// - Parameter isRefresh: Pass true to get data from first and false to get load more content
     override func fetch(isLoadMore: Bool = false) {
-        if viewModel.isContentsEmpty {
+        if viewModel.numberOfItems == 0 {
             activityId.startAnimating()
         }
         
         ErrorView.shared.removeView()
         let searchText = searchBar.text!
-        viewModel.fetch(isLoadMore: isLoadMore,  searchText: searchText) { (message) in
-            self.activityId.stopAnimating()
-            self.refreshControl.endRefreshing()
+        viewModel.fetch(isLoadMore: isLoadMore, searchText: searchText) { [weak self] (message) in
+            self?.activityId.stopAnimating()
+            self?.refreshControl.endRefreshing()
             
-            if self.viewModel.isContentsEmpty {
-                self.tableView.setErrorView(message: message, tapReload: {
-                    self.fetch(isLoadMore: isLoadMore)
+            if self?.viewModel.numberOfItems == 0 {
+                self?.tableView.setErrorView(message: message, tapReload: {
+                    self?.fetch(isLoadMore: isLoadMore)
                 })
             }
             
-            self.tableView.reloadData()
+            self?.tableView.reloadData()
             
-            self.tableView.activityLoadMore(isHidden: !self.viewModel.canLoadMore)
+            self?.tableView.activityLoadMore(isHidden: !(self?.viewModel.canLoadMore ?? false))
         }
     }
 

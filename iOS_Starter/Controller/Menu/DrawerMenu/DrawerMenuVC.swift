@@ -11,27 +11,25 @@ import UIKit
 /// Class view controller for side menu
 class DrawerMenuVC: UIViewController {
 
+    // MARK: - Property
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     fileprivate let menuIdentifier = "DrawerMenuCell"
     
+    // MARK: - Data
     var viewModel = MenuVM()
     
     var currentMenu: Int = 0
     
+    // MARK: - Starting
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupMethod()
         setupView()
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func setupMethod() {
@@ -44,6 +42,7 @@ class DrawerMenuVC: UIViewController {
         nameLbl.text = viewModel.name
     }
     
+    // MARK: - Action
     func refresh() {
         viewModel = MenuVM()
         
@@ -56,13 +55,13 @@ class DrawerMenuVC: UIViewController {
         let type = viewModel.typeOfMenu(at: indexPath.row)
         switch type {
         case .logout:
-            self.cAlertShow(title: nil, message: "Apakah Anda yakin ingin keluar?", isCancelable: true) {
+            self.cAlertShow(title: nil, message: "Apakah Anda yakin ingin keluar?", isCancelable: true) { [weak self] in
                 UserSession.shared.setLoggedOut()
                 if let root = AppDelegate.shared.window?.rootViewController, root is LoginVC {
                     AppDelegate.shared.mainVC?.dismiss(animated: true, completion: nil)
                 } else {
                     let vc = StoryboardScene.Auth.loginVC.instantiate()
-                    self.present(vc, animated: true, completion: nil)
+                    self?.present(vc, animated: true, completion: nil)
                 }
             }
         default:
@@ -91,6 +90,7 @@ class DrawerMenuVC: UIViewController {
 
 }
 
+// MARK: TableView DataSource
 extension DrawerMenuVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfMenus
@@ -104,6 +104,7 @@ extension DrawerMenuVC: UITableViewDataSource {
     }
 }
 
+// MARK: TableView Delegate
 extension DrawerMenuVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         updatePosition(indexPath: indexPath)

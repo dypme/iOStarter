@@ -20,10 +20,6 @@ class TemplateContentVM {
         
     }
     
-    var isContentsEmpty: Bool {
-        return contents.isEmpty
-    }
-    
     var numberOfItems: Int {
         return contents.count
     }
@@ -33,7 +29,7 @@ class TemplateContentVM {
         return TemplateContentItemVM(content: content)
     }
     
-    func fetch(isLoadMore: Bool = false, searchText: String, completion: ((String) -> Void)?) {
+    func fetch(isLoadMore: Bool = false, searchText: String, onComplete: ((String) -> Void)?) {
         if isLoading {
             return
         }
@@ -59,7 +55,7 @@ class TemplateContentVM {
         self.canLoadMore = limit - offset >= limit
         self.offset += self.limit
         
-        completion?("Sukses")
+        onComplete?("Sukses")
         
         isLoading = false
         
@@ -84,7 +80,7 @@ class TemplateContentVM {
 //
 //            }
 //            isLoading = false
-//            completion?(message)
+//            onComplete?(message)
 //        })
     }
 }
