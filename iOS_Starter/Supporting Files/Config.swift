@@ -7,20 +7,9 @@
 //
 
 import Foundation
-import L10n_swift
 
 class Config {
     static let shared = Config()
-    
-    /// Locale language code
-    var GLOBAL_LOCALE: String {
-        get {
-            return L10n.shared.language
-        }
-        set (newValue) {
-            L10n.shared.language = newValue
-        }
-    }
     
     /// Type of compress photo quality
     ///

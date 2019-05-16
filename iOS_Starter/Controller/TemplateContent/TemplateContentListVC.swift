@@ -98,6 +98,9 @@ extension TemplateContentListVC {
     }
     
     override func didSelectRow(_ tableView: UITableView, at indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        simpleAlert(message: L10n.Plurals.pluralsNumberOfItems(indexPath.row))
+        return;
         let vc = StoryboardScene.TemplateContent.templateContentDetailVC.instantiate()
         vc.viewModel = viewModel.viewModelOfItem(at: indexPath)
         

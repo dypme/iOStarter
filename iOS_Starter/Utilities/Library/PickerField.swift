@@ -151,7 +151,7 @@ class PickerField: UIView {
             self.datePicker = datePicker
         } else {
             self.datePicker = UIDatePicker()
-            self.datePicker.locale = Locale(identifier: Config.shared.GLOBAL_LOCALE)
+            self.datePicker.locale = LocalizeHelper.shared.locale
         }
         
         if let mode = mode {
@@ -374,11 +374,11 @@ extension PickerField {
         /// Select button color
         var selectColor: UIColor = UIColor.black
         /// Select button text
-        var selectText = LocalizeHelper.pickerFieldSelect
+        var selectText = L10n.PickerField.select
         /// Cancel button color
         var cancelColor: UIColor = UIColor.red
         /// Cancel button text
-        var cancelText = LocalizeHelper.pickerFieldCancel
+        var cancelText = L10n.PickerField.cancel
         /// Toolbar background color
         var toolbarBackgroundColor: UIColor = UIColor.white
         /// Toolbar button font
@@ -450,7 +450,7 @@ extension Date {
     /// - Returns: String of date after formatting
     fileprivate func pickerFieldString(format: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: Config.shared.GLOBAL_LOCALE)
+        dateFormatter.locale = LocalizeHelper.shared.locale
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
@@ -463,7 +463,7 @@ extension String {
     /// - Returns: Date from string
     fileprivate func pickerFieldDate(format: String) -> Date? {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: Config.shared.GLOBAL_LOCALE)
+        dateFormatter.locale = LocalizeHelper.shared.locale
         dateFormatter.dateFormat = format
         if let date = dateFormatter.date(from: self) {
             return date

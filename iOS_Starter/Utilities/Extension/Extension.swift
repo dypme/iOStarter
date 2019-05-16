@@ -288,7 +288,7 @@ extension Date {
     /// - Returns: String of date after formatting
     func string(_ format: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: Config.shared.GLOBAL_LOCALE)
+        dateFormatter.locale = LocalizeHelper.shared.locale
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
@@ -403,7 +403,7 @@ extension String {
     /// - Returns: New format date
     func dateChange(from old: String, to new: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: Config.shared.GLOBAL_LOCALE)
+        dateFormatter.locale = LocalizeHelper.shared.locale
         dateFormatter.dateFormat = old
         if let date = dateFormatter.date(from: self) {
             dateFormatter.dateFormat = new
@@ -418,7 +418,7 @@ extension String {
     /// - Returns: Date from string
     func date(format: String) -> Date? {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: Config.shared.GLOBAL_LOCALE)
+        dateFormatter.locale = LocalizeHelper.shared.locale
         dateFormatter.dateFormat = format
         if let date = dateFormatter.date(from: self) {
             return date
@@ -431,7 +431,7 @@ extension Int {
     /// Change integer data type into string format decimal
     var asDecimal: String {
         let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: Config.shared.GLOBAL_LOCALE)
+        formatter.locale = LocalizeHelper.shared.locale
         formatter.numberStyle = .decimal
         let string = formatter.string(from: NSNumber(integerLiteral: self))
         return string!
@@ -447,7 +447,7 @@ extension Int64 {
     /// Change integer64 data type into string format decimal
     var asDecimal: String {
         let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: Config.shared.GLOBAL_LOCALE)
+        formatter.locale = LocalizeHelper.shared.locale
         formatter.numberStyle = .decimal
         let string = formatter.string(from: NSNumber(value: self))
         return string!

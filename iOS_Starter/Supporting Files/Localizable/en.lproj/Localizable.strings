@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  iOS_Starter
+
+  Created by macbook on 16/05/19.
+  Copyright © 2019 Crocodic. All rights reserved.
+*/
+
+"pickerField.select" = "Select";
+"pickerField.cancel" = "Cancel";
+
+"alert.title" = "Attention";
+"alert.inputField" = "Please input %@";
+
+"halloWorld" = "Hallo World";
