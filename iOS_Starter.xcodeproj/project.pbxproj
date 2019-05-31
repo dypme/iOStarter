@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7D7CF0DF31CF35F3021EB5F5 /* Pods_iOS_Starter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC1DAAB233AAA55337EDEE4A /* Pods_iOS_Starter.framework */; };
 		ED19EAB421213B8400C82E8F /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19EAB321213B8400C82E8F /* LocationHelper.swift */; };
-		ED2A4336212A5E2F00F0379E /* DownloadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A4335212A5E2F00F0379E /* DownloadFile.swift */; };
+		ED2A4336212A5E2F00F0379E /* DownloadFileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A4335212A5E2F00F0379E /* DownloadFileHelper.swift */; };
 		ED2A4338212A5E3A00F0379E /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A4337212A5E3A00F0379E /* CheckBox.swift */; };
 		ED2A433A212A5E4800F0379E /* PickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A4339212A5E4800F0379E /* PickerField.swift */; };
 		ED2E69892109741B0086385A /* TemplateContentListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2E69882109741B0086385A /* TemplateContentListVC.swift */; };
@@ -119,7 +119,7 @@
 		ED19EAC92122D07300C82E8F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/TemplateContent.strings; sourceTree = "<group>"; };
 		ED19EACA2122D07400C82E8F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Profile.strings; sourceTree = "<group>"; };
 		ED19EACB2122D07500C82E8F /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/TabStripPager.strings; sourceTree = "<group>"; };
-		ED2A4335212A5E2F00F0379E /* DownloadFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFile.swift; sourceTree = "<group>"; };
+		ED2A4335212A5E2F00F0379E /* DownloadFileHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadFileHelper.swift; sourceTree = "<group>"; };
 		ED2A4337212A5E3A00F0379E /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		ED2A4339212A5E4800F0379E /* PickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerField.swift; sourceTree = "<group>"; };
 		ED2E69882109741B0086385A /* TemplateContentListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateContentListVC.swift; sourceTree = "<group>"; };
@@ -470,7 +470,6 @@
 				ED85802921119AA400BE9D95 /* WormTabStrip */,
 				EDCE31AA2108502C00DE0957 /* ToastView.swift */,
 				ED2A4337212A5E3A00F0379E /* CheckBox.swift */,
-				ED2A4335212A5E2F00F0379E /* DownloadFile.swift */,
 				ED2A4339212A5E4800F0379E /* PickerField.swift */,
 			);
 			path = Library;
@@ -482,6 +481,7 @@
 				ED836FE120F6F4AE00CFC549 /* ApiHelper.swift */,
 				ED83702320F70AC400CFC549 /* DatabaseHelper.swift */,
 				ED83702C20F70E5700CFC549 /* NotificationHelper.swift */,
+				ED2A4335212A5E2F00F0379E /* DownloadFileHelper.swift */,
 				ED19EAB321213B8400C82E8F /* LocationHelper.swift */,
 			);
 			path = Helper;
@@ -745,7 +745,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = Crocodic;
+				ORGANIZATIONNAME = "Crocodic Studio";
 				TargetAttributes = {
 					ED836FB820F6E18100CFC549 = {
 						CreatedOnToolsVersion = 9.2;
@@ -969,7 +969,7 @@
 				EDCEE55C21071EB3001EE0FF /* Menu.swift in Sources */,
 				ED2A4338212A5E3A00F0379E /* CheckBox.swift in Sources */,
 				EDB7C3B9210C237400E8C887 /* Config.swift in Sources */,
-				ED2A4336212A5E2F00F0379E /* DownloadFile.swift in Sources */,
+				ED2A4336212A5E2F00F0379E /* DownloadFileHelper.swift in Sources */,
 				ED85802C21119AA500BE9D95 /* WormTabStrip.swift in Sources */,
 				ED836FE720F6F4AE00CFC549 /* Extension.swift in Sources */,
 				ED83701720F7094000CFC549 /* ForgotPassVM.swift in Sources */,

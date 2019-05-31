@@ -68,6 +68,15 @@ struct ApiHelper {
         return URL(string: BASE_URL + path.rawValue)!
     }
     
+    /// Alamofire session manager is Alamfire with some configuration of url session configuration
+    private var afManager: SessionManager? = {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 300
+        configuration.timeoutIntervalForResource = 300
+        let manager = Alamofire.SessionManager(configuration: configuration)
+        return manager
+    }()
+    
     /// Make API request to server
     ///
     /// - Parameters:
@@ -76,8 +85,8 @@ struct ApiHelper {
     ///   - parameters: Parameters used in requesting
     ///   - completion: Callback response from API
     /// - Returns: Data when requesting
-    private func apiRequest(url: URL, method: HTTPMethod, parameters: Parameters, completion: @escaping((JSON, Bool, String) -> Void)) -> DataRequest {
-        return Alamofire.request(url, method: method, parameters: parameters, headers: headers).responseJSON { (response) in
+    private func apiRequest(url: URL, method: HTTPMethod, parameters: Parameters, completion: @escaping((JSON, Bool, String) -> Void)) -> DataRequest? {
+        return afManager?.request(url, method: method, parameters: parameters, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
                 print("Get response request : \(response.result.value ?? "")")
                 if let data = response.data {
@@ -106,11 +115,11 @@ struct ApiHelper {
     ///   - mimeType: Mime type for file upload. Reference: https://www.sitepoint.com/mime-types-complete-list/ find upload file extention you use
     ///   - completion: Callback response from API
     private func uploadRequest(url: URL, method: HTTPMethod, parameters: [String : [String : Any]], completion: @escaping((JSON, Bool, String) -> Void)) {
-        Alamofire.upload(multipartFormData: { (multipartFormData) in
+        afManager?.upload(multipartFormData: { (multipartFormData) in
             for (key, value) in parameters {
                 for (mimeType, actualValue) in value {
                     if let data = actualValue as? Data {
-                        multipartFormData.append(data, withName: key, mimeType: mimeType)
+                        multipartFormData.append(data, withName: key, fileName: "file.jpg", mimeType: mimeType)
                     } else if let data = "\(actualValue)".data(using: .utf8) {
                         multipartFormData.append(data, withName: key)
                     }
@@ -157,7 +166,7 @@ struct ApiHelper {
     ///   - value: Value of parameters required
     ///   - completion: Callback response from API
     /// - Returns: Data when requesting
-    func example(value: String, completion: @escaping((JSON, Bool, String) -> Void)) -> DataRequest {
+    func example(value: String, completion: @escaping((JSON, Bool, String) -> Void)) -> DataRequest? {
         var parameters = Parameters()
         parameters.updateValue(value, forKey: "parameter")
         
@@ -174,7 +183,7 @@ struct ApiHelper {
     ///   - offset: Number of page in list
     ///   - completion: Callback response from API
     /// - Returns: Data when requesting
-    func exampleList(searchText: String, limit: Int, offset: Int, completion: @escaping((JSON, Bool, String) -> Void)) -> DataRequest {
+    func exampleList(searchText: String, limit: Int, offset: Int, completion: @escaping((JSON, Bool, String) -> Void)) -> DataRequest? {
         var parameters = Parameters()
         parameters.updateValue(searchText, forKey: "search")
         parameters.updateValue(offset, forKey: "offset")

@@ -10,7 +10,6 @@ def shared_pods
     pod 'SwiftGen', '6.1.0'
     pod 'Firebase/Core'
     pod 'Firebase/Messaging'
-    pod 'FirebaseInstanceID'
     pod 'Fabric'
     pod 'Crashlytics'
     
