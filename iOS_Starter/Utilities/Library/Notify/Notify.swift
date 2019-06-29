@@ -20,7 +20,7 @@ class Notify: UIView {
     */
     
     /// Singleton Notify
-    static var shared = Notify()
+    static var shared: Notify?
     
     /// Direction of notification will show
     ///
@@ -49,8 +49,31 @@ class Notify: UIView {
         self.tapAction = action
     }
     
-    private var margin: CGFloat = 8
-    private var imageSize: CGFloat = 34
+    /// Notification padding from view
+    var padding: CGFloat = 6
+    /// Image size
+    private var imageSize: CGFloat = 20
+    /// Top additional padding
+    private var topPadding: CGFloat {
+        var statusBarH: CGFloat
+        if #available(iOS 11.0, *) {
+            statusBarH = UIApplication.shared.keyWindow!.safeAreaInsets.top
+        } else {
+            statusBarH = UIApplication.shared.statusBarFrame.height
+        }
+        let topPadding: CGFloat = direction == .top && UIDevice.current.hasNotch ? statusBarH : 0
+        return topPadding
+    }
+    /// Bottom additional padding
+    private var bottomPadding: CGFloat {
+        var bottomPadding: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            if !isKeyboardShow {
+                bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+            }
+        }
+        return bottomPadding
+    }
     
     /// Setting appeance of notify
     let appearance = Appearance()
@@ -82,9 +105,15 @@ class Notify: UIView {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapNotify))
         self.addGestureRecognizer(tapGesture)
         
-        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(hideNotify))
+        let swipeGesture       = UISwipeGestureRecognizer(target: self, action: #selector(hideNotify))
         swipeGesture.direction = direction == .top ? .up : .down
         self.addGestureRecognizer(swipeGesture)
+        
+        let blurEffect                  = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView              = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame            = self.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.addSubview(blurEffectView)
     }
     
     /// Initializes and returns a newly allocated view object
@@ -121,7 +150,6 @@ class Notify: UIView {
     @objc private func keyboardNotification(_ notification: Notification) {
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-//            keyboardFrame = endFrame!
             let duration: TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
             let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
             
@@ -130,9 +158,9 @@ class Notify: UIView {
             let screenMain = UIScreen.main.bounds
             if direction == .bottom {
                 if (endFrame?.origin.y)! >= screenMain.size.height {
-                    self.frame.origin.y = screenMain.size.height - self.frame.size.height
+                    self.frame.origin.y = screenMain.size.height - self.frame.size.height - padding - bottomPadding
                 } else {
-                    self.frame.origin.y = screenMain.size.height - (endFrame?.size.height)! - self.frame.size.height
+                    self.frame.origin.y = screenMain.size.height - (endFrame?.size.height)! - self.frame.size.height - padding - bottomPadding
                 }
             }
             
@@ -148,76 +176,98 @@ class Notify: UIView {
     ///
     /// - Parameter animated: Pass true to animate the presentation; otherwise, pass false.
     func show(animated: Bool = true) {
-        let screenMain = UIScreen.main
-        var statusBarHeight: CGFloat
-        if #available(iOS 11.0, *) {
-            statusBarHeight = UIApplication.shared.keyWindow!.safeAreaInsets.top
-        } else {
-            statusBarHeight = UIApplication.shared.statusBarFrame.height
-        }
-        print("Status bar height = \(statusBarHeight)")
-        let addDirectionHeight: CGFloat = direction == .top ? statusBarHeight : 0
+        let screenW = UIScreen.main.bounds.width
+        let screenH = UIScreen.main.bounds.height
         
-        self.frame = CGRect(x: 0, y: 0, width: screenMain.bounds.width, height: screenMain.bounds.height)
-        let offset = CGSize(width: 0, height: direction == .top ? 2.0 : -2.0)
-        self.shadow(offset: offset)
-        self.backgroundColor = appearance.backgroundColor
+        // View container
+        let containerW = screenW - (padding * 2)
+        let containerY = topPadding + padding
+        self.frame              = CGRect(x: padding, y: containerY, width: containerW, height: screenH)
+        self.backgroundColor    = appearance.backgroundColor
+        self.layer.cornerRadius = padding == 0 ? 0 : 10
+        self.clipsToBounds      = true
         
-        var imagePadding: CGFloat = 0
+        // Image view
+        let imageView = UIImageView(frame: CGRect(x: 8, y: 8, width: imageSize, height: imageSize))
+        imageView.contentMode        = .scaleAspectFit
+        imageView.layer.cornerRadius = 5
+        imageView.clipsToBounds      = true
+        self.addSubview(imageView)
         if let myImage = self.image {
-            let imageView = UIImageView(frame: CGRect(x: 20, y: margin + addDirectionHeight, width: imageSize, height: imageSize))
-            self.tag = 2
             imageView.image = myImage
-            imageView.contentMode = .scaleAspectFit
-            self.addSubview(imageView)
-            
-            imagePadding = imageSize + margin
+        } else {
+            imageView.image = Bundle.main.icon
         }
         
-        let titleWidth = screenMain.bounds.width - (imagePadding + imageSize)
-        let textHeight = calculateHeight(withConstrainedWidth: titleWidth, string: title, font: appearance.titleFont)
-        let text2Height = calculateHeight(withConstrainedWidth: titleWidth, string: "a\na", font: appearance.titleFont)
-        let titleHeight = min(textHeight, text2Height)
-        let titleLbl = UILabel(frame: CGRect(x: 20 + imagePadding, y: margin + addDirectionHeight, width: titleWidth, height: titleHeight))
-        titleLbl.tag = 0
+        // Title app name view
+        let appName     = Bundle.main.appName
+        let appNameW    = containerW - imageView.frame.maxX - 16
+        let appNameH    = sizeHeight(with: appNameW, string: appName, font: UIFont.systemFont(ofSize: 12))
+        let appNameX    = imageView.frame.maxX + 8
+        let appNameY    = 8 + (imageSize / 2) - (appNameH / 2)
+        let appNameRect = CGRect(x: appNameX, y: appNameY, width: appNameW, height: appNameH)
+        let appNameLbl           = UILabel(frame: appNameRect)
+        appNameLbl.numberOfLines = 1
+        appNameLbl.font          = UIFont.systemFont(ofSize: 12)
+        appNameLbl.textColor     = UIColor.black
+        appNameLbl.textAlignment = .left
+        appNameLbl.text          = appName
+        self.addSubview(appNameLbl)
+        
+        // Title view
+        let titleW          = containerW - 16
+        let titleH1         = sizeHeight(with: titleW, string: title, font: appearance.titleFont)
+        let titleH2         = sizeHeight(with: titleW, string: "a\na", font: appearance.titleFont)
+        let titleH          = min(titleH1, titleH2)
+        let titleX: CGFloat = 8
+        let titleY          = max(appNameLbl.frame.maxY, imageView.frame.maxY) + 3
+        let titleFrame      = CGRect(x: titleX, y: titleY, width: titleW, height: titleH)
+        let titleLbl           = UILabel(frame: titleFrame)
+        titleLbl.text          = title
+        titleLbl.font          = appearance.titleFont
+        titleLbl.textColor     = appearance.titleColor
         titleLbl.numberOfLines = 2
-        titleLbl.font = appearance.titleFont
-        titleLbl.textColor = appearance.titleColor
-        titleLbl.textAlignment = image == nil ? appearance.textAlign : .left
-        titleLbl.text = title
+        titleLbl.textAlignment = appearance.textAlign
+        titleLbl.backgroundColor = .red
         self.addSubview(titleLbl)
         
-        let detailWidth = screenMain.bounds.width - (imagePadding + imageSize)
-        let detailHeight = !detail.isEmpty ? calculateHeight(withConstrainedWidth: detailWidth, string: detail, font: appearance.detailFont) : 0
-        let descriptionLbl = UILabel(frame: CGRect(x: 20 + imagePadding, y: titleHeight + titleLbl.frame.origin.y, width: detailWidth, height: detailHeight))
+        // Detail view
+        let detailW          = titleW
+        let detailH          = !detail.isEmpty ? sizeHeight(with: detailW, string: detail, font: appearance.detailFont) : 0
+        let detailX: CGFloat = 8
+        let detailY          = titleLbl.frame.maxY + 3
+        let detailRect       = CGRect(x: detailX, y: detailY, width: detailW, height: detailH)
+        let detailLbl        = UILabel(frame: detailRect)
+        detailLbl.backgroundColor = .yellow
         if !detail.isEmpty {
-            descriptionLbl.tag = 1
-            descriptionLbl.numberOfLines = 0
-            descriptionLbl.font = appearance.detailFont
-            descriptionLbl.textColor = appearance.detailColor
-            descriptionLbl.textAlignment = image == nil ? appearance.textAlign : .left
-            descriptionLbl.text = detail
-            self.addSubview(descriptionLbl)
+            detailLbl.numberOfLines = 0
+            detailLbl.font          = appearance.detailFont
+            detailLbl.textColor     = appearance.detailColor
+            detailLbl.textAlignment = appearance.textAlign
+            detailLbl.text          = detail
+            self.addSubview(detailLbl)
         }
         
-        var bottomSafeArea: CGFloat = 0
-        if #available(iOS 11.0, *) {
-            bottomSafeArea = direction == .top || isKeyboardShow ? 0 : UIApplication.shared.keyWindow!.safeAreaInsets.bottom
-        }
-        let contentHeight = max(imageSize, (titleHeight + detailHeight))
-        self.frame.size.height = addDirectionHeight + (margin * 2) + bottomSafeArea + contentHeight
-        
+        let contentHeight      = (detail.isEmpty ? titleLbl.frame.maxY : detailLbl.frame.maxY)
+        self.frame.size.height = contentHeight + 8
+
         // exception when to long text
-        if self.frame.size.height > (screenMain.bounds.height / 4) - (addDirectionHeight + bottomSafeArea) {
-            self.frame.size.height = (screenMain.bounds.height / 4) + addDirectionHeight
-            let newHeight = self.frame.size.height - (titleHeight + titleLbl.frame.origin.y) - margin
-            descriptionLbl.frame = CGRect(x: 20 + imagePadding, y: titleHeight + titleLbl.frame.origin.y, width: detailWidth, height: newHeight)
-            
-            self.frame.size.height = (screenMain.bounds.height / 4) + (addDirectionHeight + bottomSafeArea)
+        if self.frame.size.height > (screenH / 4) && !detail.isEmpty {
+            self.frame.size.height = (screenH / 4)
+            let newDetailH         = (screenH / 4) - titleLbl.frame.maxY - 11
+            detailLbl.frame        = CGRect(x: detailX, y: detailY, width: detailW , height: newDetailH)
         }
         
         if let window = UIApplication.shared.keyWindow {
-            Notify.shared.hideNotify()
+            if let window = UIApplication.shared.keyWindow {
+                if !UIDevice.current.hasNotch && direction == .top {
+                    window.windowLevel = UIWindow.Level.statusBar + 1
+                } else {
+                    window.windowLevel = UIWindow.Level.normal
+                }
+            }
+            
+            Notify.shared?.hideNotify()
             Notify.shared = self
             
             window.addSubview(self)
@@ -230,13 +280,12 @@ class Notify: UIView {
     ///
     /// - Parameter animated: Pass true to animate the presentation; otherwise, pass false.
     private func showAnimate(_ animated: Bool) {
-        let screenMain = UIScreen.main
-        let bottomFrame = isKeyboardShow ? screenMain.bounds.height - keyboardFrame.height : screenMain.bounds.height
-        let startDirection = direction == .top ? -self.frame.height : bottomFrame
-        let targetDirection = direction == .top ? 0 : (startDirection - self.frame.height)
+        let screenMain      = UIScreen.main
+        let bottomFrame     = isKeyboardShow ? screenMain.bounds.height - keyboardFrame.height : screenMain.bounds.height
         
+        let startDirection  = direction == .top ? -self.frame.height : bottomFrame
+        let targetDirection = direction == .top ? (topPadding + padding) : (startDirection - self.frame.height - padding - bottomPadding)
         self.frame.origin.y = startDirection
-        
         UIView.animate(withDuration: 0.2, animations: {
             self.frame.origin.y = targetDirection
             self.layoutIfNeeded()
@@ -255,15 +304,20 @@ class Notify: UIView {
     
     /// Hide notification animation
     @objc func hideNotify() {
+        Notify.shared = nil
         timer.invalidate()
+        
         let screenMain = UIScreen.main
         let bottomFrame = isKeyboardShow ? screenMain.bounds.height - keyboardFrame.height : screenMain.bounds.height
-        let frameDirection = direction == .top ? -self.frame.height : bottomFrame
         
+        let targetDirection = direction == .top ? (-self.frame.height - topPadding - padding) : (bottomFrame + padding + bottomPadding)
         UIView.animate(withDuration: 0.2, animations: { 
-            self.frame.origin.y = frameDirection
+            self.frame.origin.y = targetDirection
             self.layoutIfNeeded()
         }) { (finished) in
+            if let window = UIApplication.shared.keyWindow, Notify.shared == nil {
+                window.windowLevel = UIWindow.Level.normal
+            }
             self.removeFromSuperview()
         }
     }
@@ -274,22 +328,49 @@ class Notify: UIView {
     ///   - width: Width used for calculate height
     ///   - string: Text for use calculate height based on length text
     /// - Returns: Height of view with specific width and text
-    func calculateHeight(withConstrainedWidth width: CGFloat, string: String, font: UIFont) -> CGFloat {
-        
+    private func sizeHeight(with width: CGFloat, string: String, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = string.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-        
         return ceil(boundingBox.height)
     }
 
     /// Appearance data of notify
     class Appearance {
-        var titleColor = UIColor.black
-        var detailColor = UIColor.black
-        var titleFont: UIFont = FontFamily.ProximaNova.bold.font(size: 16)
-        var detailFont: UIFont = FontFamily.ProximaNova.regular.font(size: 12)
-        var backgroundColor = UIColor.white
-        var textAlign: NSTextAlignment = .center
+        var titleColor                 = UIColor.black
+        var detailColor                = UIColor.black
+        var titleFont: UIFont          = UIFont.boldSystemFont(ofSize: 14)
+        var detailFont: UIFont         = UIFont.systemFont(ofSize: 12)
+        var backgroundColor            = UIColor.white
+        var textAlign: NSTextAlignment = .left
     }
     
+}
+
+extension Bundle {
+    fileprivate var icon: UIImage? {
+        if let icons = infoDictionary?["CFBundleIcons"] as? [String: Any],
+            let primaryIcon = icons["CFBundlePrimaryIcon"] as? [String: Any],
+            let iconFiles   = primaryIcon["CFBundleIconFiles"] as? [String],
+            let lastIcon    = iconFiles.last {
+            return UIImage(named: lastIcon)
+        }
+        return nil
+    }
+    
+    fileprivate var appName: String {
+        let name = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String
+        return name ?? ""
+    }
+}
+
+
+extension UIDevice {
+    fileprivate var hasNotch: Bool {
+        if #available(iOS 11.0, *) {
+            let bottom = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+            return bottom > 0
+        } else {
+            return false
+        }
+    }
 }

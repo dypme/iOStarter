@@ -25,6 +25,9 @@ def shared_pods
     # Using for localization application. Documentation: https://github.com/Decybel07/L10n-swift
     pod 'L10n-swift', '~> 5.4'
     
+    # Check this out: https://github.com/hyperoslo/Lightbox , image/ video preview
+    #pod 'Lightbox'
+
 end
 
 target 'iOS_Starter' do
