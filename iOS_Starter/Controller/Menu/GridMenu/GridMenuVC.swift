@@ -102,7 +102,7 @@ extension GridMenuVC: UICollectionViewDelegate {
         let type = viewModel.typeOfMenu(at: indexPath.row)
         switch type {
         case .logout:
-            self.cAlertShow(title: nil, message: "Apakah Anda yakin ingin keluar?", isCancelable: true) { [weak self] in
+            baseAlertShow(title: nil, message: "Apakah Anda yakin ingin keluar?", action: { [weak self] in
                 UserSession.shared.setLoggedOut()
                 if let root = AppDelegate.shared.window?.rootViewController, root is LoginVC {
                     AppDelegate.shared.mainVC?.dismiss(animated: true, completion: nil)
@@ -110,7 +110,7 @@ extension GridMenuVC: UICollectionViewDelegate {
                     let vc = StoryboardScene.Auth.loginVC.instantiate()
                     self?.present(vc, animated: true, completion: nil)
                 }
-            }
+            })
         default:
             guard let vc = viewModel.viewController(at: indexPath) else { return }
             self.navigationController?.pushViewController(vc, animated: true)

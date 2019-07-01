@@ -59,11 +59,11 @@ class EditPassVC: UIViewController {
         viewModel.editPass(oldPass: oldPass, newPass: newPass, retypePass: retypePass, onFailed: { [weak self] (text) in
             LoadIndicatorView.shared.stopAnimating()
             
-            self?.cAlertShow(message: text)
+            self?.baseAlertShow(title: nil, message: text, action: nil)
         }) { [weak self] (text) in
             LoadIndicatorView.shared.stopAnimating()
             
-            self?.cAlertShow(title: nil, message: text, isCancelable: false, action: {
+            self?.baseAlertShow(title: nil, message: text, action: {
                 self?.dismiss(animated: true, completion: nil)
             })
         }

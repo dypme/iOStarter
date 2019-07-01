@@ -87,6 +87,8 @@
 		EDCEE55921071D8B001EE0FF /* JVFloatingDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55521071D8B001EE0FF /* JVFloatingDrawerView.m */; };
 		EDCEE55A21071D8B001EE0FF /* JVFloatingDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55721071D8B001EE0FF /* JVFloatingDrawerViewController.m */; };
 		EDCEE55C21071EB3001EE0FF /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55B21071EB3001EE0FF /* Menu.swift */; };
+		FA09F6A922C9A2AA003FB213 /* BaseAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09F6A822C9A2AA003FB213 /* BaseAlertController.swift */; };
+		FA09F6AC22C9A2FB003FB213 /* BasePopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA09F6AB22C9A2FB003FB213 /* BasePopUpView.xib */; };
 		FAA2BF16228A6EE400688422 /* StandardListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2BF15228A6EE400688422 /* StandardListController.swift */; };
 		FAA8278F228D1C0300B91749 /* PluralAppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8278E228D1C0200B91749 /* PluralAppStrings.swift */; };
 		FAA82799228D2B1300B91749 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAA8277D228D0DDB00B91749 /* Localizable.strings */; };
@@ -206,6 +208,8 @@
 		EDCEE55621071D8B001EE0FF /* JVFloatingDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatingDrawerViewController.h; sourceTree = "<group>"; };
 		EDCEE55721071D8B001EE0FF /* JVFloatingDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatingDrawerViewController.m; sourceTree = "<group>"; };
 		EDCEE55B21071EB3001EE0FF /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		FA09F6A822C9A2AA003FB213 /* BaseAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAlertController.swift; sourceTree = "<group>"; };
+		FA09F6AB22C9A2FB003FB213 /* BasePopUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasePopUpView.xib; sourceTree = "<group>"; };
 		FA64B24B2230B78B000CA340 /* Pods_iOS_StarterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_iOS_StarterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA2BF15228A6EE400688422 /* StandardListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardListController.swift; sourceTree = "<group>"; };
 		FAA8277E228D0DE400B91749 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -258,8 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				ED2E698F2109AB390086385A /* ErrorView */,
-				ED3978E62103135C00FA6BDF /* CAlertView */,
 				ED3978E121030BCF00FA6BDF /* LoadIndicatorView */,
+				FA09F6AA22C9A2D8003FB213 /* PopAlert */,
 				EDB8C908211C163B0003AF4A /* ImagePagerView.swift */,
 			);
 			path = View;
@@ -596,10 +600,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA09F6AA22C9A2D8003FB213 /* PopAlert */ = {
+			isa = PBXGroup;
+			children = (
+				ED3978E62103135C00FA6BDF /* CAlertView */,
+				FA09F6AB22C9A2FB003FB213 /* BasePopUpView.xib */,
+			);
+			path = PopAlert;
+			sourceTree = "<group>";
+		};
 		FAA2BF14228A6EBD00688422 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				FAA2BF15228A6EE400688422 /* StandardListController.swift */,
+				FA09F6A822C9A2AA003FB213 /* BaseAlertController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -801,6 +815,7 @@
 				ED836FFF20F6F5DA00CFC549 /* Proxima Nova Black.otf in Resources */,
 				ED83700220F6F5DA00CFC549 /* Proxima Nova Thin.otf in Resources */,
 				ED69DB4E21438A7B001273FB /* readme.md in Resources */,
+				FA09F6AC22C9A2FB003FB213 /* BasePopUpView.xib in Resources */,
 				ED3978E521030BDF00FA6BDF /* LoadIndicatorView.xib in Resources */,
 				ED85803121119E7E00BE9D95 /* TabStripPager.storyboard in Resources */,
 				ED83701D20F709A900CFC549 /* Auth.storyboard in Resources */,
@@ -939,6 +954,7 @@
 				ED83702D20F70E5700CFC549 /* NotificationHelper.swift in Sources */,
 				FAA8278F228D1C0300B91749 /* PluralAppStrings.swift in Sources */,
 				ED83700A20F708D700CFC549 /* AppColor.swift in Sources */,
+				FA09F6A922C9A2AA003FB213 /* BaseAlertController.swift in Sources */,
 				FAA8279F228D2BE500B91749 /* AppStrings.swift in Sources */,
 				ED83703120F7121200CFC549 /* Notify.swift in Sources */,
 				ED83702920F70CD800CFC549 /* Profile.swift in Sources */,

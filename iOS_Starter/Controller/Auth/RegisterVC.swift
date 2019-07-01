@@ -60,9 +60,10 @@ class RegisterVC: UIViewController {
         }) { [weak self] (text) in
             LoadIndicatorView.shared.stopAnimating()
             
-            self?.cAlertShow(title: nil, message: text, action: {
+            self?.baseAlertShow(title: nil, message: text, action: {
                 self?.login()
             })
+            
         }
     }
 

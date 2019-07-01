@@ -63,6 +63,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NVActivityIndicatorView.DEFAULT_TYPE = .ballPulse
         
+        BaseAlertController.appearance.backgroundColor = UIColor.yellow
+        BaseAlertController.appearance.titleColor      = UIColor.blue
+        BaseAlertController.appearance.messageColor    = UIColor.brown
+        BaseAlertController.appearance.dismissColor    = UIColor.red
+        BaseAlertController.appearance.okeColor        = UIColor.purple
+        
         IQKeyboardManager.shared.enable = true
     }
     

@@ -74,8 +74,7 @@ class EditProfileVC: UIViewController {
             if let nc = self?.presentingViewController as? UINavigationController, let vc = nc.topViewController as? ProfileVC {
                 vc.setupView()
             }
-            
-            self?.cAlertShow(title: nil, message: text, isCancelable: false, action: {
+            self?.baseAlertShow(title: nil, message: "Apakah Anda yakin ingin keluar?", action: { [weak self] in
                 self?.dismiss(animated: true, completion: nil)
             })
         }
@@ -86,11 +85,11 @@ class EditProfileVC: UIViewController {
     /// - Parameter image: new image that want to update
     func savePhotoProfile(image: UIImage?) {
         viewModel.editPhoto(image, onFailed: { [weak self] (message) in
-            self?.cAlertShow(message: message)
+            self?.baseAlertShow(title: nil, message: message, action: nil)
         }) { [weak self] (message) in
             self?.setupView()
             
-            self?.cAlertShow(message: message)
+            self?.baseAlertShow(title: nil, message: message, action: nil)
         }
     }
     
