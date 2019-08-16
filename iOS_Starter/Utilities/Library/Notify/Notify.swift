@@ -228,7 +228,6 @@ class Notify: UIView {
         titleLbl.textColor     = appearance.titleColor
         titleLbl.numberOfLines = 2
         titleLbl.textAlignment = appearance.textAlign
-        titleLbl.backgroundColor = .red
         self.addSubview(titleLbl)
         
         // Detail view
@@ -238,7 +237,6 @@ class Notify: UIView {
         let detailY          = titleLbl.frame.maxY + 3
         let detailRect       = CGRect(x: detailX, y: detailY, width: detailW, height: detailH)
         let detailLbl        = UILabel(frame: detailRect)
-        detailLbl.backgroundColor = .yellow
         if !detail.isEmpty {
             detailLbl.numberOfLines = 0
             detailLbl.font          = appearance.detailFont
