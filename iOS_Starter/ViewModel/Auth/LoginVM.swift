@@ -42,8 +42,8 @@ class LoginVM {
         onSuccess?("Sukses")
         
         // Make request to server
-//        ApiHelper.shared.example(value: <#T##String#>) { (json, isSuccess, message) in
-//            is isSuccess {
+//        _ = ApiHelper.shared.example(value: <#T##String#>) { (json, isSuccess, message) in
+//            if isSuccess {
 //                onSuccess?("Sukses")
 //            } else {
 //                onFailed?(message)

@@ -35,11 +35,12 @@ target 'iOS_Starter' do
     use_frameworks!
     shared_pods
     
-    # Pods for ReimbustPro
+    # Pods for iOS_Starter
     
-    #  target 'ReimbustProUITests' do
-    #    inherit! :search_paths
-    #    # Pods for testing
-    #  end
     
+end
+
+target 'iOS_StarterTests' do
+  shared_pods
+  
 end
