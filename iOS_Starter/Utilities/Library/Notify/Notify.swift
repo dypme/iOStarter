@@ -338,7 +338,7 @@ class Notify: UIView {
         var detailColor                = UIColor.black
         var titleFont: UIFont          = UIFont.boldSystemFont(ofSize: 14)
         var detailFont: UIFont         = UIFont.systemFont(ofSize: 12)
-        var backgroundColor            = UIColor.white
+        var backgroundColor            = UIColor.clear
         var textAlign: NSTextAlignment = .left
     }
     

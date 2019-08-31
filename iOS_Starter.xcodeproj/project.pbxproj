@@ -95,6 +95,10 @@
 		FA29D1F223168394007E5F49 /* ErrorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83700820F708D700CFC549 /* ErrorConstant.swift */; };
 		FA29D1F3231683A3007E5F49 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83702A20F70D4D00CFC549 /* UserSession.swift */; };
 		FA29D1F423168FE5007E5F49 /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED836FE120F6F4AE00CFC549 /* ApiHelper.swift */; };
+		FA2CAF1D2317B37900507A90 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED836FE220F6F4AE00CFC549 /* Extension.swift */; };
+		FA2CAF1E2317B39F00507A90 /* LocalizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA827A8228D351200B91749 /* LocalizeHelper.swift */; };
+		FA3AD5412318BF6B000B17C6 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AD5402318BF6B000B17C6 /* NavigationBar.swift */; };
+		FA3AD5432318C752000B17C6 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AD5422318C752000B17C6 /* NavigationItem.swift */; };
 		FAA2BF16228A6EE400688422 /* StandardListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2BF15228A6EE400688422 /* StandardListController.swift */; };
 		FAA8278F228D1C0300B91749 /* PluralAppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8278E228D1C0200B91749 /* PluralAppStrings.swift */; };
 		FAA82799228D2B1300B91749 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAA8277D228D0DDB00B91749 /* Localizable.strings */; };
@@ -219,6 +223,8 @@
 		FA29D1E623167D3B007E5F49 /* iOS_StarterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_StarterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA29D1E823167D3C007E5F49 /* iOS_StarterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_StarterTests.swift; sourceTree = "<group>"; };
 		FA29D1EA23167D3C007E5F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3AD5402318BF6B000B17C6 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		FA3AD5422318C752000B17C6 /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
 		FAA2BF15228A6EE400688422 /* StandardListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardListController.swift; sourceTree = "<group>"; };
 		FAA8277E228D0DE400B91749 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FAA8278E228D1C0200B91749 /* PluralAppStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluralAppStrings.swift; sourceTree = "<group>"; };
@@ -345,6 +351,7 @@
 				ED836FEC20F6F5C100CFC549 /* Constants */,
 				ED836FDC20F6E32C00CFC549 /* Resource */,
 				ED836FE020F6F4AE00CFC549 /* Utilities */,
+				FA3AD53F2318BF3D000B17C6 /* Components */,
 				ED83702720F70CCB00CFC549 /* Model */,
 				FACD939E22310DC0004D6251 /* ViewModel */,
 				EDCE31AD210861CD00DE0957 /* Cell */,
@@ -618,6 +625,15 @@
 				FA29D1EA23167D3C007E5F49 /* Info.plist */,
 			);
 			path = iOS_StarterTests;
+			sourceTree = "<group>";
+		};
+		FA3AD53F2318BF3D000B17C6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FA3AD5402318BF6B000B17C6 /* NavigationBar.swift */,
+				FA3AD5422318C752000B17C6 /* NavigationItem.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		FAA2BF14228A6EBD00688422 /* Base */ = {
@@ -992,6 +1008,7 @@
 				FAA827A9228D351200B91749 /* LocalizeHelper.swift in Sources */,
 				ED49392F21096E650064C50C /* TabBarMenuVC.swift in Sources */,
 				ED83703220F7121200CFC549 /* KeyboardManager.swift in Sources */,
+				FA3AD5412318BF6B000B17C6 /* NavigationBar.swift in Sources */,
 				ED85802D21119AA500BE9D95 /* WormTabStripButton.swift in Sources */,
 				ED83702620F70AE100CFC549 /* UIColorExtension.swift in Sources */,
 				ED836FE620F6F4AE00CFC549 /* ApiHelper.swift in Sources */,
@@ -1033,6 +1050,7 @@
 				ED3978DF2103047C00FA6BDF /* RegisterVM.swift in Sources */,
 				ED2E69922109AB760086385A /* ErrorView.swift in Sources */,
 				ED83700B20F708D700CFC549 /* AppAssets.swift in Sources */,
+				FA3AD5432318C752000B17C6 /* NavigationItem.swift in Sources */,
 				ED8580382111A08600BE9D95 /* TabStripVM.swift in Sources */,
 				EDCEE55C21071EB3001EE0FF /* Menu.swift in Sources */,
 				ED2A4338212A5E3A00F0379E /* CheckBox.swift in Sources */,
@@ -1061,6 +1079,8 @@
 			files = (
 				FA29D1F423168FE5007E5F49 /* ApiHelper.swift in Sources */,
 				FA29D1F023168368007E5F49 /* LoginVM.swift in Sources */,
+				FA2CAF1E2317B39F00507A90 /* LocalizeHelper.swift in Sources */,
+				FA2CAF1D2317B37900507A90 /* Extension.swift in Sources */,
 				FA29D1F3231683A3007E5F49 /* UserSession.swift in Sources */,
 				FA29D1F123168388007E5F49 /* Profile.swift in Sources */,
 				FA29D1F223168394007E5F49 /* ErrorConstant.swift in Sources */,

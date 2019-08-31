@@ -101,16 +101,17 @@ extension TemplateContentListVC {
         tableView.deselectRow(at: indexPath, animated: false)
         if indexPath.row % 2 == 0 {
             baseAlertShow(title: "Alert", message: "Content of alert", action: nil)
-        } else {
+            return
+        } else if indexPath.row % 3 == 0 {
             let alert = UIAlertController(title: "Alert", message: "Content of alert", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
             let submit = UIAlertAction(title: "Submit", style: .default, handler: nil)
             alert.addAction(cancel)
             alert.addAction(submit)
             self.present(alert, animated: true, completion: nil)
+            return
         }
         
-        return;
         let vc = StoryboardScene.TemplateContent.templateContentDetailVC.instantiate()
         vc.viewModel = viewModel.viewModelOfItem(at: indexPath)
         
