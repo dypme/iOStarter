@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
+enum Direction {
+    case left
+    case right
+    case top
+    case bottom
+}
+
 extension CAGradientLayer {
-    enum Direction {
-        case left
-        case right
-        case top
-        case bottom
-    }
-    
     /// Initailize gradient layer with specific frame, colors for gradient, and direction of gradient
     ///
     /// - Parameters:
@@ -192,7 +192,7 @@ extension UIView {
     /// - Parameters:
     ///   - colors: Color of gradient layer
     ///   - direction: Direction of gradient layer
-    func backgroundGradient(colors: [UIColor], direction: CAGradientLayer.Direction = .top) {
+    func backgroundGradient(colors: [UIColor], direction: Direction = .top) {
         self.layoutIfNeeded()
         if let sublayers = layer.sublayers {
             for aLayer in sublayers {

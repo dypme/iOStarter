@@ -100,6 +100,7 @@
 		FA3AD5412318BF6B000B17C6 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AD5402318BF6B000B17C6 /* NavigationBar.swift */; };
 		FA3AD5432318C752000B17C6 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AD5422318C752000B17C6 /* NavigationItem.swift */; };
 		FAA2BF16228A6EE400688422 /* StandardListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2BF15228A6EE400688422 /* StandardListController.swift */; };
+		FAA686C2231CEDD100C629CE /* KWWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA686C1231CEDD100C629CE /* KWWebView.swift */; };
 		FAA8278F228D1C0300B91749 /* PluralAppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8278E228D1C0200B91749 /* PluralAppStrings.swift */; };
 		FAA82799228D2B1300B91749 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FAA8277D228D0DDB00B91749 /* Localizable.strings */; };
 		FAA8279F228D2BE500B91749 /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8279E228D2BE500B91749 /* AppStrings.swift */; };
@@ -226,6 +227,7 @@
 		FA3AD5402318BF6B000B17C6 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		FA3AD5422318C752000B17C6 /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
 		FAA2BF15228A6EE400688422 /* StandardListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardListController.swift; sourceTree = "<group>"; };
+		FAA686C1231CEDD100C629CE /* KWWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KWWebView.swift; sourceTree = "<group>"; };
 		FAA8277E228D0DE400B91749 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FAA8278E228D1C0200B91749 /* PluralAppStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluralAppStrings.swift; sourceTree = "<group>"; };
 		FAA8279B228D2B1C00B91749 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -632,6 +634,7 @@
 			children = (
 				FA3AD5402318BF6B000B17C6 /* NavigationBar.swift */,
 				FA3AD5422318C752000B17C6 /* NavigationItem.swift */,
+				FAA686C1231CEDD100C629CE /* KWWebView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1060,6 +1063,7 @@
 				ED836FE720F6F4AE00CFC549 /* Extension.swift in Sources */,
 				ED83701720F7094000CFC549 /* ForgotPassVM.swift in Sources */,
 				EDCEE55921071D8B001EE0FF /* JVFloatingDrawerView.m in Sources */,
+				FAA686C2231CEDD100C629CE /* KWWebView.swift in Sources */,
 				ED83700E20F708D700CFC549 /* AppStoryboard.swift in Sources */,
 				ED2E69892109741B0086385A /* TemplateContentListVC.swift in Sources */,
 				EDCE31B1210863C800DE0957 /* MenuItemVM.swift in Sources */,
