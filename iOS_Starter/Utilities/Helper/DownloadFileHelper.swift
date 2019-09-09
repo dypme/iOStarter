@@ -46,33 +46,44 @@ class DirectoryFileHelper {
     /// - Parameter url: url of file
     /// - Returns: File data and full file path
     static func file(from url: URL) -> (data: Data?, url: String) {
-        let fileName = url.lastPathComponent
+        let fileName = url.lastPathComponent.removingPercentEncoding?.replacingOccurrences(of: " ", with: "_") ?? ""
         
         return file(name: fileName)
     }
 }
 
 class DownloadFileHelper {
+    private static var queue: [(url: URL, data: Data?)] = []
+    
     /// Data for resuming paused download data
     private var resumeData: Data?
     /// Result of download data
     private var downloadData: Data?
-    /// Url to download
-    private var downloadUrl: URL?
+    /// Url to download with regenerate to valid download url
+    private var downloadUrl: URL? {
+        if let url = _dlUrl, UIApplication.shared.canOpenURL(url) {
+            return url
+        }
+        let urlPercentEncoding = _dlUrl?.absoluteString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        return URL(string: urlPercentEncoding)
+    }
+    /// Original url to download
+    private var _dlUrl: URL?
     
     /// Initialize download url
     ///
     /// - Parameter url: File url will be download
     init(url: URL?) {
-        downloadUrl = url
+        _dlUrl = url
     }
     
     /// Initialize url from string type data
     ///
     /// - Parameter string: File url will be download
     init(url string: String) {
-        downloadUrl = URL(string: string)
+        _dlUrl = URL(string: string)
     }
+    
     /// Starting download file
     ///
     /// - Parameters:
@@ -80,9 +91,9 @@ class DownloadFileHelper {
     ///   - completion: Complete download progress closure
     func fetch(progress: ((Progress) -> Void)? = nil, completion: @escaping ((Data?, String) -> Void)) {
         guard let downloadUrl = downloadUrl else {
-            
             return
         }
+        
         let localFile = DirectoryFileHelper.file(from: downloadUrl)
         guard localFile.data == nil else {
             completion(localFile.data, localFile.url)
@@ -95,12 +106,19 @@ class DownloadFileHelper {
         
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             let documentsURL = URL(fileURLWithPath: savedDirectory)
-            let fileURL = documentsURL.appendingPathComponent(downloadUrl.lastPathComponent)
+            let fileName = downloadUrl.lastPathComponent
+                .removingPercentEncoding?.replacingOccurrences(of: " ", with: "_") ?? ""
+            let fileURL = documentsURL.appendingPathComponent(fileName)
             
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         
         let request: DownloadRequest
+        if let data = DownloadFileHelper.queue.first(where: { $0.url == downloadUrl }) {
+            self.resumeData = data.data
+        } else {
+            DownloadFileHelper.queue.append((downloadUrl, self.resumeData))
+        }
         if let resumeData = resumeData {
             request = Alamofire.download(resumingWith: resumeData, to: destination).downloadProgress { (progressDownload) in
                 progress?(progressDownload)
@@ -116,10 +134,18 @@ class DownloadFileHelper {
             case .success(let data):
                 self.downloadData = data
                 
+                if let index = DownloadFileHelper.queue.firstIndex(where: { $0.url == downloadUrl }) {
+                    DownloadFileHelper.queue.remove(at: index)
+                }
+                
                 let localFile = DirectoryFileHelper.file(from: downloadUrl)
                 completion(localFile.data, localFile.url)
             case .failure:
                 self.resumeData = response.resumeData
+                
+                if let index = DownloadFileHelper.queue.firstIndex(where: { $0.url == downloadUrl }) {
+                    DownloadFileHelper.queue[index].data = self.resumeData
+                }
             }
         }
     }

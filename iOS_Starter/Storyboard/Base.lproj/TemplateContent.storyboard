@@ -95,7 +95,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZGm-5E-meq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ContentList" id="gS4-9i-nb4">
+                    <navigationItem key="navigationItem" title="ContentList" id="gS4-9i-nb4" customClass="NavigationItem" customModule="iOS_Starter" customModuleProvider="target">
                         <barButtonItem key="backBarButtonItem" title=" " id="i30-5j-9ex"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

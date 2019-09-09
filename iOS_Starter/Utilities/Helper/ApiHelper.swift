@@ -85,7 +85,7 @@ struct ApiHelper {
     ///   - parameters: Parameters used in requesting
     ///   - completion: Callback response from API
     /// - Returns: Data when requesting
-    private func apiRequest(url: URL, method: HTTPMethod, parameters: Parameters, completion: @escaping((JSON, Bool, String) -> Void)) -> DataRequest? {
+    private func apiRequest(url: URL, method: Alamofire.HTTPMethod, parameters: Parameters, completion: @escaping((JSON, Bool, String) -> Void)) -> DataRequest? {
         return afManager?.request(url, method: method, parameters: parameters, headers: headers).responseJSON { (response) in
             if response.result.isSuccess {
                 print("Get response request : \(response.result.value ?? "")")
@@ -114,7 +114,7 @@ struct ApiHelper {
     ///   - parameters: All parameters needed when requesting, recomended using only 2 data type (String and Data), Data used for file to upload
     ///   - mimeType: Mime type for file upload. Reference: https://www.sitepoint.com/mime-types-complete-list/ find upload file extention you use
     ///   - completion: Callback response from API
-    private func uploadRequest(url: URL, method: HTTPMethod, parameters: [String : [String : Any]], completion: @escaping((JSON, Bool, String) -> Void)) {
+    private func uploadRequest(url: URL, method: Alamofire.HTTPMethod, parameters: [String : [String : Any]], completion: @escaping((JSON, Bool, String) -> Void)) {
         afManager?.upload(multipartFormData: { (multipartFormData) in
             for (key, value) in parameters {
                 for (mimeType, actualValue) in value {

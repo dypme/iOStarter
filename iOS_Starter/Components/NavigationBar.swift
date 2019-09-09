@@ -8,12 +8,17 @@
 
 import UIKit
 
-class NavigationBar: UINavigationBar {
+class NavAppearance {
+    static let shared = NavAppearance()
     
-    class NavigationApperance {
-        var titleFont: UIFont   = UIFont.systemFont(ofSize: 17)
-        let titleColor: UIColor = UIColor.black
-    }
+    var titleFont: UIFont?             = nil
+    var subtitleFont: UIFont?          = nil
+    let titleColor: UIColor?           = nil
+    let subtitleColor: UIColor?        = nil
+    var textAlignment: NSTextAlignment = .center
+}
+
+class NavigationBar: UINavigationBar {
 
     private var navigationView: UIView?
     
@@ -40,14 +45,14 @@ class NavigationBar: UINavigationBar {
     }
     
     private var defaultTitleFont: UIFont?
-    var titleFont: UIFont? = nil {
+    var titleFont: UIFont? = NavAppearance.shared.titleFont {
         didSet {
             updateTitle()
         }
     }
     
     private var defaultTitleColor: UIColor?
-    var titleColor: UIColor? = nil {
+    var titleColor: UIColor? = NavAppearance.shared.titleColor {
         didSet {
             updateTitle()
         }
