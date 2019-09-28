@@ -3,12 +3,11 @@ platform :ios, '9.0'
 
 def shared_pods
     
-    pod 'IQKeyboardManagerSwift', '~> 6.2'
-    pod 'Alamofire', '~> 4.8'
+    pod 'IQKeyboardManagerSwift', '~> 6.5'
+    pod 'Alamofire', '~> 4.9'
     pod 'SwiftyJSON', '~> 4.2'
     pod 'Kingfisher', '~> 4.10'
     pod 'SwiftGen', '6.1.0'
-    pod 'Firebase/Core'
     pod 'Firebase/Messaging'
     pod 'Fabric'
     pod 'Crashlytics'
@@ -23,7 +22,7 @@ def shared_pods
     pod 'FSPagerView', '~> 0.8'
     
     # Using for localization application. Documentation: https://github.com/Decybel07/L10n-swift
-    pod 'L10n-swift', '~> 5.4'
+    pod 'L10n-swift', '~> 5.5'
     
     # Check this out: https://github.com/hyperoslo/Lightbox , image/ video preview (zoom in/ out)
     #pod 'Lightbox'

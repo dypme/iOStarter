@@ -258,7 +258,7 @@ class PickerField: UIView {
         if type == .picker {
             if !data.isEmpty {
                 if isAlwaysUpdate {
-                    guard let index = data.index(of: aData) else {
+                    guard let index = data.firstIndex(of: aData) else {
                         print("Your select data not contains in master data")
                         return
                     }
