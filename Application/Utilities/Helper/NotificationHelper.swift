@@ -148,6 +148,8 @@ class NotificationHelper {
         case .background:
             // Make a action when application not use/ inactive/ not in application
             self.exampleAction()
+        default:
+            break
         }
     }
     

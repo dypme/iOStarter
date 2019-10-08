@@ -9,6 +9,7 @@ def shared_pods
     pod 'Kingfisher', '~> 4.10'
     pod 'SwiftGen', '6.1.0'
     pod 'Firebase/Messaging'
+    pod 'Firebase/Analytics'
     pod 'Fabric'
     pod 'Crashlytics'
     

@@ -45,9 +45,6 @@ class KWWebView: UIView {
 
         super.init(coder: aDecoder)
         self.addSubview(webView)
-        
-        self.backgroundColor = .red
-        webView.backgroundColor = .yellow
     }
     
     override func awakeFromNib() {

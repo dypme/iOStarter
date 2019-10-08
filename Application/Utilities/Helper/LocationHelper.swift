@@ -90,6 +90,8 @@ class LocationHelper: NSObject {
                     print("Not determined")
                 case .restricted:
                     print("Restricted")
+                default:
+                    break
                 }
             }
         }

@@ -395,7 +395,7 @@ class FloaticonField: FloaticonFieldEffects {
     private func calculateHeight(withConstrainedWidth width: CGFloat, string: String) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = string.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [
-            NSAttributedString.Key.font: placeholderFontFromFont(font!)
+            NSAttributedString.Key.font: placeholderFontFromFont(font!)!
             ], context: nil)
         
         return ceil(boundingBox.height)

@@ -88,7 +88,7 @@
 		EDCEE55C21071EB3001EE0FF /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55B21071EB3001EE0FF /* Menu.swift */; };
 		FA09F6A922C9A2AA003FB213 /* BaseAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09F6A822C9A2AA003FB213 /* BaseAlertController.swift */; };
 		FA09F6AC22C9A2FB003FB213 /* BasePopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA09F6AB22C9A2FB003FB213 /* BasePopUpView.xib */; };
-		FA29D1E923167D3C007E5F49 /* iOS_StarterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29D1E823167D3C007E5F49 /* iOS_StarterTests.swift */; };
+		FA29D1E923167D3C007E5F49 /* ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29D1E823167D3C007E5F49 /* ApplicationTests.swift */; };
 		FA29D1F023168368007E5F49 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83701420F7094000CFC549 /* LoginVM.swift */; };
 		FA29D1F123168388007E5F49 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83702820F70CD800CFC549 /* Profile.swift */; };
 		FA29D1F223168394007E5F49 /* ErrorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83700820F708D700CFC549 /* ErrorConstant.swift */; };
@@ -221,7 +221,7 @@
 		FA09F6A822C9A2AA003FB213 /* BaseAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAlertController.swift; sourceTree = "<group>"; };
 		FA09F6AB22C9A2FB003FB213 /* BasePopUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasePopUpView.xib; sourceTree = "<group>"; };
 		FA29D1E623167D3B007E5F49 /* iOS_StarterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_StarterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA29D1E823167D3C007E5F49 /* iOS_StarterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_StarterTests.swift; sourceTree = "<group>"; };
+		FA29D1E823167D3C007E5F49 /* ApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTests.swift; sourceTree = "<group>"; };
 		FA29D1EA23167D3C007E5F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA3AD5402318BF6B000B17C6 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		FA3AD5422318C752000B17C6 /* NavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationItem.swift; sourceTree = "<group>"; };
@@ -331,8 +331,8 @@
 			children = (
 				ED836FEA20F6F5B400CFC549 /* swiftgen.yml */,
 				ED69DB4D21438A7A001273FB /* readme.md */,
-				ED836FBB20F6E18100CFC549 /* iOS_Starter */,
-				FA29D1E723167D3C007E5F49 /* iOS_StarterTests */,
+				ED836FBB20F6E18100CFC549 /* Application */,
+				FA29D1E723167D3C007E5F49 /* ApplicationTests */,
 				ED836FBA20F6E18100CFC549 /* Products */,
 				A71F2362EF684F83E2DFC61D /* Pods */,
 				F81EBD5F822151E6BCBF0AD6 /* Frameworks */,
@@ -348,7 +348,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ED836FBB20F6E18100CFC549 /* iOS_Starter */ = {
+		ED836FBB20F6E18100CFC549 /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				ED836FEC20F6F5C100CFC549 /* Constants */,
@@ -363,7 +363,7 @@
 				ED836FDD20F6E3A400CFC549 /* Storyboard */,
 				ED836FDE20F6E3BA00CFC549 /* Supporting Files */,
 			);
-			path = iOS_Starter;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		ED836FDC20F6E32C00CFC549 /* Resource */ = {
@@ -622,13 +622,13 @@
 			path = PopAlert;
 			sourceTree = "<group>";
 		};
-		FA29D1E723167D3C007E5F49 /* iOS_StarterTests */ = {
+		FA29D1E723167D3C007E5F49 /* ApplicationTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA29D1E823167D3C007E5F49 /* iOS_StarterTests.swift */,
+				FA29D1E823167D3C007E5F49 /* ApplicationTests.swift */,
 				FA29D1EA23167D3C007E5F49 /* Info.plist */,
 			);
-			path = iOS_StarterTests;
+			path = ApplicationTests;
 			sourceTree = "<group>";
 		};
 		FA3AD53F2318BF3D000B17C6 /* Components */ = {
@@ -792,7 +792,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Crocodic Studio";
 				TargetAttributes = {
 					ED836FB820F6E18100CFC549 = {
@@ -990,7 +990,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = Crashlytics;
 			outputFileListPaths = (
@@ -1090,7 +1090,7 @@
 				FA29D1F3231683A3007E5F49 /* UserSession.swift in Sources */,
 				FA29D1F123168388007E5F49 /* Profile.swift in Sources */,
 				FA29D1F223168394007E5F49 /* ErrorConstant.swift in Sources */,
-				FA29D1E923167D3C007E5F49 /* iOS_StarterTests.swift in Sources */,
+				FA29D1E923167D3C007E5F49 /* ApplicationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1195,6 +1195,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1202,6 +1203,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1253,6 +1255,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1260,6 +1263,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1296,12 +1300,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JB73KN4XYE;
-				INFOPLIST_FILE = "$(EXECUTABLE_NAME)/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Application/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crocodic.template;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/iOS_Starter/Supporting Files/Project-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Application/Supporting Files/Project-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1314,12 +1318,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JB73KN4XYE;
-				INFOPLIST_FILE = "$(EXECUTABLE_NAME)/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Application/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crocodic.template;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/iOS_Starter/Supporting Files/Project-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Application/Supporting Files/Project-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

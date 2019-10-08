@@ -1,22 +1,26 @@
-Cara merubah nama proyek secara full
-1. Siapkan folder untuk melakukan perubahan pada proyek, pastikan di folder tsb tidak ada file apapun (Contoh folder: "NewProjectFolder")
-2. Copy proyek (iOS_Starter) ke folder yg telah dibuat 
-3. Buka terminal
-4. Masuk ke folder yg telah dibuat\
-cd /Path/NewProjectFolder
-5. Install tool tambahan (bila sudah pernah, lewati)\
-brew install rename ack
-6. Masukkan code \
-find . -name 'iOS_Starter*' -print0 | xargs -0 rename --subst-all 'iOS_Starter' 'NamaProjekBaru'\
-Tidak masalah bila output ada error
-7. Ulangi langkah nomor 6 hingga tidak ada output error
-8. Cek ulang bahwa semua kata iOS_Starter sudah berubah semua (Hasil outpu akan kosong) dengan code \
-find . -name 'iOS_Starter*'
-9. Masukkan code\
-ack --literal --files-with-matches 'iOS_Starter' --print0 | xargs -0 sed -i '' 's/iOS_Starter/NamaProjekBaru/g'
-10. Cek lagi\
-ack --literal 'iOS_Starter'
-11. Install ulang pod\
-pod install
-12. Build proyek
-13. Pindah/ Cut proyek baru ke folder yg sesuai/ biasa untuk menyimpan proyek
+Change name of Your own project:
+
+* You can rename Your project folder first if want
+
+Step 1 - Rename the project
+- Open Xcode
+- Click on the project you want to rename in the "Project navigator" on the left of the Xcode view.
+- On the right select the "File inspector" and the name of your project should be in there under "Identity and Type", change it to the new name.
+- Click "Rename" in a dropdown menu
+- Check file AppStoryboard.swift in folder "Application/Constant" and update it OLD name to NEW name
+
+Step 2 - Rename the Scheme
+- In the top bar (near "Stop" button), there is a scheme for your OLD product, click on it, then go to "Manage schemes"
+- Click on the OLD name in the scheme, and it will become editable, change the name
+
+Step 3 - Update Pods
+- Quit Xcode.
+- In the master folder, delete OLD.xcworkspace
+- In Xcode: choose and edit Podfile from the project navigator. You should see a target clause with the OLD name. Change it to NEW.
+- Run pod install
+- Open NEW.xcworkspace
+
+● Clean and build Your Project
+
+Reference: 
+https://stackoverflow.com/a/35500038
