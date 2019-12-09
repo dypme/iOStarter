@@ -27,6 +27,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "ED836FB820F6E18100CFC549"
+            BuildableName = "iOS_Starter.app"
+            BlueprintName = "iOS_Starter"
+            ReferencedContainer = "container:iOS_Starter.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -39,17 +48,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ED836FB820F6E18100CFC549"
-            BuildableName = "iOS_Starter.app"
-            BlueprintName = "iOS_Starter"
-            ReferencedContainer = "container:iOS_Starter.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -66,13 +64,20 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED836FB820F6E18100CFC549"
+            BuildableName = "iOStarter.app"
+            BlueprintName = "iOStarter"
+            ReferencedContainer = "container:iOStarter.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "ED836FB820F6E18100CFC549"
             BuildableName = "iOS_Starter.app"
             BlueprintName = "iOS_Starter"
             ReferencedContainer = "container:iOS_Starter.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
+      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

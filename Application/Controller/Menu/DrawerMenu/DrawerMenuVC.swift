@@ -61,6 +61,7 @@ class DrawerMenuVC: UIViewController {
                     AppDelegate.shared.mainVC?.dismiss(animated: true, completion: nil)
                 } else {
                     let vc = StoryboardScene.Auth.loginVC.instantiate()
+                    vc.modalPresentationStyle = .fullScreen
                     self?.present(vc, animated: true, completion: nil)
                 }
             })

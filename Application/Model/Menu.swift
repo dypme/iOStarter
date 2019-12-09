@@ -15,8 +15,7 @@ class Menu {
     /// - logout: Logout menu
     enum MenuType: Int {
         case home = 0
-        case templateContent = 1
-        case tabStripContent = 2
+        case exampleContent = 1
         case profile = 3
         case logout = 4
     }

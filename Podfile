@@ -30,7 +30,7 @@ def shared_pods
 
 end
 
-target 'iOS_Starter' do
+target 'iOStarter' do
     # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
     use_frameworks!
     shared_pods
@@ -40,7 +40,7 @@ target 'iOS_Starter' do
     
 end
 
-target 'iOS_StarterTests' do
+target 'iOStarterTests' do
   shared_pods
   
 end

@@ -42,6 +42,8 @@ class LoadIndicatorView: UIViewController {
             self.view.frame = window.frame
             
             self.activityId.color = UIColor.white
+            self.activityId.stopAnimating()
+            self.activityId.startAnimating()
             
             window.addSubview(self.view)
         }

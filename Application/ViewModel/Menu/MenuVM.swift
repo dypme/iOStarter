@@ -23,13 +23,11 @@ class MenuVM {
     
     init() {
         let home = Menu(type: .home, name: "Home", image: "ic_home")
-        let templateContent = Menu(type: .templateContent, name: "Template Content", image: "ic_list")
-        let tabStripContent = Menu(type: .tabStripContent, name: "Content With Tab Strip", image: "ic_list")
+        let exampleContent = Menu(type: .exampleContent, name: "Example Content", image: "ic_list")
         let profile = Menu(type: .profile, name: "Profile", image: "ic_account")
         let logout = Menu(type: .logout, name: "Logout", image: "ic_logout")
         menus.append(home)
-        menus.append(templateContent)
-        menus.append(tabStripContent)
+        menus.append(exampleContent)
         menus.append(profile)
         menus.append(logout)
     }
@@ -56,12 +54,10 @@ class MenuVM {
         switch menu.type {
         case .home:
             return StoryboardScene.Main.viewController.instantiate()
-        case .templateContent:
-            return StoryboardScene.TemplateContent.templateContentListVC.instantiate()
         case .profile:
             return StoryboardScene.Profile.profileVC.instantiate()
-        case .tabStripContent:
-            return StoryboardScene.TabStripPager.tabStripPagerVC.instantiate()
+        case .exampleContent:
+            return StoryboardScene.Example.exampleListVC.instantiate()
         default:
             return nil
         }
@@ -85,14 +81,10 @@ class MenuVM {
         switch menu.type {
         case .home:
             navController = StoryboardScene.Main.viewControllerNav.instantiate()
-        case .templateContent:
-            navController = StoryboardScene.TemplateContent.templateContentListVCNav
-                .instantiate()
         case .profile:
             navController = StoryboardScene.Profile.profileVCNav.instantiate()
-        case .tabStripContent:
-            navController = StoryboardScene.TabStripPager.tabStripPagerVCNav
-                .instantiate()
+        case .exampleContent:
+            navController = StoryboardScene.Example.exampleListVCNav.instantiate()
         default:
             navController = nil
         }

@@ -75,6 +75,7 @@ class LoginVC: UIViewController {
             if AppDelegate.shared.window?.rootViewController == main {
                 self?.dismiss(animated: true, completion: nil)
             } else {
+                main.modalPresentationStyle = .fullScreen
                 self?.present(main, animated: true, completion: {
                     self?.useridFld.text = ""
                     self?.passwordFld.text = ""

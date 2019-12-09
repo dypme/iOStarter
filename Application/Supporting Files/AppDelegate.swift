@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Tabbar menu viewcontroller
         let tabBarMenu = StoryboardScene.Main.tabBarMenuVC.instantiate()
         
-        return drawerMenu
+        return tabBarMenu
     }
     /// Main view controller
     var mainVC: UIViewController?

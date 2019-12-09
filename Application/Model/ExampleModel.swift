@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 
 /// Template of model your content data. Copy this file more recommended than modify this file for your new model
-class TemplateContent {
+class ExampleModel {
     var id: Int!
     var name: String!
     var detail: String!

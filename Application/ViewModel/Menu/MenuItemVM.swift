@@ -35,8 +35,6 @@ class MenuItemVM {
     /// Identity viewcontroller for every item
     var viewController: UIViewController? {
         switch menu.type {
-        case .templateContent:
-            return StoryboardScene.TemplateContent.templateContentListVC.instantiate()
         default:
             return nil
         }
