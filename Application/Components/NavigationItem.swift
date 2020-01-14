@@ -82,74 +82,121 @@ class NavigationItem: UINavigationItem {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func setRightBarButton(_ item: UIBarButtonItem?, animated: Bool) {
+        super.setRightBarButton(item, animated: animated)
         
         updateTitle()
     }
     
-    private func updateTitle() {
-        var leftItems  = self.leftBarButtonItems ?? []
-        var rightItems = self.rightBarButtonItems ?? []
+    override func setLeftBarButton(_ item: UIBarButtonItem?, animated: Bool) {
+        super.setLeftBarButton(item, animated: animated)
         
-        func clearTitle() {
-            titleView = nil
-            if let index = leftItems.firstIndex(where: { $0.customView?.tag == 1209 }) {
-                leftItems.remove(at: index)
-            }
-            if let index = rightItems.firstIndex(where: { $0.customView?.tag == 1209 }) {
-                rightItems.remove(at: index)
-            }
-        }
-        
-        let hStackView     = UIStackView()
-        hStackView.tag     = 1209
-        hStackView.axis    = .horizontal
-        hStackView.spacing = 4
-        
-        let imageView         = UIImageView(image: image)
-        imageView.isHidden    = image == nil
+        updateTitle()
+    }
+    
+    // Components
+    private var hStackView: UIStackView = {
+        let stackView     = UIStackView()
+        stackView.tag     = 1209
+        stackView.axis    = .horizontal
+        stackView.spacing = 4
+        return stackView
+    }()
+    
+    private var vStackView: UIStackView = {
+        let stackView     = UIStackView()
+        stackView.tag     = 1219
+        stackView.axis    = .vertical
+        stackView.spacing = 0
+        return stackView
+    }()
+    
+    private var imageView: UIImageView = {
+        let imageView         = UIImageView(frame: .zero)
+//        imageView.backgroundColor = .red
+        imageView.tag         = 1220
         imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private var titleLabel: UILabel = {
+        let titleLabel = UILabel()
+//        titleLabel.backgroundColor = .green
+        titleLabel.tag = 1319
+        return titleLabel
+    }()
+    
+    private var subtitleLabel: UILabel = {
+        let subtitleLabel = UILabel()
+//        subtitleLabel.backgroundColor = .yellow
+        subtitleLabel.tag = 1320
+        return subtitleLabel
+    }()
+    
+    override init(title: String) {
+        super.init(title: title)
         
-        let vStackView     = UIStackView()
-        vStackView.axis    = .vertical
-        vStackView.spacing = 0
+        initComponents()
+        updateTitle()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         
-        let titleLabel           = UILabel()
-        titleLabel.isHidden      = title == nil || title == ""
-        titleLabel.text          = title
-        titleLabel.font          = titleFont
-        titleLabel.textColor     = titleColor
-        titleLabel.textAlignment = textAlignment
-        
-        let subtitleLabel           = UILabel()
-        subtitleLabel.isHidden      = subtitle == nil || subtitle == ""
-        subtitleLabel.text          = subtitle
-        subtitleLabel.font          = subtitleFont ?? titleLabel.font.withSize(titleLabel.font.pointSize * 4 / 5)
-        subtitleLabel.textColor     = subtitleColor
-        subtitleLabel.textAlignment = textAlignment
-        
+        initComponents()
+        updateTitle()
+    }
+    
+    private func initComponents() {
         vStackView.addArrangedSubview(titleLabel)
         vStackView.addArrangedSubview(subtitleLabel)
         
         hStackView.addArrangedSubview(imageView)
         hStackView.addArrangedSubview(vStackView)
+    }
+    
+    private func updateTitle() {
+        var leftItems  = self.leftBarButtonItems?.filter({ $0.customView != hStackView }) ?? []
+        var rightItems = self.rightBarButtonItems?.filter({ $0.customView != hStackView }) ?? []
         
-        clearTitle()
+        imageView.image    = image
+        imageView.isHidden = image == nil
+        imageView.sizeToFit()
+        
+        titleLabel.isHidden      = title == nil || title == ""
+        titleLabel.text          = title
+        titleLabel.font          = titleFont
+        titleLabel.textColor     = titleColor
+        titleLabel.textAlignment = textAlignment
+        titleLabel.sizeToFit()
+        
+        subtitleLabel.isHidden      = subtitle == nil || subtitle == ""
+        subtitleLabel.text          = subtitle
+        subtitleLabel.font          = subtitleFont ?? titleLabel.font.withSize(titleLabel.font.pointSize * 4 / 5)
+        subtitleLabel.textColor     = subtitleColor
+        subtitleLabel.textAlignment = textAlignment
+        subtitleLabel.sizeToFit()
+        
+        vStackView.frame = .zero
+        vStackView.frame.size = CGSize(width: max(titleLabel.frame.width, subtitleLabel.frame.width), height: titleLabel.frame.height + subtitleLabel.frame.height)
+        
+        hStackView.frame = .zero
+        hStackView.frame.size = CGSize(width: imageView.frame.width + 4 + vStackView.frame.width, height: max(vStackView.frame.height, imageView.frame.height))
+        
         let barButtonTitle = UIBarButtonItem(customView: hStackView)
         switch textAlignment {
         case .left:
-            titleView = UIView()
+            titleView = UIView(frame: .zero)
             leftItems.append(barButtonTitle)
         case .right:
-            titleView = UIView()
+            titleView = UIView(frame: .zero)
             rightItems.append(barButtonTitle)
         default:
             titleView = hStackView
         }
         
-        self.setLeftBarButtonItems(leftItems, animated: false)
-        self.setRightBarButtonItems(rightItems, animated: false)
+        super.setLeftBarButtonItems(leftItems, animated: false)
+        super.setRightBarButtonItems(rightItems, animated: false)
     }
 }
 
