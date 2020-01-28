@@ -24,3 +24,9 @@ Step 3 - Update Pods
 
 Reference: 
 https://stackoverflow.com/a/35500038
+
+or
+
+You can copy "iOStarter.xctemplate" from folder "Project Templates" to "~/Library/Developer/Xcode/Templates/Project Templates" (Create first if not found).
+New project template will add on Project Templates section when you create new project.
+After that just run pod install as usual

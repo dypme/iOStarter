@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		32B1F0FE7DB3926007B26BD8 /* Pods_iOStarter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE443046AD25907E36F53E4 /* Pods_iOStarter.framework */; };
 		5CE23300EA6587C5A41029A0 /* libPods-iOStarterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1B4A9F301D3F2405CC3A2A /* libPods-iOStarterTests.a */; };
+		E27D9C3723DFEE8B00C0C129 /* ExtUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C2C23DFEE8A00C0C129 /* ExtUIImage.swift */; };
+		E27D9C3823DFEE8B00C0C129 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C2D23DFEE8A00C0C129 /* ExtUIView.swift */; };
+		E27D9C3923DFEE8B00C0C129 /* ExtInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C2E23DFEE8A00C0C129 /* ExtInt.swift */; };
+		E27D9C3A23DFEE8B00C0C129 /* ExtDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C2F23DFEE8A00C0C129 /* ExtDate.swift */; };
+		E27D9C3B23DFEE8B00C0C129 /* ExtUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3023DFEE8A00C0C129 /* ExtUITextField.swift */; };
+		E27D9C3C23DFEE8B00C0C129 /* ExtUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3123DFEE8A00C0C129 /* ExtUIApplication.swift */; };
+		E27D9C3D23DFEE8B00C0C129 /* ExtBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3223DFEE8B00C0C129 /* ExtBool.swift */; };
+		E27D9C3E23DFEE8B00C0C129 /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3323DFEE8B00C0C129 /* ExtString.swift */; };
+		E27D9C3F23DFEE8B00C0C129 /* ExtUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3423DFEE8B00C0C129 /* ExtUINavigationController.swift */; };
+		E27D9C4023DFEE8B00C0C129 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3523DFEE8B00C0C129 /* ExtUIViewController.swift */; };
+		E27D9C4123DFEE8B00C0C129 /* ExtCAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3623DFEE8B00C0C129 /* ExtCAGradientLayer.swift */; };
 		ED19EAB421213B8400C82E8F /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED19EAB321213B8400C82E8F /* LocationHelper.swift */; };
 		ED2A4336212A5E2F00F0379E /* DownloadFileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A4335212A5E2F00F0379E /* DownloadFileHelper.swift */; };
 		ED2A4338212A5E3A00F0379E /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A4337212A5E3A00F0379E /* CheckBox.swift */; };
@@ -29,7 +40,6 @@
 		ED836FC220F6E18100CFC549 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED836FC020F6E18100CFC549 /* Main.storyboard */; };
 		ED836FC420F6E18100CFC549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED836FC320F6E18100CFC549 /* Assets.xcassets */; };
 		ED836FC720F6E18100CFC549 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED836FC520F6E18100CFC549 /* LaunchScreen.storyboard */; };
-		ED836FE720F6F4AE00CFC549 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED836FE220F6F4AE00CFC549 /* Extension.swift */; };
 		ED836FE820F6F4AE00CFC549 /* FloaticonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED836FE420F6F4AE00CFC549 /* FloaticonField.swift */; };
 		ED836FE920F6F4AE00CFC549 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED836FE520F6F4AE00CFC549 /* TextFieldEffects.swift */; };
 		ED836FEB20F6F5B400CFC549 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = ED836FEA20F6F5B400CFC549 /* swiftgen.yml */; };
@@ -50,7 +60,7 @@
 		ED83701820F7094000CFC549 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83701420F7094000CFC549 /* LoginVM.swift */; };
 		ED83701D20F709A900CFC549 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED83701B20F709A900CFC549 /* Auth.storyboard */; };
 		ED83702420F70AC400CFC549 /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83702320F70AC400CFC549 /* DatabaseHelper.swift */; };
-		ED83702620F70AE100CFC549 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83702520F70AE000CFC549 /* UIColorExtension.swift */; };
+		ED83702620F70AE100CFC549 /* ExtUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83702520F70AE000CFC549 /* ExtUIColor.swift */; };
 		ED83702920F70CD800CFC549 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83702820F70CD800CFC549 /* Profile.swift */; };
 		ED83702B20F70D4D00CFC549 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83702A20F70D4D00CFC549 /* UserSession.swift */; };
 		ED83702D20F70E5700CFC549 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83702C20F70E5700CFC549 /* NotificationHelper.swift */; };
@@ -82,7 +92,6 @@
 		FA29D1F123168388007E5F49 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83702820F70CD800CFC549 /* Profile.swift */; };
 		FA29D1F223168394007E5F49 /* ErrorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83700820F708D700CFC549 /* ErrorConstant.swift */; };
 		FA29D1F3231683A3007E5F49 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED83702A20F70D4D00CFC549 /* UserSession.swift */; };
-		FA2CAF1D2317B37900507A90 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED836FE220F6F4AE00CFC549 /* Extension.swift */; };
 		FA2CAF1E2317B39F00507A90 /* LocalizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA827A8228D351200B91749 /* LocalizeHelper.swift */; };
 		FA3AD5412318BF6B000B17C6 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AD5402318BF6B000B17C6 /* NavigationBar.swift */; };
 		FA3AD5432318C752000B17C6 /* NavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3AD5422318C752000B17C6 /* NavigationItem.swift */; };
@@ -120,12 +129,22 @@
 		418DF91B5980E661D64A40FD /* Pods-iOS_Starter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Starter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_Starter/Pods-iOS_Starter.debug.xcconfig"; sourceTree = "<group>"; };
 		5394ACBD3E2D05C8BDB41F9F /* Pods-iOStarterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOStarterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOStarterTests/Pods-iOStarterTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F25438CD834046E473FDD50 /* Pods-iOStarter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOStarter.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOStarter/Pods-iOStarter.release.xcconfig"; sourceTree = "<group>"; };
-		82ED2ECC42052BADCAE7EDC0 /* Pods_iOS_Starter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Starter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2FAA04184147F7E3C117360 /* Pods-iOS_Starter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Starter.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_Starter/Pods-iOS_Starter.release.xcconfig"; sourceTree = "<group>"; };
 		AE8A69E1415DDBE14E02B7C9 /* Pods-iOStarterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOStarterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOStarterTests/Pods-iOStarterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3AE795366AA293C92B6BE79 /* Pods-iOStarter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOStarter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOStarter/Pods-iOStarter.debug.xcconfig"; sourceTree = "<group>"; };
 		DA1B4A9F301D3F2405CC3A2A /* libPods-iOStarterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOStarterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEE443046AD25907E36F53E4 /* Pods_iOStarter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOStarter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E27D9C2C23DFEE8A00C0C129 /* ExtUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIImage.swift; sourceTree = "<group>"; };
+		E27D9C2D23DFEE8A00C0C129 /* ExtUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
+		E27D9C2E23DFEE8A00C0C129 /* ExtInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtInt.swift; sourceTree = "<group>"; };
+		E27D9C2F23DFEE8A00C0C129 /* ExtDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtDate.swift; sourceTree = "<group>"; };
+		E27D9C3023DFEE8A00C0C129 /* ExtUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUITextField.swift; sourceTree = "<group>"; };
+		E27D9C3123DFEE8A00C0C129 /* ExtUIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIApplication.swift; sourceTree = "<group>"; };
+		E27D9C3223DFEE8B00C0C129 /* ExtBool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtBool.swift; sourceTree = "<group>"; };
+		E27D9C3323DFEE8B00C0C129 /* ExtString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
+		E27D9C3423DFEE8B00C0C129 /* ExtUINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUINavigationController.swift; sourceTree = "<group>"; };
+		E27D9C3523DFEE8B00C0C129 /* ExtUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
+		E27D9C3623DFEE8B00C0C129 /* ExtCAGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtCAGradientLayer.swift; sourceTree = "<group>"; };
 		E3D78B72A52821CBA95C65B3 /* Pods-iOS_StarterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_StarterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_StarterUITests/Pods-iOS_StarterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EB9FAECF6DADBD872C670046 /* Pods-iOS_StarterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_StarterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_StarterUITests/Pods-iOS_StarterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ED19EAB321213B8400C82E8F /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
@@ -154,7 +173,6 @@
 		ED836FC320F6E18100CFC549 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED836FC620F6E18100CFC549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED836FC820F6E18100CFC549 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED836FE220F6F4AE00CFC549 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		ED836FE420F6F4AE00CFC549 /* FloaticonField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloaticonField.swift; sourceTree = "<group>"; };
 		ED836FE520F6F4AE00CFC549 /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
 		ED836FEA20F6F5B400CFC549 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -176,7 +194,7 @@
 		ED83701C20F709A900CFC549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
 		ED83701F20F70A3500CFC549 /* Project-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Project-Bridging-Header.h"; sourceTree = "<group>"; };
 		ED83702320F70AC400CFC549 /* DatabaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
-		ED83702520F70AE000CFC549 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		ED83702520F70AE000CFC549 /* ExtUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIColor.swift; sourceTree = "<group>"; };
 		ED83702820F70CD800CFC549 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		ED83702A20F70D4D00CFC549 /* UserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		ED83702C20F70E5700CFC549 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
@@ -495,8 +513,18 @@
 		ED83702220F70A9800CFC549 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				ED836FE220F6F4AE00CFC549 /* Extension.swift */,
-				ED83702520F70AE000CFC549 /* UIColorExtension.swift */,
+				E27D9C3223DFEE8B00C0C129 /* ExtBool.swift */,
+				E27D9C3623DFEE8B00C0C129 /* ExtCAGradientLayer.swift */,
+				E27D9C2F23DFEE8A00C0C129 /* ExtDate.swift */,
+				E27D9C2E23DFEE8A00C0C129 /* ExtInt.swift */,
+				E27D9C3323DFEE8B00C0C129 /* ExtString.swift */,
+				E27D9C3123DFEE8A00C0C129 /* ExtUIApplication.swift */,
+				E27D9C2C23DFEE8A00C0C129 /* ExtUIImage.swift */,
+				E27D9C3423DFEE8B00C0C129 /* ExtUINavigationController.swift */,
+				E27D9C3023DFEE8A00C0C129 /* ExtUITextField.swift */,
+				E27D9C2D23DFEE8A00C0C129 /* ExtUIView.swift */,
+				E27D9C3523DFEE8B00C0C129 /* ExtUIViewController.swift */,
+				ED83702520F70AE000CFC549 /* ExtUIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -979,22 +1007,26 @@
 			files = (
 				ED19EAB421213B8400C82E8F /* LocationHelper.swift in Sources */,
 				EDCE31AB2108502D00DE0957 /* ToastView.swift in Sources */,
+				E27D9C4123DFEE8B00C0C129 /* ExtCAGradientLayer.swift in Sources */,
 				FAA827A9228D351200B91749 /* LocalizeHelper.swift in Sources */,
 				ED49392F21096E650064C50C /* TabBarMenuVC.swift in Sources */,
 				ED83703220F7121200CFC549 /* KeyboardManager.swift in Sources */,
 				FA3AD5412318BF6B000B17C6 /* NavigationBar.swift in Sources */,
-				ED83702620F70AE100CFC549 /* UIColorExtension.swift in Sources */,
+				ED83702620F70AE100CFC549 /* ExtUIColor.swift in Sources */,
 				EDCE31A3210828A100DE0957 /* DrawerMenuVC.swift in Sources */,
+				E27D9C3D23DFEE8B00C0C129 /* ExtBool.swift in Sources */,
 				ED83700C20F708D700CFC549 /* AppFont.swift in Sources */,
 				FAA2BF16228A6EE400688422 /* TableViewController.swift in Sources */,
 				ED836FE920F6F4AE00CFC549 /* TextFieldEffects.swift in Sources */,
 				ED3978DD2103044100FA6BDF /* RegisterVC.swift in Sources */,
+				E27D9C3C23DFEE8B00C0C129 /* ExtUIApplication.swift in Sources */,
 				ED83702420F70AC400CFC549 /* DatabaseHelper.swift in Sources */,
 				EDB7C3B7210C165100E8C887 /* ProfileVM.swift in Sources */,
 				FA539224239B5725005CA83E /* ExampleListVC.swift in Sources */,
 				EDCE31A921082CB100DE0957 /* DrawerMenu.swift in Sources */,
 				FA539229239B5A01005CA83E /* ExampleItemVM.swift in Sources */,
 				ED83702D20F70E5700CFC549 /* NotificationHelper.swift in Sources */,
+				E27D9C3B23DFEE8B00C0C129 /* ExtUITextField.swift in Sources */,
 				FAA8278F228D1C0300B91749 /* PluralAppStrings.swift in Sources */,
 				ED83700A20F708D700CFC549 /* AppColor.swift in Sources */,
 				FA09F6A922C9A2AA003FB213 /* BaseAlertController.swift in Sources */,
@@ -1009,13 +1041,18 @@
 				EDB7C3B4210C15FA00E8C887 /* EditPassVC.swift in Sources */,
 				ED83701520F7094000CFC549 /* ForgotPassVC.swift in Sources */,
 				EDCE31AF2108621300DE0957 /* DrawerMenuCell.swift in Sources */,
+				E27D9C3823DFEE8B00C0C129 /* ExtUIView.swift in Sources */,
 				FA77E25A2320B3C100AE6676 /* ApiHelper.swift in Sources */,
 				ED49392C210882360064C50C /* ViewController.swift in Sources */,
 				ED83700D20F708D700CFC549 /* ErrorConstant.swift in Sources */,
+				E27D9C3F23DFEE8B00C0C129 /* ExtUINavigationController.swift in Sources */,
 				ED3978E92103141800FA6BDF /* CAlertView.swift in Sources */,
 				EDCE31B521087E8600DE0957 /* GridMenuVC.swift in Sources */,
+				E27D9C4023DFEE8B00C0C129 /* ExtUIViewController.swift in Sources */,
 				ED83701820F7094000CFC549 /* LoginVM.swift in Sources */,
+				E27D9C3A23DFEE8B00C0C129 /* ExtDate.swift in Sources */,
 				ED836FBD20F6E18100CFC549 /* AppDelegate.swift in Sources */,
+				E27D9C3E23DFEE8B00C0C129 /* ExtString.swift in Sources */,
 				FA78DAA8239E0D7F005EF2C0 /* CollectionViewController.swift in Sources */,
 				ED83701620F7094000CFC549 /* LoginVC.swift in Sources */,
 				EDCEE55A21071D8B001EE0FF /* JVFloatingDrawerViewController.m in Sources */,
@@ -1030,14 +1067,15 @@
 				ED2A4338212A5E3A00F0379E /* CheckBox.swift in Sources */,
 				EDB7C3B9210C237400E8C887 /* Config.swift in Sources */,
 				ED2A4336212A5E2F00F0379E /* DownloadFileHelper.swift in Sources */,
-				ED836FE720F6F4AE00CFC549 /* Extension.swift in Sources */,
 				FA78DAAE239E23EB005EF2C0 /* ExampleDetailVC.swift in Sources */,
 				ED83701720F7094000CFC549 /* ForgotPassVM.swift in Sources */,
 				EDCEE55921071D8B001EE0FF /* JVFloatingDrawerView.m in Sources */,
+				E27D9C3723DFEE8B00C0C129 /* ExtUIImage.swift in Sources */,
 				FAA686C2231CEDD100C629CE /* KWWebView.swift in Sources */,
 				FA53922C239B69F8005CA83E /* ExampleCell.swift in Sources */,
 				ED83700E20F708D700CFC549 /* AppStoryboard.swift in Sources */,
 				EDCE31B1210863C800DE0957 /* MenuItemVM.swift in Sources */,
+				E27D9C3923DFEE8B00C0C129 /* ExtInt.swift in Sources */,
 				ED2A433A212A5E4800F0379E /* PickerField.swift in Sources */,
 				EDCE31B82108806100DE0957 /* GridMenuCell.swift in Sources */,
 				EDCEE55821071D8B001EE0FF /* JVFloatingDrawerSpringAnimator.m in Sources */,
@@ -1052,7 +1090,6 @@
 			files = (
 				FA29D1F023168368007E5F49 /* LoginVM.swift in Sources */,
 				FA2CAF1E2317B39F00507A90 /* LocalizeHelper.swift in Sources */,
-				FA2CAF1D2317B37900507A90 /* Extension.swift in Sources */,
 				FA29D1F3231683A3007E5F49 /* UserSession.swift in Sources */,
 				FA29D1F123168388007E5F49 /* Profile.swift in Sources */,
 				FA29D1F223168394007E5F49 /* ErrorConstant.swift in Sources */,
