@@ -737,6 +737,16 @@
             <key>Path</key>
             <string>Utilities/Helper/NotificationHelper.swift</string>
         </dict>
+        <key>Utilities/Helper/SettingsBundleHelper.swift</key>
+        <dict>
+            <key>Group</key>
+            <array>
+                <string>Utilities</string>
+                <string>Helper</string>
+            </array>
+            <key>Path</key>
+            <string>Utilities/Helper/SettingsBundleHelper.swift</string>
+        </dict>
         <key>Utilities/Library/CheckBox.swift</key>
         <dict>
             <key>Group</key>
@@ -887,6 +897,16 @@
             </array>
             <key>Path</key>
             <string>Utilities/Library/ToastView.swift</string>
+        </dict>
+        <key>Utilities/Library/CameraController.swift</key>
+        <dict>
+            <key>Group</key>
+            <array>
+                <string>Utilities</string>
+                <string>Library</string>
+            </array>
+            <key>Path</key>
+            <string>Utilities/Library/CameraController.swift</string>
         </dict>
 
         <!--Views Definition -->
@@ -1088,6 +1108,33 @@
             <key>Path</key>
             <string>Podfile.lock</string>
 		</dict>
+        <key>../license-plist</key>
+		<dict>
+			<key>TargetIndices</key>
+			<array/>
+            <key>Group</key>
+            <array>
+                <string>Removable Resources</string>
+            </array>
+            <key>Path</key>
+            <string>license-plist</string>
+		</dict>
+        <key>../license_plist.yml</key>
+		<dict>
+			<key>TargetIndices</key>
+			<array/>
+            <key>Group</key>
+            <array>
+                <string>Removable Resources</string>
+            </array>
+            <key>Path</key>
+            <string>license_plist.yml</string>
+		</dict>
+        <key>../Settings.bundle</key>
+		<dict>
+            <key>Path</key>
+            <string>Settings.bundle</string>
+		</dict>
     </dict>
 
     <key>Nodes</key>
@@ -1096,6 +1143,9 @@
         <string>../Podfile</string>
         <string>../Podfile.lock</string>
         <string>../swiftgen.yml</string>
+        <string>../license-plist</string>
+        <string>../license_plist.yml</string>
+        <string>../Settings.bundle</string>
 
         <!-- Constants File -->
         <string>Constants/AppAssets.swift</string>
@@ -1130,6 +1180,7 @@
         <string>Utilities/Library/ToastView.swift</string>
         <string>Utilities/Library/CheckBox.swift</string>
         <string>Utilities/Library/PickerField.swift</string>
+        <string>Utilities/Library/CameraController.swift</string>
         <string>Utilities/Extension/ExtBool.swift</string>
         <string>Utilities/Extension/ExtCAGradientLayer.swift</string>
         <string>Utilities/Extension/ExtDate.swift</string>
@@ -1147,6 +1198,7 @@
         <string>Utilities/Helper/NotificationHelper.swift</string>
         <string>Utilities/Helper/DownloadFileHelper.swift</string>
         <string>Utilities/Helper/LocationHelper.swift</string>
+        <string>Utilities/Helper/SettingsBundleHelper.swift</string>
 
         <!-- Components File -->
         <string>Components/NavigationBar.swift</string>
@@ -1278,6 +1330,19 @@
 					<array>
 						<string>$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)</string>
 					</array>
+				</dict>
+                <dict>
+					<key>Class</key>
+					<string>ShellScript</string>
+					<key>Name</key>
+					<string>LicensePlist</string>
+					<key>ShellPath</key>
+					<string>/bin/bash</string>
+					<key>ShellScript</key>
+					<string>if [ $CONFIGURATION = &quot;Debug&quot; ]; then
+    ${SRCROOT}/license-plist --output-path Settings.bundle --prefix com.___PACKAGENAME___.LicensePlist --add-version-numbers --suppress-opening-directory --force 
+fi
+</string>
 				</dict>
 			</array>
 			<key>ProductType</key>

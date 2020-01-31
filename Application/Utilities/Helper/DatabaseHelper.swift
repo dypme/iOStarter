@@ -191,4 +191,19 @@ class DatabaseHelper {
 //            return false
 //        }
 //    }
+//
+//    func deleteAllData() -> Bool {
+//        guard let realm: Realm = self.realm else { return false }
+//
+//        do {
+//            try realm.write({
+//                realm.deleteAll()
+//            })
+//
+//            return true
+//
+//        } catch _ as NSError {
+//            return false
+//        }
+//    }
 }

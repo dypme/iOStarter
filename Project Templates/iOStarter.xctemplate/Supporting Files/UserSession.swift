@@ -20,6 +20,11 @@ class UserSession {
     
     private var userStandard = UserDefaults.standard
     
+    func clearData() {
+        userStandard.removeObject(forKey: profileKey)
+        userStandard.removeObject(forKey: regid)
+    }
+    
     /// Check user logged in
     var isUserLoggedIn: Bool {
         return profile != nil

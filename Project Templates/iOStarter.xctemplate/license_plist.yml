@@ -1,0 +1,24 @@
+# You can validate the YAML config file at http://yaml-online-parser.appspot.com
+
+# Specify GitHub's library manually.
+github:
+  - owner: WahyuAdyP
+    name: iOStarter
+  - owner: mono0926
+    name: LicensePlist
+    version: 2.12.0
+
+# Specify license files manually
+  # - name: "Dummy License File"
+  #   file: "dummy_license.txt"
+
+# Specify libraries to be excluded.
+# exclude:
+#   - RxSwift
+#   - ios-license-generator
+#   - /^Core.*$/ # Support regex sandwiched by `/`
+
+# Specify libraries' names to be renamed.
+rename:
+  LicensePlist: License Plist # Rename LicensePlist to "License Plist"
+  WebRTC: Web RTC # Rename WebRTC to "Web RTC" (which is faulty, but used for test)

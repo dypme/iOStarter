@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Licenses</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/Alamofire</string>
+			<key>Title</key>
+			<string>Alamofire (4.9.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/Crashlytics</string>
+			<key>Title</key>
+			<string>Crashlytics (3.14.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/Fabric</string>
+			<key>Title</key>
+			<string>Fabric (1.10.2)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/Firebase</string>
+			<key>Title</key>
+			<string>Firebase (6.9.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/FirebaseAnalytics</string>
+			<key>Title</key>
+			<string>FirebaseAnalytics (6.1.2)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/FirebaseAnalyticsInterop</string>
+			<key>Title</key>
+			<string>FirebaseAnalyticsInterop (1.4.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/FirebaseCore</string>
+			<key>Title</key>
+			<string>FirebaseCore (6.3.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/FirebaseCoreDiagnostics</string>
+			<key>Title</key>
+			<string>FirebaseCoreDiagnostics (1.1.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/FirebaseCoreDiagnosticsInterop</string>
+			<key>Title</key>
+			<string>FirebaseCoreDiagnosticsInterop (1.0.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/FirebaseInstanceID</string>
+			<key>Title</key>
+			<string>FirebaseInstanceID (4.2.5)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/FirebaseMessaging</string>
+			<key>Title</key>
+			<string>FirebaseMessaging (4.1.5)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/FSPagerView</string>
+			<key>Title</key>
+			<string>FSPagerView (0.8.3)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/GoogleAppMeasurement</string>
+			<key>Title</key>
+			<string>GoogleAppMeasurement (6.1.2)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/GoogleDataTransport</string>
+			<key>Title</key>
+			<string>GoogleDataTransport (2.0.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/GoogleDataTransportCCTSupport</string>
+			<key>Title</key>
+			<string>GoogleDataTransportCCTSupport (1.1.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/GoogleUtilities</string>
+			<key>Title</key>
+			<string>GoogleUtilities (6.3.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/iOStarter</string>
+			<key>Title</key>
+			<string>iOStarter</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/IQKeyboardManagerSwift</string>
+			<key>Title</key>
+			<string>IQKeyboardManagerSwift (6.5.1)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/Kingfisher</string>
+			<key>Title</key>
+			<string>Kingfisher (4.10.1)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/L10n-swift</string>
+			<key>Title</key>
+			<string>L10n-swift (5.5.2)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/LicensePlist</string>
+			<key>Title</key>
+			<string>License Plist (2.12.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/nanopb</string>
+			<key>Title</key>
+			<string>nanopb (0.3.901)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/NVActivityIndicatorView</string>
+			<key>Title</key>
+			<string>NVActivityIndicatorView (4.6.1)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/Protobuf</string>
+			<key>Title</key>
+			<string>Protobuf (3.9.2)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/SwiftGen</string>
+			<key>Title</key>
+			<string>SwiftGen (6.1.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/SwiftyJSON</string>
+			<key>Title</key>
+			<string>SwiftyJSON (4.3.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+	</array>
+</dict>
+</plist>

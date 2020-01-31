@@ -14,8 +14,8 @@
             filePath = "Application/Utilities/Library/CameraController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "707"
-            endingLineNumber = "707"
+            startingLineNumber = "669"
+            endingLineNumber = "669"
             landmarkName = "cameraGone()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Application/Utilities/Library/CameraController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "596"
-            endingLineNumber = "596"
+            startingLineNumber = "558"
+            endingLineNumber = "558"
             landmarkName = "autoFocus(at:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		32B1F0FE7DB3926007B26BD8 /* Pods_iOStarter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE443046AD25907E36F53E4 /* Pods_iOStarter.framework */; };
 		5CE23300EA6587C5A41029A0 /* libPods-iOStarterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1B4A9F301D3F2405CC3A2A /* libPods-iOStarterTests.a */; };
+		E231A57123E41F8200FD8832 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E231A57023E41F8200FD8832 /* Settings.bundle */; };
+		E231A57423E4303100FD8832 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E231A57323E4303100FD8832 /* SettingsBundleHelper.swift */; };
 		E27622B623E174A30098CC31 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27622B523E174A30098CC31 /* CameraController.swift */; };
 		E27D9C3723DFEE8B00C0C129 /* ExtUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C2C23DFEE8A00C0C129 /* ExtUIImage.swift */; };
 		E27D9C3823DFEE8B00C0C129 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C2D23DFEE8A00C0C129 /* ExtUIView.swift */; };
@@ -135,6 +137,8 @@
 		C3AE795366AA293C92B6BE79 /* Pods-iOStarter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOStarter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOStarter/Pods-iOStarter.debug.xcconfig"; sourceTree = "<group>"; };
 		DA1B4A9F301D3F2405CC3A2A /* libPods-iOStarterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOStarterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEE443046AD25907E36F53E4 /* Pods_iOStarter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOStarter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E231A57023E41F8200FD8832 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		E231A57323E4303100FD8832 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		E27622B523E174A30098CC31 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		E27D9C2C23DFEE8A00C0C129 /* ExtUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIImage.swift; sourceTree = "<group>"; };
 		E27D9C2D23DFEE8A00C0C129 /* ExtUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
@@ -340,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				ED836FEA20F6F5B400CFC549 /* swiftgen.yml */,
+				E231A57023E41F8200FD8832 /* Settings.bundle */,
 				ED69DB4D21438A7A001273FB /* readme.md */,
 				ED836FBB20F6E18100CFC549 /* Application */,
 				FA29D1E723167D3C007E5F49 /* ApplicationTests */,
@@ -509,6 +514,7 @@
 				ED83702C20F70E5700CFC549 /* NotificationHelper.swift */,
 				ED2A4335212A5E2F00F0379E /* DownloadFileHelper.swift */,
 				ED19EAB321213B8400C82E8F /* LocationHelper.swift */,
+				E231A57323E4303100FD8832 /* SettingsBundleHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -756,6 +762,7 @@
 				5F68A75DAE662CF2756EB85E /* [CP] Embed Pods Frameworks */,
 				ED83700420F6F62000CFC549 /* SwiftGen */,
 				FA86480B21DDC68900407363 /* Crashlytics */,
+				E231A57223E426DF00FD8832 /* LicensePlist */,
 			);
 			buildRules = (
 			);
@@ -854,6 +861,7 @@
 				ED2E69932109AB760086385A /* ErrorView.xib in Resources */,
 				EDB7C3AE210C0C1C00E8C887 /* Profile.storyboard in Resources */,
 				FAA827A6228D2FF000B91749 /* PluralLocalizable.stringsdict in Resources */,
+				E231A57123E41F8200FD8832 /* Settings.bundle in Resources */,
 				FA78DAB5239E273A005EF2C0 /* Example.storyboard in Resources */,
 				ED83700020F6F5DA00CFC549 /* Proxima Nova Bold.otf in Resources */,
 				ED836FC420F6E18100CFC549 /* Assets.xcassets in Resources */,
@@ -968,6 +976,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOStarterTests/Pods-iOStarterTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E231A57223E426DF00FD8832 /* LicensePlist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = LicensePlist;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = " if [ $CONFIGURATION = \"Debug\" ]; then\n    ${SRCROOT}/license-plist --output-path Settings.bundle --prefix com.ios.starter.LicensePlist --add-version-numbers --suppress-opening-directory --force \nfi\n";
+		};
 		ED83700420F6F62000CFC549 /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1078,6 +1104,7 @@
 				FA53922C239B69F8005CA83E /* ExampleCell.swift in Sources */,
 				ED83700E20F708D700CFC549 /* AppStoryboard.swift in Sources */,
 				EDCE31B1210863C800DE0957 /* MenuItemVM.swift in Sources */,
+				E231A57423E4303100FD8832 /* SettingsBundleHelper.swift in Sources */,
 				E27D9C3923DFEE8B00C0C129 /* ExtInt.swift in Sources */,
 				ED2A433A212A5E4800F0379E /* PickerField.swift in Sources */,
 				E27622B623E174A30098CC31 /* CameraController.swift in Sources */,
@@ -1298,6 +1325,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JB73KN4XYE;
+				EXCLUDED_SOURCE_FILE_NAMES = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Application/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1316,6 +1344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JB73KN4XYE;
+				EXCLUDED_SOURCE_FILE_NAMES = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Application/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
