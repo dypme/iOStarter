@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		32B1F0FE7DB3926007B26BD8 /* Pods_iOStarter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE443046AD25907E36F53E4 /* Pods_iOStarter.framework */; };
 		5CE23300EA6587C5A41029A0 /* libPods-iOStarterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1B4A9F301D3F2405CC3A2A /* libPods-iOStarterTests.a */; };
+		E27622B623E174A30098CC31 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27622B523E174A30098CC31 /* CameraController.swift */; };
 		E27D9C3723DFEE8B00C0C129 /* ExtUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C2C23DFEE8A00C0C129 /* ExtUIImage.swift */; };
 		E27D9C3823DFEE8B00C0C129 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C2D23DFEE8A00C0C129 /* ExtUIView.swift */; };
 		E27D9C3923DFEE8B00C0C129 /* ExtInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C2E23DFEE8A00C0C129 /* ExtInt.swift */; };
@@ -134,6 +135,7 @@
 		C3AE795366AA293C92B6BE79 /* Pods-iOStarter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOStarter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOStarter/Pods-iOStarter.debug.xcconfig"; sourceTree = "<group>"; };
 		DA1B4A9F301D3F2405CC3A2A /* libPods-iOStarterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOStarterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEE443046AD25907E36F53E4 /* Pods_iOStarter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOStarter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E27622B523E174A30098CC31 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		E27D9C2C23DFEE8A00C0C129 /* ExtUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIImage.swift; sourceTree = "<group>"; };
 		E27D9C2D23DFEE8A00C0C129 /* ExtUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		E27D9C2E23DFEE8A00C0C129 /* ExtInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtInt.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				FA96A1DF2320AC0F000B9228 /* APIClient.swift */,
 				ED2A4337212A5E3A00F0379E /* CheckBox.swift */,
 				ED2A4339212A5E4800F0379E /* PickerField.swift */,
+				E27622B523E174A30098CC31 /* CameraController.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -1077,6 +1080,7 @@
 				EDCE31B1210863C800DE0957 /* MenuItemVM.swift in Sources */,
 				E27D9C3923DFEE8B00C0C129 /* ExtInt.swift in Sources */,
 				ED2A433A212A5E4800F0379E /* PickerField.swift in Sources */,
+				E27622B623E174A30098CC31 /* CameraController.swift in Sources */,
 				EDCE31B82108806100DE0957 /* GridMenuCell.swift in Sources */,
 				EDCEE55821071D8B001EE0FF /* JVFloatingDrawerSpringAnimator.m in Sources */,
 				EDB7C3B2210C148100E8C887 /* EditProfileVC.swift in Sources */,
