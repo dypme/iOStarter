@@ -132,6 +132,8 @@ class CameraController: UIViewController {
     private var photoPreviewImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .black
+        imageView.isUserInteractionEnabled = true
+        imageView.isMultipleTouchEnabled = true
         return imageView
     }()
     
@@ -157,6 +159,16 @@ class CameraController: UIViewController {
         return button
     }()
     
+    private let zoomSlider: ZoomSlider = {
+        let slider = ZoomSlider()
+        slider.minimumValue = 1
+        slider.maximumValue = 4
+        slider.value = 1
+        slider.alpha = 0.0
+        slider.isHidden = true
+        return slider
+    }()
+    
     private var focusView = FocusView()
     
     // MARK: Settings Property
@@ -180,7 +192,8 @@ class CameraController: UIViewController {
     }
     
     // MARK: Supporting property
-    var currentOrientation = UIDevice.current.orientation
+    private var currentOrientation = UIDevice.current.orientation
+    private var currentScale: Float = 0
     
     fileprivate var radian: CGFloat {
         if currentOrientation == .landscapeLeft || UIDevice.current.orientation == .landscapeLeft {
@@ -264,12 +277,14 @@ class CameraController: UIViewController {
         photoPreviewImageView.translatesAutoresizingMaskIntoConstraints = false
         flashBtn.translatesAutoresizingMaskIntoConstraints = false
         switchCameraBtn.translatesAutoresizingMaskIntoConstraints = false
+        zoomSlider.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(photoPreviewImageView)
         view.addSubview(closeBtn)
         view.addSubview(takeBtn)
         view.addSubview(flashBtn)
         view.addSubview(switchCameraBtn)
+        view.addSubview(zoomSlider)
         
         let statusBarFrame = UIApplication.shared.statusBarFrame
         
@@ -304,6 +319,10 @@ class CameraController: UIViewController {
         switchCameraBtn.centerYAnchor.constraint(equalTo: takeBtn.centerYAnchor).isActive = true
         switchCameraBtn.widthAnchor.constraint(equalToConstant: 40).isActive = true
         switchCameraBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        zoomSlider.bottomAnchor.constraint(equalTo: takeBtn.topAnchor, constant: -20).isActive = true
+        zoomSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
+        zoomSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -340,6 +359,10 @@ class CameraController: UIViewController {
         closeBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
         switchCameraBtn.addTarget(self, action: #selector(switchCamera), for: .touchUpInside)
         flashBtn.addTarget(self, action: #selector(toggleFlashlight), for: .touchUpInside)
+        zoomSlider.addTarget(self, action: #selector(zoomCameraPreview(_:)), for: .valueChanged)
+        
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(zoomPinch(_:)))
+        photoPreviewImageView.addGestureRecognizer(pinchGesture)
         
         configMotionManager()
         NotificationCenter.default.addObserver(self, selector: #selector(orientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
@@ -420,6 +443,9 @@ class CameraController: UIViewController {
             } catch {
                 print("error with creating AVCaptureDeviceInput")
             }
+            
+            zoomSlider.value = 1
+            zoomSlider.isHidden = true
         }
     }
     
@@ -554,6 +580,35 @@ class CameraController: UIViewController {
         }
     }
     
+    @objc func zoomCameraPreview(_ slider: ZoomSlider) {
+        let zoomLevel = slider.value
+        
+        guard let device = cameraDevice.captureDevice else { return }
+        
+        do {
+            try device.lockForConfiguration()
+            device.videoZoomFactor = CGFloat(zoomLevel)
+            device.unlockForConfiguration()
+        } catch {
+            print("Zoom failed")
+        }
+    }
+    
+    @objc func zoomPinch(_ pinchGesture: UIPinchGestureRecognizer) {
+        if pinchGesture.state == .began {
+            currentScale = zoomSlider.value
+        }
+        
+        let maxScale = zoomSlider.maximumValue
+        let scale = min(Float(pinchGesture.scale), maxScale)
+        if scale == maxScale {
+            currentScale = 1
+        }
+        
+        zoomSlider.value = scale * currentScale
+        zoomCameraPreview(zoomSlider)
+    }
+    
     private func autoFocus(at point: CGPoint) {
         focusView.startAnimate(at: point, in: self.view)
     }
@@ -604,7 +659,7 @@ class CameraController: UIViewController {
                         stillImageOutput.captureStillImageAsynchronously(from: videoConnection, completionHandler: { (buffer, error) in
                             if let buffer = buffer {
                                 let data  = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer)!
-                                let image = UIImage(data: data)!.fixOrientation
+                                let image = UIImage(data: data)!
                                 let cropImage = self.cropBaseOnContentView(image: image)
                                 let fixOrientation = cropImage.rotate(radian: -self.radian)!
                                 
@@ -726,7 +781,7 @@ extension CameraController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
         if let buffer = photoSampleBuffer {
             let data  = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: buffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer)!
-            let image = UIImage(data: data)!.fixOrientation
+            let image = UIImage(data: data)!
             let cropImage = self.cropBaseOnContentView(image: image)
             let fixOrientation = cropImage.rotate(radian: -radian)!
             

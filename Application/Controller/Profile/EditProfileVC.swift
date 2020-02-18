@@ -104,7 +104,10 @@ class EditProfileVC: UIViewController {
     @objc func browsePhoto() {
         let actionSheet = UIAlertController(title: nil, message: "Take a photo from...", preferredStyle: .alert)
         let camera = UIAlertAction(title: "Camera", style: .default) { (action) in
-            self.takePhoto(from: .camera)
+//            self.takePhoto(from: .camera)
+            let camera = CameraController(camera: .back, isFullscreenCamera: true, isAllowSwitchCamera: true, isAllowFlashlight: true)
+            camera.delegate = self
+            self.present(camera, animated: true, completion: nil)
         }
         let gallery = UIAlertAction(title: "Gallery", style: .default) { (action) in
             self.takePhoto(from: .photoLibrary)
@@ -168,4 +171,12 @@ fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [U
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
 	return input.rawValue
+}
+
+extension EditProfileVC: CameraControllerDelegate {
+    func didCapture(_ picker: CameraController, image: UIImage, description: String) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        photoView.image = image
+    }
 }
