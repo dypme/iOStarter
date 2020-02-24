@@ -11,8 +11,9 @@
 		5CE23300EA6587C5A41029A0 /* libPods-iOStarterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1B4A9F301D3F2405CC3A2A /* libPods-iOStarterTests.a */; };
 		E214294823F501710074CEC2 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E214294723F501700074CEC2 /* MimeType.swift */; };
 		E231A57123E41F8200FD8832 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E231A57023E41F8200FD8832 /* Settings.bundle */; };
-		E231A57423E4303100FD8832 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E231A57323E4303100FD8832 /* SettingsBundleHelper.swift */; };
+		E231A57423E4303100FD8832 /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E231A57323E4303100FD8832 /* SettingsHelper.swift */; };
 		E243E57723E53E8C000209D2 /* ZoomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E243E57623E53E8C000209D2 /* ZoomSlider.swift */; };
+		E24DB3C02403857C0025EE83 /* UploadParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24DB3BF2403857C0025EE83 /* UploadParameters.swift */; };
 		E27622B623E174A30098CC31 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27622B523E174A30098CC31 /* CameraController.swift */; };
 		E27D9C3723DFEE8B00C0C129 /* ExtUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C2C23DFEE8A00C0C129 /* ExtUIImage.swift */; };
 		E27D9C3823DFEE8B00C0C129 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C2D23DFEE8A00C0C129 /* ExtUIView.swift */; };
@@ -108,7 +109,6 @@
 		FA78DAA8239E0D7F005EF2C0 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78DAA7239E0D7F005EF2C0 /* CollectionViewController.swift */; };
 		FA78DAAE239E23EB005EF2C0 /* ExampleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA78DAAD239E23EB005EF2C0 /* ExampleDetailVC.swift */; };
 		FA78DAB5239E273A005EF2C0 /* Example.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA78DAB7239E273A005EF2C0 /* Example.storyboard */; };
-		FA96A1E02320AC0F000B9228 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA96A1DF2320AC0F000B9228 /* APIClient.swift */; };
 		FAA2BF16228A6EE400688422 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2BF15228A6EE400688422 /* TableViewController.swift */; };
 		FAA686C2231CEDD100C629CE /* KWWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA686C1231CEDD100C629CE /* KWWebView.swift */; };
 		FAA8278F228D1C0300B91749 /* PluralAppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA8278E228D1C0200B91749 /* PluralAppStrings.swift */; };
@@ -141,8 +141,9 @@
 		DEE443046AD25907E36F53E4 /* Pods_iOStarter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOStarter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E214294723F501700074CEC2 /* MimeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
 		E231A57023E41F8200FD8832 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		E231A57323E4303100FD8832 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		E231A57323E4303100FD8832 /* SettingsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsHelper.swift; sourceTree = "<group>"; };
 		E243E57623E53E8C000209D2 /* ZoomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomSlider.swift; sourceTree = "<group>"; };
+		E24DB3BF2403857C0025EE83 /* UploadParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadParameters.swift; sourceTree = "<group>"; };
 		E27622B523E174A30098CC31 /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		E27D9C2C23DFEE8A00C0C129 /* ExtUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIImage.swift; sourceTree = "<group>"; };
 		E27D9C2D23DFEE8A00C0C129 /* ExtUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
@@ -249,7 +250,6 @@
 		FA78DAAD239E23EB005EF2C0 /* ExampleDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleDetailVC.swift; sourceTree = "<group>"; };
 		FA78DAB6239E273A005EF2C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Example.storyboard; sourceTree = "<group>"; };
 		FA78DAB9239E273D005EF2C0 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Example.strings; sourceTree = "<group>"; };
-		FA96A1DF2320AC0F000B9228 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		FAA2BF15228A6EE400688422 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		FAA686C1231CEDD100C629CE /* KWWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KWWebView.swift; sourceTree = "<group>"; };
 		FAA8277E228D0DE400B91749 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -296,6 +296,16 @@
 				5394ACBD3E2D05C8BDB41F9F /* Pods-iOStarterTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E24DB3BE240385320025EE83 /* APIRequest */ = {
+			isa = PBXGroup;
+			children = (
+				FA77E2592320B3C100AE6676 /* ApiHelper.swift */,
+				E24DB3BF2403857C0025EE83 /* UploadParameters.swift */,
+				E214294723F501700074CEC2 /* MimeType.swift */,
+			);
+			path = APIRequest;
 			sourceTree = "<group>";
 		};
 		ED2E698F2109AB390086385A /* ErrorView */ = {
@@ -350,8 +360,8 @@
 				ED836FEA20F6F5B400CFC549 /* swiftgen.yml */,
 				E231A57023E41F8200FD8832 /* Settings.bundle */,
 				ED69DB4D21438A7A001273FB /* readme.md */,
-				ED836FBB20F6E18100CFC549 /* Application */,
-				FA29D1E723167D3C007E5F49 /* ApplicationTests */,
+				ED836FBB20F6E18100CFC549 /* iOStarter */,
+				FA29D1E723167D3C007E5F49 /* iOStarterTests */,
 				ED836FBA20F6E18100CFC549 /* Products */,
 				A71F2362EF684F83E2DFC61D /* Pods */,
 				F81EBD5F822151E6BCBF0AD6 /* Frameworks */,
@@ -367,7 +377,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ED836FBB20F6E18100CFC549 /* Application */ = {
+		ED836FBB20F6E18100CFC549 /* iOStarter */ = {
 			isa = PBXGroup;
 			children = (
 				ED836FEC20F6F5C100CFC549 /* Constants */,
@@ -382,7 +392,7 @@
 				ED836FDD20F6E3A400CFC549 /* Storyboard */,
 				ED836FDE20F6E3BA00CFC549 /* Supporting Files */,
 			);
-			path = Application;
+			path = iOStarter;
 			sourceTree = "<group>";
 		};
 		ED836FDC20F6E32C00CFC549 /* Resource */ = {
@@ -502,7 +512,6 @@
 				ED83702E20F7121100CFC549 /* Notify */,
 				ED836FE320F6F4AE00CFC549 /* FloaticonField */,
 				EDCE31AA2108502C00DE0957 /* ToastView.swift */,
-				FA96A1DF2320AC0F000B9228 /* APIClient.swift */,
 				ED2A4337212A5E3A00F0379E /* CheckBox.swift */,
 				ED2A4339212A5E4800F0379E /* PickerField.swift */,
 				E27622B523E174A30098CC31 /* CameraController.swift */,
@@ -513,13 +522,12 @@
 		ED83702120F70A8A00CFC549 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				FA77E2592320B3C100AE6676 /* ApiHelper.swift */,
+				E24DB3BE240385320025EE83 /* APIRequest */,
 				ED83702320F70AC400CFC549 /* DatabaseHelper.swift */,
 				ED83702C20F70E5700CFC549 /* NotificationHelper.swift */,
 				ED2A4335212A5E2F00F0379E /* DownloadFileHelper.swift */,
 				ED19EAB321213B8400C82E8F /* LocationHelper.swift */,
-				E231A57323E4303100FD8832 /* SettingsBundleHelper.swift */,
-				E214294723F501700074CEC2 /* MimeType.swift */,
+				E231A57323E4303100FD8832 /* SettingsHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -632,13 +640,13 @@
 			path = PopAlert;
 			sourceTree = "<group>";
 		};
-		FA29D1E723167D3C007E5F49 /* ApplicationTests */ = {
+		FA29D1E723167D3C007E5F49 /* iOStarterTests */ = {
 			isa = PBXGroup;
 			children = (
 				FA29D1E823167D3C007E5F49 /* ApplicationTests.swift */,
 				FA29D1EA23167D3C007E5F49 /* Info.plist */,
 			);
-			path = ApplicationTests;
+			path = iOStarterTests;
 			sourceTree = "<group>";
 		};
 		FA3AD53F2318BF3D000B17C6 /* Components */ = {
@@ -807,7 +815,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = "Crocodic Studio";
+				ORGANIZATIONNAME = WahyuAdyP;
 				TargetAttributes = {
 					ED836FB820F6E18100CFC549 = {
 						CreatedOnToolsVersion = 9.2;
@@ -1093,7 +1101,6 @@
 				ED83701620F7094000CFC549 /* LoginVC.swift in Sources */,
 				EDCEE55A21071D8B001EE0FF /* JVFloatingDrawerViewController.m in Sources */,
 				EDB8C909211C163B0003AF4A /* ImagePagerView.swift in Sources */,
-				FA96A1E02320AC0F000B9228 /* APIClient.swift in Sources */,
 				ED3978DF2103047C00FA6BDF /* RegisterVM.swift in Sources */,
 				ED2E69922109AB760086385A /* ErrorView.swift in Sources */,
 				ED83700B20F708D700CFC549 /* AppAssets.swift in Sources */,
@@ -1108,10 +1115,11 @@
 				EDCEE55921071D8B001EE0FF /* JVFloatingDrawerView.m in Sources */,
 				E27D9C3723DFEE8B00C0C129 /* ExtUIImage.swift in Sources */,
 				FAA686C2231CEDD100C629CE /* KWWebView.swift in Sources */,
+				E24DB3C02403857C0025EE83 /* UploadParameters.swift in Sources */,
 				FA53922C239B69F8005CA83E /* ExampleCell.swift in Sources */,
 				ED83700E20F708D700CFC549 /* AppStoryboard.swift in Sources */,
 				EDCE31B1210863C800DE0957 /* MenuItemVM.swift in Sources */,
-				E231A57423E4303100FD8832 /* SettingsBundleHelper.swift in Sources */,
+				E231A57423E4303100FD8832 /* SettingsHelper.swift in Sources */,
 				E27D9C3923DFEE8B00C0C129 /* ExtInt.swift in Sources */,
 				ED2A433A212A5E4800F0379E /* PickerField.swift in Sources */,
 				E27622B623E174A30098CC31 /* CameraController.swift in Sources */,
@@ -1332,14 +1340,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JB73KN4XYE;
+				DEVELOPMENT_TEAM = "";
 				EXCLUDED_SOURCE_FILE_NAMES = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Application/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iOStarter/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ios.starter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Application/Supporting Files/Project-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOStarter/Supporting Files/Project-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1351,14 +1359,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JB73KN4XYE;
+				DEVELOPMENT_TEAM = "";
 				EXCLUDED_SOURCE_FILE_NAMES = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Application/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iOStarter/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ios.starter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Application/Supporting Files/Project-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOStarter/Supporting Files/Project-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

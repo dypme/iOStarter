@@ -1,5 +1,5 @@
-input_dir: Application/
-output_dir: Application/Constants/
+input_dir: iOStarter/
+output_dir: iOStarter/Constants/
 xcassets:
     inputs: Resource/Assets.xcassets
     outputs:
@@ -23,5 +23,5 @@ colors:
 strings:
     inputs: Supporting Files/Localizable/en.lproj/Localizable.strings
     outputs:
-        templatePath: Application/Resource/structured-swift4.stencil
+        templatePath: iOStarter/Resource/structured-swift4.stencil
         output: AppStrings.swift

@@ -75,6 +75,15 @@
             <key>Path</key>
             <string>Components/NavigationItem.swift</string>
         </dict>
+        <key>Components/ZoomSlider.swift</key>
+        <dict>
+            <key>Group</key>
+            <array>
+                <string>Components</string>
+            </array>
+            <key>Path</key>
+            <string>Components/ZoomSlider.swift</string>
+        </dict>
 
         <!--Constants Definition -->
         <key>Constants/AppAssets.swift</key>
@@ -687,15 +696,38 @@
             <key>Path</key>
             <string>Utilities/Extension/ExtUIViewController.swift</string>
         </dict>
-        <key>Utilities/Helper/ApiHelper.swift</key>
+        <key>Utilities/Helper/APIRequest/ApiHelper.swift</key>
         <dict>
             <key>Group</key>
             <array>
                 <string>Utilities</string>
                 <string>Helper</string>
+                <string>APIRequest</string>
             </array>
             <key>Path</key>
-            <string>Utilities/Helper/ApiHelper.swift</string>
+            <string>Utilities/Helper/APIRequest/ApiHelper.swift</string>
+        </dict>
+        <key>Utilities/Helper/APIRequest/UploadParameters.swift</key>
+        <dict>
+            <key>Group</key>
+            <array>
+                <string>Utilities</string>
+                <string>Helper</string>
+                <string>APIRequest</string>
+            </array>
+            <key>Path</key>
+            <string>Utilities/Helper/APIRequest/UploadParameters.swift</string>
+        </dict>
+        <key>Utilities/Helper/APIRequest/MimeType.swift</key>
+        <dict>
+            <key>Group</key>
+            <array>
+                <string>Utilities</string>
+                <string>Helper</string>
+                <string>APIRequest</string>
+            </array>
+            <key>Path</key>
+            <string>Utilities/Helper/APIRequest/MimeType.swift</string>
         </dict>
         <key>Utilities/Helper/DatabaseHelper.swift</key>
         <dict>
@@ -737,7 +769,7 @@
             <key>Path</key>
             <string>Utilities/Helper/NotificationHelper.swift</string>
         </dict>
-        <key>Utilities/Helper/SettingsBundleHelper.swift</key>
+        <key>Utilities/Helper/SettingsHelper.swift</key>
         <dict>
             <key>Group</key>
             <array>
@@ -745,7 +777,7 @@
                 <string>Helper</string>
             </array>
             <key>Path</key>
-            <string>Utilities/Helper/SettingsBundleHelper.swift</string>
+            <string>Utilities/Helper/SettingsHelper.swift</string>
         </dict>
         <key>Utilities/Library/CheckBox.swift</key>
         <dict>
@@ -1193,17 +1225,20 @@
         <string>Utilities/Extension/ExtUITextField.swift</string>
         <string>Utilities/Extension/ExtUIView.swift</string>
         <string>Utilities/Extension/ExtUIViewController.swift</string>
-        <string>Utilities/Helper/ApiHelper.swift</string>
+        <string>Utilities/Helper/APIRequest/ApiHelper.swift</string>
+        <string>Utilities/Helper/APIRequest/UploadParameters.swift</string>
+        <string>Utilities/Helper/APIRequest/MimeType.swift</string>
         <string>Utilities/Helper/DatabaseHelper.swift</string>
         <string>Utilities/Helper/NotificationHelper.swift</string>
         <string>Utilities/Helper/DownloadFileHelper.swift</string>
         <string>Utilities/Helper/LocationHelper.swift</string>
-        <string>Utilities/Helper/SettingsBundleHelper.swift</string>
+        <string>Utilities/Helper/SettingsHelper.swift</string>
 
         <!-- Components File -->
         <string>Components/NavigationBar.swift</string>
         <string>Components/NavigationItem.swift</string>
         <string>Components/KWWebView.swift</string>
+        <string>Components/ZoomSlider.swift</string>
 
         <!-- Models File -->
         <string>Model/Profile.swift</string>
