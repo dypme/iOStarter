@@ -65,20 +65,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NVActivityIndicatorView.DEFAULT_TYPE = .ballPulse
         
-        BaseAlertController.appearance.backgroundColor = UIColor.yellow
-        BaseAlertController.appearance.titleColor      = UIColor.blue
-        BaseAlertController.appearance.messageColor    = UIColor.brown
-        BaseAlertController.appearance.dismissColor    = UIColor.red
-        BaseAlertController.appearance.okeColor        = UIColor.purple
+//        AlertController.appearance.backgroundColor = UIColor.yellow
         
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+    }
+    
+    func refreshMainController() {
+        mainVC = mainFirstVC
     }
     
     /// Configure root view controller when applicatio open
     func setupView() {
         window?.backgroundColor = UIColor.white
         
-        mainVC = mainFirstVC
+        refreshMainController()
         // Make root in login if application need login first
         if UserSession.shared.isUserLoggedIn {
             // Change root viewcontroller with your first main menu
@@ -117,7 +118,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        NotificationHelper.shared.setEstablishedDirectChannel(false)
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -126,8 +126,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        
-        NotificationHelper.shared.setEstablishedDirectChannel(true)
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -169,27 +167,12 @@ extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
-        if let token = Messaging.messaging().fcmToken {
-            UserSession.shared.setRegid(string: token)
-            print("FCM token: \(token)")
-        }
+        NotificationHelper.shared.refreshFcmToken()
     }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
-        if let token = Messaging.messaging().fcmToken {
-            UserSession.shared.setRegid(string: token)
-            print("FCM token: \(token)")
-        }
+        NotificationHelper.shared.refreshFcmToken()
     }
-    
-    // [END refresh_token]
-    // [START ios_10_data_message]
-    // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
-    // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
-    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        print("Received data message: \(remoteMessage.appData)")
-    }
-    // [END ios_10_data_message]
 }
 // [END ios_10_data_message_handling]

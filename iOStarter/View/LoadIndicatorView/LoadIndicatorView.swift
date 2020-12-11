@@ -27,11 +27,6 @@ class LoadIndicatorView: UIViewController {
 
         activityId.startAnimating()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     /// Start animation of progress view
     func startAnimating() {
@@ -54,16 +49,6 @@ class LoadIndicatorView: UIViewController {
         self.view.removeFromSuperview()
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension UIView {
@@ -77,12 +62,11 @@ extension UIView {
         activityId.view.isUserInteractionEnabled = false
         activityId.view.backgroundColor = UIColor.clear
         activityId.view.frame = CGRect(origin: .zero, size: self.frame.size)
-        DispatchQueue.main.async {
-            self.setNeedsLayout()
-            self.layoutIfNeeded()
-            
-            activityId.view.frame = self.frame
-        }
+        
+        self.setNeedsLayout()
+        self.layoutIfNeeded()
+        activityId.view.frame = self.frame
+        
         if self == controllerView {
             if !self.subviews.contains(where: { $0.tag == tag }) {
                 self.addSubview(activityId.view)

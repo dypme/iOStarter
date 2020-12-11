@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         
         setupMethod()
         setupView()
+        
+        fetch()
     }
     
     /// Setup add function/ action in object (ex: add button action, add delegate, add gesture)

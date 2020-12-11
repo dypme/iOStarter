@@ -140,7 +140,7 @@ class LocationHelper: NSObject {
             })
             if let taskId = previousTaskId {
                 UIApplication.shared.endBackgroundTask(taskId)
-                previousTaskId = UIBackgroundTaskIdentifier(rawValue: convertFromUIBackgroundTaskIdentifier(UIBackgroundTaskIdentifier.invalid))
+                previousTaskId = UIBackgroundTaskIdentifier.invalid
             }
         }
         
@@ -184,9 +184,4 @@ extension LocationHelper: CLLocationManagerDelegate {
             beginNewBackgroundTask()
         }
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromUIBackgroundTaskIdentifier(_ input: UIBackgroundTaskIdentifier) -> Int {
-	return input.rawValue
 }

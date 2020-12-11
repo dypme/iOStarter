@@ -38,7 +38,7 @@ class NotificationHelper {
         
         application.registerForRemoteNotifications()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotification), name: NSNotification.Name.InstanceIDTokenRefresh, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshFcmToken), name: NSNotification.Name.MessagingRegistrationTokenRefreshed, object: nil)
     }
     
     /// Save registration id token
@@ -52,39 +52,23 @@ class NotificationHelper {
             Messaging.messaging().setAPNSToken(deviceToken, type: .prod)
         #endif
         
-        InstanceID.instanceID().instanceID { (result, error) in
-            if let result = result {
-                print("InstanceID token: \(result)")
-                UserSession.shared.setRegid(string: result.token)
-            }
-        }
-        if let token = Messaging.messaging().fcmToken {
-            print("Fir token \(token)")
-            UserSession.shared.setRegid(string: token)
-        }
+        refreshFcmToken()
     }
     
     /// Update registration id token
     ///
     /// - Parameter notification: Notification sender when token refresh
-    @objc func tokenRefreshNotification(notification: NSNotification) {
-        InstanceID.instanceID().instanceID { (result, error) in
-            if let result = result {
-                print("InstanceID token: \(result)")
-                UserSession.shared.setRegid(string: result.token)
+    @objc func refreshFcmToken() {
+        Messaging.messaging().token { (token, error) in
+            if let token = token {
+                print("Messaging token: \(token)")
+                UserSession.shared.setRegid(string: token)
             }
         }
         if let token = Messaging.messaging().fcmToken {
-            print("Fir token \(token)")
+            print("Fcm token \(token)")
             UserSession.shared.setRegid(string: token)
         }
-    }
-    
-    /// When set to `YES`, Firebase Messaging will automatically establish a socket-based, direct channel to the FCM server. Enable this only if you are sending upstream messages or receiving non-APNS, data-only messages in foregrounded apps. Default is `NO`.
-    ///
-    /// - Parameter state: Pass data value
-    func setEstablishedDirectChannel(_ state: Bool) {
-        Messaging.messaging().shouldEstablishDirectChannel = state
     }
     // [END setup]
     

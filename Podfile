@@ -3,30 +3,27 @@ platform :ios, '9.0'
 
 def shared_pods
     
-    pod 'IQKeyboardManagerSwift', '~> 6.5'
-    pod 'Alamofire', '~> 4.9'
-    pod 'SwiftyJSON', '~> 4.2'
-    pod 'Kingfisher', '~> 4.10'
-    pod 'SwiftGen', '6.1.0'
+    pod 'IQKeyboardManagerSwift'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
+    pod 'Kingfisher'
+    pod 'SwiftGen'
+    
     pod 'Firebase/Messaging'
+    pod 'Firebase/Crashlytics'
     pod 'Firebase/Analytics'
-    pod 'Fabric'
-    pod 'Crashlytics'
     
     # Custom activity indicator. Change this if have more amazing custom activity indicator, delete/ leave it if no need custom activity indicator.
-    pod 'NVActivityIndicatorView', '~> 4.6.1'
+    pod 'NVActivityIndicatorView'
     
     # Uncomment realm swift if application need database then check DatabaseHelper class to use DatabaseHelper
     #pod 'RealmSwift'
     
     # Using for slider banner with more customization. Documentation: https://github.com/WenchaoD/FSPagerView
-    pod 'FSPagerView', '~> 0.8'
+    pod 'FSPagerView'
     
     # Using for localization application. Documentation: https://github.com/Decybel07/L10n-swift
-    pod 'L10n-swift', '~> 5.5'
-    
-    # Check this out: https://github.com/hyperoslo/Lightbox , image/ video preview (zoom in/ out)
-    #pod 'Lightbox'
+    pod 'L10n-swift'
 
 end
 
@@ -37,10 +34,4 @@ target 'iOStarter' do
     
     # Pods for iOS_Starter
     
-    
-end
-
-target 'iOStarterTests' do
-  shared_pods
-  
 end

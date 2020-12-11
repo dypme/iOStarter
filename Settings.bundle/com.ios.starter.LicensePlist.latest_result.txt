@@ -1,164 +1,69 @@
 name: Alamofire, nameSpecified: 
 body: Copyright (c) 2014 A…
-version: 4.9.0
-
-name: Alamofire, nameSpecified: 
-body: Copyright (c) 2014 A…
-version: 4.9.0
-
-name: Crashlytics, nameSpecified: 
-body: Fabric: Copyright 20…
-version: 3.14.0
-
-name: Crashlytics, nameSpecified: 
-body: Fabric: Copyright 20…
-version: 3.14.0
-
-name: Fabric, nameSpecified: 
-body: Fabric: Copyright 20…
-version: 1.10.2
-
-name: Fabric, nameSpecified: 
-body: Fabric: Copyright 20…
-version: 1.10.2
+version: 4.9.1
 
 name: Firebase, nameSpecified: 
-body: Copyright 2019 Googl…
-version: 6.9.0
-
-name: Firebase, nameSpecified: 
-body: Copyright 2019 Googl…
-version: 6.9.0
-
-name: FirebaseAnalytics, nameSpecified: 
-body: Copyright 2019 Googl…
-version: 6.1.2
-
-name: FirebaseAnalytics, nameSpecified: 
-body: Copyright 2019 Googl…
-version: 6.1.2
-
-name: FirebaseAnalyticsInterop, nameSpecified: 
 body: 
                    …
-version: 1.4.0
+version: 6.34.0
 
-name: FirebaseAnalyticsInterop, nameSpecified: 
-body: 
-                   …
-version: 1.4.0
+name: FirebaseAnalytics, nameSpecified: 
+body: Copyright 2020 Googl…
+version: 6.9.0
 
 name: FirebaseCore, nameSpecified: 
 body: 
                    …
-version: 6.3.0
-
-name: FirebaseCore, nameSpecified: 
-body: 
-                   …
-version: 6.3.0
+version: 6.10.4
 
 name: FirebaseCoreDiagnostics, nameSpecified: 
 body: 
                    …
-version: 1.1.0
+version: 1.7.0
 
-name: FirebaseCoreDiagnostics, nameSpecified: 
+name: FirebaseCrashlytics, nameSpecified: 
 body: 
                    …
-version: 1.1.0
+version: 4.6.2
 
-name: FirebaseCoreDiagnosticsInterop, nameSpecified: 
+name: FirebaseInstallations, nameSpecified: 
 body: 
                    …
-version: 1.0.0
-
-name: FirebaseCoreDiagnosticsInterop, nameSpecified: 
-body: 
-                   …
-version: 1.0.0
+version: 1.7.0
 
 name: FirebaseInstanceID, nameSpecified: 
 body: 
                    …
-version: 4.2.5
-
-name: FirebaseInstanceID, nameSpecified: 
-body: 
-                   …
-version: 4.2.5
+version: 4.8.0
 
 name: FirebaseMessaging, nameSpecified: 
 body: 
                    …
-version: 4.1.5
-
-name: FirebaseMessaging, nameSpecified: 
-body: 
-                   …
-version: 4.1.5
-
-name: FSPagerView, nameSpecified: 
-body: Copyright (c) 2017 F…
-version: 0.8.3
+version: 4.7.1
 
 name: FSPagerView, nameSpecified: 
 body: Copyright (c) 2017 F…
 version: 0.8.3
 
 name: GoogleAppMeasurement, nameSpecified: 
-body: Copyright 2019 Googl…
-version: 6.1.2
-
-name: GoogleAppMeasurement, nameSpecified: 
-body: Copyright 2019 Googl…
-version: 6.1.2
+body: Copyright 2020 Googl…
+version: 6.9.0
 
 name: GoogleDataTransport, nameSpecified: 
 body: 
                    …
-version: 2.0.0
-
-name: GoogleDataTransport, nameSpecified: 
-body: 
-                   …
-version: 2.0.0
-
-name: GoogleDataTransportCCTSupport, nameSpecified: 
-body: 
-                   …
-version: 1.1.0
-
-name: GoogleDataTransportCCTSupport, nameSpecified: 
-body: 
-                   …
-version: 1.1.0
+version: 7.5.1
 
 name: GoogleUtilities, nameSpecified: 
 body: 
                    …
-version: 6.3.0
-
-name: GoogleUtilities, nameSpecified: 
-body: 
-                   …
-version: 6.3.0
+version: 6.7.2
 
 name: IQKeyboardManagerSwift, nameSpecified: 
 body: MIT License
 
 Copyrig…
-version: 6.5.1
-
-name: IQKeyboardManagerSwift, nameSpecified: 
-body: MIT License
-
-Copyrig…
-version: 6.5.1
-
-name: Kingfisher, nameSpecified: 
-body: The MIT License (MIT…
-version: 4.10.1
+version: 6.5.6
 
 name: Kingfisher, nameSpecified: 
 body: The MIT License (MIT…
@@ -168,65 +73,49 @@ name: L10n-swift, nameSpecified:
 body: MIT License
 
 Copyrig…
-version: 5.5.2
+version: 5.7.2
 
-name: L10n-swift, nameSpecified: 
+name: nanopb, nameSpecified: 
+body: Copyright (c) 2011 P…
+version: 1.30906.0
+
+name: NVActivityIndicatorView, nameSpecified: 
+body: The MIT License (MIT…
+version: 5.1.1
+
+name: PromisesObjC, nameSpecified: 
+body: 
+                   …
+version: 1.2.11
+
+name: Protobuf, nameSpecified: 
+body: Copyright 2008 Googl…
+version: 3.14.0
+
+name: SwiftGen, nameSpecified: 
+body: MIT Licence
+
+Copyrig…
+version: 6.4.0
+
+name: SwiftyJSON, nameSpecified: 
+body: The MIT License (MIT…
+version: 5.0.0
+
+name: iOStarter, nameSpecified: , version: 1.1.0
 body: MIT License
 
 Copyrig…
-version: 5.5.2
 
-name: nanopb, nameSpecified: 
-body: Copyright (c) 2011 P…
-version: 0.3.901
-
-name: nanopb, nameSpecified: 
-body: Copyright (c) 2011 P…
-version: 0.3.901
-
-name: NVActivityIndicatorView, nameSpecified: 
-body: The MIT License (MIT…
-version: 4.6.1
-
-name: NVActivityIndicatorView, nameSpecified: 
-body: The MIT License (MIT…
-version: 4.6.1
-
-name: Protobuf, nameSpecified: 
-body: Copyright 2008 Googl…
-version: 3.9.2
-
-name: Protobuf, nameSpecified: 
-body: Copyright 2008 Googl…
-version: 3.9.2
-
-name: SwiftGen, nameSpecified: 
-body: MIT Licence
+name: LicensePlist, nameSpecified: License Plist, version: 2.12.0
+body: MIT License
 
 Copyrig…
-version: 6.1.0
 
-name: SwiftGen, nameSpecified: 
-body: MIT Licence
+name: Lightbox, nameSpecified: , version: 2.5.0
+body: MIT License
 
 Copyrig…
-version: 6.1.0
-
-name: SwiftyJSON, nameSpecified: 
-body: The MIT License (MIT…
-version: 4.3.0
-
-name: SwiftyJSON, nameSpecified: 
-body: The MIT License (MIT…
-version: 4.3.0
-
-name: iOStarter, nameSpecified: , owner: WahyuAdyP, version: 
-
-name: LicensePlist, nameSpecified: License Plist, owner: mono0926, version: 2.12.0
-
-name: iOStarter, nameSpecified: , owner: WahyuAdyP, version: 
-
-name: LicensePlist, nameSpecified: License Plist, owner: mono0926, version: 2.12.0
 
 add-version-numbers: true
 

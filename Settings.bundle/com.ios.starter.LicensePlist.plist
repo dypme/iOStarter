@@ -14,23 +14,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/Alamofire</string>
 			<key>Title</key>
-			<string>Alamofire (4.9.0)</string>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-		</dict>
-		<dict>
-			<key>File</key>
-			<string>com.ios.starter.LicensePlist/Crashlytics</string>
-			<key>Title</key>
-			<string>Crashlytics (3.14.0)</string>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-		</dict>
-		<dict>
-			<key>File</key>
-			<string>com.ios.starter.LicensePlist/Fabric</string>
-			<key>Title</key>
-			<string>Fabric (1.10.2)</string>
+			<string>Alamofire (4.9.1)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -38,7 +22,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/Firebase</string>
 			<key>Title</key>
-			<string>Firebase (6.9.0)</string>
+			<string>Firebase (6.34.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -46,15 +30,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/FirebaseAnalytics</string>
 			<key>Title</key>
-			<string>FirebaseAnalytics (6.1.2)</string>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-		</dict>
-		<dict>
-			<key>File</key>
-			<string>com.ios.starter.LicensePlist/FirebaseAnalyticsInterop</string>
-			<key>Title</key>
-			<string>FirebaseAnalyticsInterop (1.4.0)</string>
+			<string>FirebaseAnalytics (6.9.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -62,7 +38,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/FirebaseCore</string>
 			<key>Title</key>
-			<string>FirebaseCore (6.3.0)</string>
+			<string>FirebaseCore (6.10.4)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -70,15 +46,23 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/FirebaseCoreDiagnostics</string>
 			<key>Title</key>
-			<string>FirebaseCoreDiagnostics (1.1.0)</string>
+			<string>FirebaseCoreDiagnostics (1.7.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/FirebaseCoreDiagnosticsInterop</string>
+			<string>com.ios.starter.LicensePlist/FirebaseCrashlytics</string>
 			<key>Title</key>
-			<string>FirebaseCoreDiagnosticsInterop (1.0.0)</string>
+			<string>FirebaseCrashlytics (4.6.2)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/FirebaseInstallations</string>
+			<key>Title</key>
+			<string>FirebaseInstallations (1.7.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -86,7 +70,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/FirebaseInstanceID</string>
 			<key>Title</key>
-			<string>FirebaseInstanceID (4.2.5)</string>
+			<string>FirebaseInstanceID (4.8.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -94,7 +78,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/FirebaseMessaging</string>
 			<key>Title</key>
-			<string>FirebaseMessaging (4.1.5)</string>
+			<string>FirebaseMessaging (4.7.1)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -110,7 +94,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/GoogleAppMeasurement</string>
 			<key>Title</key>
-			<string>GoogleAppMeasurement (6.1.2)</string>
+			<string>GoogleAppMeasurement (6.9.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -118,15 +102,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/GoogleDataTransport</string>
 			<key>Title</key>
-			<string>GoogleDataTransport (2.0.0)</string>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-		</dict>
-		<dict>
-			<key>File</key>
-			<string>com.ios.starter.LicensePlist/GoogleDataTransportCCTSupport</string>
-			<key>Title</key>
-			<string>GoogleDataTransportCCTSupport (1.1.0)</string>
+			<string>GoogleDataTransport (7.5.1)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -134,7 +110,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/GoogleUtilities</string>
 			<key>Title</key>
-			<string>GoogleUtilities (6.3.0)</string>
+			<string>GoogleUtilities (6.7.2)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -142,7 +118,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/iOStarter</string>
 			<key>Title</key>
-			<string>iOStarter</string>
+			<string>iOStarter (1.1.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -150,7 +126,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/IQKeyboardManagerSwift</string>
 			<key>Title</key>
-			<string>IQKeyboardManagerSwift (6.5.1)</string>
+			<string>IQKeyboardManagerSwift (6.5.6)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -166,7 +142,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/L10n-swift</string>
 			<key>Title</key>
-			<string>L10n-swift (5.5.2)</string>
+			<string>L10n-swift (5.7.2)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -180,9 +156,17 @@
 		</dict>
 		<dict>
 			<key>File</key>
+			<string>com.ios.starter.LicensePlist/Lightbox</string>
+			<key>Title</key>
+			<string>Lightbox (2.5.0)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
 			<string>com.ios.starter.LicensePlist/nanopb</string>
 			<key>Title</key>
-			<string>nanopb (0.3.901)</string>
+			<string>nanopb (1.30906.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -190,7 +174,15 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/NVActivityIndicatorView</string>
 			<key>Title</key>
-			<string>NVActivityIndicatorView (4.6.1)</string>
+			<string>NVActivityIndicatorView (5.1.1)</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.ios.starter.LicensePlist/PromisesObjC</string>
+			<key>Title</key>
+			<string>PromisesObjC (1.2.11)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -198,7 +190,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/Protobuf</string>
 			<key>Title</key>
-			<string>Protobuf (3.9.2)</string>
+			<string>Protobuf (3.14.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -206,7 +198,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/SwiftGen</string>
 			<key>Title</key>
-			<string>SwiftGen (6.1.0)</string>
+			<string>SwiftGen (6.4.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -214,7 +206,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/SwiftyJSON</string>
 			<key>Title</key>
-			<string>SwiftyJSON (4.3.0)</string>
+			<string>SwiftyJSON (5.0.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>

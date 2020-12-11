@@ -31,11 +31,6 @@ class ErrorView: UIViewController {
 
         setupMethod()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     /// Setup add function/ action in object (ex: add button action, add delegate, add gesture)
     func setupMethod() {
@@ -78,16 +73,6 @@ class ErrorView: UIViewController {
     func removeView() {
         view.removeFromSuperview()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

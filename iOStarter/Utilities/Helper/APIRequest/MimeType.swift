@@ -95,8 +95,8 @@ enum MimeType: String {
     case ogg
     case m4a
     case ra
-    case threeGpp = "3gpp"
-    case threeGp = "3gp"
+    case gpp3 = "3gpp"
+    case gp3 = "3gp"
     case ts
     case mp4
     case mpeg
@@ -239,7 +239,7 @@ enum MimeType: String {
             return "audio/x-m4a"
         case .ra:
             return "audio/x-realaudio"
-        case .threeGpp, .threeGp:
+        case .gp3, .gpp3:
             return "video/3gpp"
         case .ts:
             return "video/mp2t"
