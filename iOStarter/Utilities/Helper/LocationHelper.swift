@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 class LocationHelper: NSObject {
     static let shared = LocationHelper()
@@ -106,7 +107,7 @@ class LocationHelper: NSObject {
         let vc = AppDelegate.shared.window?.rootViewController
         vc?.simpleAlert(title: title, message: message, handler: { (action) in
             if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.openURL(url)
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         })
     }

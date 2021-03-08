@@ -8,6 +8,7 @@
 
 import Foundation
 import Kingfisher
+import UIKit
 
 class ProfileVM {
     private var profile = Profile()

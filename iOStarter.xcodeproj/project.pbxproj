@@ -10,20 +10,6 @@
 		32B1F0FE7DB3926007B26BD8 /* Pods_iOStarter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE443046AD25907E36F53E4 /* Pods_iOStarter.framework */; };
 		E214294823F501710074CEC2 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E214294723F501700074CEC2 /* MimeType.swift */; };
 		E22CA7242582FDBA00BA0AD6 /* AuthVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA7232582FDBA00BA0AD6 /* AuthVM.swift */; };
-		E22CA736258317CC00BA0AD6 /* LightboxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA726258317CC00BA0AD6 /* LightboxController.swift */; };
-		E22CA737258317CC00BA0AD6 /* LayoutConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA728258317CC00BA0AD6 /* LayoutConfigurable.swift */; };
-		E22CA738258317CC00BA0AD6 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA729258317CC00BA0AD6 /* UIView+Gradient.swift */; };
-		E22CA739258317CC00BA0AD6 /* LightboxTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA72A258317CC00BA0AD6 /* LightboxTransition.swift */; };
-		E22CA73A258317CC00BA0AD6 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA72B258317CC00BA0AD6 /* Color+Extensions.swift */; };
-		E22CA73B258317CC00BA0AD6 /* LightboxImageStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA72C258317CC00BA0AD6 /* LightboxImageStub.swift */; };
-		E22CA73C258317CC00BA0AD6 /* LightboxConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA72D258317CC00BA0AD6 /* LightboxConfig.swift */; };
-		E22CA73D258317CC00BA0AD6 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA72E258317CC00BA0AD6 /* AssetManager.swift */; };
-		E22CA73E258317CC00BA0AD6 /* LightboxImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA72F258317CC00BA0AD6 /* LightboxImage.swift */; };
-		E22CA73F258317CC00BA0AD6 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA731258317CC00BA0AD6 /* FooterView.swift */; };
-		E22CA740258317CC00BA0AD6 /* InfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA732258317CC00BA0AD6 /* InfoLabel.swift */; };
-		E22CA741258317CC00BA0AD6 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA733258317CC00BA0AD6 /* HeaderView.swift */; };
-		E22CA742258317CC00BA0AD6 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA734258317CC00BA0AD6 /* LoadingIndicator.swift */; };
-		E22CA743258317CC00BA0AD6 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22CA735258317CC00BA0AD6 /* PageView.swift */; };
 		E231A57123E41F8200FD8832 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E231A57023E41F8200FD8832 /* Settings.bundle */; };
 		E231A57423E4303100FD8832 /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E231A57323E4303100FD8832 /* SettingsHelper.swift */; };
 		E243E57723E53E8C000209D2 /* ZoomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E243E57623E53E8C000209D2 /* ZoomSlider.swift */; };
@@ -40,6 +26,7 @@
 		E27D9C3F23DFEE8B00C0C129 /* ExtUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3423DFEE8B00C0C129 /* ExtUINavigationController.swift */; };
 		E27D9C4023DFEE8B00C0C129 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3523DFEE8B00C0C129 /* ExtUIViewController.swift */; };
 		E27D9C4123DFEE8B00C0C129 /* ExtCAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3623DFEE8B00C0C129 /* ExtCAGradientLayer.swift */; };
+		E2D78D4725DA111100B64812 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2D78D4625DA111100B64812 /* GoogleService-Info.plist */; };
 		E2FB4CB72581BAD100A71739 /* AlertSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FB4CB62581BAD100A71739 /* AlertSheetController.swift */; };
 		E2FB4CB92581BDEB00A71739 /* AlertAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FB4CB82581BDEB00A71739 /* AlertAppearance.swift */; };
 		E2FB4CBB2581C17F00A71739 /* AlertSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FB4CBA2581C17F00A71739 /* AlertSheetView.xib */; };
@@ -55,15 +42,12 @@
 		ED3978E521030BDF00FA6BDF /* LoadIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3978E321030BDF00FA6BDF /* LoadIndicatorView.xib */; };
 		ED49392C210882360064C50C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED49392B210882360064C50C /* ViewController.swift */; };
 		ED49392F21096E650064C50C /* TabBarMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED49392E21096E650064C50C /* TabBarMenuVC.swift */; };
-		ED69DB4E21438A7B001273FB /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = ED69DB4D21438A7A001273FB /* readme.md */; };
 		ED836FBD20F6E18100CFC549 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED836FBC20F6E18100CFC549 /* AppDelegate.swift */; };
 		ED836FC220F6E18100CFC549 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED836FC020F6E18100CFC549 /* Main.storyboard */; };
 		ED836FC420F6E18100CFC549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED836FC320F6E18100CFC549 /* Assets.xcassets */; };
 		ED836FC720F6E18100CFC549 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED836FC520F6E18100CFC549 /* LaunchScreen.storyboard */; };
 		ED836FE820F6F4AE00CFC549 /* FloaticonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED836FE420F6F4AE00CFC549 /* FloaticonField.swift */; };
 		ED836FE920F6F4AE00CFC549 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED836FE520F6F4AE00CFC549 /* TextFieldEffects.swift */; };
-		ED836FEB20F6F5B400CFC549 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = ED836FEA20F6F5B400CFC549 /* swiftgen.yml */; };
-		ED836FFE20F6F5DA00CFC549 /* colors.json in Resources */ = {isa = PBXBuildFile; fileRef = ED836FF720F6F5DA00CFC549 /* colors.json */; };
 		ED836FFF20F6F5DA00CFC549 /* Proxima Nova Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = ED836FF920F6F5DA00CFC549 /* Proxima Nova Black.otf */; };
 		ED83700020F6F5DA00CFC549 /* Proxima Nova Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = ED836FFA20F6F5DA00CFC549 /* Proxima Nova Bold.otf */; };
 		ED83700120F6F5DA00CFC549 /* Proxima Nova Extrabold.otf in Resources */ = {isa = PBXBuildFile; fileRef = ED836FFB20F6F5DA00CFC549 /* Proxima Nova Extrabold.otf */; };
@@ -99,9 +83,6 @@
 		EDCE31B1210863C800DE0957 /* MenuItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE31B0210863C800DE0957 /* MenuItemVM.swift */; };
 		EDCE31B521087E8600DE0957 /* GridMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE31B421087E8600DE0957 /* GridMenuVC.swift */; };
 		EDCE31B82108806100DE0957 /* GridMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE31B72108806100DE0957 /* GridMenuCell.swift */; };
-		EDCEE55821071D8B001EE0FF /* JVFloatingDrawerSpringAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55321071D8B001EE0FF /* JVFloatingDrawerSpringAnimator.m */; };
-		EDCEE55921071D8B001EE0FF /* JVFloatingDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55521071D8B001EE0FF /* JVFloatingDrawerView.m */; };
-		EDCEE55A21071D8B001EE0FF /* JVFloatingDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55721071D8B001EE0FF /* JVFloatingDrawerViewController.m */; };
 		EDCEE55C21071EB3001EE0FF /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCEE55B21071EB3001EE0FF /* Menu.swift */; };
 		FA09F6A922C9A2AA003FB213 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09F6A822C9A2AA003FB213 /* AlertController.swift */; };
 		FA09F6AC22C9A2FB003FB213 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA09F6AB22C9A2FB003FB213 /* AlertView.xib */; };
@@ -131,20 +112,6 @@
 		DEE443046AD25907E36F53E4 /* Pods_iOStarter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOStarter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E214294723F501700074CEC2 /* MimeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
 		E22CA7232582FDBA00BA0AD6 /* AuthVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVM.swift; sourceTree = "<group>"; };
-		E22CA726258317CC00BA0AD6 /* LightboxController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightboxController.swift; sourceTree = "<group>"; };
-		E22CA728258317CC00BA0AD6 /* LayoutConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConfigurable.swift; sourceTree = "<group>"; };
-		E22CA729258317CC00BA0AD6 /* UIView+Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
-		E22CA72A258317CC00BA0AD6 /* LightboxTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightboxTransition.swift; sourceTree = "<group>"; };
-		E22CA72B258317CC00BA0AD6 /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
-		E22CA72C258317CC00BA0AD6 /* LightboxImageStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightboxImageStub.swift; sourceTree = "<group>"; };
-		E22CA72D258317CC00BA0AD6 /* LightboxConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightboxConfig.swift; sourceTree = "<group>"; };
-		E22CA72E258317CC00BA0AD6 /* AssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
-		E22CA72F258317CC00BA0AD6 /* LightboxImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightboxImage.swift; sourceTree = "<group>"; };
-		E22CA731258317CC00BA0AD6 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
-		E22CA732258317CC00BA0AD6 /* InfoLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoLabel.swift; sourceTree = "<group>"; };
-		E22CA733258317CC00BA0AD6 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		E22CA734258317CC00BA0AD6 /* LoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
-		E22CA735258317CC00BA0AD6 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		E231A57023E41F8200FD8832 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		E231A57323E4303100FD8832 /* SettingsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsHelper.swift; sourceTree = "<group>"; };
 		E243E57623E53E8C000209D2 /* ZoomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomSlider.swift; sourceTree = "<group>"; };
@@ -161,6 +128,8 @@
 		E27D9C3423DFEE8B00C0C129 /* ExtUINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUINavigationController.swift; sourceTree = "<group>"; };
 		E27D9C3523DFEE8B00C0C129 /* ExtUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		E27D9C3623DFEE8B00C0C129 /* ExtCAGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtCAGradientLayer.swift; sourceTree = "<group>"; };
+		E2D78D4625DA111100B64812 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E2D78D4825DA122800B64812 /* iOStarter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOStarter.entitlements; sourceTree = "<group>"; };
 		E2FB4CB62581BAD100A71739 /* AlertSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSheetController.swift; sourceTree = "<group>"; };
 		E2FB4CB82581BDEB00A71739 /* AlertAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAppearance.swift; sourceTree = "<group>"; };
 		E2FB4CBA2581C17F00A71739 /* AlertSheetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertSheetView.xib; sourceTree = "<group>"; };
@@ -227,13 +196,6 @@
 		EDCE31B0210863C800DE0957 /* MenuItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemVM.swift; sourceTree = "<group>"; };
 		EDCE31B421087E8600DE0957 /* GridMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridMenuVC.swift; sourceTree = "<group>"; };
 		EDCE31B72108806100DE0957 /* GridMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridMenuCell.swift; sourceTree = "<group>"; };
-		EDCEE55121071D8B001EE0FF /* JVFloatingDrawerAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatingDrawerAnimation.h; sourceTree = "<group>"; };
-		EDCEE55221071D8B001EE0FF /* JVFloatingDrawerSpringAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatingDrawerSpringAnimator.h; sourceTree = "<group>"; };
-		EDCEE55321071D8B001EE0FF /* JVFloatingDrawerSpringAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatingDrawerSpringAnimator.m; sourceTree = "<group>"; };
-		EDCEE55421071D8B001EE0FF /* JVFloatingDrawerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatingDrawerView.h; sourceTree = "<group>"; };
-		EDCEE55521071D8B001EE0FF /* JVFloatingDrawerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatingDrawerView.m; sourceTree = "<group>"; };
-		EDCEE55621071D8B001EE0FF /* JVFloatingDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatingDrawerViewController.h; sourceTree = "<group>"; };
-		EDCEE55721071D8B001EE0FF /* JVFloatingDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatingDrawerViewController.m; sourceTree = "<group>"; };
 		EDCEE55B21071EB3001EE0FF /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		FA09F6A822C9A2AA003FB213 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		FA09F6AB22C9A2FB003FB213 /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
@@ -278,43 +240,6 @@
 				5F25438CD834046E473FDD50 /* Pods-iOStarter.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		E22CA725258317CC00BA0AD6 /* Lightbox */ = {
-			isa = PBXGroup;
-			children = (
-				E22CA726258317CC00BA0AD6 /* LightboxController.swift */,
-				E22CA727258317CC00BA0AD6 /* Library */,
-				E22CA72C258317CC00BA0AD6 /* LightboxImageStub.swift */,
-				E22CA72D258317CC00BA0AD6 /* LightboxConfig.swift */,
-				E22CA72E258317CC00BA0AD6 /* AssetManager.swift */,
-				E22CA72F258317CC00BA0AD6 /* LightboxImage.swift */,
-				E22CA730258317CC00BA0AD6 /* Views */,
-			);
-			path = Lightbox;
-			sourceTree = "<group>";
-		};
-		E22CA727258317CC00BA0AD6 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				E22CA728258317CC00BA0AD6 /* LayoutConfigurable.swift */,
-				E22CA729258317CC00BA0AD6 /* UIView+Gradient.swift */,
-				E22CA72A258317CC00BA0AD6 /* LightboxTransition.swift */,
-				E22CA72B258317CC00BA0AD6 /* Color+Extensions.swift */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
-		E22CA730258317CC00BA0AD6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E22CA731258317CC00BA0AD6 /* FooterView.swift */,
-				E22CA732258317CC00BA0AD6 /* InfoLabel.swift */,
-				E22CA733258317CC00BA0AD6 /* HeaderView.swift */,
-				E22CA734258317CC00BA0AD6 /* LoadingIndicator.swift */,
-				E22CA735258317CC00BA0AD6 /* PageView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		E24DB3BE240385320025EE83 /* APIRequest */ = {
@@ -433,6 +358,7 @@
 				ED836FEA20F6F5B400CFC549 /* swiftgen.yml */,
 				E231A57023E41F8200FD8832 /* Settings.bundle */,
 				ED69DB4D21438A7A001273FB /* readme.md */,
+				E2D78D4625DA111100B64812 /* GoogleService-Info.plist */,
 				ED836FBB20F6E18100CFC549 /* iOStarter */,
 				ED836FBA20F6E18100CFC549 /* Products */,
 				A71F2362EF684F83E2DFC61D /* Pods */,
@@ -451,6 +377,7 @@
 		ED836FBB20F6E18100CFC549 /* iOStarter */ = {
 			isa = PBXGroup;
 			children = (
+				E2D78D4825DA122800B64812 /* iOStarter.entitlements */,
 				ED836FEC20F6F5C100CFC549 /* Constants */,
 				ED836FDC20F6E32C00CFC549 /* Resource */,
 				ED836FE020F6F4AE00CFC549 /* Utilities */,
@@ -576,10 +503,8 @@
 		ED83702020F70A6D00CFC549 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				EDCEE55021071D8B001EE0FF /* JVFloatingDrawer */,
 				ED83702E20F7121100CFC549 /* Notify */,
 				ED836FE320F6F4AE00CFC549 /* FloaticonField */,
-				E22CA725258317CC00BA0AD6 /* Lightbox */,
 				EDCE31AA2108502C00DE0957 /* ToastView.swift */,
 				ED2A4337212A5E3A00F0379E /* CheckBox.swift */,
 				ED2A4339212A5E4800F0379E /* PickerField.swift */,
@@ -669,20 +594,6 @@
 				EDCE31B421087E8600DE0957 /* GridMenuVC.swift */,
 			);
 			path = GridMenu;
-			sourceTree = "<group>";
-		};
-		EDCEE55021071D8B001EE0FF /* JVFloatingDrawer */ = {
-			isa = PBXGroup;
-			children = (
-				EDCEE55121071D8B001EE0FF /* JVFloatingDrawerAnimation.h */,
-				EDCEE55221071D8B001EE0FF /* JVFloatingDrawerSpringAnimator.h */,
-				EDCEE55321071D8B001EE0FF /* JVFloatingDrawerSpringAnimator.m */,
-				EDCEE55421071D8B001EE0FF /* JVFloatingDrawerView.h */,
-				EDCEE55521071D8B001EE0FF /* JVFloatingDrawerView.m */,
-				EDCEE55621071D8B001EE0FF /* JVFloatingDrawerViewController.h */,
-				EDCEE55721071D8B001EE0FF /* JVFloatingDrawerViewController.m */,
-			);
-			path = JVFloatingDrawer;
 			sourceTree = "<group>";
 		};
 		F81EBD5F822151E6BCBF0AD6 /* Frameworks */ = {
@@ -824,6 +735,7 @@
 				5F68A75DAE662CF2756EB85E /* [CP] Embed Pods Frameworks */,
 				ED83700420F6F62000CFC549 /* SwiftGen */,
 				FA86480B21DDC68900407363 /* Crashlytics */,
+				E2520F9125D3ACA90052D4B5 /* Upload dSYM */,
 				E231A57223E426DF00FD8832 /* LicensePlist */,
 			);
 			buildRules = (
@@ -886,12 +798,10 @@
 			files = (
 				ED836FC720F6E18100CFC549 /* LaunchScreen.storyboard in Resources */,
 				ED83700320F6F5DA00CFC549 /* ProximaNova-Regular.otf in Resources */,
-				ED836FFE20F6F5DA00CFC549 /* colors.json in Resources */,
 				ED83700120F6F5DA00CFC549 /* Proxima Nova Extrabold.otf in Resources */,
 				E2FB4CBB2581C17F00A71739 /* AlertSheetView.xib in Resources */,
 				ED836FFF20F6F5DA00CFC549 /* Proxima Nova Black.otf in Resources */,
 				ED83700220F6F5DA00CFC549 /* Proxima Nova Thin.otf in Resources */,
-				ED69DB4E21438A7B001273FB /* readme.md in Resources */,
 				FA09F6AC22C9A2FB003FB213 /* AlertView.xib in Resources */,
 				ED3978E521030BDF00FA6BDF /* LoadIndicatorView.xib in Resources */,
 				ED83701D20F709A900CFC549 /* Auth.storyboard in Resources */,
@@ -903,8 +813,8 @@
 				ED83700020F6F5DA00CFC549 /* Proxima Nova Bold.otf in Resources */,
 				ED836FC420F6E18100CFC549 /* Assets.xcassets in Resources */,
 				ED836FC220F6E18100CFC549 /* Main.storyboard in Resources */,
+				E2D78D4725DA111100B64812 /* GoogleService-Info.plist in Resources */,
 				FAA82799228D2B1300B91749 /* Localizable.strings in Resources */,
-				ED836FEB20F6F5B400CFC549 /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -937,11 +847,24 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOStarter/Pods-iOStarter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseABTesting/FirebaseABTesting.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCrashlytics/FirebaseCrashlytics.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseInstanceID/FirebaseInstanceID.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseMessaging/FirebaseMessaging.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseRemoteConfig/FirebaseRemoteConfig.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
+				"${BUILT_PRODUCTS_DIR}/KYDrawerController/KYDrawerController.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/L10n-swift/L10n_swift.framework",
+				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -951,11 +874,24 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseABTesting.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreDiagnostics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCrashlytics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstanceID.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseMessaging.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseRemoteConfig.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KYDrawerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/L10n_swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -984,6 +920,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#if [ $CONFIGURATION = \"Debug\" ]; then\n#    ${SRCROOT}/license-plist --output-path Settings.bundle --prefix com.ios.starter.LicensePlist --add-version-numbers --suppress-opening-directory --force \n#fi\n";
+		};
+		E2520F9125D3ACA90052D4B5 /* Upload dSYM */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Upload dSYM";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "find \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\" -name \"*.dSYM\" | xargs -I \\{\\} $PODS_ROOT/FirebaseCrashlytics/upload-symbols -gsp ${PROJECT_DIR}/GoogleService-Info.plist -p ios \\{\\}\n";
 		};
 		ED83700420F6F62000CFC549 /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1017,7 +971,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1026,8 +980,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E22CA742258317CC00BA0AD6 /* LoadingIndicator.swift in Sources */,
-				E22CA740258317CC00BA0AD6 /* InfoLabel.swift in Sources */,
 				ED19EAB421213B8400C82E8F /* LocationHelper.swift in Sources */,
 				EDCE31AB2108502D00DE0957 /* ToastView.swift in Sources */,
 				E27D9C4123DFEE8B00C0C129 /* ExtCAGradientLayer.swift in Sources */,
@@ -1039,7 +991,6 @@
 				ED83702620F70AE100CFC549 /* ExtUIColor.swift in Sources */,
 				EDCE31A3210828A100DE0957 /* DrawerMenuVC.swift in Sources */,
 				E27D9C3D23DFEE8B00C0C129 /* ExtBool.swift in Sources */,
-				E22CA73A258317CC00BA0AD6 /* Color+Extensions.swift in Sources */,
 				ED83700C20F708D700CFC549 /* AppFont.swift in Sources */,
 				FAA2BF16228A6EE400688422 /* TableViewController.swift in Sources */,
 				ED836FE920F6F4AE00CFC549 /* TextFieldEffects.swift in Sources */,
@@ -1047,22 +998,17 @@
 				E27D9C3C23DFEE8B00C0C129 /* ExtUIApplication.swift in Sources */,
 				ED83702420F70AC400CFC549 /* DatabaseHelper.swift in Sources */,
 				EDB7C3B7210C165100E8C887 /* ProfileVM.swift in Sources */,
-				E22CA73D258317CC00BA0AD6 /* AssetManager.swift in Sources */,
 				FA539224239B5725005CA83E /* ExampleListVC.swift in Sources */,
-				E22CA737258317CC00BA0AD6 /* LayoutConfigurable.swift in Sources */,
 				EDCE31A921082CB100DE0957 /* DrawerMenu.swift in Sources */,
 				FA539229239B5A01005CA83E /* ExampleItemVM.swift in Sources */,
 				ED83702D20F70E5700CFC549 /* NotificationHelper.swift in Sources */,
 				E27D9C3B23DFEE8B00C0C129 /* ExtUITextField.swift in Sources */,
 				FAA8278F228D1C0300B91749 /* PluralAppStrings.swift in Sources */,
-				E22CA736258317CC00BA0AD6 /* LightboxController.swift in Sources */,
 				E22CA7242582FDBA00BA0AD6 /* AuthVM.swift in Sources */,
 				ED83700A20F708D700CFC549 /* AppColor.swift in Sources */,
 				FA09F6A922C9A2AA003FB213 /* AlertController.swift in Sources */,
 				FAA8279F228D2BE500B91749 /* AppStrings.swift in Sources */,
 				ED83703120F7121200CFC549 /* Notify.swift in Sources */,
-				E22CA739258317CC00BA0AD6 /* LightboxTransition.swift in Sources */,
-				E22CA73B258317CC00BA0AD6 /* LightboxImageStub.swift in Sources */,
 				ED83702920F70CD800CFC549 /* Profile.swift in Sources */,
 				ED83702B20F70D4D00CFC549 /* UserSession.swift in Sources */,
 				EDB7C3AB210C0B7F00E8C887 /* ProfileVC.swift in Sources */,
@@ -1075,7 +1021,6 @@
 				E27D9C3823DFEE8B00C0C129 /* ExtUIView.swift in Sources */,
 				FA77E25A2320B3C100AE6676 /* ApiHelper.swift in Sources */,
 				ED49392C210882360064C50C /* ViewController.swift in Sources */,
-				E22CA743258317CC00BA0AD6 /* PageView.swift in Sources */,
 				E2FB4CB92581BDEB00A71739 /* AlertAppearance.swift in Sources */,
 				ED83700D20F708D700CFC549 /* ErrorConstant.swift in Sources */,
 				E27D9C3F23DFEE8B00C0C129 /* ExtUINavigationController.swift in Sources */,
@@ -1086,7 +1031,6 @@
 				E27D9C3E23DFEE8B00C0C129 /* ExtString.swift in Sources */,
 				FA78DAA8239E0D7F005EF2C0 /* CollectionViewController.swift in Sources */,
 				ED83701620F7094000CFC549 /* LoginVC.swift in Sources */,
-				EDCEE55A21071D8B001EE0FF /* JVFloatingDrawerViewController.m in Sources */,
 				EDB8C909211C163B0003AF4A /* ImagePagerView.swift in Sources */,
 				ED2E69922109AB760086385A /* ErrorView.swift in Sources */,
 				ED83700B20F708D700CFC549 /* AppAssets.swift in Sources */,
@@ -1095,10 +1039,8 @@
 				EDCEE55C21071EB3001EE0FF /* Menu.swift in Sources */,
 				ED2A4338212A5E3A00F0379E /* CheckBox.swift in Sources */,
 				EDB7C3B9210C237400E8C887 /* Config.swift in Sources */,
-				E22CA73E258317CC00BA0AD6 /* LightboxImage.swift in Sources */,
 				ED2A4336212A5E2F00F0379E /* DownloadFileHelper.swift in Sources */,
 				FA78DAAE239E23EB005EF2C0 /* ExampleDetailVC.swift in Sources */,
-				EDCEE55921071D8B001EE0FF /* JVFloatingDrawerView.m in Sources */,
 				E27D9C3723DFEE8B00C0C129 /* ExtUIImage.swift in Sources */,
 				FAA686C2231CEDD100C629CE /* KWWebView.swift in Sources */,
 				E24DB3C02403857C0025EE83 /* UploadParameters.swift in Sources */,
@@ -1106,19 +1048,14 @@
 				FA53922C239B69F8005CA83E /* ExampleCell.swift in Sources */,
 				ED83700E20F708D700CFC549 /* AppStoryboard.swift in Sources */,
 				EDCE31B1210863C800DE0957 /* MenuItemVM.swift in Sources */,
-				E22CA73F258317CC00BA0AD6 /* FooterView.swift in Sources */,
 				E231A57423E4303100FD8832 /* SettingsHelper.swift in Sources */,
-				E22CA73C258317CC00BA0AD6 /* LightboxConfig.swift in Sources */,
 				E27D9C3923DFEE8B00C0C129 /* ExtInt.swift in Sources */,
 				ED2A433A212A5E4800F0379E /* PickerField.swift in Sources */,
 				E27622B623E174A30098CC31 /* CameraController.swift in Sources */,
-				E22CA738258317CC00BA0AD6 /* UIView+Gradient.swift in Sources */,
 				EDCE31B82108806100DE0957 /* GridMenuCell.swift in Sources */,
-				EDCEE55821071D8B001EE0FF /* JVFloatingDrawerSpringAnimator.m in Sources */,
 				E243E57723E53E8C000209D2 /* ZoomSlider.swift in Sources */,
 				EDB7C3B2210C148100E8C887 /* EditProfileVC.swift in Sources */,
 				ED2E698E2109788B0086385A /* ExampleModel.swift in Sources */,
-				E22CA741258317CC00BA0AD6 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1309,11 +1246,12 @@
 			baseConfigurationReference = C3AE795366AA293C92B6BE79 /* Pods-iOStarter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOStarter/iOStarter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				EXCLUDED_SOURCE_FILE_NAMES = "";
 				INFOPLIST_FILE = "$(SRCROOT)/iOStarter/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ios.starter;
@@ -1329,11 +1267,12 @@
 			baseConfigurationReference = 5F25438CD834046E473FDD50 /* Pods-iOStarter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOStarter/iOStarter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				EXCLUDED_SOURCE_FILE_NAMES = "";
 				INFOPLIST_FILE = "$(SRCROOT)/iOStarter/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ios.starter;

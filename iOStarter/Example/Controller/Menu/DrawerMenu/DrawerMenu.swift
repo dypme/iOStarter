@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import KYDrawerController
 
 /// Setup drawer menu controller, here drawer controller variable used for application
 class DrawerMenu {
@@ -15,7 +16,7 @@ class DrawerMenu {
     
     // MARK: - Property
     /// Drawer controller used for application
-    var drawerController: JVFloatingDrawerViewController?
+    var drawerController: KYDrawerController?
     
     // MARK: - Action
     /// Initialize setup of drawer controller, setting center and left controller
@@ -24,15 +25,11 @@ class DrawerMenu {
     func setupDrawer(centerViewController: UIViewController) {
         let sideMenu = StoryboardScene.Main.drawerMenuVC.instantiate()
         
-        let drawerController = JVFloatingDrawerViewController()
-        drawerController.leftViewController = sideMenu
-        drawerController.centerViewController = centerViewController
+        let drawerController = KYDrawerController(drawerDirection: .left, drawerWidth: 200)
+        drawerController.drawerViewController = sideMenu
+        drawerController.mainViewController = centerViewController
         
-        let animator = JVFloatingDrawerSpringAnimator()
-        animator.animationDuration = 0.7
-        animator.initialSpringVelocity = 0
-        animator.springDamping = 0.8
-        drawerController.animator = animator
+        drawerController.drawerAnimationDuration = 0.7
         
         self.drawerController = drawerController
     }
@@ -41,7 +38,7 @@ class DrawerMenu {
     ///
     /// - Parameter viewController: ViewController that change center
     func setCenter(_ viewController: UIViewController) {
-        drawerController?.centerViewController = viewController
+        drawerController?.mainViewController = viewController
     }
     
     // MARK: -
@@ -51,16 +48,12 @@ class DrawerMenu {
 //            menuDrawer.setupView()
 //            menuDrawer.tableView.reloadData()
 //        }
-        drawerController?.toggleDrawer(with: .left, animated: true, completion: { (finished) in
-            
-        })
+        drawerController?.setDrawerState(.opened, animated: true)
     }
     
     /// Close drawer function
     func closeDrawer() {
-        drawerController?.closeDrawer(with: .left, animated: true, completion: { (finished) in
-            
-        })
+        drawerController?.setDrawerState(.closed, animated: true)
     }
     
 }

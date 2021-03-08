@@ -27,8 +27,8 @@ struct ApiHelper {
     let BASE_URL = "BASE_URL"
     
     /// Setting headers
-    var headers: [String : String] {
-        let data : [String : String] = [ : ]
+    var headers: HTTPHeaders {
+        let data = HTTPHeaders()
         return data
     }
     
@@ -38,11 +38,11 @@ struct ApiHelper {
     }
     
     /// Alamofire session manager is Alamfire with some configuration of url session configuration
-    private var afManager: SessionManager? = {
+    private(set) var afManager: Session? = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 300
         configuration.timeoutIntervalForResource = 300
-        let manager = Alamofire.SessionManager(configuration: configuration)
+        let manager = Alamofire.Session(configuration: configuration)
         return manager
     }()
     
@@ -67,21 +67,18 @@ struct ApiHelper {
     /// - Returns: Data when requesting
     private func apiRequest(url: URL, method: Alamofire.HTTPMethod, parameters: Parameters, completion: Callback) -> DataRequest? {
         return afManager?.request(url, method: method, parameters: parameters, headers: headers).responseJSON { (response) in
-            if response.result.isSuccess {
-                print("Get response request : \(response.result.value ?? "")")
-                if let data = response.data {
-                    let json = try! JSON(data: data)
-                    let status = json["api_status"].intValue
-                    let message = json["api_message"].stringValue
-                    completion?(json, status == 1, message)
-                }
-            } else {
-                if let error = response.result.error {
-                    completion?("", false, error.localizedDescription)
-                    return
-                }
-                print(response.result.debugDescription)
-                completion?("", false, "Terjadi suatu kesalahan")
+            switch response.result {
+            case .success(let value):
+                print("Get response success:", value)
+                
+                let json = JSON(value)
+                let status = json["api_status"].intValue
+                let message = json["api_message"].stringValue
+                completion?(json, status == 1, message)
+            case .failure(let error):
+                print("Get full response failed:", response.debugDescription)
+                
+                completion?("", false, error.localizedDescription)
             }
         }
     }
@@ -112,28 +109,21 @@ struct ApiHelper {
                     multipartFormData.append(strData, withName: key)
                 }
             }
-        }, to: url, method: method, headers: headers) { (encodingResult) in
-            switch encodingResult{
-            case .success(let upload, _, _):
-                upload.responseJSON(completionHandler: { (response) in
-                    if response.result.isSuccess {
-                        print("Get response request : \(response.result.value ?? "")")
-                        if let data = response.data {
-                            let json = try! JSON(data: data)
-                            let status = json["api_status"].intValue
-                            let message = json["api_message"].stringValue
-                            completion?(json, status == 1, message)
-                        }
-                    } else {
-                        print(response.result.debugDescription)
-                        completion?("", false, "Terjadi suatu kesalahan")
-                    }
-                })
-            case .failure(let encodingError):
-                print(encodingError.localizedDescription)
-                completion?("", false, encodingError.localizedDescription)
+        }, to: url, method: method, headers: headers).responseJSON(completionHandler: { (response) in
+            switch response.result {
+            case .success(let value):
+                print("Get response success upload:", value)
+                
+                let json = JSON(value)
+                let status = json["api_status"].intValue
+                let message = json["api_message"].stringValue
+                completion?(json, status == 1, message)
+            case .failure(let error):
+                print("Get full response failed upload:", response.debugDescription)
+                
+                completion?("", false, error.localizedDescription)
             }
-        }
+        })
     }
     
     // MARK: - Example

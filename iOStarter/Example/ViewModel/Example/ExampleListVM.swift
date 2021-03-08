@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ExampleListVM {
     private var datas = [ExampleModel]()

@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 def shared_pods
     
@@ -11,6 +11,7 @@ def shared_pods
     
     pod 'Firebase/Messaging'
     pod 'Firebase/Crashlytics'
+    pod 'Firebase/Performance'
     pod 'Firebase/Analytics'
     
     # Custom activity indicator. Change this if have more amazing custom activity indicator, delete/ leave it if no need custom activity indicator.
@@ -24,6 +25,12 @@ def shared_pods
     
     # Using for localization application. Documentation: https://github.com/Decybel07/L10n-swift
     pod 'L10n-swift'
+    
+    # Image/ video preview. Documentation: https://github.com/hyperoslo/Lightbox
+    pod 'Lightbox'
+    
+    # Example library of drawer menu. Documentation: https://github.com/mchan004/KYDrawerController
+    pod 'KYDrawerController', :git => 'https://github.com/mchan004/KYDrawerController.git'
 
 end
 

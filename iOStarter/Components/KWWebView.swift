@@ -97,11 +97,6 @@ class KWWebView: UIView {
         }
     }
     
-    /// An array of objects forming the certificate chain for the currently committed navigation.
-    var certificateChain: [Any] {
-        return webView.certificateChain
-    }
-    
     /// The web view's navigation delegate.
     var navigationDelegate: WKNavigationDelegate? {
         get {

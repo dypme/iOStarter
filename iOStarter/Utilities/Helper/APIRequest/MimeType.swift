@@ -6,6 +6,8 @@
 //  Copyright © 2020 WahyuAdyP. All rights reserved.
 //
 
+import UIKit
+
 enum MimeType: String {
     case html
     case htm

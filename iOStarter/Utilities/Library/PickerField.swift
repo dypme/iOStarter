@@ -158,6 +158,10 @@ class PickerField: UIView {
             self.datePicker.datePickerMode = mode
         }
         
+        if #available(iOS 13.4, *) {
+            self.datePicker.preferredDatePickerStyle = .wheels
+        }
+        
         self.dateCallback = callback
         
         setupField()

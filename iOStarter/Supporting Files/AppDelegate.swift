@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupView()
         
         // uncomment setupNotification if need push notification
-//        setupNotification(application: application)
+        setupNotification(application: application)
         
         return true
     }
@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setApp() {
         SettingsHelper.setupSettings()
         
-//        FirebaseApp.configure()
+        FirebaseApp.configure()
         
         KeyboardManager.shared.start()
         
@@ -69,6 +69,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
+//            fatalError("Test crashlytics")
+//        }
     }
     
     func refreshMainController() {
@@ -102,12 +106,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         // Print full message.
-        print(userInfo)
-        
-        // Here action if notification tap
-        NotificationHelper.shared.notification(data: userInfo)
-        
-        completionHandler(.newData)
+//        print(userInfo)
+//
+//        // Here action if notification tap
+//        NotificationHelper.shared.notification(data: userInfo)
+//
+//        completionHandler(.newData)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -136,7 +140,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 // [START ios_10_message_handling]
-@available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
     // Receive displayed notifications for iOS 10 devices.
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -148,6 +151,8 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         // Here action if notification tap
         NotificationHelper.shared.notification(data: userInfo)
+        
+        completionHandler([])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -159,6 +164,8 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         // Here action if notification tap
         NotificationHelper.shared.notification(data: userInfo)
+        
+        completionHandler()
     }
 }
 // [END ios_10_message_handling]
@@ -170,8 +177,8 @@ extension AppDelegate : MessagingDelegate {
         NotificationHelper.shared.refreshFcmToken()
     }
     
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("Firebase registration token:", fcmToken ?? "")
         NotificationHelper.shared.refreshFcmToken()
     }
 }

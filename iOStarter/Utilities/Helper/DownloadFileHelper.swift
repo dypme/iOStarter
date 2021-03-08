@@ -104,7 +104,7 @@ class DownloadFileHelper {
             return
         }
         
-        let destination: DownloadRequest.DownloadFileDestination = { _, _ in
+        let destination: DownloadRequest.Destination = { _, _ in
             let documentsURL = URL(fileURLWithPath: savedDirectory)
             let fileName = downloadUrl.lastPathComponent
                 .removingPercentEncoding?.replacingOccurrences(of: " ", with: "_") ?? ""
@@ -113,23 +113,24 @@ class DownloadFileHelper {
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         
-        let request: DownloadRequest
+        let request: DownloadRequest?
         if let data = DownloadFileHelper.queue.first(where: { $0.url == downloadUrl }) {
             self.resumeData = data.data
         } else {
             DownloadFileHelper.queue.append((downloadUrl, self.resumeData))
         }
+        let session = ApiHelper.shared.afManager
         if let resumeData = resumeData {
-            request = Alamofire.download(resumingWith: resumeData, to: destination).downloadProgress { (progressDownload) in
+            request = session?.download(resumingWith: resumeData, to: destination).downloadProgress { (progressDownload) in
                 progress?(progressDownload)
             }
         } else {
-            request = Alamofire.download(downloadUrl, to: destination).downloadProgress { (progressDownload) in
+            request = session?.download(downloadUrl, to: destination).downloadProgress { (progressDownload) in
                 progress?(progressDownload)
             }
         }
         
-        request.responseData { response in
+        request?.responseData { response in
             switch response.result {
             case .success(let data):
                 self.downloadData = data
