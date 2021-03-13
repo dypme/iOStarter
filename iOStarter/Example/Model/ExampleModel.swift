@@ -10,13 +10,13 @@ import Foundation
 import SwiftyJSON
 
 /// Template of model your content data. Copy this file more recommended than modify this file for your new model
-class ExampleModel {
+class ExampleModel: NSObject {
     var id: Int!
     var name: String!
     var detail: String!
     var image: String!
     
-    init() {
+    override init() {
         id = 0
         name = ""
         detail = ""

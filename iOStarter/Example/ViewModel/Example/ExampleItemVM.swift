@@ -8,13 +8,7 @@
 
 import Foundation
 
-class ExampleItemVM {
-    private var data: ExampleModel
-    
-    init(data: ExampleModel) {
-        self.data = data
-    }
-    
+class ExampleItemVM: ViewModelItem<ExampleModel> {
     var photo: URL? {
         return URL(string: data.image)
     }
