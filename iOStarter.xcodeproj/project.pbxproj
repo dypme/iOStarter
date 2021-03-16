@@ -41,7 +41,6 @@
 		ED2E69932109AB760086385A /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2E69912109AB760086385A /* ErrorView.xib */; };
 		ED3978DD2103044100FA6BDF /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3978DC2103044100FA6BDF /* RegisterVC.swift */; };
 		ED3978E421030BDF00FA6BDF /* LoadIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3978E221030BDF00FA6BDF /* LoadIndicatorView.swift */; };
-		ED3978E521030BDF00FA6BDF /* LoadIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3978E321030BDF00FA6BDF /* LoadIndicatorView.xib */; };
 		ED49392C210882360064C50C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED49392B210882360064C50C /* ViewController.swift */; };
 		ED49392F21096E650064C50C /* TabBarMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED49392E21096E650064C50C /* TabBarMenuVC.swift */; };
 		ED836FBD20F6E18100CFC549 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED836FBC20F6E18100CFC549 /* AppDelegate.swift */; };
@@ -150,7 +149,6 @@
 		ED2E69912109AB760086385A /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		ED3978DC2103044100FA6BDF /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		ED3978E221030BDF00FA6BDF /* LoadIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadIndicatorView.swift; sourceTree = "<group>"; };
-		ED3978E321030BDF00FA6BDF /* LoadIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadIndicatorView.xib; sourceTree = "<group>"; };
 		ED49392B210882360064C50C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ED49392E21096E650064C50C /* TabBarMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarMenuVC.swift; sourceTree = "<group>"; };
 		ED69DB4D21438A7A001273FB /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 		ED2E698F2109AB390086385A /* ErrorView */ = {
 			isa = PBXGroup;
 			children = (
-				ED2E69902109AB760086385A /* ErrorView.swift */,
 				ED2E69912109AB760086385A /* ErrorView.xib */,
 			);
 			path = ErrorView;
@@ -341,20 +338,9 @@
 			isa = PBXGroup;
 			children = (
 				ED2E698F2109AB390086385A /* ErrorView */,
-				ED3978E121030BCF00FA6BDF /* LoadIndicatorView */,
 				FA09F6AA22C9A2D8003FB213 /* AlertView */,
-				EDB8C908211C163B0003AF4A /* ImagePagerView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		ED3978E121030BCF00FA6BDF /* LoadIndicatorView */ = {
-			isa = PBXGroup;
-			children = (
-				ED3978E221030BDF00FA6BDF /* LoadIndicatorView.swift */,
-				ED3978E321030BDF00FA6BDF /* LoadIndicatorView.xib */,
-			);
-			path = LoadIndicatorView;
 			sourceTree = "<group>";
 		};
 		ED49392D21096D440064C50C /* TabBarMenu */ = {
@@ -634,6 +620,9 @@
 				FA3AD5422318C752000B17C6 /* NavigationItem.swift */,
 				FAA686C1231CEDD100C629CE /* KWWebView.swift */,
 				E243E57623E53E8C000209D2 /* ZoomSlider.swift */,
+				EDB8C908211C163B0003AF4A /* ImagePagerView.swift */,
+				ED3978E221030BDF00FA6BDF /* LoadIndicatorView.swift */,
+				ED2E69902109AB760086385A /* ErrorView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -817,7 +806,6 @@
 				ED836FFF20F6F5DA00CFC549 /* Proxima Nova Black.otf in Resources */,
 				ED83700220F6F5DA00CFC549 /* Proxima Nova Thin.otf in Resources */,
 				FA09F6AC22C9A2FB003FB213 /* AlertView.xib in Resources */,
-				ED3978E521030BDF00FA6BDF /* LoadIndicatorView.xib in Resources */,
 				ED83701D20F709A900CFC549 /* Auth.storyboard in Resources */,
 				ED2E69932109AB760086385A /* ErrorView.xib in Resources */,
 				EDB7C3AE210C0C1C00E8C887 /* Profile.storyboard in Resources */,
