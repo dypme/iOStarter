@@ -38,7 +38,6 @@
 		ED2A433A212A5E4800F0379E /* PickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2A4339212A5E4800F0379E /* PickerField.swift */; };
 		ED2E698E2109788B0086385A /* ExampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2E698D2109788B0086385A /* ExampleModel.swift */; };
 		ED2E69922109AB760086385A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2E69902109AB760086385A /* ErrorView.swift */; };
-		ED2E69932109AB760086385A /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED2E69912109AB760086385A /* ErrorView.xib */; };
 		ED3978DD2103044100FA6BDF /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3978DC2103044100FA6BDF /* RegisterVC.swift */; };
 		ED3978E421030BDF00FA6BDF /* LoadIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3978E221030BDF00FA6BDF /* LoadIndicatorView.swift */; };
 		ED49392C210882360064C50C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED49392B210882360064C50C /* ViewController.swift */; };
@@ -146,7 +145,6 @@
 		ED2A4339212A5E4800F0379E /* PickerField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerField.swift; sourceTree = "<group>"; };
 		ED2E698D2109788B0086385A /* ExampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleModel.swift; sourceTree = "<group>"; };
 		ED2E69902109AB760086385A /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		ED2E69912109AB760086385A /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		ED3978DC2103044100FA6BDF /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		ED3978E221030BDF00FA6BDF /* LoadIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadIndicatorView.swift; sourceTree = "<group>"; };
 		ED49392B210882360064C50C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -326,18 +324,9 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
-		ED2E698F2109AB390086385A /* ErrorView */ = {
-			isa = PBXGroup;
-			children = (
-				ED2E69912109AB760086385A /* ErrorView.xib */,
-			);
-			path = ErrorView;
-			sourceTree = "<group>";
-		};
 		ED3978E021030AD600FA6BDF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				ED2E698F2109AB390086385A /* ErrorView */,
 				FA09F6AA22C9A2D8003FB213 /* AlertView */,
 			);
 			path = View;
@@ -807,7 +796,6 @@
 				ED83700220F6F5DA00CFC549 /* Proxima Nova Thin.otf in Resources */,
 				FA09F6AC22C9A2FB003FB213 /* AlertView.xib in Resources */,
 				ED83701D20F709A900CFC549 /* Auth.storyboard in Resources */,
-				ED2E69932109AB760086385A /* ErrorView.xib in Resources */,
 				EDB7C3AE210C0C1C00E8C887 /* Profile.storyboard in Resources */,
 				FAA827A6228D2FF000B91749 /* PluralLocalizable.stringsdict in Resources */,
 				E231A57123E41F8200FD8832 /* Settings.bundle in Resources */,

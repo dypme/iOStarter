@@ -21,12 +21,10 @@ class ViewModelListVM<T: NSObject, V: ViewModelItem<T>> {
         if datas.isEmpty {
             if isLoading {
                 let loadingView = LoadIndicatorView()
-                loadingView.view.isUserInteractionEnabled = false
-                loadingView.view.backgroundColor = UIColor.clear
-                return loadingView.view
+                loadingView.startAnimating()
+                return loadingView
             } else {
-                let errorView = ErrorView()
-                return errorView.view
+                return ErrorView(message: "Data not found")
             }
         }
         return nil

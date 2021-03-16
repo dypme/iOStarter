@@ -8,28 +8,81 @@
 
 import UIKit
 
-class ErrorView: UIViewController {
+class ErrorView: UIView {
     
-    static let shared = ErrorView()
+    private var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var messageLbl: UILabel!
-    @IBOutlet weak var refreshBtn: UIButton!
+    private var messageLbl: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .black
+        label.numberOfLines = 0
+        return label
+    }()
     
+    private var refreshBtn: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.setTitle("Muat Ulang", for: UIControl.State())
+        button.setTitleColor(UIColor.white, for: UIControl.State())
+        button.backgroundColor = .red
+        return button
+    }()
+    
+    private var image: UIImage?
+    private var message: String
     private var tapReload: (() -> Void)?
     
-    init() {
-        super.init(nibName: "ErrorView", bundle: nil)
+    /// Initialize error view
+    /// - Parameters:
+    ///   - image: image for error view
+    ///   - message: Text to inform user what error happen
+    ///   - action: Action to reload fetch data while error occur
+    init(image: UIImage? = nil, message: String, reloadAction action: (() -> Void)? = nil, tag: Int = 1431) {
+        self.image = image
+        self.message = message
+        self.tapReload = action
+        
+        super.init(frame: .zero)
+        
+        self.tag = tag
+        
+        setupMethod()
+        setupView()
+        setupLayout()
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setupMethod()
+    
+    private func setupLayout() {
+        let hStackView = UIStackView(arrangedSubviews: [imageView, messageLbl, refreshBtn])
+        hStackView.translatesAutoresizingMaskIntoConstraints = false
+        hStackView.axis = .vertical
+        hStackView.alignment = .center
+        hStackView.spacing = 20
+        self.addSubview(hStackView)
+        
+        hStackView.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor, constant: 40).isActive = true
+        hStackView.leadingAnchor.constraint(greaterThanOrEqualTo: self.leadingAnchor, constant: 40).isActive = true
+        hStackView.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor, constant: 40).isActive = true
+        hStackView.trailingAnchor.constraint(greaterThanOrEqualTo: self.trailingAnchor, constant: 40).isActive = true
+        
+        hStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        hStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        
+        imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 130).isActive = true
+        imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 130).isActive = true
+        
+        refreshBtn.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        refreshBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
     /// Setup add function/ action in object (ex: add button action, add delegate, add gesture)
@@ -37,41 +90,44 @@ class ErrorView: UIViewController {
         refreshBtn.addTarget(self, action: #selector(reload(_:)), for: .touchUpInside)
     }
     
-    /// Show error view in view
-    ///
-    /// - Parameters:
-    ///   - aView: View that will add error view
-    ///   - frame: Size & position of error view
-    ///   - image: image for error view
-    ///   - message: Text to inform user what error happen
-    ///   - tapReload: Action to reload fetch data while error occur
-    func show(in aView: UIView?, frame: CGRect?, image: UIImage?, message: String, tapReload: (() -> Void)?) {
-        guard let aView = aView else { return }
-        view.frame = frame == nil ? aView.frame : frame!
-        aView.addSubview(view)
-        
+    func setupView() {
         imageView.image = image
         imageView.isHidden = image == nil
         
         messageLbl.text = message
+        
         refreshBtn.isHidden = tapReload == nil
         
-        self.tapReload = tapReload
+        self.isUserInteractionEnabled = !refreshBtn.isHidden
+        self.backgroundColor = .clear
         
-        refreshBtn.circle()
+        refreshBtn.rounded(value: 20)
+    }
+    
+    private func setContentConstraint(in view: UIView) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        self.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        self.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+    
+    /// Show error view in view
+    ///
+    /// - Parameters:
+    ///   - aView: View that will add error view
+    func show(in view: UIView) {
+        view.addSubview(self)
+        setContentConstraint(in: view)
     }
     
     /// Reload button function action
     ///
     /// - Parameter button: Sender button
     @objc func reload(_ button: UIButton) {
-        removeView()
+        self.removeFromSuperview()
         tapReload?()
-    }
-    
-    /// Remove error view from view
-    func removeView() {
-        view.removeFromSuperview()
     }
 
 }
@@ -85,38 +141,23 @@ extension UIView {
     ///   - message: Text to inform user what error happen
     ///   - tapReload: Action to reload fetch data while error occur
     ///   - tag: Mark of error view in superview
-    func setErrorView(frame: CGRect? = nil, image: UIImage? = nil, message: String, tapReload: (() -> Void)?, tag: Int = 1431) {
-        let controller = self.viewContainingController()
-        let controllerView = controller?.view
+    func setErrorView(image: UIImage? = nil, message: String, tapReload: (() -> Void)?, tag: Int = 1431) {
+        let topView = self.superview ?? self
         
-        let errorView = ErrorView()
-        errorView.view.tag = tag
+        let errorView = ErrorView(image: image, message: message, reloadAction: tapReload, tag: tag)
         
-        if self == controllerView {
-            if !self.subviews.contains(where: { $0.tag == tag }) {
-                errorView.show(in: self, frame: frame, image: image, message: message, tapReload: tapReload)
-            }
-        } else {
-            if let superview = self.superview, !superview.subviews.contains(where: { $0.tag == tag }) {
-                errorView.show(in: self.superview, frame: frame, image: image, message: message, tapReload: tapReload)
-            }
+        if !topView.subviews.contains(where: { $0.tag == tag }) {
+            errorView.show(in: topView)
         }
     }
     
     /// Stop animating activity indicator in superview of current view
     /// - Parameter tag: Mark of error view in superview
     func removeErrorView(tag: Int = 1431) {
-        let controller = self.viewContainingController()
-        let controllerView = controller?.view
+        let topView = self.superview ?? self
         
-        if self == controllerView {
-            if let errorView = self.subviews.filter({ $0.tag == tag}).first {
-                errorView.removeFromSuperview()
-            }
-        } else {
-            if let errorView = self.superview?.subviews.filter({ $0.tag == tag}).first {
-                errorView.removeFromSuperview()
-            }
+        if let errorView = topView.subviews.first(where: { $0.tag == tag }) as? ErrorView {
+            errorView.removeFromSuperview()
         }
     }
 }

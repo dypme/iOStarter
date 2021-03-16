@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bv3-ba-Fh8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bv3-ba-Fh8">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,13 +24,14 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lf7-4C-rdn">
                                 <rect key="frame" x="20" y="606" width="335" height="41"/>
-                                <string key="text">Copyright ⓒ 2020 Wahyu Ady Prasetyo.
+                                <string key="text">Copyright ⓒ 2021 Wahyu Ady Prasetyo.
 All Rights Reserved.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Leq-4U-EOz"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Nzz-FL-aGr" firstAttribute="leading" secondItem="Leq-4U-EOz" secondAttribute="leading" constant="20" id="6Hb-en-WLI"/>
@@ -40,7 +41,6 @@ All Rights Reserved.</string>
                             <constraint firstItem="lf7-4C-rdn" firstAttribute="leading" secondItem="Leq-4U-EOz" secondAttribute="leading" constant="20" id="X3J-Xe-GW3"/>
                             <constraint firstItem="Leq-4U-EOz" firstAttribute="trailing" secondItem="Nzz-FL-aGr" secondAttribute="trailing" constant="20" id="bOx-yf-QYZ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Leq-4U-EOz"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3c-yj-YYS" userLabel="First Responder" sceneMemberID="firstResponder"/>
