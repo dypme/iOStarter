@@ -29,6 +29,7 @@
 		E2B3B4AB25F7333800CA3EEE /* ViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3B4AA25F7333800CA3EEE /* ViewModelItem.swift */; };
 		E2D5BEAE25F5D2B40083F398 /* ViewModelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D5BEAD25F5D2B40083F398 /* ViewModelList.swift */; };
 		E2D78D4725DA111100B64812 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2D78D4625DA111100B64812 /* GoogleService-Info.plist */; };
+		E2E6CC4A2601929100B72AD9 /* ApiComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E6CC492601929100B72AD9 /* ApiComponents.swift */; };
 		E2FB4CB72581BAD100A71739 /* AlertSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FB4CB62581BAD100A71739 /* AlertSheetController.swift */; };
 		E2FB4CB92581BDEB00A71739 /* AlertAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FB4CB82581BDEB00A71739 /* AlertAppearance.swift */; };
 		E2FB4CBB2581C17F00A71739 /* AlertSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FB4CBA2581C17F00A71739 /* AlertSheetView.xib */; };
@@ -132,6 +133,7 @@
 		E2D5BEAD25F5D2B40083F398 /* ViewModelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelList.swift; sourceTree = "<group>"; };
 		E2D78D4625DA111100B64812 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E2D78D4825DA122800B64812 /* iOStarter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOStarter.entitlements; sourceTree = "<group>"; };
+		E2E6CC492601929100B72AD9 /* ApiComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiComponents.swift; sourceTree = "<group>"; };
 		E2FB4CB62581BAD100A71739 /* AlertSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSheetController.swift; sourceTree = "<group>"; };
 		E2FB4CB82581BDEB00A71739 /* AlertAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAppearance.swift; sourceTree = "<group>"; };
 		E2FB4CBA2581C17F00A71739 /* AlertSheetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertSheetView.xib; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				FA77E2592320B3C100AE6676 /* ApiHelper.swift */,
+				E2E6CC492601929100B72AD9 /* ApiComponents.swift */,
 				E24DB3BF2403857C0025EE83 /* UploadParameters.swift */,
 				E214294723F501700074CEC2 /* MimeType.swift */,
 			);
@@ -979,6 +982,7 @@
 				ED83703220F7121200CFC549 /* KeyboardManager.swift in Sources */,
 				E2B3B4AB25F7333800CA3EEE /* ViewModelItem.swift in Sources */,
 				FA3AD5412318BF6B000B17C6 /* NavigationBar.swift in Sources */,
+				E2E6CC4A2601929100B72AD9 /* ApiComponents.swift in Sources */,
 				ED83702620F70AE100CFC549 /* ExtUIColor.swift in Sources */,
 				EDCE31A3210828A100DE0957 /* DrawerMenuVC.swift in Sources */,
 				E27D9C3D23DFEE8B00C0C129 /* ExtBool.swift in Sources */,
@@ -1245,7 +1249,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/iOStarter/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ios.starter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iOStarter/Supporting Files/Project-Bridging-Header.h";
@@ -1266,7 +1270,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/iOStarter/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ios.starter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iOStarter/Supporting Files/Project-Bridging-Header.h";

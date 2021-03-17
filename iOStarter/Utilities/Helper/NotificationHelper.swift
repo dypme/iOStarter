@@ -117,7 +117,8 @@ class NotificationHelper {
         switch state {
         case .active:
             // Make a action when receive notification while application in use/ active
-            AudioServicesPlayAlertSound(SystemSoundID(1007))
+            playSound()
+            
             if action == "action" {
                 let notify = Notify(title: title, detail: content, image: nil)
                 notify.appearance.textAlign = .left

@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-typealias Callback = ((JSON, Bool, String) -> Void)?
+typealias ApiResponseCallback = ((JSON, Bool, String) -> Void)?
 
 struct ApiHelper {
     static let shared = ApiHelper()
@@ -32,11 +32,6 @@ struct ApiHelper {
         return data
     }
     
-    /// Create full url API
-    func setUrl(path: Path) -> URL {
-        return URL(string: BASE_URL + path.rawValue)!
-    }
-    
     /// Alamofire session manager is Alamfire with some configuration of url session configuration
     private(set) var afManager: Session? = {
         let configuration = URLSessionConfiguration.default
@@ -46,18 +41,7 @@ struct ApiHelper {
         return manager
     }()
     
-    // MARK: - Function call method helper
-    /// Make API request to server
-    /// - Parameters:
-    ///   - path: Path url API
-    ///   - method: Method when requesting API
-    ///   - parameters: Parameters used in requesting
-    ///   - completion: Callback response from API
-    private func apiRequest(path: Path, method: Alamofire.HTTPMethod, parameters: Parameters, completion: Callback) -> DataRequest? {
-        let url = setUrl(path: path)
-        return apiRequest(url: url, method: method, parameters: parameters, completion: completion)
-    }
-    
+    // MARK: - Proceess
     /// Make API request to server
     /// - Parameters:
     ///   - url: Full url API
@@ -65,33 +49,10 @@ struct ApiHelper {
     ///   - parameters: Parameters used in requesting
     ///   - completion: Callback response from API
     /// - Returns: Data when requesting
-    private func apiRequest(url: URL, method: Alamofire.HTTPMethod, parameters: Parameters, completion: Callback) -> DataRequest? {
-        return afManager?.request(url, method: method, parameters: parameters, headers: headers).responseJSON { (response) in
-            switch response.result {
-            case .success(let value):
-                print("Get response success:", value)
-                
-                let json = JSON(value)
-                let status = json["api_status"].intValue
-                let message = json["api_message"].stringValue
-                completion?(json, status == 1, message)
-            case .failure(let error):
-                print("Get full response failed:", response.debugDescription)
-                
-                completion?("", false, error.localizedDescription)
-            }
+    private func apiRequest(components: ApiComponents, callback: ApiResponseCallback) -> DataRequest? {
+        return afManager?.request(components.url, method: components.method, parameters: components.parameters, headers: headers).responseJSON { (response) in
+            apiResponseResult(response: response, callback: callback)
         }
-    }
-    
-    /// Upload data to server
-    /// - Parameters:
-    ///   - path: Path url API
-    ///   - method: Method when requesting API
-    ///   - parameters: All parameters needed when requesting, recomended using only 2 data type (String and Data), Data used for file to upload
-    ///   - completion: Callback response from API
-    private func uploadRequest(path: Path, method: Alamofire.HTTPMethod, parameters: UploadParameters, completion: Callback) {
-        let url = setUrl(path: path)
-        uploadRequest(url: url, method: method, parameters: parameters, completion: completion)
     }
     
     /// Upload data to server
@@ -100,30 +61,34 @@ struct ApiHelper {
     ///   - method: Method when requesting API
     ///   - parameters: All parameters needed when requesting, recomended using only 2 data type (String and Data), Data used for file to upload
     ///   - completion: Callback response from API
-    private func uploadRequest(url: URL, method: Alamofire.HTTPMethod, parameters: UploadParameters, completion: Callback) {
+    private func uploadRequest(components: ApiComponents, callback: ApiResponseCallback) {
         afManager?.upload(multipartFormData: { (multipartFormData) in
-            for (key, value, mimeType) in parameters {
+            for (key, value, mimeType) in components.uploadParameters {
                 if let data = value as? Data, let mimeType = mimeType {
                     multipartFormData.append(data, withName: key, fileName: mimeType.generateFileName, mimeType: mimeType.value)
-                } else if let strData = "\(value)".data(using: .utf8) {
+                } else if let strData = String(describing: value).data(using: .utf8) {
                     multipartFormData.append(strData, withName: key)
                 }
             }
-        }, to: url, method: method, headers: headers).responseJSON(completionHandler: { (response) in
-            switch response.result {
-            case .success(let value):
-                print("Get response success upload:", value)
-                
-                let json = JSON(value)
-                let status = json["api_status"].intValue
-                let message = json["api_message"].stringValue
-                completion?(json, status == 1, message)
-            case .failure(let error):
-                print("Get full response failed upload:", response.debugDescription)
-                
-                completion?("", false, error.localizedDescription)
-            }
+        }, to: components.url, method: components.method, headers: headers).responseJSON(completionHandler: { (response) in
+            apiResponseResult(response: response, callback: callback)
         })
+    }
+    
+    private func apiResponseResult(response: AFDataResponse<Any>, callback: ApiResponseCallback) {
+        switch response.result {
+        case .success(let value):
+            print("Get response success:", value)
+            
+            let json = JSON(value)
+            let status = json["api_status"].intValue
+            let message = json["api_message"].stringValue
+            callback?(json, status == 1, message)
+        case .failure(let error):
+            print("Get full response failed upload:", response.debugDescription)
+            
+            callback?("", false, error.localizedDescription)
+        }
     }
     
     // MARK: - Example
@@ -133,13 +98,10 @@ struct ApiHelper {
     ///   - value: Value of parameters required
     ///   - completion: Callback response from API
     /// - Returns: Data when requesting
-    func example(value: String, completion: Callback) -> DataRequest? {
-        var parameters = Parameters()
-        parameters.updateValue(value, forKey: "parameter")
+    func example(value: String, callback: ApiResponseCallback) -> DataRequest? {
+        let components = ApiComponents(path: .path, method: .post)
         
-        let url = setUrl(path: .path)
-        
-        return apiRequest(url: url, method: .post, parameters: parameters, completion: completion)
+        return apiRequest(components: components, callback: callback)
     }
     
     /// Template: Example function to request API with response as list
@@ -150,13 +112,13 @@ struct ApiHelper {
     ///   - offset: Number of page in list
     ///   - completion: Callback response from API
     /// - Returns: Data when requesting
-    func exampleList(searchText: String, limit: Int, offset: Int, completion: Callback) -> DataRequest? {
-        var parameters = Parameters()
-        parameters.updateValue(searchText, forKey: "search")
-        parameters.updateValue(offset, forKey: "offset")
-        parameters.updateValue(limit, forKey: "limit")
+    func exampleList(searchText: String, limit: Int, offset: Int, callback: ApiResponseCallback) -> DataRequest? {
+        let components = ApiComponents(path: .path, method: .get)
+        components.updateParameter(key: "search", value: searchText)
+        components.updateParameter(key: "offset", value: offset)
+        components.updateParameter(key: "limit", value: limit)
         
-        return apiRequest(path: .path, method: .get, parameters: parameters, completion: completion)
+        return apiRequest(components: components, callback: callback)
     }
     
     /// Template: Example function to upload file request
@@ -165,13 +127,11 @@ struct ApiHelper {
     ///   - value: Value of parameters required
     ///   - photo: File that will upload
     ///   - completion: Callback response from API
-    func exampleUpload(value: String, photo: Data, completion: Callback) {
-        var parameters = UploadParameters()
-        parameters.updateValue(value, forKey: "parameter")
-        parameters.updateValue(photo, forKey: "parameter", mimeType: .jpg)
+    func exampleUpload(value: String, photo: Data, callback: ApiResponseCallback) {
+        let components = ApiComponents(path: .path, method: .post)
+        components.updateParameter(key: "parameter", value: value)
+        components.updateParameter(key: "parameter", value: photo, mimeType: .jpg)
         
-        let url = setUrl(path: .path)
-        
-        uploadRequest(url: url, method: .post, parameters: parameters, completion: completion)
+        uploadRequest(components: components, callback: callback)
     }
 }
