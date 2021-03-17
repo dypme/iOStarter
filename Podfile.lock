@@ -120,6 +120,9 @@ PODS:
     - L10n-swift/Core
   - Lightbox (2.4.2):
     - Imaginary (~> 4.3.1)
+  - MMKV (1.2.7):
+    - MMKVCore (~> 1.2.7)
+  - MMKVCore (1.2.7)
   - nanopb (2.30907.0):
     - nanopb/decode (= 2.30907.0)
     - nanopb/encode (= 2.30907.0)
@@ -145,6 +148,7 @@ DEPENDENCIES:
   - KYDrawerController (from `https://github.com/mchan004/KYDrawerController.git`)
   - L10n-swift
   - Lightbox
+  - MMKV
   - NVActivityIndicatorView
   - SwiftGen
   - SwiftyJSON
@@ -173,6 +177,8 @@ SPEC REPOS:
     - Kingfisher
     - L10n-swift
     - Lightbox
+    - MMKV
+    - MMKVCore
     - nanopb
     - NVActivityIndicatorView
     - PromisesObjC
@@ -213,6 +219,8 @@ SPEC CHECKSUMS:
   KYDrawerController: 25d1534a190e7cb971e5f80648efa92ab56ed56e
   L10n-swift: 9848e8e7773ccad28317f96065653f53eafd32a3
   Lightbox: 8837c35c1150fa0410d94296e369b432d37f18c7
+  MMKV: 22e5136f7d00197bc0fc9694b7f71519f0d1ca12
+  MMKVCore: 607b7b05f2c2140056b5d338e45f2c14bf3f4232
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
@@ -220,6 +228,6 @@ SPEC CHECKSUMS:
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 8e3207660d0a6d629f0e68566cdcb2a90785f95c
+PODFILE CHECKSUM: 6aaa54dc20367eef5c1620219c5a9219d058f07d
 
 COCOAPODS: 1.10.1

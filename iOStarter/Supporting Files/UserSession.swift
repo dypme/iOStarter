@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MMKV
 
 class UserSession {
     static let shared = UserSession()
@@ -15,11 +16,10 @@ class UserSession {
     private var profileKey = "profileKey"
     private var regidKey = "regidKey"
     
-    private var userStandard = UserDefaults.standard
+    private var userStandard = MMKV.default()
     
     func clearData() {
-        userStandard.removeObject(forKey: profileKey)
-        userStandard.removeObject(forKey: regid)
+        userStandard?.clearAll()
     }
     
     /// Check user logged in
@@ -29,7 +29,7 @@ class UserSession {
     
     /// Remove data information of logged out user
     func setLoggedOut() {
-        userStandard.removeObject(forKey: profileKey)
+        userStandard?.removeValue(forKey: profileKey)
     }
     
     /// Set and store new profile data
@@ -38,13 +38,13 @@ class UserSession {
     func setProfile(_ profile: Profile) {
         NSKeyedArchiver.setClassName("Profile", for: Profile.self)
         let data = NSKeyedArchiver.archivedData(withRootObject: profile)
-        userStandard.set(data, forKey: profileKey)
+        userStandard?.set(data, forKey: profileKey)
     }
     
     /// Getting stored profile data
     var profile: Profile? {
         NSKeyedUnarchiver.setClass(Profile.self, forClassName: "Profile")
-        guard let data = userStandard.data(forKey: profileKey) else {
+        guard let data = userStandard?.data(forKey: profileKey) else {
             return nil
         }
         
@@ -60,11 +60,11 @@ class UserSession {
     ///
     /// - Parameter string: token string
     func setRegid(string: String) {
-        userStandard.set(string, forKey: regidKey)
+        userStandard?.set(string, forKey: regidKey)
     }
     
     /// Getting stored token registration id for push notification
     var regid: String {
-        return userStandard.string(forKey: regidKey) ?? ""
+        return userStandard?.string(forKey: regidKey) ?? ""
     }
 }

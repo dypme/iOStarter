@@ -14,6 +14,8 @@ import IQKeyboardManagerSwift
 import Firebase
 import UserNotifications
 
+import MMKV
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -57,6 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /// Setting all application need
     func setApp() {
+        MMKV.initialize(rootDir: nil)
+        
         SettingsHelper.setupSettings()
         
         FirebaseApp.configure()

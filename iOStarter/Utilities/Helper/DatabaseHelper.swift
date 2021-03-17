@@ -36,16 +36,20 @@ class DatabaseHelper {
 //    }
 //
 //    func migration() {
+//        // Migration required when add new field(Property) in table(Class)
+//        // Migration also can use when change value to other field
+//        // Checkout documentation of migration: https://docs.mongodb.com/realm/sdk/ios/examples/modify-an-object-schema/#perform-a-schema-migration
+//
 //        let config = Realm.Configuration(
 //            schemaVersion: 0,
 //            migrationBlock: { (migration, oldSchemaVersion) in
-//    // MARK: - Comment bottom function when schemaVersion 0, this is example migration
+//                // MARK: - Comment bottom function when schemaVersion 0, this is example migration
 //                if oldSchemaVersion < 1 {
-//                    migration.enumerateObjects(ofType: Notif.className(), { (oldObject, newObject) in
-//                        newObject?["action"] = ""
+//                    migration.enumerateObjects(ofType: Object.className(), { (oldObject, newObject) in
+//                        newObject?["newProperty"] = "Default value for this property depend on Your data type"
 //                    })
 //                }
-//        })
+//            })
 //        Realm.Configuration.defaultConfiguration = config
 //    }
 //
@@ -122,7 +126,7 @@ class DatabaseHelper {
 //
 //        do {
 //            try realm.write({
-//                realm.add(object, update: update)
+//                realm.add(object, update: update ? .modified : .error)
 //            })
 //
 //            return true
@@ -137,7 +141,7 @@ class DatabaseHelper {
 //
 //        do {
 //            try realm.write({
-//                realm.add(objects, update: update)
+//                realm.add(objects, update: update ? .modified : .error)
 //            })
 //
 //            return true

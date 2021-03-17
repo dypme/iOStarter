@@ -20,6 +20,9 @@ def shared_pods
     # Uncomment realm swift if application need database then check DatabaseHelper class to use DatabaseHelper
     #pod 'RealmSwift'
     
+    # MMKV is an efficient, small, easy-to-use mobile key-value storage framework. Documentation: https://github.com/Tencent/MMKV
+    pod 'MMKV'
+    
     # Using for slider banner with more customization. Documentation: https://github.com/WenchaoD/FSPagerView
     pod 'FSPagerView'
     
