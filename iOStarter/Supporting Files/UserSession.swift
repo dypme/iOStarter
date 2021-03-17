@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MMKV
+import SwiftyJSON
 
 class UserSession {
     static let shared = UserSession()
@@ -36,24 +37,19 @@ class UserSession {
     ///
     /// - Parameter profile: new profile data
     func setProfile(_ profile: Profile) {
-        NSKeyedArchiver.setClassName("Profile", for: Profile.self)
-        let data = NSKeyedArchiver.archivedData(withRootObject: profile)
-        userStandard?.set(data, forKey: profileKey)
+        guard let jsonStr = profile.toJSON().rawString() else { fatalError("Converting JSON to raw string failed") }
+        guard let chiperStr = jsonStr.encrypt else { fatalError("Failed to encrypt string") }
+        userStandard?.set(chiperStr, forKey: profileKey)
     }
     
     /// Getting stored profile data
     var profile: Profile? {
-        NSKeyedUnarchiver.setClass(Profile.self, forClassName: "Profile")
-        guard let data = userStandard?.data(forKey: profileKey) else {
-            return nil
+        if let chiperStr = userStandard?.string(forKey: profileKey) {
+            guard let plainStr = chiperStr.decrypt else { return nil }
+            guard let jsonData = plainStr.data(using: .utf8), let json = try? JSON(data: jsonData) else { return nil }
+            return plainStr.isEmpty ? nil : Profile(fromJSON: json)
         }
-        
-        do {
-            let aProfile = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? Profile
-            return aProfile
-        } catch {
-            return nil
-        }
+        return nil
     }
     
     /// Set and store new token registration id for push notification

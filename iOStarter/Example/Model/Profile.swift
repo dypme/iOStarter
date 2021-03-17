@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-class Profile: NSObject, NSCoding {
+class Profile: NSObject {
     
     var id: Int
     var userid: String
@@ -35,23 +36,23 @@ class Profile: NSObject, NSCoding {
         self.password = password
     }
     
-    required convenience init?(coder aDecoder: NSCoder) {
-        let id = aDecoder.decodeInteger(forKey: "id")
-        let userid = aDecoder.decodeObject(forKey: "userid") as? String ?? ""
-        let image = aDecoder.decodeObject(forKey: "image") as? String ?? ""
-        let name = aDecoder.decodeObject(forKey: "name") as? String ?? ""
-        let email = aDecoder.decodeObject(forKey: "email") as? String ?? ""
-        let password = aDecoder.decodeObject(forKey: "password") as? String ?? ""
-        
-        self.init(id: id, userid: userid, image: image, name: name, email: email, password: password)
+    init(fromJSON json: JSON) {
+        id = json["id"].intValue
+        userid = json["userid"].stringValue
+        image = json["image"].stringValue
+        name = json["name"].stringValue
+        email = json["email"].stringValue
+        password = json["password"].stringValue
     }
     
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(id, forKey: "id")
-        aCoder.encode(userid, forKey: "userid")
-        aCoder.encode(image, forKey: "image")
-        aCoder.encode(name, forKey: "name")
-        aCoder.encode(email, forKey: "email")
-        aCoder.encode(password, forKey: "password")
+    func toJSON() -> JSON {
+        var dict = [String : Any]()
+        dict.updateValue(id, forKey: "id")
+        dict.updateValue(userid, forKey: "userid")
+        dict.updateValue(image, forKey: "image")
+        dict.updateValue(name, forKey: "name")
+        dict.updateValue(email, forKey: "email")
+        dict.updateValue(password, forKey: "password")
+        return JSON(dict)
     }
 }

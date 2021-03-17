@@ -26,6 +26,7 @@
 		E27D9C3F23DFEE8B00C0C129 /* ExtUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3423DFEE8B00C0C129 /* ExtUINavigationController.swift */; };
 		E27D9C4023DFEE8B00C0C129 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3523DFEE8B00C0C129 /* ExtUIViewController.swift */; };
 		E27D9C4123DFEE8B00C0C129 /* ExtCAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3623DFEE8B00C0C129 /* ExtCAGradientLayer.swift */; };
+		E2B2D3AB2601D59800A16CD6 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B2D3AA2601D59800A16CD6 /* Crypto.swift */; };
 		E2B3B4AB25F7333800CA3EEE /* ViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3B4AA25F7333800CA3EEE /* ViewModelItem.swift */; };
 		E2D5BEAE25F5D2B40083F398 /* ViewModelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D5BEAD25F5D2B40083F398 /* ViewModelList.swift */; };
 		E2D78D4725DA111100B64812 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2D78D4625DA111100B64812 /* GoogleService-Info.plist */; };
@@ -74,7 +75,6 @@
 		EDB7C3B2210C148100E8C887 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB7C3B1210C148100E8C887 /* EditProfileVC.swift */; };
 		EDB7C3B4210C15FA00E8C887 /* EditPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB7C3B3210C15FA00E8C887 /* EditPassVC.swift */; };
 		EDB7C3B7210C165100E8C887 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB7C3B6210C165100E8C887 /* ProfileVM.swift */; };
-		EDB7C3B9210C237400E8C887 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB7C3B8210C237400E8C887 /* Config.swift */; };
 		EDB8C909211C163B0003AF4A /* ImagePagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB8C908211C163B0003AF4A /* ImagePagerView.swift */; };
 		EDCE31A3210828A100DE0957 /* DrawerMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE31A2210828A100DE0957 /* DrawerMenuVC.swift */; };
 		EDCE31A721082A2000DE0957 /* MenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCE31A621082A2000DE0957 /* MenuVM.swift */; };
@@ -129,6 +129,7 @@
 		E27D9C3423DFEE8B00C0C129 /* ExtUINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUINavigationController.swift; sourceTree = "<group>"; };
 		E27D9C3523DFEE8B00C0C129 /* ExtUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		E27D9C3623DFEE8B00C0C129 /* ExtCAGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtCAGradientLayer.swift; sourceTree = "<group>"; };
+		E2B2D3AA2601D59800A16CD6 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		E2B3B4AA25F7333800CA3EEE /* ViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelItem.swift; sourceTree = "<group>"; };
 		E2D5BEAD25F5D2B40083F398 /* ViewModelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelList.swift; sourceTree = "<group>"; };
 		E2D78D4625DA111100B64812 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -188,7 +189,6 @@
 		EDB7C3B1210C148100E8C887 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		EDB7C3B3210C15FA00E8C887 /* EditPassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPassVC.swift; sourceTree = "<group>"; };
 		EDB7C3B6210C165100E8C887 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
-		EDB7C3B8210C237400E8C887 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		EDB8C908211C163B0003AF4A /* ImagePagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePagerView.swift; sourceTree = "<group>"; };
 		EDCE31A2210828A100DE0957 /* DrawerMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerMenuVC.swift; sourceTree = "<group>"; };
 		EDCE31A621082A2000DE0957 /* MenuVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVM.swift; sourceTree = "<group>"; };
@@ -413,7 +413,7 @@
 				FAA827A0228D2FA600B91749 /* Localizable */,
 				ED836FBC20F6E18100CFC549 /* AppDelegate.swift */,
 				ED83702A20F70D4D00CFC549 /* UserSession.swift */,
-				EDB7C3B8210C237400E8C887 /* Config.swift */,
+				E2B2D3AA2601D59800A16CD6 /* Crypto.swift */,
 				ED836FC820F6E18100CFC549 /* Info.plist */,
 				ED83701F20F70A3500CFC549 /* Project-Bridging-Header.h */,
 			);
@@ -841,6 +841,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-iOStarter/Pods-iOStarter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseABTesting/FirebaseABTesting.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
@@ -870,6 +871,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseABTesting.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
@@ -1038,7 +1040,6 @@
 				FA3AD5432318C752000B17C6 /* NavigationItem.swift in Sources */,
 				EDCEE55C21071EB3001EE0FF /* Menu.swift in Sources */,
 				ED2A4338212A5E3A00F0379E /* CheckBox.swift in Sources */,
-				EDB7C3B9210C237400E8C887 /* Config.swift in Sources */,
 				ED2A4336212A5E2F00F0379E /* DownloadFileHelper.swift in Sources */,
 				FA78DAAE239E23EB005EF2C0 /* ExampleDetailVC.swift in Sources */,
 				E27D9C3723DFEE8B00C0C129 /* ExtUIImage.swift in Sources */,
@@ -1049,6 +1050,7 @@
 				ED83700E20F708D700CFC549 /* AppStoryboard.swift in Sources */,
 				EDCE31B1210863C800DE0957 /* MenuItemVM.swift in Sources */,
 				E231A57423E4303100FD8832 /* SettingsHelper.swift in Sources */,
+				E2B2D3AB2601D59800A16CD6 /* Crypto.swift in Sources */,
 				E27D9C3923DFEE8B00C0C129 /* ExtInt.swift in Sources */,
 				ED2A433A212A5E4800F0379E /* PickerField.swift in Sources */,
 				E27622B623E174A30098CC31 /* CameraController.swift in Sources */,

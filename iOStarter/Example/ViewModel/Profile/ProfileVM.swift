@@ -67,9 +67,9 @@ class ProfileVM {
             return
         }
         // Example convert image to data
-        let data = Config.shared.setImageData(image, quality: .lowestJPEG)
+        let data = image.lowestQualityJPEGData
         // Example convert image to base64
-        let base64Data = Config.shared.setBase64Image(image, quality: .lowestJPEG)
+        let base64Data = image.base64Image(quality: .lowestJPEG)
         
         self.profile.image = "blank_image"
         UserSession.shared.setProfile(self.profile)

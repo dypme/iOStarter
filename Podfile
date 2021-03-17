@@ -17,6 +17,9 @@ def shared_pods
     # Custom activity indicator. Change this if have more amazing custom activity indicator, delete/ leave it if no need custom activity indicator.
     pod 'NVActivityIndicatorView'
     
+    # Crypto related functions and helpers for Swift implemented in Swift. (#PureSwift). Documentation: https://github.com/krzyzanowskim/CryptoSwift
+    pod 'CryptoSwift'
+    
     # Uncomment realm swift if application need database then check DatabaseHelper class to use DatabaseHelper
     #pod 'RealmSwift'
     
