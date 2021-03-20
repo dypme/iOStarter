@@ -23,9 +23,7 @@
 		E27D9C3C23DFEE8B00C0C129 /* ExtUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3123DFEE8A00C0C129 /* ExtUIApplication.swift */; };
 		E27D9C3D23DFEE8B00C0C129 /* ExtBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3223DFEE8B00C0C129 /* ExtBool.swift */; };
 		E27D9C3E23DFEE8B00C0C129 /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3323DFEE8B00C0C129 /* ExtString.swift */; };
-		E27D9C3F23DFEE8B00C0C129 /* ExtUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3423DFEE8B00C0C129 /* ExtUINavigationController.swift */; };
 		E27D9C4023DFEE8B00C0C129 /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3523DFEE8B00C0C129 /* ExtUIViewController.swift */; };
-		E27D9C4123DFEE8B00C0C129 /* ExtCAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27D9C3623DFEE8B00C0C129 /* ExtCAGradientLayer.swift */; };
 		E2B2D3AB2601D59800A16CD6 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B2D3AA2601D59800A16CD6 /* Crypto.swift */; };
 		E2B3B4AB25F7333800CA3EEE /* ViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3B4AA25F7333800CA3EEE /* ViewModelItem.swift */; };
 		E2D5BEAE25F5D2B40083F398 /* ViewModelList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D5BEAD25F5D2B40083F398 /* ViewModelList.swift */; };
@@ -126,9 +124,7 @@
 		E27D9C3123DFEE8A00C0C129 /* ExtUIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIApplication.swift; sourceTree = "<group>"; };
 		E27D9C3223DFEE8B00C0C129 /* ExtBool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtBool.swift; sourceTree = "<group>"; };
 		E27D9C3323DFEE8B00C0C129 /* ExtString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
-		E27D9C3423DFEE8B00C0C129 /* ExtUINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUINavigationController.swift; sourceTree = "<group>"; };
 		E27D9C3523DFEE8B00C0C129 /* ExtUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
-		E27D9C3623DFEE8B00C0C129 /* ExtCAGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtCAGradientLayer.swift; sourceTree = "<group>"; };
 		E2B2D3AA2601D59800A16CD6 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		E2B3B4AA25F7333800CA3EEE /* ViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelItem.swift; sourceTree = "<group>"; };
 		E2D5BEAD25F5D2B40083F398 /* ViewModelList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelList.swift; sourceTree = "<group>"; };
@@ -521,13 +517,11 @@
 			isa = PBXGroup;
 			children = (
 				E27D9C3223DFEE8B00C0C129 /* ExtBool.swift */,
-				E27D9C3623DFEE8B00C0C129 /* ExtCAGradientLayer.swift */,
 				E27D9C2F23DFEE8A00C0C129 /* ExtDate.swift */,
 				E27D9C2E23DFEE8A00C0C129 /* ExtInt.swift */,
 				E27D9C3323DFEE8B00C0C129 /* ExtString.swift */,
 				E27D9C3123DFEE8A00C0C129 /* ExtUIApplication.swift */,
 				E27D9C2C23DFEE8A00C0C129 /* ExtUIImage.swift */,
-				E27D9C3423DFEE8B00C0C129 /* ExtUINavigationController.swift */,
 				E27D9C3023DFEE8A00C0C129 /* ExtUITextField.swift */,
 				E27D9C2D23DFEE8A00C0C129 /* ExtUIView.swift */,
 				E27D9C3523DFEE8B00C0C129 /* ExtUIViewController.swift */,
@@ -981,7 +975,6 @@
 			files = (
 				ED19EAB421213B8400C82E8F /* LocationHelper.swift in Sources */,
 				EDCE31AB2108502D00DE0957 /* ToastView.swift in Sources */,
-				E27D9C4123DFEE8B00C0C129 /* ExtCAGradientLayer.swift in Sources */,
 				E214294823F501710074CEC2 /* MimeType.swift in Sources */,
 				FAA827A9228D351200B91749 /* LocalizeHelper.swift in Sources */,
 				ED49392F21096E650064C50C /* TabBarMenuVC.swift in Sources */,
@@ -1025,7 +1018,6 @@
 				ED49392C210882360064C50C /* ViewController.swift in Sources */,
 				E2FB4CB92581BDEB00A71739 /* AlertAppearance.swift in Sources */,
 				ED83700D20F708D700CFC549 /* ErrorConstant.swift in Sources */,
-				E27D9C3F23DFEE8B00C0C129 /* ExtUINavigationController.swift in Sources */,
 				EDCE31B521087E8600DE0957 /* GridMenuVC.swift in Sources */,
 				E27D9C4023DFEE8B00C0C129 /* ExtUIViewController.swift in Sources */,
 				E27D9C3A23DFEE8B00C0C129 /* ExtDate.swift in Sources */,

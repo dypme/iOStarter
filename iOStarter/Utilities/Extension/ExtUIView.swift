@@ -62,63 +62,10 @@ extension UIView {
         self.layer.borderWidth = width
     }
     
-    /// Make dashed border
-    ///
-    /// - Parameters:
-    ///   - color: Color of dashed border
-    ///   - width: Width of dashed border
-    func dashedBorder(color: UIColor = UIColor.black, width: CGFloat = 1) {
-        self.layoutIfNeeded()
-        if let sublayers = layer.sublayers {
-            for aLayer in sublayers {
-                if aLayer.name == "dashedBorder" {
-                    aLayer.removeFromSuperlayer()
-                }
-            }
-        }
-        
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.name = "dashedBorder"
-        let frameSize = self.frame.size
-        let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
-        
-        shapeLayer.bounds = shapeRect
-        shapeLayer.position = CGPoint(x: frameSize.width / 2, y: frameSize.height / 2)
-        shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.strokeColor = color.cgColor
-        shapeLayer.lineWidth = width
-        shapeLayer.lineJoin = CAShapeLayerLineJoin.round
-        shapeLayer.lineDashPattern = [6, 3]
-        shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).cgPath
-        self.layer.addSublayer(shapeLayer)
-    }
-    
     /// Unlinks all view from its superview and its window, and removes all from the responder chain
     func removeAllSubviews() {
         for aView in subviews {
             aView.removeFromSuperview()
         }
-    }
-    
-    /// Create background color gradient for view
-    ///
-    /// - Parameters:
-    ///   - colors: Color of gradient layer
-    ///   - direction: Direction of gradient layer
-    func backgroundGradient(colors: [UIColor], direction: Direction = .top) {
-        self.layoutIfNeeded()
-        if let sublayers = layer.sublayers {
-            for aLayer in sublayers {
-                if aLayer.name == "gradientBG" {
-                    aLayer.removeFromSuperlayer()
-                }
-            }
-        }
-        
-        self.backgroundColor = colors.first
-        let gradientLayer = CAGradientLayer(frame: bounds, colors: colors, direction: direction)
-        gradientLayer.name = "gradientBG"
-        gradientLayer.cornerRadius = self.layer.cornerRadius
-        layer.insertSublayer(gradientLayer, at: 0)
     }
 }

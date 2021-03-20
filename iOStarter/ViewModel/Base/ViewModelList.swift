@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ViewModelListVM<T: NSObject, V: ViewModelItem<T>> {
+class ViewModelList<T: NSObject, V: ViewModelItem<T>> {
     var datas = [T]()
     
     var limit = 10

@@ -10,24 +10,6 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    /// Handle custom back button without manual code
-    open override func awakeFromNib() {
-        super.awakeFromNib()
-        if let backBtn = self.navigationItem.leftBarButtonItem {
-            if backBtn.tag == 0 {
-                backBtn.target = self
-                backBtn.action = #selector(backNavBar(_:))
-            }
-        }
-    }
-    
-    /// Function back to presenting viewcontroller
-    ///
-    /// - Parameter barButtonItem: Sender of button bar item
-    @objc private func backNavBar(_ barButtonItem: UIBarButtonItem) {
-        _ = self.navigationController?.popViewController(animated: true)
-    }
-    
     /// Show default simple Alert
     ///
     /// - Parameters:

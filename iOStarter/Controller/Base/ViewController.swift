@@ -17,6 +17,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let backBtn = self.navigationItem.leftBarButtonItem {
+            if backBtn.tag == 0 {
+                backBtn.target = self
+                backBtn.action = #selector(backNavBar(_:))
+            }
+        }
+        
         setupMethod()
         setupView()
         
@@ -33,5 +40,12 @@ class ViewController: UIViewController {
     
     @objc func fetch() {
         
+    }
+    
+    /// Function back to presenting viewcontroller
+    ///
+    /// - Parameter barButtonItem: Sender of button bar item
+    @objc private func backNavBar(_ barButtonItem: UIBarButtonItem) {
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }

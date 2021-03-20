@@ -14,6 +14,8 @@ private var iv = "AES256IV"
 
 // All encrypt and decrypt is base64
 extension String {
+    // AES128: Key hash md5 -> 16 bytes
+    // AES256: Key Hash sha256 -> 32 bytes
     /// Base64 encrypted value
     var encrypt: String? {
         do {
