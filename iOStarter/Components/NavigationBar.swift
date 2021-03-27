@@ -24,8 +24,6 @@ class NavigationBar: UINavigationBar {
     
     override var barTintColor: UIColor? {
         didSet {
-            removeGradientColors()
-            
             navigationView?.backgroundColor = self.barTintColor
             updateNavigationBar()
         }
@@ -86,22 +84,6 @@ class NavigationBar: UINavigationBar {
         }
     }
     
-    func setGradientColors(_ colors: [UIColor], direction: Direction) {
-        removeGradientColors()
-        
-        let gradientLayer = CAGradientLayer(_frame: fullRect, _colors: colors, _direction: direction)
-        gradientLayer.name = "bg_gradient"
-        navigationView?.layer.insertSublayer(gradientLayer, at: 0)
-        
-        updateNavigationBar()
-    }
-    
-    func removeGradientColors() {
-        if let sublayer = layer.sublayers?.first(where: { $0.name == "bg_gradient" }) {
-            sublayer.removeFromSuperlayer()
-        }
-    }
-    
     private func updateNavigationBar() {
         let image = navigationView?.asImage()
         self.setBackgroundImage(image, for: .default)
@@ -154,31 +136,6 @@ fileprivate extension UIColor {
         
         let brightness = Float(((components[0] * 299) + (components[1] * 587) + (components[2] * 114)) / 1000)
         return (brightness > threshold)
-    }
-}
-
-fileprivate extension CAGradientLayer {
-    convenience init(_frame: CGRect, _colors: [UIColor], _direction: Direction) {
-        self.init()
-        self.frame = _frame
-        self.colors = []
-        for color in _colors {
-            self.colors?.append(color.cgColor)
-        }
-        switch _direction {
-        case .top:
-            startPoint = CGPoint(x: 0, y: 0)
-            endPoint = CGPoint(x: 0, y: 1)
-        case .bottom:
-            startPoint = CGPoint(x: 0, y: 1)
-            endPoint = CGPoint(x: 0, y: 0)
-        case .left:
-            startPoint = CGPoint(x: 0, y: 0)
-            endPoint = CGPoint(x: 1, y: 0)
-        case .right:
-            startPoint = CGPoint(x: 1, y: 0)
-            endPoint = CGPoint(x: 0, y: 0)
-        }
     }
 }
 
