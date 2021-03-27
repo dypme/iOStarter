@@ -30,7 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Change center view controller with your center viewcontroller
         let centerVC = StoryboardScene.Main.viewControllerNav.instantiate()
         // Add drawer menu button programmatically, if you want to add drawer button manually delete this function
-        centerVC.topViewController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_drawer"), style: .plain, target: DrawerMenu.shared, action: #selector(DrawerMenu.shared.openDrawer))
+        let item = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_drawer"), style: .plain, target: DrawerMenu.shared, action: #selector(DrawerMenu.shared.openDrawer))
+        item.tag = 2
+        centerVC.topViewController?.navigationItem.leftBarButtonItem = item
         DrawerMenu.shared.setupDrawer(centerViewController: centerVC)
         let drawerMenu = DrawerMenu.shared.drawerController
         

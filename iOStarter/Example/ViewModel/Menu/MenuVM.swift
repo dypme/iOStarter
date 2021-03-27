@@ -89,7 +89,9 @@ class MenuVM {
             navController = nil
         }
         // Add drawer bar button item for open drawer, You can add manually from your storyboard or when you no need drawer button add delete this
-        navController?.topViewController?.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_drawer"), style: .plain, target: DrawerMenu.shared, action: #selector(DrawerMenu.shared.openDrawer))
+        let item = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_drawer"), style: .plain, target: DrawerMenu.shared, action: #selector(DrawerMenu.shared.openDrawer))
+        item.tag = 2
+        navController?.topViewController?.navigationItem.leftBarButtonItem = item
         return navController
     }
     

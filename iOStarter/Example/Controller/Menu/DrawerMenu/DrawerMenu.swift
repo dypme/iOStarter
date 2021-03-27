@@ -26,10 +26,10 @@ class DrawerMenu {
         let sideMenu = StoryboardScene.Main.drawerMenuVC.instantiate()
         
         let drawerController = KYDrawerController(drawerDirection: .left, drawerWidth: 200)
-        drawerController.drawerViewController = sideMenu
         drawerController.mainViewController = centerViewController
+        drawerController.drawerViewController = sideMenu
         
-        drawerController.drawerAnimationDuration = 0.7
+        drawerController.drawerAnimationDuration = 0.2
         
         self.drawerController = drawerController
     }
