@@ -306,9 +306,9 @@
 		E2FB4CB42581B0BC00A71739 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				FACD93A122310DFF004D6251 /* DrawerMenu */,
-				FACD93A222310E17004D6251 /* GridMenu */,
-				FA53922A239B69D8005CA83E /* Example */,
+				EDCE31AE2108621300DE0957 /* DrawerMenuCell.swift */,
+				EDCE31B72108806100DE0957 /* GridMenuCell.swift */,
+				FA53922B239B69F8005CA83E /* ExampleCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -329,14 +329,6 @@
 				FA09F6AA22C9A2D8003FB213 /* AlertView */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		ED49392D21096D440064C50C /* TabBarMenu */ = {
-			isa = PBXGroup;
-			children = (
-				ED49392E21096E650064C50C /* TabBarMenuVC.swift */,
-			);
-			path = TabBarMenu;
 			sourceTree = "<group>";
 		};
 		ED836FB020F6E18000CFC549 = {
@@ -560,8 +552,8 @@
 			isa = PBXGroup;
 			children = (
 				ED83701E20F70A0A00CFC549 /* DrawerMenu */,
-				EDCE31B321087E0600DE0957 /* GridMenu */,
-				ED49392D21096D440064C50C /* TabBarMenu */,
+				EDCE31B421087E8600DE0957 /* GridMenuVC.swift */,
+				ED49392E21096E650064C50C /* TabBarMenuVC.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -571,14 +563,6 @@
 			children = (
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		EDCE31B321087E0600DE0957 /* GridMenu */ = {
-			isa = PBXGroup;
-			children = (
-				EDCE31B421087E8600DE0957 /* GridMenuVC.swift */,
-			);
-			path = GridMenu;
 			sourceTree = "<group>";
 		};
 		F81EBD5F822151E6BCBF0AD6 /* Frameworks */ = {
@@ -631,14 +615,6 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
-		FA53922A239B69D8005CA83E /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				FA53922B239B69F8005CA83E /* ExampleCell.swift */,
-			);
-			path = Example;
-			sourceTree = "<group>";
-		};
 		FAA2BF14228A6EBD00688422 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,22 +660,6 @@
 				EDCE31B0210863C800DE0957 /* MenuItemVM.swift */,
 			);
 			path = Menu;
-			sourceTree = "<group>";
-		};
-		FACD93A122310DFF004D6251 /* DrawerMenu */ = {
-			isa = PBXGroup;
-			children = (
-				EDCE31AE2108621300DE0957 /* DrawerMenuCell.swift */,
-			);
-			path = DrawerMenu;
-			sourceTree = "<group>";
-		};
-		FACD93A222310E17004D6251 /* GridMenu */ = {
-			isa = PBXGroup;
-			children = (
-				EDCE31B72108806100DE0957 /* GridMenuCell.swift */,
-			);
-			path = GridMenu;
 			sourceTree = "<group>";
 		};
 		FACD93A622310E9C004D6251 /* Profile */ = {
