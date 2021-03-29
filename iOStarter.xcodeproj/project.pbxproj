@@ -872,7 +872,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Uncomment to generate new license description then build project\n#if [ $CONFIGURATION = \"Debug\" ]; then\n#    ${SRCROOT}/license-plist --output-path Settings.bundle --prefix com.ios.starter.LicensePlist --add-version-numbers --suppress-opening-directory --force \n#fi\n";
+			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n    ${SRCROOT}/Pods/LicensePlist/license-plist --output-path Settings.bundle --prefix com.ios.starter.LicensePlist --add-version-numbers --suppress-opening-directory --force \nfi\n";
 		};
 		E2520F9125D3ACA90052D4B5 /* Upload dSYM */ = {
 			isa = PBXShellScriptBuildPhase;

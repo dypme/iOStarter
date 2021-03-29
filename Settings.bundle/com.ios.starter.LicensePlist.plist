@@ -206,7 +206,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/LicensePlist</string>
 			<key>Title</key>
-			<string>License Plist (2.12.0)</string>
+			<string>License Plist (3.0.5)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>

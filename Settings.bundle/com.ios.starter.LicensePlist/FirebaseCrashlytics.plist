@@ -207,11 +207,19 @@
    distributed under the License is distributed on an "AS IS" BASIS,
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
-   limitations under the License.
-
-================================================================================
-
-The following copyright from Hewlett-Packard Development Company, L.P.
+   limitations under the License.</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>----------------------------------------</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The following copyright from Hewlett-Packard Development Company, L.P.
 applies to the dwarf.h file in third_party/libunwind
 
    libunwind - a platform-independent unwind library

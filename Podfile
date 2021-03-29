@@ -3,10 +3,19 @@ platform :ios, '10.0'
 
 def shared_pods
     
+    # Keyboard helper. Source: https://github.com/hackiftekhar/IQKeyboardManager
     pod 'IQKeyboardManagerSwift'
+    
+    # HTTP networking. Source: https://github.com/Alamofire/Alamofire
     pod 'Alamofire'
+    
+    # Simple JSON parser. Source: https://github.com/SwiftyJSON/SwiftyJSON
     pod 'SwiftyJSON'
+    
+    # Image downloading/ caching. Source: https://github.com/onevcat/Kingfisher
     pod 'Kingfisher'
+    
+    # Asset tool generator to swift file. Source: https://github.com/SwiftGen/SwiftGen
     pod 'SwiftGen'
     
     pod 'Firebase/Messaging'
@@ -14,28 +23,31 @@ def shared_pods
     pod 'Firebase/Performance'
     pod 'Firebase/Analytics'
     
-    # Custom activity indicator. Change this if have more amazing custom activity indicator, delete/ leave it if no need custom activity indicator.
+    # A license list generator of all your dependencies for iOS applications. Source: https://github.com/mono0926/LicensePlist
+    pod 'LicensePlist'
+    
+    # Custom activity indicator. Change this if have more amazing custom activity indicator, delete/ leave it if no need custom activity indicator. Source: https://github.com/ninjaprox/NVActivityIndicatorView
     pod 'NVActivityIndicatorView'
     
-    # Crypto related functions and helpers for Swift implemented in Swift. (#PureSwift). Documentation: https://github.com/krzyzanowskim/CryptoSwift
+    # Crypto related functions and helpers for Swift implemented in Swift. (#PureSwift). Source: https://github.com/krzyzanowskim/CryptoSwift
     pod 'CryptoSwift'
     
     # Uncomment realm swift if application need database then check DatabaseHelper class to use DatabaseHelper
     #pod 'RealmSwift'
     
-    # MMKV is an efficient, small, easy-to-use mobile key-value storage framework. Documentation: https://github.com/Tencent/MMKV
+    # MMKV is an efficient, small, easy-to-use mobile key-value storage framework. Source: https://github.com/Tencent/MMKV
     pod 'MMKV'
     
-    # Using for slider banner with more customization. Documentation: https://github.com/WenchaoD/FSPagerView
+    # Using for slider banner with more customization. Source: https://github.com/WenchaoD/FSPagerView
     pod 'FSPagerView'
     
-    # Using for localization application. Documentation: https://github.com/Decybel07/L10n-swift
+    # Using for localization application. Source: https://github.com/Decybel07/L10n-swift
     pod 'L10n-swift'
     
-    # Image/ video preview. Documentation: https://github.com/hyperoslo/Lightbox
+    # Image/ video preview. Source: https://github.com/hyperoslo/Lightbox
     pod 'Lightbox'
     
-    # Example library of drawer menu. Documentation: https://github.com/mchan004/KYDrawerController
+    # Example library of drawer menu. Source: https://github.com/mchan004/KYDrawerController
     pod 'KYDrawerController', :git => 'https://github.com/mchan004/KYDrawerController.git'
 
 end

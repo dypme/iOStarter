@@ -106,6 +106,12 @@ body: MIT License
 Copyrig…
 version: 5.7.3
 
+name: LicensePlist, nameSpecified: License Plist
+body: MIT License
+
+Copyrig…
+version: 3.0.5
+
 name: Lightbox, nameSpecified: 
 body: Licensed under the *…
 version: 2.4.2
@@ -150,11 +156,6 @@ body: MIT License
 
 Copyrig…
 
-name: LicensePlist, nameSpecified: License Plist, version: 2.12.0
-body: MIT License
-
-Copyrig…
-
 add-version-numbers: true
 
-LicensePlist Version: 2.12.0
+LicensePlist Version: 3.0.5

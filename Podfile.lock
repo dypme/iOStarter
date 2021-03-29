@@ -119,6 +119,7 @@ PODS:
     - L10n-swift/Core
   - L10n-swift/IBInspectable (5.7.3):
     - L10n-swift/Core
+  - LicensePlist (3.0.5)
   - Lightbox (2.4.2):
     - Imaginary (~> 4.3.1)
   - MMKV (1.2.7):
@@ -149,6 +150,7 @@ DEPENDENCIES:
   - Kingfisher
   - KYDrawerController (from `https://github.com/mchan004/KYDrawerController.git`)
   - L10n-swift
+  - LicensePlist
   - Lightbox
   - MMKV
   - NVActivityIndicatorView
@@ -179,6 +181,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - Kingfisher
     - L10n-swift
+    - LicensePlist
     - Lightbox
     - MMKV
     - MMKVCore
@@ -222,6 +225,7 @@ SPEC CHECKSUMS:
   Kingfisher: f5d8d60a0ef3edd642fd781bae60918599901aff
   KYDrawerController: 25d1534a190e7cb971e5f80648efa92ab56ed56e
   L10n-swift: 9848e8e7773ccad28317f96065653f53eafd32a3
+  LicensePlist: 11c638fa9dc22ddb5771cdf910242ae1ba2684da
   Lightbox: 8837c35c1150fa0410d94296e369b432d37f18c7
   MMKV: 22e5136f7d00197bc0fc9694b7f71519f0d1ca12
   MMKVCore: 607b7b05f2c2140056b5d338e45f2c14bf3f4232
@@ -232,6 +236,6 @@ SPEC CHECKSUMS:
   SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 519ddc69bdd5f839603574294570682427b079c7
+PODFILE CHECKSUM: 4e8a73390ca19b0b08cd299f47f79c30902429ca
 
 COCOAPODS: 1.10.1
