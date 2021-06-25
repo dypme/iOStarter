@@ -11,13 +11,13 @@ import Alamofire
 
 class ApiComponents {
     private(set) var url: URL
-    private(set) var method: HTTPMethod
+    var method: HTTPMethod
     
     private(set) var parameters = Parameters()
     private(set) var uploadParameters = UploadParameters()
     
     init(path: ApiHelper.Path, method: HTTPMethod) {
-        self.url = URL(string: ApiHelper.shared.BASE_URL + path.rawValue)!
+        self.url = URL(string: ApiHelper.shared.BASE_URL + path.endpoint)!
         self.method = method
     }
     

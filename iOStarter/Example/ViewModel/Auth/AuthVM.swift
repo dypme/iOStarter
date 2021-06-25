@@ -30,19 +30,14 @@ class AuthVM {
             return
         }
         
-        let profile = Profile(id: 1, userid: userid, image: "blank_image", name: "Hallo World", email: "hallo@world.com", password: password)
-        UserSession.shared.setProfile(profile)
+//        let profile = Profile(id: 1, userid: userid, image: "blank_image", name: "Hallo World", email: "hallo@world.com", password: password)
+//        UserSession.shared.setProfile(profile)
+//
+//        onFinish?(true, "Sukses")
         
-        onFinish?(true, "Sukses")
-        
-        // Make request to server
-        //        _ = ApiHelper.shared.example(value: <#T##String#>) { (json, isSuccess, message) in
-        //            if isSuccess {
-        //                onSuccess?("Sukses")
-        //            } else {
-        //                onFailed?(message)
-        //            }
-        //        }
+        _ = ApiHelper.shared.request(to: .example, callback: { (json, isSuccess, message) in
+            onFinish?(isSuccess, message)
+        })
     }
     
     /// Send request to server

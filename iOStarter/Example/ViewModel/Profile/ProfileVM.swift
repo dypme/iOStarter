@@ -69,26 +69,25 @@ class ProfileVM {
         // Example convert image to data
         let data = image.lowestQualityJPEGData
         // Example convert image to base64
-        let base64Data = image.base64Image(quality: .lowestJPEG)
+//        let base64Data = image.base64Image(quality: .lowestJPEG)
         
-        self.profile.image = "blank_image"
-        UserSession.shared.setProfile(self.profile)
+//        self.profile.image = "blank_image"
+//        UserSession.shared.setProfile(self.profile)
+//        onFinish?(true, "Success")
         
-        onFinish?(true, "Success")
-        
-//        ApiHelper.shared.exampleUpload(value: "Image", photo: data) { (json, isSuccess, message) in
-//            if isSuccess {
-//                // Example new image response, Change to your response new image
-//                let image = json["image"].stringValue
-//
-//                self.profile.image = image
-//                UserSession.shared.setProfile(self.profile)
-//
-//                onFinish?(true, message)
-//            } else {
-//                onFinish?(false, message)
-//            }
-//        }
+        ApiHelper.shared.upload(to: .exampleUpload(value: "value", data: data!), callback: { (json, isSuccess, message) in
+            if isSuccess {
+                // Example new image response, Change to your response new image
+                let image = json["image"].stringValue
+
+                self.profile.image = image
+                UserSession.shared.setProfile(self.profile)
+
+                onFinish?(true, message)
+            } else {
+                onFinish?(false, message)
+            }
+        })
     }
     
     func editProfile(name: String, email: String, onFinish: ((Bool, String) -> Void)?) {
@@ -102,25 +101,23 @@ class ProfileVM {
             return
         }
         
-        profile.name = name
-        profile.email = email
+//        profile.name = name
+//        profile.email = email
+//        UserSession.shared.setProfile(profile)
+//        onFinish?(true, "Success")
         
-        UserSession.shared.setProfile(profile)
-        
-        onFinish?(true, "Success")
-        
-//        ApiHelper.shared.example(value: name) { (json, isSuccess, message) in
-//            if isSuccess {
-//                self.profile.name = name
-//                self.profile.email = email
-//
-//                UserSession.shared.setProfile(self.profile)
-//
-//                onFinish?(true, message)
-//            } else {
-//                onFinish?(true, message)
-//            }
-//        }
+        _ = ApiHelper.shared.request(to: .example, callback: { (json, isSuccess, message) in
+            if isSuccess {
+                self.profile.name = name
+                self.profile.email = email
+
+                UserSession.shared.setProfile(self.profile)
+
+                onFinish?(true, message)
+            } else {
+                onFinish?(true, message)
+            }
+        })
     }
     
     func editPass(oldPass: String, newPass: String, retypePass: String, onFinish: ((Bool, String) -> Void)?) {
@@ -145,24 +142,22 @@ class ProfileVM {
             return
         }
         
-        profile.password = newPass
+//        profile.password = newPass
+//        UserSession.shared.setProfile(profile)
+//        onFinish?(true, "Success")
         
-        UserSession.shared.setProfile(profile)
-        
-        onFinish?(true, "Success")
-        
-//        ApiHelper.shared.example(value: name) { (json, isSuccess, message) in
-//            if isSuccess {
-//                self.profile.name = name
-//                self.profile.email = email
-//
-//                UserSession.shared.setProfile(self.profile)
-//
-//                onFinish?(true, message)
-//            } else {
-//                onFinish?(false, message)
-//            }
-//        }
+        _ = ApiHelper.shared.request(to: .example, callback: { (json, isSuccess, message) in
+            if isSuccess {
+                self.profile.name = self.name
+                self.profile.email = self.email
+
+                UserSession.shared.setProfile(self.profile)
+
+                onFinish?(true, message)
+            } else {
+                onFinish?(false, message)
+            }
+        })
     }
     
 }
