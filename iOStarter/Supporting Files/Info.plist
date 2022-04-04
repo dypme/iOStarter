@@ -32,13 +32,7 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(EXECUTABLE_NAME) want to access your gallery to get a photo</string>
 	<key>UIAppFonts</key>
-	<array>
-		<string>Proxima Nova Black.otf</string>
-		<string>Proxima Nova Bold.otf</string>
-		<string>Proxima Nova Extrabold.otf</string>
-		<string>Proxima Nova Thin.otf</string>
-		<string>ProximaNova-Regular.otf</string>
-	</array>
+	<array/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
@@ -51,6 +45,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

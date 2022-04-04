@@ -32,6 +32,13 @@ extension String {
         }
     }
     
+    var isValidPassword: Bool {
+        let minCharacters = self.count >= 8
+        let containsNumber = self.rangeOfCharacter(from: CharacterSet.decimalDigits) != nil
+        let containsAlphanumberic = self.rangeOfCharacter(from: CharacterSet.alphanumerics) != nil
+        return minCharacters && containsNumber && containsAlphanumberic
+    }
+    
     /// Change date format to new format date
     ///
     /// - Parameters:

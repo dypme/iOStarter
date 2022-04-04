@@ -25,7 +25,7 @@ extension String {
             
             let aes = try AES(key: keyHash, blockMode: CBC(iv: ivHash))
             let chiper = try aes.encrypt(data)
-            return chiper.toBase64()!
+            return chiper.toBase64()
         } catch let error {
             print("Error ecrypt: \(error.localizedDescription)")
             return nil

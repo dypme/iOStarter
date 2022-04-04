@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertSheetController" customModule="iOStarter" customModuleProvider="target">
             <connections>
+                <outlet property="actionButton" destination="aJb-af-g3f" id="xa9-9Y-pIW"/>
                 <outlet property="alertView" destination="pLN-7n-rrV" id="Lke-RA-rWH"/>
+                <outlet property="imageView" destination="h85-Y8-jXl" id="X1y-Ho-jHf"/>
                 <outlet property="messageLabel" destination="SCo-0v-opA" id="JmN-l6-Fme"/>
-                <outlet property="negativeButton" destination="P0m-6V-0kb" id="CBz-jf-oDF"/>
-                <outlet property="positiveButton" destination="aJb-af-g3f" id="Hdk-PE-nWJ"/>
                 <outlet property="titleLabel" destination="OGA-eJ-CNv" id="Oed-r1-GDg"/>
                 <outlet property="view" destination="gqx-4K-WV2" id="z09-an-993"/>
             </connections>
@@ -23,40 +23,41 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLN-7n-rrV" customClass="View" customModule="AMFS" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="736.5" width="414" height="125.5"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLN-7n-rrV" customClass="View" customModule="iOStarter" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="632.5" width="414" height="229.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="drX-hT-dlU">
-                            <rect key="frame" x="16" y="20" width="382" height="40.5"/>
+                            <rect key="frame" x="16" y="20" width="382" height="144.5"/>
                             <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h85-Y8-jXl">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="2md-2i-F32"/>
+                                    </constraints>
+                                </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGA-eJ-CNv">
-                                    <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="104" width="382" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCo-0v-opA">
-                                    <rect key="frame" x="0.0" y="24.5" width="382" height="16"/>
+                                    <rect key="frame" x="0.0" y="128.5" width="382" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rt4-bO-cYa">
-                            <rect key="frame" x="0.0" y="80.5" width="414" height="45"/>
+                            <rect key="frame" x="0.0" y="184.5" width="414" height="45"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0m-6V-0kb">
-                                    <rect key="frame" x="0.0" y="0.0" width="207" height="45"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <state key="normal" title="Close"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJb-af-g3f">
-                                    <rect key="frame" x="207" y="0.0" width="207" height="45"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJb-af-g3f">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="6OD-On-PSo"/>
                                         <constraint firstAttribute="width" priority="750" constant="110" id="aQq-HD-lEm"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <state key="normal" title="Submit"/>
+                                    <state key="normal" title="OK"/>
                                 </button>
                             </subviews>
                         </stackView>
@@ -83,6 +84,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="UWg-71-bTR"/>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="UWg-71-bTR" firstAttribute="trailing" secondItem="pLN-7n-rrV" secondAttribute="trailing" id="SPV-vw-mVQ"/>
@@ -90,7 +92,6 @@
                 <constraint firstItem="pLN-7n-rrV" firstAttribute="leading" secondItem="UWg-71-bTR" secondAttribute="leading" id="z4E-Ok-8od"/>
                 <constraint firstItem="pLN-7n-rrV" firstAttribute="width" secondItem="gqx-4K-WV2" secondAttribute="width" id="zw1-hd-Ap9"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="UWg-71-bTR"/>
             <point key="canvasLocation" x="139" y="118"/>
         </view>
     </objects>

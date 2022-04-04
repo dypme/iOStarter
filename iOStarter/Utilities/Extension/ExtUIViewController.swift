@@ -20,21 +20,19 @@ extension UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style: .cancel, handler: handler)
         alert.addAction(ok)
-        self.present(alert, animated: true) {
-            
-        }
+        self.present(alert, animated: true, completion: nil)
     }
     
-    func topMostViewController() -> UIViewController {
+    func currentActiveController() -> UIViewController {
         if let navigation = self as? UINavigationController {
-            return navigation.visibleViewController!.topMostViewController()
+            return navigation.visibleViewController!.currentActiveController()
         }
         
         if let tab = self as? UITabBarController {
             if let selectedTab = tab.selectedViewController {
-                return selectedTab.topMostViewController()
+                return selectedTab.currentActiveController()
             }
-            return tab.topMostViewController()
+            return tab.currentActiveController()
         }
         
         if self.presentedViewController == nil {
@@ -42,15 +40,15 @@ extension UIViewController {
         }
         if let navigation = self.presentedViewController as? UINavigationController {
             if let visibleController = navigation.visibleViewController {
-                return visibleController.topMostViewController()
+                return visibleController.currentActiveController()
             }
         }
         if let tab = self.presentedViewController as? UITabBarController {
             if let selectedTab = tab.selectedViewController {
-                return selectedTab.topMostViewController()
+                return selectedTab.currentActiveController()
             }
-            return tab.topMostViewController()
+            return tab.currentActiveController()
         }
-        return self.presentedViewController!.topMostViewController()
+        return self.presentedViewController!.currentActiveController()
     }
 }

@@ -1,68 +1,63 @@
 name: Alamofire, nameSpecified: 
 body: Copyright (c) 2014-2…
-version: 5.4.1
+version: 5.5.0
 
 name: Cache, nameSpecified: 
 body: Licensed under the *…
-version: 5.3.0
+version: 6.0.0
 
 name: CryptoSwift, nameSpecified: 
 body: Copyright (C) 2014-2…
-version: 1.3.8
+version: 1.4.3
 
 name: Firebase, nameSpecified: 
 body: 
                    …
-version: 7.6.0
+version: 8.14.0
 
 name: FirebaseABTesting, nameSpecified: 
 body: 
                    …
-version: 7.6.0
+version: 8.14.0
 
 name: FirebaseAnalytics, nameSpecified: 
 body: Copyright 2021 Googl…
-version: 7.6.0
+version: 8.14.0
 
 name: FirebaseCore, nameSpecified: 
 body: 
                    …
-version: 7.6.0
+version: 8.14.0
 
 name: FirebaseCoreDiagnostics, nameSpecified: 
 body: 
                    …
-version: 7.6.0
+version: 8.14.0
 
 name: FirebaseCrashlytics, nameSpecified: 
 body: 
                    …
-version: 7.6.0
+version: 8.14.0
 
 name: FirebaseInstallations, nameSpecified: 
 body: 
                    …
-version: 7.6.0
-
-name: FirebaseInstanceID, nameSpecified: 
-body: 
-                   …
-version: 7.6.0
+version: 8.14.0
 
 name: FirebaseMessaging, nameSpecified: 
 body: 
                    …
-version: 7.6.0
+version: 8.14.0
 
 name: FirebasePerformance, nameSpecified: 
 body: 
                    …
-version: 7.6.0
+version: 8.14.0
 
 name: FirebaseRemoteConfig, nameSpecified: 
 body: 
                    …
-version: 7.6.0
+version: 8.14.0
 
 name: FSPagerView, nameSpecified: 
 body: Copyright (c) 2017 F…
@@ -70,31 +65,31 @@ version: 0.8.3
 
 name: GoogleAppMeasurement, nameSpecified: 
 body: Copyright 2021 Googl…
-version: 7.6.0
+version: 8.14.0
 
 name: GoogleDataTransport, nameSpecified: 
 body: 
                    …
-version: 8.2.0
+version: 9.1.2
 
 name: GoogleUtilities, nameSpecified: 
 body: 
                    …
-version: 7.2.2
+version: 7.7.0
 
 name: Imaginary, nameSpecified: 
 body: Licensed under the *…
-version: 4.3.1
+version: 5.0.0
 
 name: IQKeyboardManagerSwift, nameSpecified: 
 body: MIT License
 
 Copyrig…
-version: 6.5.6
+version: 6.5.9
 
 name: Kingfisher, nameSpecified: 
 body: The MIT License (MIT…
-version: 6.1.0
+version: 7.2.0
 
 name: KYDrawerController, nameSpecified: 
 body: The MIT License (MIT…
@@ -104,29 +99,29 @@ name: L10n-swift, nameSpecified:
 body: MIT License
 
 Copyrig…
-version: 5.7.3
+version: 5.10.0
 
 name: LicensePlist, nameSpecified: License Plist
 body: MIT License
 
 Copyrig…
-version: 3.0.5
+version: 3.20.0
 
 name: Lightbox, nameSpecified: 
 body: Licensed under the *…
-version: 2.4.2
+version: 2.5.0
 
 name: MMKV, nameSpecified: 
 body: Tencent is pleased t…
-version: 1.2.7
+version: 1.2.13
 
 name: MMKVCore, nameSpecified: 
 body: Tencent is pleased t…
-version: 1.2.7
+version: 1.2.13
 
 name: nanopb, nameSpecified: 
 body: Copyright (c) 2011 P…
-version: 2.30907.0
+version: 2.30908.0
 
 name: NVActivityIndicatorView, nameSpecified: 
 body: The MIT License (MIT…
@@ -135,21 +130,29 @@ version: 5.1.1
 name: PromisesObjC, nameSpecified: 
 body: 
                    …
-version: 1.2.12
+version: 2.0.0
 
-name: Protobuf, nameSpecified: 
-body: Copyright 2008 Googl…
-version: 3.14.0
+name: Realm, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
+version: 10.25.0
+
+name: RealmSwift, nameSpecified: 
+body: TABLE OF CONTENTS
+
+1…
+version: 10.25.0
 
 name: SwiftGen, nameSpecified: 
 body: MIT Licence
 
 Copyrig…
-version: 6.4.0
+version: 6.5.1
 
 name: SwiftyJSON, nameSpecified: 
 body: The MIT License (MIT…
-version: 5.0.0
+version: 5.0.1
 
 name: iOStarter, nameSpecified: , version: 1.2.0
 body: MIT License
@@ -158,4 +161,4 @@ Copyrig…
 
 add-version-numbers: true
 
-LicensePlist Version: 3.0.5
+LicensePlist Version: 3.20.0

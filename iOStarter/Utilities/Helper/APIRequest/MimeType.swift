@@ -269,9 +269,10 @@ enum MimeType: String {
     }
     
     var generateFileName: String {
+        let uniqueName = UUID()
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd_HHmmss"
+        formatter.dateFormat = "yyyyMMdd"
         let date = formatter.string(from: Date())
-        return self.rawValue.uppercased() + "_" + date + "." + self.rawValue
+        return  "\(self.rawValue.uppercased())_\(uniqueName)_\(date).\(self.rawValue)"
     }
 }

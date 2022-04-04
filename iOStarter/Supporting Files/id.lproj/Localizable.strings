@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  iOS_Starter
+
+  Created by macbook on 16/05/19.
+  Copyright © 2019 Crocodic. All rights reserved.
+*/
+
+"pickerField.choose" = "Pilih";
+"pickerField.cancel" = "Batal";
+
+"alert.actionButton" = "OK";
+"alert.cancelButton" = "Batal";
+
+"button.refresh" = "Muat Ulang";
+
+"error.completeForm" = "Silahkan lengkapi data yang dibutuhkan.";
+"error.emailValidity" = "Silahkan gunakan email yang valid.";
+"error.passwordValidity" = "Kata sandi minimal 1 angka dan 8 karakter";
+"error.inputData" = "Silahkan masukkan %@.";
+"error.chooseData" = "Silahkan pilih %@.";
+
+"halloWorld" = "Halo Dunia";

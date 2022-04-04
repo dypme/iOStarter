@@ -36,6 +36,20 @@ extension UIView {
         self.layer.cornerRadius = value
     }
     
+    /// Specific rounded corners
+    ///
+    /// - Parameters:
+    ///   - corners: Corners that will rounded
+    ///   - radius: Radius of rounded
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat = 10) {
+        self.layoutIfNeeded()
+        let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = bounds
+        maskLayer.path = maskPath.cgPath
+        layer.mask = maskLayer
+    }
+    
     /// Make shadow in view
     ///
     /// - Parameters:

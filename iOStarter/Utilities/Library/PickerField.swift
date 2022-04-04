@@ -10,14 +10,6 @@ import UIKit
 import IQKeyboardManagerSwift
 
 class PickerField: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
     
     /// Initialize new picker in input field with textfield
     ///
@@ -145,19 +137,12 @@ class PickerField: UIView {
         removePicker()
         
         self.type = .date
-        self.datePicker = datePicker
         
-        if let datePicker = datePicker {
-            self.datePicker = datePicker
-        } else {
-            self.datePicker = UIDatePicker()
-            self.datePicker.locale = LocalizeHelper.shared.locale
-        }
+        let newDatePicker = UIDatePicker()
+        newDatePicker.locale = LocalizeHelper.shared.locale
         
-        if let mode = mode {
-            self.datePicker.datePickerMode = mode
-        }
-        
+        self.datePicker = datePicker ?? newDatePicker
+        self.datePicker.datePickerMode = mode ?? self.datePicker.datePickerMode
         if #available(iOS 13.4, *) {
             self.datePicker.preferredDatePickerStyle = .wheels
         }
@@ -223,7 +208,7 @@ class PickerField: UIView {
     /// - Parameter date: Date that want select
     func selectDate(_ date: Date) {
         if type == .date {
-            if isAlwaysUpdate {
+            if isAutoUpdate {
                 datePicker.setDate(date, animated: false)
                 if datePicker.datePickerMode == .date {
                     self.textField.text = datePicker.date.pickerFieldString(format: appearance.dateFormat)
@@ -244,7 +229,7 @@ class PickerField: UIView {
     func selectPicker(index: Int) {
         if type == .picker {
             if !data.isEmpty {
-                if isAlwaysUpdate {
+                if isAutoUpdate {
                     selectedRow = index
                     picker.selectRow(index, inComponent: 0, animated: false)
                     self.textField.text = data[index]
@@ -261,7 +246,7 @@ class PickerField: UIView {
     func selectPicker(data aData: String) {
         if type == .picker {
             if !data.isEmpty {
-                if isAlwaysUpdate {
+                if isAutoUpdate {
                     guard let index = data.firstIndex(of: aData) else {
                         print("Your select data not contains in master data")
                         return
@@ -343,12 +328,12 @@ class PickerField: UIView {
     @objc private func done() {
         switch type {
         case .date:
-            if isAlwaysUpdate {
+            if isAutoUpdate {
                 selectDate(datePicker.date)
                 dateCallback?(datePicker.date)
             }
         default:
-            if isAlwaysUpdate {
+            if isAutoUpdate {
                 selectPicker(index: selectedRow)
                 pickerCallback?(data[selectedRow], selectedRow)
             }
@@ -358,14 +343,14 @@ class PickerField: UIView {
     }
     
     /// Checking picker need to always update
-    private var isAlwaysUpdate: Bool {
+    private var isAutoUpdate: Bool {
         switch type {
         case .date:
-            if self.textField.text!.lowercased() == datePicker.date.pickerFieldString(format: appearance.dateFormat).lowercased() && !appearance.isAlwaysUpdate {
+            if self.textField.text!.lowercased() == datePicker.date.pickerFieldString(format: appearance.dateFormat).lowercased() && !appearance.isAutoUpdate {
                 return false
             }
         default:
-            if self.textField.text!.lowercased() == data[selectedRow].lowercased() && !appearance.isAlwaysUpdate {
+            if self.textField.text!.lowercased() == data[selectedRow].lowercased() && !appearance.isAutoUpdate {
                 return false
             }
         }
@@ -378,7 +363,7 @@ extension PickerField {
         /// Select button color
         var selectColor: UIColor = UIColor.black
         /// Select button text
-        var selectText = L10n.PickerField.select
+        var selectText = L10n.PickerField.choose
         /// Cancel button color
         var cancelColor: UIColor = UIColor.red
         /// Cancel button text
@@ -405,7 +390,7 @@ extension PickerField {
         var timeFormat: String = "HH:mm"
         
         /// Get callback update action although selected data same as before
-        var isAlwaysUpdate: Bool = false
+        var isAutoUpdate: Bool = false
         
         /// Blocker background color
         var blockerColor = UIColor.black

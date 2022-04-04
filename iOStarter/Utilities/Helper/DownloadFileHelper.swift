@@ -13,6 +13,12 @@ import Alamofire
 /// File document that will search or use to save downloaded file
 fileprivate let savedDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
 
+extension URL {
+    fileprivate var fileNameFormat: String {
+        self.lastPathComponent.removingPercentEncoding?.replacingOccurrences(of: " ", with: "_") ?? ""
+    }
+}
+
 class DirectoryFileHelper {
     /// Durectory of files
     private static var directory: URL {
@@ -46,9 +52,7 @@ class DirectoryFileHelper {
     /// - Parameter url: url of file
     /// - Returns: File data and full file path
     static func file(from url: URL) -> (data: Data?, url: String) {
-        let fileName = url.lastPathComponent.removingPercentEncoding?.replacingOccurrences(of: " ", with: "_") ?? ""
-        
-        return file(name: fileName)
+        file(name: url.fileNameFormat)
     }
 }
 
@@ -59,29 +63,33 @@ class DownloadFileHelper {
     private var resumeData: Data?
     /// Result of download data
     private var downloadData: Data?
+    
     /// Url to download with regenerate to valid download url
     private var downloadUrl: URL? {
-        if let url = _dlUrl, UIApplication.shared.canOpenURL(url) {
+        if let url = url, UIApplication.shared.canOpenURL(url) {
             return url
         }
-        let urlPercentEncoding = _dlUrl?.absoluteString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let urlPercentEncoding = url?.absoluteString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         return URL(string: urlPercentEncoding)
     }
     /// Original url to download
-    private var _dlUrl: URL?
+    private var url: URL?
+    private var isForceDownload: Bool
     
     /// Initialize download url
     ///
     /// - Parameter url: File url will be download
-    init(url: URL?) {
-        _dlUrl = url
+    init(url: URL?, forceDownload: Bool = false) {
+        self.url = url
+        self.isForceDownload = forceDownload
     }
     
     /// Initialize url from string type data
     ///
     /// - Parameter string: File url will be download
-    init(url string: String) {
-        _dlUrl = URL(string: string)
+    init(url string: String, forceDownload: Bool = false) {
+        url = URL(string: string)
+        self.isForceDownload = forceDownload
     }
     
     /// Starting download file
@@ -90,26 +98,23 @@ class DownloadFileHelper {
     ///   - progress: Download progress closure
     ///   - completion: Complete download progress closure
     func fetch(progress: ((Progress) -> Void)? = nil, completion: @escaping ((Data?, String) -> Void)) {
-        guard let downloadUrl = downloadUrl else {
+        guard let downloadUrl = self.downloadUrl else {
+            completion(nil, "")
             return
         }
         
+        // Receive from local file
         let localFile = DirectoryFileHelper.file(from: downloadUrl)
-        guard localFile.data == nil else {
-            completion(localFile.data, localFile.url)
-            return
-        }
-        guard downloadData == nil else {
+        let isFileLocalExist = localFile.data != nil || downloadData != nil
+        if isFileLocalExist && !isForceDownload  {
             completion(localFile.data, localFile.url)
             return
         }
         
         let destination: DownloadRequest.Destination = { _, _ in
             let documentsURL = URL(fileURLWithPath: savedDirectory)
-            let fileName = downloadUrl.lastPathComponent
-                .removingPercentEncoding?.replacingOccurrences(of: " ", with: "_") ?? ""
+            let fileName = downloadUrl.fileNameFormat
             let fileURL = documentsURL.appendingPathComponent(fileName)
-            
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         

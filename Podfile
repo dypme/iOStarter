@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '10.0'
+platform :ios, '12.0'
 
 def shared_pods
     
@@ -33,13 +33,10 @@ def shared_pods
     pod 'CryptoSwift'
     
     # Uncomment realm swift if application need database then check DatabaseHelper class to use DatabaseHelper
-    #pod 'RealmSwift'
+#    pod 'RealmSwift'
     
     # MMKV is an efficient, small, easy-to-use mobile key-value storage framework. Source: https://github.com/Tencent/MMKV
     pod 'MMKV'
-    
-    # Using for slider banner with more customization. Source: https://github.com/WenchaoD/FSPagerView
-    pod 'FSPagerView'
     
     # Using for localization application. Source: https://github.com/Decybel07/L10n-swift
     pod 'L10n-swift'

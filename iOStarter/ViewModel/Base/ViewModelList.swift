@@ -15,7 +15,7 @@ class ViewModelList<T: NSObject, V: ViewModelItem<T>> {
     var limit = 10
     var offset = 0
     var isLoading = false
-    var canLoadMore = false
+    var isAllowLoadMore = false
     
     var backgroundView: UIView? {
         if datas.isEmpty {
@@ -31,7 +31,7 @@ class ViewModelList<T: NSObject, V: ViewModelItem<T>> {
     }
     
     var footerView: UIView? {
-        if canLoadMore && !datas.isEmpty {
+        if isAllowLoadMore && !datas.isEmpty {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
             view.backgroundColor = .clear
             

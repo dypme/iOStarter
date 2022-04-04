@@ -12,28 +12,6 @@ import UIKit
 
 // swiftlint:disable explicit_type_interface identifier_name line_length type_body_length type_name
 internal enum StoryboardScene {
-  internal enum Auth: StoryboardType {
-    internal static let storyboardName = "Auth"
-
-    internal static let initialScene = InitialSceneType<iOStarter.LoginVC>(storyboard: Auth.self)
-
-    internal static let forgotPassVC = SceneType<iOStarter.ForgotPassVC>(storyboard: Auth.self, identifier: "ForgotPassVC")
-
-    internal static let loginVC = SceneType<iOStarter.LoginVC>(storyboard: Auth.self, identifier: "LoginVC")
-
-    internal static let registerVC = SceneType<iOStarter.RegisterVC>(storyboard: Auth.self, identifier: "RegisterVC")
-  }
-  internal enum Example: StoryboardType {
-    internal static let storyboardName = "Example"
-
-    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Example.self)
-
-    internal static let exampleDetailVC = SceneType<iOStarter.ExampleDetailVC>(storyboard: Example.self, identifier: "ExampleDetailVC")
-
-    internal static let exampleListVC = SceneType<iOStarter.ExampleListVC>(storyboard: Example.self, identifier: "ExampleListVC")
-
-    internal static let exampleListVCNav = SceneType<UIKit.UINavigationController>(storyboard: Example.self, identifier: "ExampleListVCNav")
-  }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
 
@@ -42,34 +20,11 @@ internal enum StoryboardScene {
   internal enum Main: StoryboardType {
     internal static let storyboardName = "Main"
 
-    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Main.self)
+    internal static let initialScene = InitialSceneType<iOStarter.LaunchScreenVC>(storyboard: Main.self)
 
-    internal static let drawerMenuVC = SceneType<iOStarter.DrawerMenuVC>(storyboard: Main.self, identifier: "DrawerMenuVC")
+    internal static let exampleVC = SceneType<iOStarter.ExampleVC>(storyboard: Main.self, identifier: "ExampleVC")
 
-    internal static let gridMenuVC = SceneType<iOStarter.GridMenuVC>(storyboard: Main.self, identifier: "GridMenuVC")
-
-    internal static let gridMenuVCNav = SceneType<UIKit.UINavigationController>(storyboard: Main.self, identifier: "GridMenuVCNav")
-
-    internal static let tabBarMenuVC = SceneType<iOStarter.TabBarMenuVC>(storyboard: Main.self, identifier: "TabBarMenuVC")
-
-    internal static let tabBarMenuVCNav = SceneType<UIKit.UINavigationController>(storyboard: Main.self, identifier: "TabBarMenuVCNav")
-
-    internal static let viewController = SceneType<iOStarter.ViewController>(storyboard: Main.self, identifier: "ViewController")
-
-    internal static let viewControllerNav = SceneType<UIKit.UINavigationController>(storyboard: Main.self, identifier: "ViewControllerNav")
-  }
-  internal enum Profile: StoryboardType {
-    internal static let storyboardName = "Profile"
-
-    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Profile.self)
-
-    internal static let editPassVC = SceneType<iOStarter.EditPassVC>(storyboard: Profile.self, identifier: "EditPassVC")
-
-    internal static let editProfileVC = SceneType<iOStarter.EditProfileVC>(storyboard: Profile.self, identifier: "EditProfileVC")
-
-    internal static let profileVC = SceneType<iOStarter.ProfileVC>(storyboard: Profile.self, identifier: "ProfileVC")
-
-    internal static let profileVCNav = SceneType<UIKit.UINavigationController>(storyboard: Profile.self, identifier: "ProfileVCNav")
+    internal static let launchScreenVC = SceneType<iOStarter.LaunchScreenVC>(storyboard: Main.self, identifier: "LaunchScreenVC")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

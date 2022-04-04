@@ -25,7 +25,7 @@ class UserSession {
     
     /// Check user logged in
     var isUserLoggedIn: Bool {
-        return profile != nil
+        false
     }
     
     /// Remove data information of logged out user
@@ -36,21 +36,21 @@ class UserSession {
     /// Set and store new profile data
     ///
     /// - Parameter profile: new profile data
-    func setProfile(_ profile: Profile) {
-        guard let jsonStr = profile.toJSON().rawString() else { fatalError("Converting JSON to raw string failed") }
-        guard let chiperStr = jsonStr.encrypt else { fatalError("Failed to encrypt string") }
-        userStandard?.set(chiperStr, forKey: profileKey)
-    }
-    
-    /// Getting stored profile data
-    var profile: Profile? {
-        if let chiperStr = userStandard?.string(forKey: profileKey) {
-            guard let plainStr = chiperStr.decrypt else { return nil }
-            guard let jsonData = plainStr.data(using: .utf8), let json = try? JSON(data: jsonData) else { return nil }
-            return plainStr.isEmpty ? nil : Profile(fromJSON: json)
-        }
-        return nil
-    }
+//    func setProfile(_ profile: Profile) {
+//        guard let jsonStr = profile.toJSON().rawString() else { fatalError("Converting JSON to raw string failed") }
+//        guard let chiperStr = jsonStr.encrypt else { fatalError("Failed to encrypt string") }
+//        userStandard?.set(chiperStr, forKey: profileKey)
+//    }
+//
+//    /// Getting stored profile data
+//    var profile: Profile? {
+//        if let chiperStr = userStandard?.string(forKey: profileKey) {
+//            guard let plainStr = chiperStr.decrypt else { return nil }
+//            guard let jsonData = plainStr.data(using: .utf8), let json = try? JSON(data: jsonData) else { return nil }
+//            return plainStr.isEmpty ? nil : Profile(fromJSON: json)
+//        }
+//        return nil
+//    }
     
     /// Set and store new token registration id for push notification
     ///

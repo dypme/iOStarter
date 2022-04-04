@@ -12,26 +12,33 @@ import Alamofire
 class ApiComponents {
     private(set) var url: URL
     var method: HTTPMethod
+    private var parametersArr: [ApiParameter]
     
-    private(set) var parameters = Parameters()
-    private(set) var uploadParameters = UploadParameters()
-    
-    init(path: ApiHelper.Path, method: HTTPMethod) {
-        self.url = URL(string: ApiHelper.shared.BASE_URL + path.endpoint)!
+    init(path: String, method: HTTPMethod, parameters: [ApiParameter] = []) {
+        self.url = URL(string: ApiHelper.shared.BASE_URL + path)!
         self.method = method
+        self.parametersArr = parameters
     }
     
-    init(url: URL, method: HTTPMethod) {
+    init(url: URL, method: HTTPMethod, parameters: [ApiParameter] = []) {
         self.url = url
         self.method = method
+        self.parametersArr = parameters
     }
     
-    func updateParameter(key: String, value: Any) {
-        parameters.updateValue(value, forKey: key)
-        uploadParameters.updateValue(value, forKey: key)
+    var parameters: Parameters {
+        var params = Parameters()
+        parametersArr.forEach { param in
+            params.updateValue(param.value, forKey: param.key)
+        }
+        return params
     }
     
-    func updateParameter(key: String, value: Any, mimeType: MimeType?) {
-        uploadParameters.updateValue(value, forKey: key, mimeType: mimeType)
+    var uploadParameters: UploadParameters {
+        var params = UploadParameters()
+        parametersArr.forEach { param in
+            params.updateValue(param.value, forKey: param.key, mimeType: param.mimeType)
+        }
+        return params
     }
 }

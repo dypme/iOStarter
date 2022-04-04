@@ -2,45 +2,73 @@
 // Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
 
 import Foundation
-import L10n_swift
 
-// swiftlint:disable superfluous_disable_command
-// swiftlint:disable file_length
+// swiftlint:disable superfluous_disable_command file_length implicit_return
 
 // MARK: - Strings
 
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
-// swiftlint:disable nesting type_body_length type_name
+// swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
   /// Hallo World
-  internal static var halloWorld: String { return L10n.tr("Localizable", "halloWorld") }
+  internal static let halloWorld = L10n.tr("Localizable", "halloWorld")
 
   internal enum Alert {
-    /// Please input %@
-    internal static func inputField(_ p1: String) -> String {
-      return L10n.tr("Localizable", "alert.inputField", p1)
+    /// OK
+    internal static let actionButton = L10n.tr("Localizable", "alert.actionButton")
+    /// Cancel
+    internal static let cancelButton = L10n.tr("Localizable", "alert.cancelButton")
+  }
+
+  internal enum Button {
+    /// Refresh
+    internal static let refresh = L10n.tr("Localizable", "button.refresh")
+  }
+
+  internal enum Error {
+    /// Please choose %@.
+    internal static func chooseData(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "error.chooseData", String(describing: p1))
     }
-    /// Attention
-    internal static var title: String { return L10n.tr("Localizable", "alert.title") }
+    /// Please complete required form.
+    internal static let completeForm = L10n.tr("Localizable", "error.completeForm")
+    /// Please use a valid email.
+    internal static let emailValidity = L10n.tr("Localizable", "error.emailValidity")
+    /// Please input %@.
+    internal static func inputData(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "error.inputData", String(describing: p1))
+    }
+    /// Password must be at least 1 numeric and 8 characters
+    internal static let passwordValidity = L10n.tr("Localizable", "error.passwordValidity")
   }
 
   internal enum PickerField {
     /// Cancel
-    internal static var cancel: String { return L10n.tr("Localizable", "pickerField.cancel") }
-    /// Select
-    internal static var select: String { return L10n.tr("Localizable", "pickerField.select") }
+    internal static let cancel = L10n.tr("Localizable", "pickerField.cancel")
+    /// Choose
+    internal static let choose = L10n.tr("Localizable", "pickerField.choose")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
-// swiftlint:enable nesting type_body_length type_name
+// swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
 
 // MARK: - Implementation Details
 
 extension L10n {
   private static func tr(_ table: String, _ key: String, _ args: CVarArg...) -> String {
-    // swiftlint:disable:next nslocalizedstring_key
-    return key.l10n(.shared, resource: table, fittingWidth: nil, args: args)
+    let format = BundleToken.bundle.localizedString(forKey: key, value: nil, table: table)
+    return String(format: format, locale: Locale.current, arguments: args)
   }
 }
 
-private final class BundleToken {}
+// swiftlint:disable convenience_type
+private final class BundleToken {
+  static let bundle: Bundle = {
+    #if SWIFT_PACKAGE
+    return Bundle.module
+    #else
+    return Bundle(for: BundleToken.self)
+    #endif
+  }()
+}
+// swiftlint:enable convenience_type

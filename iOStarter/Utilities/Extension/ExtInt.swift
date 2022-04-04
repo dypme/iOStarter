@@ -23,14 +23,3 @@ extension Int {
         return Bool(truncating: NSNumber(value: self))
     }
 }
-
-extension Int64 {
-    /// Change integer64 data type into string format decimal
-    var asDecimal: String {
-        let formatter = NumberFormatter()
-        formatter.locale = LocalizeHelper.shared.locale
-        formatter.numberStyle = .decimal
-        let string = formatter.string(from: NSNumber(value: self))
-        return string!
-    }
-}

@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  iOStarter
+
+  Created by macbook on 16/05/19.
+  Copyright © 2019 Crocodic. All rights reserved.
+*/
+
+"pickerField.choose" = "Choose";
+"pickerField.cancel" = "Cancel";
+
+"alert.actionButton" = "OK";
+"alert.cancelButton" = "Cancel";
+
+"button.refresh" = "Refresh";
+
+"error.completeForm" = "Please complete required form.";
+"error.emailValidity" = "Please use a valid email.";
+"error.passwordValidity" = "Password must be at least 1 numeric and 8 characters";
+"error.inputData" = "Please input %@.";
+"error.chooseData" = "Please choose %@.";
+
+"halloWorld" = "Hallo World";

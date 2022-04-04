@@ -1,29 +1,24 @@
 //
 //  DatabaseHelper.swift
-//  Astra Template
+//  iOStarter
 //
-//  Created by hendy evan on 10/10/17.
-//  Copyright © 2017 Astra International TBK PT. All rights reserved.
+//  Created by Crocodic MBP-2 on 10/10/17.
+//  Copyright © 2017 WahyuAdyP. All rights reserved.
 //
 
-import Foundation
+//import Foundation
 //import RealmSwift
-
-class DatabaseHelper {
-    static let shared: DatabaseHelper = DatabaseHelper()
-    
-    // Function comment because lib not yet loaded
-    
+//
+//class DatabaseHelper {
+//    static let shared: DatabaseHelper = DatabaseHelper()
+//    
 //    var realm: Realm?
 //
 //    // MARK: - Initialization
-//
 //    init() {
 //        migration()
 //        do {
 //            self.realm = try Realm()
-//            try self.initDefaultValues()
-//
 //        } catch let error {
 //            print("Error initialization realm: \(error)")
 //            self.realm = nil
@@ -31,25 +26,9 @@ class DatabaseHelper {
 //    }
 //
 //    // MARK: - Functions
-//
-//    func initDefaultValues() throws {
-//    }
-//
 //    func migration() {
-//        // Migration required when add new field(Property) in table(Class)
-//        // Migration also can use when change value to other field
-//        // Checkout documentation of migration: https://docs.mongodb.com/realm/sdk/ios/examples/modify-an-object-schema/#perform-a-schema-migration
-//
-//        let config = Realm.Configuration(
-//            schemaVersion: 0,
-//            migrationBlock: { (migration, oldSchemaVersion) in
-//                // MARK: - Comment bottom function when schemaVersion 0, this is example migration
-//                if oldSchemaVersion < 1 {
-//                    migration.enumerateObjects(ofType: Object.className(), { (oldObject, newObject) in
-//                        newObject?["newProperty"] = "Default value for this property depend on Your data type"
-//                    })
-//                }
-//            })
+//        // Documentation: https://docs.mongodb.com/realm/sdk/ios/examples/modify-an-object-schema/#perform-a-schema-migration
+//        let config = Realm.Configuration(schemaVersion: 1)
 //        Realm.Configuration.defaultConfiguration = config
 //    }
 //
@@ -98,11 +77,11 @@ class DatabaseHelper {
 //        return self.realm?.objects(objectType).filter(predicate).sorted(byKeyPath: property, ascending: ascending).map({$0}) ?? []
 //    }
 //
-//    func getAllData<T: Object>(objectType: T.Type, sortBy property: [SortDescriptor]) -> [T] {
+//    func getAllData<T: Object>(objectType: T.Type, sortBy property: [RealmSwift.SortDescriptor]) -> [T] {
 //        return self.realm?.objects(objectType).sorted(by: property).map({$0}) ?? []
 //    }
 //
-//    func getAllData<T: Object>(objectType: T.Type, filter predicate: NSPredicate, sortBy property: [SortDescriptor]) -> [T] {
+//    func getAllData<T: Object>(objectType: T.Type, filter predicate: NSPredicate, sortBy property: [RealmSwift.SortDescriptor]) -> [T] {
 //        return self.realm?.objects(objectType).filter(predicate).sorted(by: property).map({$0}) ?? []
 //    }
 //
@@ -210,4 +189,4 @@ class DatabaseHelper {
 //            return false
 //        }
 //    }
-}
+//}

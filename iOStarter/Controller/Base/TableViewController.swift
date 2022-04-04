@@ -14,11 +14,6 @@ class TableViewController: ViewController {
     
     private(set) var refreshControl = UIRefreshControl()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-    
     override func setupMethod() {
         super.setupMethod()
         
@@ -35,8 +30,6 @@ class TableViewController: ViewController {
     }
     
     @objc override func fetch() {
-        super.fetch()
-        
         fetch(isLoadMore: false)
     }
     
@@ -49,50 +42,27 @@ class TableViewController: ViewController {
 
 extension TableViewController {
     /// Indicate that list can load more
-    @objc open var canLoadMore: Bool {
-        return false
+    @objc open var isAllowLoadMore: Bool {
+        false
     }
     
-    /// Number of items property of data list
-    @objc open var numberOfItems: Int {
-        fatalError("Number items method not defined")
-    }
-    
-    /// Instantiate cell identifier to tableview list
-    ///
-    /// - Parameters:
-    ///   - tableView: Table view container
-    ///   - indexPath: Indexpath position of cell
-    /// - Returns: Tableviewcell that has instantiate
-    @objc open func cellOfItem(_ tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-        fatalError("Cell tableview not set")
-    }
-    
-    /// Did select table view item
-    ///
-    /// - Parameters:
-    ///   - tableView: Table view container
-    ///   - indexPath: Indexpath position of cell
-    @objc open func didSelect(_ tableView: UITableView, at indexPath: IndexPath) {
-        
+    /// Distance from bottom to trigger load more
+    @objc open var loadMoreDistance: CGFloat {
+        40
     }
 }
 
 extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfItems
+        fatalError("Number items method not defined")
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return cellOfItem(tableView, at: indexPath)
+        fatalError("Cell tableview not set")
     }
 }
 
 extension TableViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        didSelect(tableView, at: indexPath)
-    }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
         let bounds = scrollView.bounds
@@ -100,9 +70,8 @@ extension TableViewController: UITableViewDelegate {
         let inset = scrollView.contentInset
         let y = offset.y + bounds.size.height - inset.bottom
         let h = size.height
-        let reload_distance:CGFloat = 20.0
-        if y > (h + reload_distance) {
-            if canLoadMore {
+        if y > (h + loadMoreDistance) {
+            if isAllowLoadMore {
                 fetch(isLoadMore: true)
             }
         }

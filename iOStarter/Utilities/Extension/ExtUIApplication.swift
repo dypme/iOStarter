@@ -15,8 +15,8 @@ extension UIApplication {
         return value(forKey: "statusBar") as? UIView
     }
     
-    func topMostViewController() -> UIViewController? {
-        return self.keyWindow?.rootViewController?.topMostViewController()
+    func currentActiveController() -> UIViewController? {
+        return self.keyWindow?.rootViewController?.currentActiveController()
     }
 }
 

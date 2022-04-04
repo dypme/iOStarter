@@ -51,9 +51,17 @@ class SettingsHelper {
     }
     
     private class func setSettingsInformation() {
-        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "-"
-        let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "-"
-        
-        UserDefaults.standard.set(version + " (" + build + ")", forKey: SettingsBundleKeys.fullVersionKey)
+        var fullVersions = [String]()
+        if let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
+            fullVersions.append(version)
+        }
+        if let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String {
+            if fullVersions.isEmpty {
+                fullVersions.append(build)
+            } else {
+                fullVersions.append("(\(build)")
+            }
+        }
+        UserDefaults.standard.set(fullVersions.joined(separator: " "), forKey: SettingsBundleKeys.fullVersionKey)
     }
 }

@@ -19,46 +19,27 @@ struct ApiHelper {
     // MARK: - Property
     /// Path API
     enum Path {
-        // Add raw string path in comment, help when forgot full path
-        /// Path: /path/path
-        case example
         case exampleGet
         case exampleParameter(value: Int)
-        case exampleSameParameter(value: Int)
         case exampleUpload(value: String, data: Data)
         
-        var endpoint: String {
-            switch self {
-            case .example, .exampleGet: return "/path"
-            case .exampleParameter: return "/path/parameter"
-            case .exampleSameParameter: return "/path/parameter2"
-            case .exampleUpload: return "/path/upload"
-            }
-        }
-        
         var components: ApiComponents {
-            // Create default api components with method post
-            let components = ApiComponents(path: self, method: .post)
-            
             switch self {
             case .exampleGet:
-                // Change method to get
-                components.method = .get
+                return ApiComponents(path: "/path", method: .get)
                 
-            case .exampleParameter(let value), .exampleSameParameter(let value):
-                // Two api with same parameter or method can use same case
-                components.updateParameter(key: "key", value: value)
+            case .exampleParameter(let value):
+                return ApiComponents(path: "/path/parameter", method: .post, parameters: [
+                    ApiParameter(key: "key", value: value)
+                ])
                 
             case .exampleUpload(let value, let data):
-                // No problem for upload file
-                components.updateParameter(key: "key", value: value)
-                components.updateParameter(key: "image", value: data, mimeType: .jpg)
+                return ApiComponents(path: "/path/upload", method: .post, parameters: [
+                    ApiParameter(key: "key", value: value),
+                    ApiParameter(key: "image", value: data, mimeType: .jpg)
+                ])
                 
-            default:
-                // Yaay, save Your time, other API without parameter, now can ignore create APIComponents
-                break
             }
-            return components
         }
     }
     
@@ -74,6 +55,7 @@ struct ApiHelper {
     /// Alamofire session manager is Alamfire with some configuration of url session configuration
     private(set) var afManager: Alamofire.Session? = {
         let configuration = URLSessionConfiguration.default
+        // Request timeout is 300 seconds
         configuration.timeoutIntervalForRequest = 300
         configuration.timeoutIntervalForResource = 300
         let manager = Alamofire.Session(configuration: configuration)
@@ -90,9 +72,9 @@ struct ApiHelper {
     /// - Returns: Data when requesting
     func request(to path: Path, callback: ApiResponseCallback) -> DataRequest? {
         let components = path.components
-        return afManager?.request(components.url, method: components.method, parameters: components.parameters, headers: headers).responseJSON { (response) in
+        return afManager?.request(components.url, method: components.method, parameters: components.parameters, headers: headers).responseData(completionHandler: { response in
             apiResponseResult(response: response, callback: callback)
-        }
+        })
     }
     
     /// Upload data to server
@@ -101,37 +83,48 @@ struct ApiHelper {
     ///   - method: Method when requesting API
     ///   - parameters: All parameters needed when requesting, recomended using only 2 data type (String and Data), Data used for file to upload
     ///   - completion: Callback response from API
-    func upload(to path: Path, progress: UploadProgressCallback = nil, callback: ApiResponseCallback) {
+    func upload(to path: Path, progress: UploadProgressCallback = nil, callback: ApiResponseCallback) -> DataRequest? {
         let components = path.components
-        afManager?.upload(multipartFormData: { (multipartFormData) in
+        return afManager?.upload(multipartFormData: { (multipartFormData) in
             for (key, value, mimeType) in components.uploadParameters {
-                if let data = value as? Data, let mimeType = mimeType {
-                    multipartFormData.append(data, withName: key, fileName: mimeType.generateFileName, mimeType: mimeType.value)
+                if let data = value as? Data {
+                    if let mimeType = mimeType {
+                        multipartFormData.append(data, withName: key, fileName: mimeType.generateFileName, mimeType: mimeType.value)
+                    } else {
+                        multipartFormData.append(data, withName: key)
+                    }
+                } else if let array = value as? Array<Any> {
+                    array.compactMap({ String(describing: $0).data(using: .utf8) }).forEach { data in
+                        multipartFormData.append(data, withName: "\(key)[]")
+                    }
                 } else if let strData = String(describing: value).data(using: .utf8) {
                     multipartFormData.append(strData, withName: key)
                 }
             }
         }, to: components.url, method: components.method, headers: headers)
-        .responseJSON(completionHandler: { (response) in
-            apiResponseResult(response: response, callback: callback)
-        })
-        .uploadProgress(closure: { (progressValue) in
-            progress?(progressValue.fractionCompleted)
-        })
+            .responseData(completionHandler: { response in
+                apiResponseResult(response: response, callback: callback)
+            })
+            .uploadProgress(closure: { progressValue in
+                progress?(progressValue.fractionCompleted)
+            })
     }
     
-    private func apiResponseResult(response: AFDataResponse<Any>, callback: ApiResponseCallback) {
+    private func apiResponseResult(response: AFDataResponse<Data>, callback: ApiResponseCallback) {
         switch response.result {
         case .success(let value):
-            print("Get response success:", value)
-            
-            let json = JSON(value)
-            let status = json["status"].intValue
-            let message = json["message"].stringValue
-            callback?(json, status == 200, message)
+            do {
+                let json = try JSON(data: value)
+                let status = json["status"].intValue
+                let message = json["message"].stringValue
+                print("API success response:", json)
+                callback?(json, status == 1, message)
+            } catch {
+                print("Error parse JSON:", error.localizedDescription)
+                callback?("", false, error.localizedDescription)
+            }
         case .failure(let error):
-            print("Get full response failed upload:", response.debugDescription)
-            
+            print("API failure response:", response.debugDescription)
             callback?("", false, error.localizedDescription)
         }
     }

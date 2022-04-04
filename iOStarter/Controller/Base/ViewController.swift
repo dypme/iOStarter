@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         if let backBtn = self.navigationItem.leftBarButtonItem {
             if backBtn.tag == 0 {
                 backBtn.target = self
-                backBtn.action = #selector(backNavBar(_:))
+                backBtn.action = #selector(popBackNavigation(_:))
             }
         }
         
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     /// Function back to presenting viewcontroller
     ///
     /// - Parameter barButtonItem: Sender of button bar item
-    @objc private func backNavBar(_ barButtonItem: UIBarButtonItem) {
+    @objc private func popBackNavigation(_ barButtonItem: UIBarButtonItem) {
         _ = self.navigationController?.popViewController(animated: true)
     }
 }

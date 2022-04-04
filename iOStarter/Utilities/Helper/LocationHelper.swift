@@ -13,35 +13,28 @@ import UIKit
 class LocationHelper: NSObject {
     static let shared = LocationHelper()
     
-    private let BACKGROUND_TIMER = 150 // restart location manager every 150 seconds
-    private let UPDATE_DURATION = 60 // 1 minute - once every 1 minute send location to server
+    var locationManager = CLLocationManager()
+    private var locationDidUpdateAction: ((CLLocationManager) -> Void)?
     
-    var isBackgroundUpdate = false
-    
-    var locationManager: CLLocationManager = CLLocationManager()
-    private var timer: Timer?
-    private var currentBgTaskId : UIBackgroundTaskIdentifier?
-    private var lastLocationDate = Date()
-    
-    private var updateAction: ((CLLocationManager) -> Void)?
-    private var updateDataInTimeAction: (() -> Void)?
+    // Location background task property
+    private var taskTimer: Timer?
+    private var taskIdentifier : UIBackgroundTaskIdentifier?
+    private var latestTask = Date()
+    private let RESTART_TASK_DURATION = 150 // Restart location manager every 150 seconds
+    private let TRIGGER_TASK_DURATION = 60 // Trigger action in background method every 60 seconds
+    private var triggerTaskAction: (() -> Void)?
     
     override init() {
         super.init()
         
         NotificationCenter.default.addObserver(self, selector: #selector(applicationEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(applicationBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(applicationEnterBackground), name: UIApplication.willTerminateNotification, object: nil)
-        
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIApplication.didEnterBackgroundNotification, object: nil)
-        
         NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
-        
         NotificationCenter.default.removeObserver(self, name: UIApplication.willTerminateNotification, object: nil)
     }
     
@@ -59,14 +52,14 @@ class LocationHelper: NSObject {
     func start() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
     
     /// Stop updating location
     func stop() {
-        timer?.invalidate()
-        timer = nil
+        taskTimer?.invalidate()
+        taskTimer = nil
         locationManager.stopUpdatingLocation()
     }
     
@@ -76,113 +69,53 @@ class LocationHelper: NSObject {
         start()
     }
     
-    /// Check permission of location use for this application
-    func checkLocationPermission() {
-        if UserSession.shared.isUserLoggedIn {
-            if CLLocationManager.locationServicesEnabled() {
-                switch CLLocationManager.authorizationStatus() {
-                case .authorizedAlways:
-                    break
-                case .authorizedWhenInUse:
-                    break
-                case .denied:
-                    break
-                case .notDetermined:
-                    print("Not determined")
-                case .restricted:
-                    print("Restricted")
-                default:
-                    break
-                }
-            }
-        }
-    }
-    
-    /// Show alert to open setting permission of application
-    ///
-    /// - Parameters:
-    ///   - title: Title of alert permission
-    ///   - message: Message information of alert
-    private func permissionAlert(title: String? = nil, message: String) {
-        let vc = AppDelegate.shared.window?.rootViewController
-        vc?.simpleAlert(title: title, message: message, handler: { (action) in
-            if let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-        })
-    }
-    
     /// Set action when location updated
     ///
     /// - Parameter action: Action for location update
-    func setUpdateLocation(_ action: ((CLLocationManager) -> Void)?) {
-        self.updateAction = action
+    func setLocationDidUpdate(_ action: ((CLLocationManager) -> Void)?) {
+        self.locationDidUpdateAction = action
     }
     
     /// Set action for every duration was set, example use for update location to server in duration
     ///
     /// - Parameter action: Action for every time duration
-    func setUpdateDataInTime(_ action: (() -> Void)?) {
-        self.updateDataInTimeAction = action
-    }
-    
-    /// Update data when for every duration
-    func updateData() {
-        updateDataInTimeAction?()
+    func setTriggerTaskAction(_ action: (() -> Void)?) {
+        self.triggerTaskAction = action
     }
     
     /// Create background task to make application can update location when in background
-    private func beginNewBackgroundTask(){
-        var previousTaskId = currentBgTaskId
-        
-        if isBackgroundUpdate {
-            currentBgTaskId = UIApplication.shared.beginBackgroundTask(expirationHandler: {
-                print("Task expired")
-            })
-            if let taskId = previousTaskId {
-                UIApplication.shared.endBackgroundTask(taskId)
-                previousTaskId = UIBackgroundTaskIdentifier.invalid
-            }
+    private func restartBackgroundTask(){
+        var prevTaskIdentifier = taskIdentifier
+        taskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
+        if let taskIdentifier = prevTaskIdentifier {
+            UIApplication.shared.endBackgroundTask(taskIdentifier)
+            prevTaskIdentifier = UIBackgroundTaskIdentifier.invalid
         }
-        
-        timer = Timer.scheduledTimer(timeInterval: TimeInterval(UPDATE_DURATION), target: self, selector: #selector(refresh), userInfo: nil, repeats: true)
+        taskTimer = Timer.scheduledTimer(timeInterval: TimeInterval(TRIGGER_TASK_DURATION), target: self, selector: #selector(refresh), userInfo: nil, repeats: true)
     }
     
     /// Checking duration time which has pass
-    ///
-    /// - Parameter now: Current time
-    /// - Returns: Is this time
-    private func isItTime(now: Date) -> Bool {
-        let timePast = now.timeIntervalSince(lastLocationDate)
-        let intervalExceeded = Int(timePast) > UPDATE_DURATION
+    private func isTriggerTime(now: Date) -> Bool {
+        let timePast = now.timeIntervalSince(latestTask)
+        let intervalExceeded = Int(timePast) > TRIGGER_TASK_DURATION
         return intervalExceeded
     }
 }
 
 extension LocationHelper: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
-        if timer == nil {
-            beginNewBackgroundTask()
-            
-            let now = Date()
-            if isItTime(now: now) {
-                updateData()
-            }
-            
-            guard let location = manager.location else {
-                return
-            }
-            if UIApplication.shared.applicationState != .active {
-                print("App in background. New location is \(location)")
+        if manager.allowsBackgroundLocationUpdates && taskTimer == nil {
+            restartBackgroundTask()
+            if isTriggerTime(now: Date()) {
+                triggerTaskAction?()
             }
         }
-        updateAction?(manager)
+        locationDidUpdateAction?(manager)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        if timer == nil {
-            beginNewBackgroundTask()
+        if manager.allowsBackgroundLocationUpdates && taskTimer == nil {
+            restartBackgroundTask()
         }
     }
 }

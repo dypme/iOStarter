@@ -8,7 +8,7 @@
 
 import Foundation
 import UserNotifications
-import Firebase
+import FirebaseMessaging
 import SwiftyJSON
 import AVKit
 
@@ -17,27 +17,14 @@ class NotificationHelper {
     
     private var player: AVAudioPlayer?
     
-    // [START setup]
     /// Setup all need for notification first
     func setupNotif(delegate: AppDelegate, application: UIApplication) {
-        // [START set_messaging_delegate]
-        Messaging.messaging().delegate = delegate
-        // [END set_messaging_delegate]
-        if #available(iOS 10.0, *) {
-            // For iOS 10 display notification (sent via APNS)
-            UNUserNotificationCenter.current().delegate = delegate
-            
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: { (_, _) in
-                
-            })
-        } else {
-            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }
-        
+        UNUserNotificationCenter.current().delegate = delegate
+        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: options, completionHandler: { (_, _) in })
         application.registerForRemoteNotifications()
         
+        Messaging.messaging().delegate = delegate
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshFcmToken), name: NSNotification.Name.MessagingRegistrationTokenRefreshed, object: nil)
     }
     
@@ -70,18 +57,9 @@ class NotificationHelper {
             UserSession.shared.setRegid(string: token)
         }
     }
-    // [END setup]
     
-    /// Sound of notification in foreground
-    private func playSound() {
-        // Play sound with built in sound from iOS
-        // Change sound ID if want change other sound
-        // Comment this if want to use custum sound
-        AudioServicesPlayAlertSound(SystemSoundID(1007))
-        
-        // Play customize sound
-        // Import sound as usual import and adjust resource name and extension
-        // Uncomment hits if want to use custom sound
+    /// Custom sound of notification in foreground
+    private func playCustomSound() {
 //        guard let url = Bundle.main.url(forResource: "notification", withExtension: "mp3") else { return }
 //        do {
 //            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
@@ -98,49 +76,64 @@ class NotificationHelper {
 //        }
     }
     
-    /// Make action in application with received notification
-    ///
-    /// - Parameters:
-    ///   - data: Received notification data
-    ///   - state: Position of application
-    func notification(data: [AnyHashable : Any]) {
-        if !UserSession.shared.isUserLoggedIn {
-            return
-        }
+    /// Trigger action when notification appear
+    func notificationWillAppear(data: [AnyHashable : Any]) {
+        print("Notification will present")
+        exampleAction()
+    }
+    
+    /// Trigger action when user tap on notification
+    func notificationDidReceive(data: [AnyHashable : Any]) {
         let json = JSON(data)
-        print("Hey this is your notification \(json)")
-        let title = json["title"].stringValue
-        let content = json["content"].stringValue
-        let action = json["action"].stringValue
+        _ = json["title"].stringValue
+        _ = json["content"].stringValue
+        _ = json["action"].stringValue
         
-        let state = UIApplication.shared.applicationState
-        switch state {
-        case .active:
-            // Make a action when receive notification while application in use/ active
-            playSound()
-            
-            if action == "action" {
-                let notify = Notify(title: title, detail: content, image: nil)
-                notify.appearance.textAlign = .left
-                notify.setTapAction {
-                    self.exampleAction()
-                }
-                notify.show()
-            }
-        case .inactive:
-            // Make a action when application active but no interaction user in application
-            self.exampleAction()
-        case .background:
-            // Make a action when application not use/ inactive/ not in application
-            self.exampleAction()
-        default:
-            break
-        }
+        print("Hey you did receive notification \(json)")
+        self.example2Action()
     }
     
     /// Example action of notification
     func exampleAction() {
-        print("Oh, hey you got notification")
+        print("Oh, hey you trigger action when notification will present")
     }
     
+    func example2Action() {
+        print("Oh, hey you tap the notification")
+    }
+    
+}
+
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        
+        NotificationHelper.shared.notificationWillAppear(data: userInfo)
+        
+        if #available(iOS 14.0, *) {
+            completionHandler([.banner, .badge, .sound])
+        } else {
+            completionHandler([.alert, .badge, .sound])
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        
+        NotificationHelper.shared.notificationDidReceive(data: userInfo)
+        
+        completionHandler()
+    }
+}
+
+extension AppDelegate : MessagingDelegate {
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        print("Firebase refresh registration token:", fcmToken)
+        NotificationHelper.shared.refreshFcmToken()
+    }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("Firebase receive registration token:", fcmToken)
+        NotificationHelper.shared.refreshFcmToken()
+    }
 }

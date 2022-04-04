@@ -11,7 +11,7 @@ import UIKit
 import NVActivityIndicatorView
 import IQKeyboardManagerSwift
 
-import Firebase
+//import Firebase
 import UserNotifications
 
 import MMKV
@@ -22,28 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     /// INitialize main controller, Change return value with your main menu controller
-    private var mainFirstVC: UIViewController? {
-        // Grid menu viewcontoller
-        let gridMenu = StoryboardScene.Main.gridMenuVCNav.instantiate()
-        
-        // Drawer menu viewcontroller
-        // Change center view controller with your center viewcontroller
-        let centerVC = StoryboardScene.Main.viewControllerNav.instantiate()
-        // Add drawer menu button programmatically, if you want to add drawer button manually delete this function
-        let item = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_drawer"), style: .plain, target: DrawerMenu.shared, action: #selector(DrawerMenu.shared.openDrawer))
-        item.tag = 2
-        centerVC.topViewController?.navigationItem.leftBarButtonItem = item
-        DrawerMenu.shared.setupDrawer(centerViewController: centerVC)
-        let drawerMenu = DrawerMenu.shared.drawerController
-        
-        // Tabbar menu viewcontroller
-        let tabBarMenu = StoryboardScene.Main.tabBarMenuVC.instantiate()
-        
-        return tabBarMenu
+    func initializeMainController() {
+        mainController = StoryboardScene.Main.exampleVC.instantiate()
+        mainController.modalPresentationStyle = .fullScreen
     }
     /// Main view controller
-    var mainVC: UIViewController?
-
+    var mainController: UIViewController!
+    
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
@@ -61,43 +46,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /// Setting all application need
     func setApp() {
+        initializeMainController()
+        
         MMKV.initialize(rootDir: nil)
         
         SettingsHelper.setupSettings()
         
-        FirebaseApp.configure()
+        KeyboardStateListener.shared.start()
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
-        KeyboardManager.shared.start()
+//        FirebaseApp.configure()
         
         NVActivityIndicatorView.DEFAULT_TYPE = .ballPulse
         
 //        AlertController.appearance.backgroundColor = UIColor.yellow
-        
-        IQKeyboardManager.shared.enable = true
-        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
 //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
 //            fatalError("Test crashlytics")
 //        }
     }
     
-    func refreshMainController() {
-        mainVC = mainFirstVC
-    }
-    
     /// Configure root view controller when applicatio open
     func setupView() {
         window?.backgroundColor = UIColor.white
-        
-        refreshMainController()
-        // Make root in login if application need login first
-        if UserSession.shared.isUserLoggedIn {
-            // Change root viewcontroller with your first main menu
-            window?.rootViewController = mainVC
-        } else {
-            let vc = StoryboardScene.Auth.loginVC.instantiate()
-            window?.rootViewController = vc
-        }
+        window?.rootViewController = StoryboardScene.Main.launchScreenVC.instantiate()
     }
     
     /// Setup notification settings
@@ -111,13 +84,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
-        // Print full message.
-//        print(userInfo)
-//
-//        // Here action if notification tap
-//        NotificationHelper.shared.notification(data: userInfo)
-//
-//        completionHandler(.newData)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -141,51 +107,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-
-// [START ios_10_message_handling]
-extension AppDelegate : UNUserNotificationCenterDelegate {
-    // Receive displayed notifications for iOS 10 devices.
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        print("will present")
-        let userInfo = notification.request.content.userInfo
-        
-        // Print full message.
-        print(userInfo)
-        
-        // Here action if notification tap
-        NotificationHelper.shared.notification(data: userInfo)
-        
-        completionHandler([])
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print("didreceive")
-        let userInfo = response.notification.request.content.userInfo
-        
-        // Print full message.
-        print(userInfo)
-        
-        // Here action if notification tap
-        NotificationHelper.shared.notification(data: userInfo)
-        
-        completionHandler()
-    }
-}
-// [END ios_10_message_handling]
-// [START ios_10_data_message_handling]
-extension AppDelegate : MessagingDelegate {
-    // [START refresh_token]
-    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
-        NotificationHelper.shared.refreshFcmToken()
-    }
-    
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("Firebase registration token:", fcmToken ?? "")
-        NotificationHelper.shared.refreshFcmToken()
-    }
-}
-// [END ios_10_data_message_handling]

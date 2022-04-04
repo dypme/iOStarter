@@ -29,7 +29,7 @@ class ErrorView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.setTitle("Muat Ulang", for: UIControl.State())
+        button.setTitle(L10n.Button.refresh, for: UIControl.State())
         button.setTitleColor(UIColor.white, for: UIControl.State())
         button.backgroundColor = .red
         return button
