@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (5.5.0)
-  - Cache (6.0.0)
   - CryptoSwift (1.4.3)
   - Firebase/Analytics (8.14.0):
     - Firebase/Core
@@ -127,11 +126,8 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
-  - Imaginary (5.0.0):
-    - Cache (~> 6.0.0)
   - IQKeyboardManagerSwift (6.5.9)
   - Kingfisher (7.2.0)
-  - KYDrawerController (2.1.0)
   - L10n-swift (5.10.0):
     - L10n-swift/Core (= 5.10.0)
     - L10n-swift/Extension (= 5.10.0)
@@ -142,8 +138,7 @@ PODS:
   - L10n-swift/IBInspectable (5.10.0):
     - L10n-swift/Core
   - LicensePlist (3.20.0)
-  - Lightbox (2.5.0):
-    - Imaginary (~> 5.0.0)
+  - Lightbox (2.6.0)
   - MMKV (1.2.13):
     - MMKVCore (~> 1.2.13)
   - MMKVCore (1.2.13)
@@ -168,10 +163,9 @@ DEPENDENCIES:
   - Firebase/Performance
   - IQKeyboardManagerSwift
   - Kingfisher
-  - KYDrawerController (from `https://github.com/mchan004/KYDrawerController.git`)
   - L10n-swift
   - LicensePlist
-  - Lightbox
+  - Lightbox (from `https://github.com/dypme/Lightbox.git`)
   - MMKV
   - NVActivityIndicatorView
   - SwiftGen
@@ -180,7 +174,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - Cache
     - CryptoSwift
     - Firebase
     - FirebaseABTesting
@@ -195,12 +188,10 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
-    - Imaginary
     - IQKeyboardManagerSwift
     - Kingfisher
     - L10n-swift
     - LicensePlist
-    - Lightbox
     - MMKV
     - MMKVCore
     - nanopb
@@ -210,17 +201,16 @@ SPEC REPOS:
     - SwiftyJSON
 
 EXTERNAL SOURCES:
-  KYDrawerController:
-    :git: https://github.com/mchan004/KYDrawerController.git
+  Lightbox:
+    :git: https://github.com/dypme/Lightbox.git
 
 CHECKOUT OPTIONS:
-  KYDrawerController:
-    :commit: c0bb47b990cbe5f6b942ed9255021f1ec6ed7f61
-    :git: https://github.com/mchan004/KYDrawerController.git
+  Lightbox:
+    :commit: e3790ac415177b988a4f3e07d92f9daa63d12281
+    :git: https://github.com/dypme/Lightbox.git
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
-  Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d
   CryptoSwift: a0799ee936271bd2253a006f1e4523df21845000
   Firebase: 7e8fe528c161b9271d365217a74c16aaf834578e
   FirebaseABTesting: aaa0e096c9fc9972ce6806d596e8fcc077d4371f
@@ -235,13 +225,11 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 71156240babd3cc6ced03e0d54816f01a880c730
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
-  Imaginary: cf5e3a7dd6ab1dcbd47ba8ce5edf2307c4e99eb3
   IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
-  KYDrawerController: 25d1534a190e7cb971e5f80648efa92ab56ed56e
   L10n-swift: 4674994a2783577bd90ed80775e7526bcae3da1e
   LicensePlist: 607b654a32f923302f426c4c4ad0475f79369557
-  Lightbox: cc3d5124f024fa8197fd23f913160db1c61a1852
+  Lightbox: b018fb298e83f1eee68ee3ddde3e2c1a69b9fbb5
   MMKV: aac95d817a100479445633f2b3ed8961b4ac5043
   MMKVCore: 3388952ded307e41b3ed8a05892736a236ed1b8e
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
@@ -250,6 +238,6 @@ SPEC CHECKSUMS:
   SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 9e99bbd43a6a48e2288efd60e7f424e7ae03fbe1
+PODFILE CHECKSUM: 5866cd2c45737f8ce930d8b8dd020ac16ca6f4a9
 
 COCOAPODS: 1.11.3

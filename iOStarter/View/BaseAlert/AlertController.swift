@@ -105,8 +105,6 @@ class AlertController: ViewController {
         messageLabel?.text     = message
         messageLabel?.isHidden = message == nil
         
-        alertView.clipsToBounds      = true
-        
         if appearance.isBlurContainer {
             let blurEffect                  = UIBlurEffect(style: .light)
             let blurEffectView              = UIVisualEffectView(effect: blurEffect)
@@ -141,7 +139,7 @@ class AlertController: ViewController {
     }
     
     /// Show alert in view
-    func show(with action: (() -> ())? = nil) {
+    func show(withAction action: (() -> ())? = nil) {
         self.tapAction = action
         
         guard let window = UIApplication.shared.keyWindow else { return }
@@ -193,6 +191,6 @@ extension UIViewController {
     func presentAlert(image: UIImage?, title: String?, message: String?, shouldResignOnTouchOutside: Bool, with action: (() -> ())?) {
         let alert = AlertSheetController(image: image, title: title, message: message)
         alert.shouldResignOnTouchOutside = shouldResignOnTouchOutside
-        alert.show(with: action)
+        alert.show(withAction: action)
     }
 }

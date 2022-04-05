@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-class ViewModelList<T: NSObject, V: ViewModelItem<T>> {
+typealias ViewModelRequestCallback = ((_ isSuccess: Bool, _ message: String) -> Void)?
+typealias ViewUpdateCallback = ((_ backgroundView: UIView?, _ footerView: UIView?) -> Void)?
+
+class ViewModelList<T: ModelData, V: ViewModelItem<T>> {
     var datas = [T]()
     
     var limit = 10
@@ -35,7 +38,7 @@ class ViewModelList<T: NSObject, V: ViewModelItem<T>> {
             let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
             view.backgroundColor = .clear
             
-            // Indicator view here, you can edit your loading indicator style for loading in bottom for infinite scroll
+            // TODO: Indicator view here, you can edit your loading indicator style for loading in bottom for infinite scroll
             let indicator = UIActivityIndicatorView()
             indicator.translatesAutoresizingMaskIntoConstraints = false
             indicator.startAnimating()
@@ -58,7 +61,31 @@ class ViewModelList<T: NSObject, V: ViewModelItem<T>> {
         return V(data: data)
     }
     
-    func fetch(isLoadMore: Bool, onFinish: ((Bool, String) -> Void)?) {
-        
+    func fetch(isLoadMore: Bool, path: ApiHelper.Path, viewDidUpdate: ViewUpdateCallback, fetchDidFinish: ViewModelRequestCallback) {
+        if isLoading {
+            return
+        }
+        if isLoadMore {
+            offset = 0
+        }
+        isLoading = true
+        viewDidUpdate?(backgroundView, footerView)
+        _ = ApiHelper.shared.request(to: path, callback: { json, isSuccess, message in
+            if isSuccess {
+                // TODO: Update general parsing array used in Your app
+                let newDatas = json["data"].arrayValue.map({ T(fromJson: $0) })
+                if isLoadMore {
+                    self.datas.append(contentsOf: newDatas)
+                } else {
+                    self.datas = newDatas
+                }
+                self.offset += 1
+                self.isAllowLoadMore = newDatas.count >= self.limit
+            }
+            
+            self.isLoading = false
+            viewDidUpdate?(self.backgroundView, self.footerView)
+            fetchDidFinish?(isSuccess, message)
+        })
     }
 }

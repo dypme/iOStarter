@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 extension UIViewController {
+    @IBAction func unwindAction(unwindSegue: UIStoryboardSegue) { }
+    
     /// Show default simple Alert
     ///
     /// - Parameters:

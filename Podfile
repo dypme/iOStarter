@@ -42,10 +42,7 @@ def shared_pods
     pod 'L10n-swift'
     
     # Image/ video preview. Source: https://github.com/hyperoslo/Lightbox
-    pod 'Lightbox'
-    
-    # Example library of drawer menu. Source: https://github.com/mchan004/KYDrawerController
-    pod 'KYDrawerController', :git => 'https://github.com/mchan004/KYDrawerController.git'
+    pod 'Lightbox', :git => 'https://github.com/dypme/Lightbox.git'
 
 end
 

@@ -102,6 +102,6 @@ extension UIViewController {
     func presentAlertSheet(image: UIImage?, title: String?, message: String?, shouldResignOnTouchOutside: Bool, with action: (() -> ())?) {
         let alert = AlertSheetController(image: image, title: title, message: message)
         alert.shouldResignOnTouchOutside = shouldResignOnTouchOutside
-        alert.show(with: action)
+        alert.show(withAction: action)
     }
 }

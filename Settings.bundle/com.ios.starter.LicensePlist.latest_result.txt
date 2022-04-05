@@ -2,10 +2,6 @@ name: Alamofire, nameSpecified:
 body: Copyright (c) 2014-2…
 version: 5.5.0
 
-name: Cache, nameSpecified: 
-body: Licensed under the *…
-version: 6.0.0
-
 name: CryptoSwift, nameSpecified: 
 body: Copyright (C) 2014-2…
 version: 1.4.3
@@ -59,10 +55,6 @@ body:
                    …
 version: 8.14.0
 
-name: FSPagerView, nameSpecified: 
-body: Copyright (c) 2017 F…
-version: 0.8.3
-
 name: GoogleAppMeasurement, nameSpecified: 
 body: Copyright 2021 Googl…
 version: 8.14.0
@@ -77,10 +69,6 @@ body:
                    …
 version: 7.7.0
 
-name: Imaginary, nameSpecified: 
-body: Licensed under the *…
-version: 5.0.0
-
 name: IQKeyboardManagerSwift, nameSpecified: 
 body: MIT License
 
@@ -90,10 +78,6 @@ version: 6.5.9
 name: Kingfisher, nameSpecified: 
 body: The MIT License (MIT…
 version: 7.2.0
-
-name: KYDrawerController, nameSpecified: 
-body: The MIT License (MIT…
-version: 2.1.0
 
 name: L10n-swift, nameSpecified: 
 body: MIT License
@@ -109,7 +93,7 @@ version: 3.20.0
 
 name: Lightbox, nameSpecified: 
 body: Licensed under the *…
-version: 2.5.0
+version: 2.6.0
 
 name: MMKV, nameSpecified: 
 body: Tencent is pleased t…
@@ -131,18 +115,6 @@ name: PromisesObjC, nameSpecified:
 body: 
                    …
 version: 2.0.0
-
-name: Realm, nameSpecified: 
-body: TABLE OF CONTENTS
-
-1…
-version: 10.25.0
-
-name: RealmSwift, nameSpecified: 
-body: TABLE OF CONTENTS
-
-1…
-version: 10.25.0
 
 name: SwiftGen, nameSpecified: 
 body: MIT Licence

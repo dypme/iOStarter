@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AppError {
+class ErrorConstant {
     /// Silahkan lengkapi data yang dibutuhkan
     static let completeForm = L10n.Error.completeForm
     

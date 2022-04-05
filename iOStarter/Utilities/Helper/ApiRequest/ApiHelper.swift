@@ -77,6 +77,26 @@ struct ApiHelper {
         })
     }
     
+    /// Request mock data from local file
+    /// - Parameters:
+    ///   - path: APIHelper Path
+    ///   - callback: return value of request
+    func localRequest(fileName: String, callback: ApiResponseCallback) {
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: nil) else {
+            callback?("", false, "File \(fileName) not found")
+            return
+        }
+        do {
+            let data = try Data(contentsOf: url)
+            let json = try JSON(data: data)
+            print("API success response:", json)
+            callback?(json, true, "File \(fileName) is found")
+        } catch {
+            print("Error parse JSON:", error.localizedDescription)
+            callback?("", false, error.localizedDescription)
+        }
+    }
+    
     /// Upload data to server
     /// - Parameters:
     ///   - url: Full url API

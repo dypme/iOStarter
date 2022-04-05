@@ -20,14 +20,6 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/Cache</string>
-			<key>Title</key>
-			<string>Cache (6.0.0)</string>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-		</dict>
-		<dict>
-			<key>File</key>
 			<string>com.ios.starter.LicensePlist/CryptoSwift</string>
 			<key>Title</key>
 			<string>CryptoSwift (1.4.3)</string>
@@ -116,14 +108,6 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/FSPagerView</string>
-			<key>Title</key>
-			<string>FSPagerView (0.8.3)</string>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-		</dict>
-		<dict>
-			<key>File</key>
 			<string>com.ios.starter.LicensePlist/GoogleAppMeasurement</string>
 			<key>Title</key>
 			<string>GoogleAppMeasurement (8.14.0)</string>
@@ -143,14 +127,6 @@
 			<string>com.ios.starter.LicensePlist/GoogleUtilities</string>
 			<key>Title</key>
 			<string>GoogleUtilities (7.7.0)</string>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-		</dict>
-		<dict>
-			<key>File</key>
-			<string>com.ios.starter.LicensePlist/Imaginary</string>
-			<key>Title</key>
-			<string>Imaginary (5.0.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -180,14 +156,6 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/KYDrawerController</string>
-			<key>Title</key>
-			<string>KYDrawerController (2.1.0)</string>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-		</dict>
-		<dict>
-			<key>File</key>
 			<string>com.ios.starter.LicensePlist/L10n-swift</string>
 			<key>Title</key>
 			<string>L10n-swift (5.10.0)</string>
@@ -206,7 +174,7 @@
 			<key>File</key>
 			<string>com.ios.starter.LicensePlist/Lightbox</string>
 			<key>Title</key>
-			<string>Lightbox (2.5.0)</string>
+			<string>Lightbox (2.6.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -247,22 +215,6 @@
 			<string>com.ios.starter.LicensePlist/PromisesObjC</string>
 			<key>Title</key>
 			<string>PromisesObjC (2.0.0)</string>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-		</dict>
-		<dict>
-			<key>File</key>
-			<string>com.ios.starter.LicensePlist/Realm</string>
-			<key>Title</key>
-			<string>Realm (10.25.0)</string>
-			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
-		</dict>
-		<dict>
-			<key>File</key>
-			<string>com.ios.starter.LicensePlist/RealmSwift</string>
-			<key>Title</key>
-			<string>RealmSwift (10.25.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
