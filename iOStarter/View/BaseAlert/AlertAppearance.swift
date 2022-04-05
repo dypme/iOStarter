@@ -14,10 +14,10 @@ class AlertAppearance {
     var titleFont = UIFont.boldSystemFont(ofSize: 17)
     var messageColor = UIColor.black
     var messageFont = UIFont.systemFont(ofSize: 13)
-    var cancelText = "Cancel"
+    var cancelText = L10n.Alert.cancelButton
     var cancelTextColor = UIColor(red: 0, green: 122/255, blue: 255/255, alpha: 1)
     var cancelColor = UIColor.white
-    var actionText = "Submit"
+    var actionText = L10n.Alert.actionButton
     var actionTextColor = UIColor(red: 0, green: 122/255, blue: 255/255, alpha: 1)
     var actionColor = UIColor.white
     var buttonFont = UIFont.systemFont(ofSize: 17)

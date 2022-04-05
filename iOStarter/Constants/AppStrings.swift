@@ -10,8 +10,22 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// Close
+  internal static let close = L10n.tr("Localizable", "close")
+  /// First Name
+  internal static let firstName = L10n.tr("Localizable", "firstName")
+  /// Gender
+  internal static let gender = L10n.tr("Localizable", "gender")
   /// Hallo World
   internal static let halloWorld = L10n.tr("Localizable", "halloWorld")
+  /// Last Name
+  internal static let lastName = L10n.tr("Localizable", "lastName")
+  /// Login
+  internal static let login = L10n.tr("Localizable", "login")
+  /// Logout
+  internal static let logout = L10n.tr("Localizable", "logout")
+  /// Password
+  internal static let password = L10n.tr("Localizable", "password")
 
   internal enum Alert {
     /// OK
@@ -23,6 +37,13 @@ internal enum L10n {
   internal enum Button {
     /// Refresh
     internal static let refresh = L10n.tr("Localizable", "button.refresh")
+  }
+
+  internal enum Description {
+    /// Are You sure want to logout?
+    internal static let confirmLogout = L10n.tr("Localizable", "description.confirmLogout")
+    /// Hallo, please login first
+    internal static let login = L10n.tr("Localizable", "description.login")
   }
 
   internal enum Error {
@@ -42,11 +63,33 @@ internal enum L10n {
     internal static let passwordValidity = L10n.tr("Localizable", "error.passwordValidity")
   }
 
+  internal enum Menu {
+    /// Home
+    internal static let home = L10n.tr("Localizable", "menu.home")
+    /// List %@
+    internal static func list(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "menu.list", String(describing: p1))
+    }
+    /// Profile
+    internal static let profile = L10n.tr("Localizable", "menu.profile")
+  }
+
   internal enum PickerField {
     /// Cancel
     internal static let cancel = L10n.tr("Localizable", "pickerField.cancel")
     /// Choose
     internal static let choose = L10n.tr("Localizable", "pickerField.choose")
+  }
+
+  internal enum Title {
+    /// Example
+    internal static let example = L10n.tr("Localizable", "title.example")
+    /// Home
+    internal static let home = L10n.tr("Localizable", "title.home")
+    /// Not Login
+    internal static let notLogin = L10n.tr("Localizable", "title.notLogin")
+    /// Profile
+    internal static let profile = L10n.tr("Localizable", "title.profile")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

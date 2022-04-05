@@ -20,4 +20,23 @@
 "error.inputData" = "Please input %@.";
 "error.chooseData" = "Please choose %@.";
 
+"menu.home" = "Home";
+"menu.list" = "List %@";
+"menu.profile" = "Profile";
+
+"title.home" = "Home";
+"title.example" = "Example";
+"title.notLogin" = "Not Login";
+"title.profile" = "Profile";
+
+"description.login" = "Hallo, please login first";
+"description.confirmLogout" = "Are You sure want to logout?";
+
 "halloWorld" = "Hallo World";
+"login" = "Login";
+"logout" = "Logout";
+"password" = "Password";
+"close" = "Close";
+"firstName" = "First Name";
+"lastName" = "Last Name";
+"gender" = "Gender";

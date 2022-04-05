@@ -20,4 +20,23 @@
 "error.inputData" = "Silahkan masukkan %@.";
 "error.chooseData" = "Silahkan pilih %@.";
 
+"menu.home" = "Beranda";
+"menu.list" = "Daftar %@";
+"menu.profile" = "Profil";
+
+"title.home" = "Beranda";
+"title.example" = "Contoh";
+"title.notLogin" = "Belum Masuk";
+"title.profile" = "Profil";
+
+"description.login" = "Halo, silahkan masuk lebih dulu";
+"description.confirmLogout" = "Apakah Anda yakin ingin keluar?";
+
 "halloWorld" = "Halo Dunia";
+"login" = "Masuk";
+"logout" = "Keluar";
+"password" = "Kata Sandi";
+"close" = "Tutup";
+"firstName" = "Nama Depan";
+"lastName" = "Nama Belakang";
+"gender" = "Jenis Kelamin";
