@@ -10,16 +10,18 @@ import UIKit
 
 class ExampleVC: ViewController {
 
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var detailLbl: UILabel!
     
-    override func setupMethod() {
-        super.setupMethod()
+    var viewModel: ItemVM!
+    
+    override func setupView() {
+        super.setupView()
         
-        button.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
-    }
-    
-    @objc func tapButton() {
-        self.presentToast(message: "Hallo World")
+        imageView.kf.setImage(with: viewModel.imageUrl)
+        nameLbl.text = viewModel.name
+        detailLbl.text = viewModel.detail
     }
 
 }

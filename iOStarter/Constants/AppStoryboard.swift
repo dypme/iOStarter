@@ -12,6 +12,11 @@ import UIKit
 
 // swiftlint:disable explicit_type_interface identifier_name line_length type_body_length type_name
 internal enum StoryboardScene {
+  internal enum Auth: StoryboardType {
+    internal static let storyboardName = "Auth"
+
+    internal static let initialScene = InitialSceneType<iOStarter.LoginVC>(storyboard: Auth.self)
+  }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
 
@@ -22,9 +27,37 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<iOStarter.LaunchScreenVC>(storyboard: Main.self)
 
-    internal static let exampleVC = SceneType<iOStarter.ExampleVC>(storyboard: Main.self, identifier: "ExampleVC")
-
     internal static let launchScreenVC = SceneType<iOStarter.LaunchScreenVC>(storyboard: Main.self, identifier: "LaunchScreenVC")
+
+    internal static let tabBarMenuVC = SceneType<iOStarter.TabBarMenuVC>(storyboard: Main.self, identifier: "TabBarMenuVC")
+  }
+  internal enum Menu: StoryboardType {
+    internal static let storyboardName = "Menu"
+
+    internal static let initialScene = InitialSceneType<iOStarter.ExampleVC>(storyboard: Menu.self)
+
+    internal static let exampleVC = SceneType<iOStarter.ExampleVC>(storyboard: Menu.self, identifier: "ExampleVC")
+
+    internal static let gridNavigation = SceneType<UIKit.UINavigationController>(storyboard: Menu.self, identifier: "GridNavigation")
+
+    internal static let gridVC = SceneType<iOStarter.GridVC>(storyboard: Menu.self, identifier: "GridVC")
+
+    internal static let homeNavigation = SceneType<UIKit.UINavigationController>(storyboard: Menu.self, identifier: "HomeNavigation")
+
+    internal static let tableNavigation = SceneType<UIKit.UINavigationController>(storyboard: Menu.self, identifier: "TableNavigation")
+
+    internal static let tableVC = SceneType<iOStarter.TableVC>(storyboard: Menu.self, identifier: "TableVC")
+  }
+  internal enum Profile: StoryboardType {
+    internal static let storyboardName = "Profile"
+
+    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Profile.self)
+
+    internal static let notLoginNavigation = SceneType<UIKit.UINavigationController>(storyboard: Profile.self, identifier: "NotLoginNavigation")
+
+    internal static let profileNavigation = SceneType<UIKit.UINavigationController>(storyboard: Profile.self, identifier: "ProfileNavigation")
+
+    internal static let profileVC = SceneType<iOStarter.ProfileVC>(storyboard: Profile.self, identifier: "ProfileVC")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

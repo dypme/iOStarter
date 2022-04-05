@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /// INitialize main controller, Change return value with your main menu controller
     func initializeMainController() {
-        mainController = StoryboardScene.Main.exampleVC.instantiate()
+        mainController = StoryboardScene.Main.tabBarMenuVC.instantiate()
         mainController.modalPresentationStyle = .fullScreen
     }
     /// Main view controller
