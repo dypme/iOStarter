@@ -41,7 +41,7 @@ def shared_pods
     # Using for localization application. Source: https://github.com/Decybel07/L10n-swift
     pod 'L10n-swift'
     
-    # Image/ video preview. Source: https://github.com/hyperoslo/Lightbox
+    # Image/ video preview. Original source: https://github.com/hyperoslo/Lightbox
     pod 'Lightbox', :git => 'https://github.com/dypme/Lightbox.git'
 
 end

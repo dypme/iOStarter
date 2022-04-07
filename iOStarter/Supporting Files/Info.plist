@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>iOS Starter</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -28,9 +28,11 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>$(EXECUTABLE_NAME) want to using your camera to get a photo</string>
+	<string>TODO: Update Your camera usage description here</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>TODO: Update Your location usage description here</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>$(EXECUTABLE_NAME) want to access your gallery to get a photo</string>
+	<string>TODO: Update Your gallery usage description here</string>
 	<key>UIAppFonts</key>
 	<array/>
 	<key>UIBackgroundModes</key>
@@ -54,9 +56,6 @@
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

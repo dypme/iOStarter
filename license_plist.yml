@@ -2,14 +2,14 @@
 
 # Specify GitHub's library manually.
 #github:
-#  - owner: WahyuAdyP
+#  - owner: dypme
 #    name: iOStarter
 
 # Specify libraries manually
 manual:
-  - source: https://github.com/WahyuAdyP/iOStarter
+  - source: https://github.com/dypme/iOStarter
     name: iOStarter
-    version: 1.2.0
+    version: 1.3.0
     body: 'MIT License
 
 

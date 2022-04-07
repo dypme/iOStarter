@@ -12,7 +12,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/Alamofire</string>
+			<string>com.iOStarter.LicensePlist/Alamofire</string>
 			<key>Title</key>
 			<string>Alamofire (5.5.0)</string>
 			<key>Type</key>
@@ -20,7 +20,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/CryptoSwift</string>
+			<string>com.iOStarter.LicensePlist/CryptoSwift</string>
 			<key>Title</key>
 			<string>CryptoSwift (1.4.3)</string>
 			<key>Type</key>
@@ -28,7 +28,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/Firebase</string>
+			<string>com.iOStarter.LicensePlist/Firebase</string>
 			<key>Title</key>
 			<string>Firebase (8.14.0)</string>
 			<key>Type</key>
@@ -36,7 +36,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/FirebaseABTesting</string>
+			<string>com.iOStarter.LicensePlist/FirebaseABTesting</string>
 			<key>Title</key>
 			<string>FirebaseABTesting (8.14.0)</string>
 			<key>Type</key>
@@ -44,7 +44,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/FirebaseAnalytics</string>
+			<string>com.iOStarter.LicensePlist/FirebaseAnalytics</string>
 			<key>Title</key>
 			<string>FirebaseAnalytics (8.14.0)</string>
 			<key>Type</key>
@@ -52,7 +52,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/FirebaseCore</string>
+			<string>com.iOStarter.LicensePlist/FirebaseCore</string>
 			<key>Title</key>
 			<string>FirebaseCore (8.14.0)</string>
 			<key>Type</key>
@@ -60,7 +60,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/FirebaseCoreDiagnostics</string>
+			<string>com.iOStarter.LicensePlist/FirebaseCoreDiagnostics</string>
 			<key>Title</key>
 			<string>FirebaseCoreDiagnostics (8.14.0)</string>
 			<key>Type</key>
@@ -68,7 +68,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/FirebaseCrashlytics</string>
+			<string>com.iOStarter.LicensePlist/FirebaseCrashlytics</string>
 			<key>Title</key>
 			<string>FirebaseCrashlytics (8.14.0)</string>
 			<key>Type</key>
@@ -76,7 +76,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/FirebaseInstallations</string>
+			<string>com.iOStarter.LicensePlist/FirebaseInstallations</string>
 			<key>Title</key>
 			<string>FirebaseInstallations (8.14.0)</string>
 			<key>Type</key>
@@ -84,7 +84,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/FirebaseMessaging</string>
+			<string>com.iOStarter.LicensePlist/FirebaseMessaging</string>
 			<key>Title</key>
 			<string>FirebaseMessaging (8.14.0)</string>
 			<key>Type</key>
@@ -92,7 +92,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/FirebasePerformance</string>
+			<string>com.iOStarter.LicensePlist/FirebasePerformance</string>
 			<key>Title</key>
 			<string>FirebasePerformance (8.14.0)</string>
 			<key>Type</key>
@@ -100,7 +100,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/FirebaseRemoteConfig</string>
+			<string>com.iOStarter.LicensePlist/FirebaseRemoteConfig</string>
 			<key>Title</key>
 			<string>FirebaseRemoteConfig (8.14.0)</string>
 			<key>Type</key>
@@ -108,7 +108,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/GoogleAppMeasurement</string>
+			<string>com.iOStarter.LicensePlist/GoogleAppMeasurement</string>
 			<key>Title</key>
 			<string>GoogleAppMeasurement (8.14.0)</string>
 			<key>Type</key>
@@ -116,7 +116,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/GoogleDataTransport</string>
+			<string>com.iOStarter.LicensePlist/GoogleDataTransport</string>
 			<key>Title</key>
 			<string>GoogleDataTransport (9.1.2)</string>
 			<key>Type</key>
@@ -124,7 +124,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/GoogleUtilities</string>
+			<string>com.iOStarter.LicensePlist/GoogleUtilities</string>
 			<key>Title</key>
 			<string>GoogleUtilities (7.7.0)</string>
 			<key>Type</key>
@@ -132,15 +132,15 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/iOStarter</string>
+			<string>com.iOStarter.LicensePlist/iOStarter</string>
 			<key>Title</key>
-			<string>iOStarter (1.2.0)</string>
+			<string>iOStarter (1.3.0)</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/IQKeyboardManagerSwift</string>
+			<string>com.iOStarter.LicensePlist/IQKeyboardManagerSwift</string>
 			<key>Title</key>
 			<string>IQKeyboardManagerSwift (6.5.9)</string>
 			<key>Type</key>
@@ -148,7 +148,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/Kingfisher</string>
+			<string>com.iOStarter.LicensePlist/Kingfisher</string>
 			<key>Title</key>
 			<string>Kingfisher (7.2.0)</string>
 			<key>Type</key>
@@ -156,7 +156,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/L10n-swift</string>
+			<string>com.iOStarter.LicensePlist/L10n-swift</string>
 			<key>Title</key>
 			<string>L10n-swift (5.10.0)</string>
 			<key>Type</key>
@@ -164,7 +164,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/LicensePlist</string>
+			<string>com.iOStarter.LicensePlist/LicensePlist</string>
 			<key>Title</key>
 			<string>License Plist (3.20.0)</string>
 			<key>Type</key>
@@ -172,7 +172,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/Lightbox</string>
+			<string>com.iOStarter.LicensePlist/Lightbox</string>
 			<key>Title</key>
 			<string>Lightbox (2.6.0)</string>
 			<key>Type</key>
@@ -180,7 +180,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/MMKV</string>
+			<string>com.iOStarter.LicensePlist/MMKV</string>
 			<key>Title</key>
 			<string>MMKV (1.2.13)</string>
 			<key>Type</key>
@@ -188,7 +188,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/MMKVCore</string>
+			<string>com.iOStarter.LicensePlist/MMKVCore</string>
 			<key>Title</key>
 			<string>MMKVCore (1.2.13)</string>
 			<key>Type</key>
@@ -196,7 +196,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/nanopb</string>
+			<string>com.iOStarter.LicensePlist/nanopb</string>
 			<key>Title</key>
 			<string>nanopb (2.30908.0)</string>
 			<key>Type</key>
@@ -204,7 +204,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/NVActivityIndicatorView</string>
+			<string>com.iOStarter.LicensePlist/NVActivityIndicatorView</string>
 			<key>Title</key>
 			<string>NVActivityIndicatorView (5.1.1)</string>
 			<key>Type</key>
@@ -212,7 +212,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/PromisesObjC</string>
+			<string>com.iOStarter.LicensePlist/PromisesObjC</string>
 			<key>Title</key>
 			<string>PromisesObjC (2.0.0)</string>
 			<key>Type</key>
@@ -220,7 +220,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/SwiftGen</string>
+			<string>com.iOStarter.LicensePlist/SwiftGen</string>
 			<key>Title</key>
 			<string>SwiftGen (6.5.1)</string>
 			<key>Type</key>
@@ -228,7 +228,7 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.ios.starter.LicensePlist/SwiftyJSON</string>
+			<string>com.iOStarter.LicensePlist/SwiftyJSON</string>
 			<key>Title</key>
 			<string>SwiftyJSON (5.0.1)</string>
 			<key>Type</key>
