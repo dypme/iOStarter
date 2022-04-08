@@ -1,7 +1,7 @@
 
 # iOStarter
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/WahyuAdyP/iOStarter/blob/master/LICENSE)
-[![GitHub Release](https://img.shields.io/github/release/WahyuAdyP/iOStarter.svg?style=flat)](https://github.com/WahyuAdyP/iOStarter/releases)
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/dypme/iOStarter/blob/master/LICENSE)
+[![GitHub Release](https://img.shields.io/github/release/dypme/iOStarter.svg?style=flat)](https://github.com/dypme/iOStarter/releases)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey)
 [![Swift 5.x](https://img.shields.io/badge/language-swift%205.x-orange)](https://developer.apple.com/swift)
 
