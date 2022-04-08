@@ -96,6 +96,7 @@
 		AA0F49E707A3C637E9A03641 /* Pods_iOStarter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOStarter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25E3B36AB6BD6CB2B4B1E78 /* Pods-iOStarter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOStarter.debug.xcconfig"; path = "Target Support Files/Pods-iOStarter/Pods-iOStarter.debug.xcconfig"; sourceTree = "<group>"; };
 		B325AEF17A65AAE03EDBE58F /* Pods-iOStarter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOStarter.release.xcconfig"; path = "Target Support Files/Pods-iOStarter/Pods-iOStarter.release.xcconfig"; sourceTree = "<group>"; };
+		E2AAB63527FFE92000F19FBE /* iOStarter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOStarter.entitlements; sourceTree = "<group>"; };
 		E2FD8D5B27FECB5B003F5BA4 /* iOStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FD8D5E27FECB5B003F5BA4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E2FD8D6627FECB5B003F5BA4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
@@ -236,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				E2FD8D5E27FECB5B003F5BA4 /* GoogleService-Info.plist */,
+				E2AAB63527FFE92000F19FBE /* iOStarter.entitlements */,
 				E2FD8D6627FECB5B003F5BA4 /* Settings.bundle */,
 				E2FD8D6827FECB5B003F5BA4 /* Constants */,
 				E2FD8D7527FECB5B003F5BA4 /* Resources */,
@@ -566,6 +568,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
+				ORGANIZATIONNAME = dypme;
 				TargetAttributes = {
 					E2FD8D5A27FECB5B003F5BA4 = {
 						CreatedOnToolsVersion = 13.0;
@@ -923,6 +926,7 @@
 			baseConfigurationReference = B25E3B36AB6BD6CB2B4B1E78 /* Pods-iOStarter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOStarter/iOStarter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -948,6 +952,7 @@
 			baseConfigurationReference = B325AEF17A65AAE03EDBE58F /* Pods-iOStarter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iOStarter/iOStarter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
