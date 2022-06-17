@@ -65,7 +65,7 @@ class ViewModelList<T: ModelData, V: ViewModelItem<T>> {
         return V(data: data)
     }
     
-    func fetch(isLoadMore: Bool, path: ApiHelper.Path, viewDidUpdate: ViewUpdateCallback, fetchDidFinish: ViewModelRequestCallback) {
+    func fetch(isLoadMore: Bool, path: ApiComponents, viewDidUpdate: ViewUpdateCallback, fetchDidFinish: ViewModelRequestCallback) {
         if isLoading {
             return
         }

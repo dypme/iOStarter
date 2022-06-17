@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA6213020C8123554D8B4CFB /* Pods_iOStarter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0F49E707A3C637E9A03641 /* Pods_iOStarter.framework */; };
+		E24E62392817D4EE0032E0BE /* ApiPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24E62382817D4EE0032E0BE /* ApiPath.swift */; };
 		E2FD8D5F27FECB5B003F5BA4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2FD8D5E27FECB5B003F5BA4 /* GoogleService-Info.plist */; };
 		E2FD8D6727FECB5B003F5BA4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2FD8D6627FECB5B003F5BA4 /* Settings.bundle */; };
 		E2FD8D6A27FECB5B003F5BA4 /* AppAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD8D6927FECB5B003F5BA4 /* AppAssets.swift */; };
@@ -96,6 +97,7 @@
 		AA0F49E707A3C637E9A03641 /* Pods_iOStarter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOStarter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B25E3B36AB6BD6CB2B4B1E78 /* Pods-iOStarter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOStarter.debug.xcconfig"; path = "Target Support Files/Pods-iOStarter/Pods-iOStarter.debug.xcconfig"; sourceTree = "<group>"; };
 		B325AEF17A65AAE03EDBE58F /* Pods-iOStarter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOStarter.release.xcconfig"; path = "Target Support Files/Pods-iOStarter/Pods-iOStarter.release.xcconfig"; sourceTree = "<group>"; };
+		E24E62382817D4EE0032E0BE /* ApiPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPath.swift; sourceTree = "<group>"; };
 		E2AAB63527FFE92000F19FBE /* iOStarter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOStarter.entitlements; sourceTree = "<group>"; };
 		E2FD8D5B27FECB5B003F5BA4 /* iOStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FD8D5E27FECB5B003F5BA4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				E2FD8D8427FECB5B003F5BA4 /* ApiComponents.swift */,
 				E2FD8D8627FECB5B003F5BA4 /* ApiHelper.swift */,
 				E2FD8D8827FECB5B003F5BA4 /* ApiParameter.swift */,
+				E24E62382817D4EE0032E0BE /* ApiPath.swift */,
 				E2FD8D8A27FECB5B003F5BA4 /* UploadParameters.swift */,
 				E2FD8D8C27FECB5B003F5BA4 /* MimeType.swift */,
 			);
@@ -743,6 +746,7 @@
 				E2FD8DDA27FECB5C003F5BA4 /* AlertController.swift in Sources */,
 				E2FD8E0A27FECB5C003F5BA4 /* ListVM.swift in Sources */,
 				E2FD8D7427FECB5B003F5BA4 /* AppError.swift in Sources */,
+				E24E62392817D4EE0032E0BE /* ApiPath.swift in Sources */,
 				E2FD8DAA27FECB5B003F5BA4 /* ExtUIImage.swift in Sources */,
 				E2FD8D8F27FECB5B003F5BA4 /* DatabaseHelper.swift in Sources */,
 				E2FD8DCA27FECB5B003F5BA4 /* ViewModelList.swift in Sources */,
@@ -928,7 +932,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOStarter/iOStarter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "iOStarter/Supporting Files/Info.plist";
@@ -954,7 +958,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOStarter/iOStarter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.3.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "iOStarter/Supporting Files/Info.plist";

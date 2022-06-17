@@ -20,33 +20,6 @@ typealias UploadProgressCallback = ((Double) -> Void)?
 struct ApiHelper {
     static let shared = ApiHelper()
     
-    // MARK: - Property
-    /// Path API
-    enum Path {
-        case exampleGet
-        case exampleParameter(value: Int)
-        case exampleUpload(value: String, data: Data)
-        
-        var components: ApiComponents {
-            switch self {
-            case .exampleGet:
-                return ApiComponents(path: "/path", method: .get)
-                
-            case .exampleParameter(let value):
-                return ApiComponents(path: "/path/parameter", method: .post, parameters: [
-                    ApiParameter(key: "key", value: value)
-                ])
-                
-            case .exampleUpload(let value, let data):
-                return ApiComponents(path: "/path/upload", method: .post, parameters: [
-                    ApiParameter(key: "key", value: value),
-                    ApiParameter(key: "image", value: data, mimeType: .jpg)
-                ])
-                
-            }
-        }
-    }
-    
     /// Base API
     let BASE_URL = "BASE_URL"
     
@@ -74,8 +47,7 @@ struct ApiHelper {
     ///   - parameters: Parameters used in requesting
     ///   - completion: Callback response from API
     /// - Returns: Data when requesting
-    func request(to path: Path, callback: ApiResponseCallback) -> DataRequest? {
-        let components = path.components
+    func request(to components: ApiComponents, callback: ApiResponseCallback) -> DataRequest? {
         return afManager?.request(components.url, method: components.method, parameters: components.parameters, headers: headers).responseData(completionHandler: { response in
             apiResponseResult(response: response, callback: callback)
         })
@@ -107,8 +79,7 @@ struct ApiHelper {
     ///   - method: Method when requesting API
     ///   - parameters: All parameters needed when requesting, recomended using only 2 data type (String and Data), Data used for file to upload
     ///   - completion: Callback response from API
-    func upload(to path: Path, progress: UploadProgressCallback = nil, callback: ApiResponseCallback) -> DataRequest? {
-        let components = path.components
+    func upload(to components: ApiComponents, progress: UploadProgressCallback = nil, callback: ApiResponseCallback) -> DataRequest? {
         return afManager?.upload(multipartFormData: { (multipartFormData) in
             for (key, value, mimeType) in components.uploadParameters {
                 if let data = value as? Data {
