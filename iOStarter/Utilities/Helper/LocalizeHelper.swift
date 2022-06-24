@@ -31,9 +31,8 @@ class LocalizeHelper {
             // Change to default language if apps not support device language
             return SupportLanguage.english
         }
-        set (newValue) {
+        set {
             let langIdentifier = newValue.rawValue
-            UserDefaults.standard.set([newValue], forKey: "AppleLanguages")
             L10n_swift.L10n.shared.language = langIdentifier
         }
     }

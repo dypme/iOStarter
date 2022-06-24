@@ -23,7 +23,7 @@ extension URL {
     }
 }
 
-class DirectoryFileHelper {
+class DirectoryHelper {
     /// Durectory of files
     private static var directory: URL {
         let directory = savedDirectory as String
@@ -60,8 +60,8 @@ class DirectoryFileHelper {
     }
 }
 
-class DownloadFileHelper {
-    private static var queue: [(url: URL, data: Data?)] = []
+class DownloadHelper {
+    static var queue: [(url: URL, data: Data?)] = []
     
     /// Data for resuming paused download data
     private var resumeData: Data?
@@ -108,7 +108,7 @@ class DownloadFileHelper {
         }
         
         // Receive from local file
-        let localFile = DirectoryFileHelper.file(from: downloadUrl)
+        let localFile = DirectoryHelper.file(from: downloadUrl)
         let isFileLocalExist = localFile.data != nil || downloadData != nil
         if isFileLocalExist && !isForceDownload  {
             completion(localFile.data, localFile.url)
@@ -123,10 +123,10 @@ class DownloadFileHelper {
         }
         
         let request: DownloadRequest?
-        if let data = DownloadFileHelper.queue.first(where: { $0.url == downloadUrl }) {
+        if let data = DownloadHelper.queue.first(where: { $0.url == downloadUrl }) {
             self.resumeData = data.data
         } else {
-            DownloadFileHelper.queue.append((downloadUrl, self.resumeData))
+            DownloadHelper.queue.append((downloadUrl, self.resumeData))
         }
         let session = ApiHelper.shared.afManager
         if let resumeData = resumeData {
@@ -144,17 +144,17 @@ class DownloadFileHelper {
             case .success(let data):
                 self.downloadData = data
                 
-                if let index = DownloadFileHelper.queue.firstIndex(where: { $0.url == downloadUrl }) {
-                    DownloadFileHelper.queue.remove(at: index)
+                if let index = DownloadHelper.queue.firstIndex(where: { $0.url == downloadUrl }) {
+                    DownloadHelper.queue.remove(at: index)
                 }
                 
-                let localFile = DirectoryFileHelper.file(from: downloadUrl)
+                let localFile = DirectoryHelper.file(from: downloadUrl)
                 completion(localFile.data, localFile.url)
             case .failure:
                 self.resumeData = response.resumeData
                 
-                if let index = DownloadFileHelper.queue.firstIndex(where: { $0.url == downloadUrl }) {
-                    DownloadFileHelper.queue[index].data = self.resumeData
+                if let index = DownloadHelper.queue.firstIndex(where: { $0.url == downloadUrl }) {
+                    DownloadHelper.queue[index].data = self.resumeData
                 }
             }
         }

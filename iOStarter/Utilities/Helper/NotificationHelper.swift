@@ -84,13 +84,32 @@ class NotificationHelper {
     }
     
     /// Trigger action when notification appear
-    func notificationWillAppear(data: [AnyHashable : Any]) {
-        print("Notification will present")
+    func notificationDidReceive(data: [AnyHashable : Any], withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("Notification will present in foreground")
         exampleAction()
+        if #available(iOS 14.0, *) {
+            completionHandler([.banner, .badge, .sound])
+        } else {
+            completionHandler([.alert, .badge, .sound])
+        }
+    }
+    
+    /// Trigger action when notification content-available = true in state background or active
+    func notificationDidReceive(data: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        print("Notification will present with priority high (content_available = true)")
+        
+        switch UIApplication.shared.applicationState {
+        case .background, .inactive:
+            // Handle only when in background & inactive, for active state will handle in above method
+            exampleAction()
+            completionHandler(.newData)
+        default:
+            completionHandler(.noData)
+        }
     }
     
     /// Trigger action when user tap on notification
-    func notificationDidReceive(data: [AnyHashable : Any]) {
+    func notificationDidSelect(data: [AnyHashable : Any]) {
         let json = JSON(data)
         _ = json["title"].stringValue
         _ = json["content"].stringValue
@@ -115,19 +134,14 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         
-        NotificationHelper.shared.notificationWillAppear(data: userInfo)
-        
-        if #available(iOS 14.0, *) {
-            completionHandler([.banner, .badge, .sound])
-        } else {
-            completionHandler([.alert, .badge, .sound])
-        }
+        NotificationHelper.shared.notificationDidReceive(data: userInfo, withCompletionHandler: completionHandler)
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         
-        NotificationHelper.shared.notificationDidReceive(data: userInfo)
+        // Tap action in notification
+        NotificationHelper.shared.notificationDidSelect(data: userInfo)
         
         completionHandler()
     }
