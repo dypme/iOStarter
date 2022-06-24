@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ssq-FX-45Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ssq-FX-45Z">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -13,7 +13,7 @@
         <!--Table-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="TableVC" id="Y6W-OH-hqX" customClass="TableVC" customModule="Test8" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TableVC" id="Y6W-OH-hqX" customClass="TableVC" customModule="iOStarter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +63,7 @@
         <!--Collection-->
         <scene sceneID="2vO-tB-28E">
             <objects>
-                <viewController storyboardIdentifier="GridVC" id="HRl-Hn-SIe" customClass="GridVC" customModule="Test8" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GridVC" id="HRl-Hn-SIe" customClass="GridVC" customModule="iOStarter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ikx-Cu-Jv6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,7 +78,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Jw6-WG-bgw" customClass="ItemCell" customModule="Test8" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Jw6-WG-bgw" customClass="ItemCell" customModule="iOStarter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="124" height="168.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PDD-1h-kzx">
@@ -149,7 +149,7 @@
         <!--title.example-->
         <scene sceneID="wyM-iH-KFI">
             <objects>
-                <viewController storyboardIdentifier="ExampleVC" id="ssq-FX-45Z" customClass="ExampleVC" customModule="Test8" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExampleVC" id="ssq-FX-45Z" customClass="ExampleVC" customModule="iOStarter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1Bt-9R-m2W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,7 +188,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="title.example" id="mud-44-es4">
-                        <barButtonItem key="leftBarButtonItem" image="ic-back" id="sCK-5a-kqO"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="l10nTitle" value="title.example"/>
                         </userDefinedRuntimeAttributes>
@@ -302,7 +301,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic-back" width="14" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

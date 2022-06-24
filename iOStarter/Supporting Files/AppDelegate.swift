@@ -65,9 +65,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NVActivityIndicatorView.DEFAULT_TYPE = .ballPulse
         
+        configureNavigationBar()
+        
 //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
 //            fatalError("Test crashlytics")
 //        }
+    }
+    
+    func configureNavigationBar() {
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.shadowImage = UIImage()
+        navigationBarAppearance.barTintColor = UIColor.white
+        navigationBarAppearance.backgroundColor = UIColor.white
+        let attrTitle = [
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16),
+            NSAttributedString.Key.foregroundColor: Colors.primaryBlack.color
+        ]
+        navigationBarAppearance.titleTextAttributes = attrTitle
+        navigationBarAppearance.tintColor = Colors.primaryBlack.color
+        navigationBarAppearance.setBackgroundImage(UIImage(), for: .default)
+        navigationBarAppearance.backIndicatorImage = Asset.icBack.image
+        navigationBarAppearance.backIndicatorTransitionMaskImage = Asset.icBack.image
+        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = navigationBarAppearance.backgroundColor
+            appearance.titleTextAttributes = attrTitle
+            appearance.shadowColor = .clear
+            appearance.shadowImage = navigationBarAppearance.shadowImage
+            appearance.setBackIndicatorImage(
+                navigationBarAppearance.backIndicatorImage,
+                transitionMaskImage: navigationBarAppearance.backIndicatorTransitionMaskImage
+            )
+
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
     }
     
     /// Configure root view controller when applicatio open
@@ -87,6 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
+        completionHandler(.newData)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
