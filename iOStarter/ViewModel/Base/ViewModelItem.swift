@@ -12,8 +12,8 @@
 
 import Foundation
 
-class ViewModelItem<T: NSObject> {
-    var data: T
+class ViewModelItem<T: NSObject>: ObservableObject {
+    @Published var data: T
     
     required init(data: T) {
         self.data = data

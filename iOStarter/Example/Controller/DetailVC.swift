@@ -1,5 +1,5 @@
 //
-//  ExampleVC.swift
+//  DetailVC.swift
 //  iOStarter
 //
 //  Created by Macintosh on 07/04/22.
@@ -12,7 +12,7 @@
 
 import UIKit
 
-class ExampleVC: ViewController {
+class DetailVC: ViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLbl: UILabel!

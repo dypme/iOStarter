@@ -13,7 +13,7 @@
 import Foundation
 import SwiftyJSON
 
-class Item: ModelData {
+class Item: ModelData, Identifiable {
     var detail: String = ""
     var id: Int = 0
     var image: String = ""

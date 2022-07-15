@@ -38,7 +38,7 @@ extension TableVC {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = StoryboardScene.Menu.exampleVC.instantiate()
+        let vc = StoryboardScene.Menu.detailVC.instantiate()
         vc.viewModel = viewModel.viewModelOfItem(at: indexPath)
         self.navigationController?.pushViewController(vc, animated: true)
     }

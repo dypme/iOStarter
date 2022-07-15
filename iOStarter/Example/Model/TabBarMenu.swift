@@ -13,7 +13,7 @@
 import Foundation
 
 class TabBarMenu {
-    enum TabBarMenuType {
+    enum TabBarMenuType: Int {
         case home
         case table
         case collection

@@ -16,13 +16,13 @@ import UIKit
 typealias ViewModelRequestCallback = ((_ isSuccess: Bool, _ message: String) -> Void)?
 typealias ViewUpdateCallback = ((_ backgroundView: UIView?, _ footerView: UIView?) -> Void)?
 
-class ViewModelList<T: ModelData, V: ViewModelItem<T>> {
-    var datas = [T]()
+class ViewModelList<T: ModelData, V: ViewModelItem<T>>: ObservableObject {
+    @Published var datas = [T]()
     
     var limit = 10
     var offset = 0
-    var isLoading = false
-    var isAllowLoadMore = false
+    @Published var isLoading = false
+    @Published var isAllowLoadMore = false
     
     var backgroundView: UIView? {
         if datas.isEmpty {
@@ -63,6 +63,10 @@ class ViewModelList<T: ModelData, V: ViewModelItem<T>> {
     func viewModelOfItem(at indexPath: IndexPath) -> V {
         let data = datas[indexPath.row]
         return V(data: data)
+    }
+    
+    var viewModelOfItems: [V] {
+        datas.map({ V(data: $0) })
     }
     
     func fetch(isLoadMore: Bool, path: ApiComponents, viewDidUpdate: ViewUpdateCallback, fetchDidFinish: ViewModelRequestCallback) {

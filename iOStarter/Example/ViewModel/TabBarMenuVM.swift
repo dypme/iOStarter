@@ -12,9 +12,10 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
-class TabBarMenuVM {
-    private(set) var menus = [TabBarMenu]()
+class TabBarMenuVM: ObservableObject {
+    @Published private(set) var menus = [TabBarMenu]()
     
     init() {
         let home = TabBarMenu(type: .home)
@@ -44,6 +45,4 @@ class TabBarMenuVM {
         }
         return controllers
     }
-    
-    
 }

@@ -12,7 +12,11 @@
 
 import Foundation
 
-class ItemVM: ViewModelItem<Item> {
+class ItemVM: ViewModelItem<Item>, Identifiable {
+    var id: Int {
+        data.id
+    }
+    
     var name: String {
         data.name
     }

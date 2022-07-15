@@ -25,18 +25,16 @@ internal enum StoryboardScene {
   internal enum Main: StoryboardType {
     internal static let storyboardName = "Main"
 
-    internal static let initialScene = InitialSceneType<iOStarter.LaunchScreenVC>(storyboard: Main.self)
-
-    internal static let launchScreenVC = SceneType<iOStarter.LaunchScreenVC>(storyboard: Main.self, identifier: "LaunchScreenVC")
+    internal static let initialScene = InitialSceneType<iOStarter.TabBarMenuVC>(storyboard: Main.self)
 
     internal static let tabBarMenuVC = SceneType<iOStarter.TabBarMenuVC>(storyboard: Main.self, identifier: "TabBarMenuVC")
   }
   internal enum Menu: StoryboardType {
     internal static let storyboardName = "Menu"
 
-    internal static let initialScene = InitialSceneType<iOStarter.ExampleVC>(storyboard: Menu.self)
+    internal static let initialScene = InitialSceneType<iOStarter.DetailVC>(storyboard: Menu.self)
 
-    internal static let exampleVC = SceneType<iOStarter.ExampleVC>(storyboard: Menu.self, identifier: "ExampleVC")
+    internal static let detailVC = SceneType<iOStarter.DetailVC>(storyboard: Menu.self, identifier: "DetailVC")
 
     internal static let gridNavigation = SceneType<UIKit.UINavigationController>(storyboard: Menu.self, identifier: "GridNavigation")
 

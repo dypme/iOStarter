@@ -11,7 +11,6 @@
 //
 
 import Foundation
-import UIKit
 
 class ListVM: ViewModelList<Item, ItemVM> {
     func fetch(isLoadMore: Bool, viewDidUpdate: ViewUpdateCallback, fetchDidFinish: ViewModelRequestCallback) {

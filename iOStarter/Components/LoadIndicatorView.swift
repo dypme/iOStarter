@@ -15,7 +15,7 @@ import UIKit
 class LoadIndicatorView: UIView {
 
     static let shared: LoadIndicatorView = {
-        guard let window = UIApplication.shared.keyWindow else { fatalError("View not loaded") }
+        guard let window = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).flatMap({ $0.windows }).first(where: { $0.isKeyWindow }) else { fatalError("View not loaded") }
         let loadingView = LoadIndicatorView(topView: window, tag: 1323)
         loadingView.isUserInteractionEnabled = true
         loadingView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
@@ -24,7 +24,7 @@ class LoadIndicatorView: UIView {
     }()
     
     private var activityId: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .white)
+        let indicator = UIActivityIndicatorView(style: .medium)
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.color = UIColor.white
         indicator.hidesWhenStopped = true
