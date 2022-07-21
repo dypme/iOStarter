@@ -17,4 +17,8 @@ class ModelData: NSObject {
     required init(fromJson json: JSON) {
         
     }
+    
+    func toJson() -> JSON? {
+        nil
+    }
 }

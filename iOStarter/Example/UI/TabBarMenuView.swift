@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TabBarMenuView: View {
     @StateObject private var viewModel = TabBarMenuVM()
+    @StateObject private var userSession = UserSession.shared
     
     var body: some View {
         TabView {
@@ -32,8 +33,8 @@ struct TabBarMenuView: View {
         case .collection:
             GridView()
         case .profile:
-            if UserSession.shared.isUserLoggedIn {
-                ListView()
+            if userSession.isUserLoggedIn {
+                ProfileView()
             } else {
                 NoLoginView()
             }

@@ -13,7 +13,7 @@
 import Foundation
 import SwiftyJSON
 
-class User: NSObject {
+class User: ModelData {
     var email: String = ""
     var firstName: String = ""
     var gender: String = ""
@@ -21,7 +21,9 @@ class User: NSObject {
     var image: String = ""
     var lastName: String = ""
 
-    init(fromJson json: JSON) {
+    required init(fromJson json: JSON) {
+        super.init(fromJson: json)
+        
         email = json["email"].stringValue
         firstName = json["first_name"].stringValue
         gender = json["gender"].stringValue
@@ -30,7 +32,7 @@ class User: NSObject {
         lastName = json["last_name"].stringValue
     }
     
-    func toJson() -> JSON {
+    override func toJson() -> JSON? {
         var dict = [String : Any]()
         dict.updateValue(email, forKey: "email")
         dict.updateValue(firstName, forKey: "first_name")

@@ -23,7 +23,7 @@ struct DetailView: View {
             Spacer()
         }
         .padding(.horizontal, 12)
-        .navigationBarTitle("Detail", displayMode: .inline)
+        .navigationBarTitle(Text(L10n.Title.example), displayMode: .inline)
     }
 }
 

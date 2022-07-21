@@ -11,6 +11,8 @@
 		E217328F286E99B900F12A3F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E217328E286E99B900F12A3F /* LoginView.swift */; };
 		E2173293286EA79400F12A3F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2173292286EA79400F12A3F /* HomeView.swift */; };
 		E2173295286EAA0300F12A3F /* NoLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2173294286EAA0300F12A3F /* NoLoginView.swift */; };
+		E2381BC528852FA400E5C871 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2381BC428852FA400E5C871 /* ProfileView.swift */; };
+		E2381BC8288535A600E5C871 /* RedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2381BC7288535A600E5C871 /* RedButton.swift */; };
 		E24E62392817D4EE0032E0BE /* ApiPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24E62382817D4EE0032E0BE /* ApiPath.swift */; };
 		E25B74EF2873DBD400802E43 /* BlueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B74EE2873DBD400802E43 /* BlueButton.swift */; };
 		E2CA1B46286D5FFC00CBA9DA /* TabBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CA1B45286D5FFC00CBA9DA /* TabBarMenuView.swift */; };
@@ -51,7 +53,7 @@
 		E2FD8DA227FECB5B003F5BA4 /* ExtInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD8DA127FECB5B003F5BA4 /* ExtInt.swift */; };
 		E2FD8DA427FECB5B003F5BA4 /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD8DA327FECB5B003F5BA4 /* ExtString.swift */; };
 		E2FD8DA627FECB5B003F5BA4 /* ExtUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD8DA527FECB5B003F5BA4 /* ExtUIApplication.swift */; };
-		E2FD8DA827FECB5B003F5BA4 /* ExtUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD8DA727FECB5B003F5BA4 /* ExtUIColor.swift */; };
+		E2FD8DA827FECB5B003F5BA4 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD8DA727FECB5B003F5BA4 /* ColorExtension.swift */; };
 		E2FD8DAA27FECB5B003F5BA4 /* ExtUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD8DA927FECB5B003F5BA4 /* ExtUIImage.swift */; };
 		E2FD8DAC27FECB5B003F5BA4 /* ExtUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD8DAB27FECB5B003F5BA4 /* ExtUITextField.swift */; };
 		E2FD8DAE27FECB5B003F5BA4 /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD8DAD27FECB5B003F5BA4 /* ExtUIView.swift */; };
@@ -112,6 +114,8 @@
 		E217328E286E99B900F12A3F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E2173292286EA79400F12A3F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E2173294286EAA0300F12A3F /* NoLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLoginView.swift; sourceTree = "<group>"; };
+		E2381BC428852FA400E5C871 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E2381BC7288535A600E5C871 /* RedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedButton.swift; sourceTree = "<group>"; };
 		E24E62382817D4EE0032E0BE /* ApiPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPath.swift; sourceTree = "<group>"; };
 		E25B74EE2873DBD400802E43 /* BlueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueButton.swift; sourceTree = "<group>"; };
 		E2AAB63527FFE92000F19FBE /* iOStarter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOStarter.entitlements; sourceTree = "<group>"; };
@@ -155,7 +159,7 @@
 		E2FD8DA127FECB5B003F5BA4 /* ExtInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtInt.swift; sourceTree = "<group>"; };
 		E2FD8DA327FECB5B003F5BA4 /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
 		E2FD8DA527FECB5B003F5BA4 /* ExtUIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIApplication.swift; sourceTree = "<group>"; };
-		E2FD8DA727FECB5B003F5BA4 /* ExtUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIColor.swift; sourceTree = "<group>"; };
+		E2FD8DA727FECB5B003F5BA4 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		E2FD8DA927FECB5B003F5BA4 /* ExtUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImage.swift; sourceTree = "<group>"; };
 		E2FD8DAB27FECB5B003F5BA4 /* ExtUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUITextField.swift; sourceTree = "<group>"; };
 		E2FD8DAD27FECB5B003F5BA4 /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
@@ -248,11 +252,19 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		E2381BC62885358100E5C871 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				E25B74EE2873DBD400802E43 /* BlueButton.swift */,
+				E2381BC7288535A600E5C871 /* RedButton.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
 		E2CA1B4B286D888100CBA9DA /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
 				E2CA1B4C286D88A000CBA9DA /* FitToAspectRatio.swift */,
-				E25B74EE2873DBD400802E43 /* BlueButton.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -276,6 +288,7 @@
 				E2E1E7B3286AB29F006146F8 /* DetailView.swift */,
 				E2173294286EAA0300F12A3F /* NoLoginView.swift */,
 				E217328E286E99B900F12A3F /* LoginView.swift */,
+				E2381BC428852FA400E5C871 /* ProfileView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -408,7 +421,7 @@
 				E2FD8DA127FECB5B003F5BA4 /* ExtInt.swift */,
 				E2FD8DA327FECB5B003F5BA4 /* ExtString.swift */,
 				E2FD8DA527FECB5B003F5BA4 /* ExtUIApplication.swift */,
-				E2FD8DA727FECB5B003F5BA4 /* ExtUIColor.swift */,
+				E2FD8DA727FECB5B003F5BA4 /* ColorExtension.swift */,
 				E2FD8DA927FECB5B003F5BA4 /* ExtUIImage.swift */,
 				E2FD8DAB27FECB5B003F5BA4 /* ExtUITextField.swift */,
 				E2FD8DAD27FECB5B003F5BA4 /* ExtUIView.swift */,
@@ -441,6 +454,7 @@
 		E2FD8DBF27FECB5B003F5BA4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E2381BC62885358100E5C871 /* SwiftUI */,
 				E2FD8DC027FECB5B003F5BA4 /* ErrorView.swift */,
 				E2FD8DC227FECB5B003F5BA4 /* LoadIndicatorView.swift */,
 				E2E1E7B5286AFD8F006146F8 /* ActivityIndicatorView.swift */,
@@ -799,6 +813,7 @@
 				E2FD8D8927FECB5B003F5BA4 /* ApiParameter.swift in Sources */,
 				E2FD8D9727FECB5B003F5BA4 /* LocalizeHelper.swift in Sources */,
 				E2FD8DE027FECB5C003F5BA4 /* ConfirmAlertSheetController.swift in Sources */,
+				E2381BC8288535A600E5C871 /* RedButton.swift in Sources */,
 				E2E1E7B4286AB29F006146F8 /* DetailView.swift in Sources */,
 				E2FD8DDC27FECB5C003F5BA4 /* AlertSheetController.swift in Sources */,
 				E2CA1B4D286D88A000CBA9DA /* FitToAspectRatio.swift in Sources */,
@@ -852,7 +867,7 @@
 				E2FD8DA627FECB5B003F5BA4 /* ExtUIApplication.swift in Sources */,
 				E2FD8DAE27FECB5B003F5BA4 /* ExtUIView.swift in Sources */,
 				E217328F286E99B900F12A3F /* LoginView.swift in Sources */,
-				E2FD8DA827FECB5B003F5BA4 /* ExtUIColor.swift in Sources */,
+				E2FD8DA827FECB5B003F5BA4 /* ColorExtension.swift in Sources */,
 				E2E1E7B6286AFD8F006146F8 /* ActivityIndicatorView.swift in Sources */,
 				E2FD8E0827FECB5C003F5BA4 /* TabBarMenuVM.swift in Sources */,
 				E2FD8DC127FECB5B003F5BA4 /* ErrorView.swift in Sources */,
@@ -866,6 +881,7 @@
 				E2FD8DBE27FECB5B003F5BA4 /* ZoomSlider.swift in Sources */,
 				E2FD8D9E27FECB5B003F5BA4 /* ExtBool.swift in Sources */,
 				E2FD8D9527FECB5B003F5BA4 /* KeyboardStateListener.swift in Sources */,
+				E2381BC528852FA400E5C871 /* ProfileView.swift in Sources */,
 				E2FD8DB327FECB5B003F5BA4 /* Notify.swift in Sources */,
 				E2FD8DFE27FECB5C003F5BA4 /* UserSession.swift in Sources */,
 				E2FD8D7227FECB5B003F5BA4 /* AppStrings.swift in Sources */,

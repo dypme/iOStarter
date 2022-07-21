@@ -15,7 +15,7 @@ struct ListView: View {
         NavigationView {
             if viewModel.isLoading {
                 ActivityIndicatorView(isAnimating: true)
-                    .navigationBarTitle("Example List")
+                    .navigationBarTitle("Table")
             } else {
                 List {
                     ForEach(viewModel.viewModelOfItems) { modelItem in
@@ -30,7 +30,7 @@ struct ListView: View {
                         .frame(maxWidth: .infinity)
                     }
                 }
-                .navigationBarTitle("Example")
+                .navigationBarTitle("Table")
             }
         }
         .onAppear {

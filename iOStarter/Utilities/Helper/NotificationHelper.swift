@@ -56,12 +56,12 @@ class NotificationHelper {
         Messaging.messaging().token { (token, error) in
             if let token = token {
                 print("Messaging token: \(token)")
-                UserSession.shared.setRegid(string: token)
+                UserSession.shared.regid = token
             }
         }
         if let token = Messaging.messaging().fcmToken {
             print("Fcm token \(token)")
-            UserSession.shared.setRegid(string: token)
+            UserSession.shared.regid = token
         }
     }
     

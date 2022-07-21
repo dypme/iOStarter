@@ -16,7 +16,7 @@ struct GridView: View {
         NavigationView {
             if viewModel.isLoading {
                 ActivityIndicatorView(isAnimating: true)
-                    .navigationBarTitle("Example Grid")
+                    .navigationBarTitle("Grid")
             } else {
                 ScrollView {
                     WaterfallGrid(viewModel.viewModelOfItems) { modelItem in
@@ -33,7 +33,7 @@ struct GridView: View {
                         .frame(maxWidth: .infinity)
                     }
                 }
-                .navigationBarTitle("Example")
+                .navigationBarTitle("Grid")
             }
         }
         .onAppear {

@@ -12,8 +12,8 @@
 
 import Foundation
 
-class ProfileVM {
-    private let user: User
+class ProfileVM: ObservableObject {
+    @Published private var user: User
     
     init() {
         guard let user = UserSession.shared.profile else {
@@ -43,6 +43,6 @@ class ProfileVM {
     }
     
     func setLogout() {
-        UserSession.shared.setLoggedOut()
+        UserSession.shared.profile = nil
     }
 }

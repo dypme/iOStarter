@@ -27,10 +27,15 @@ class LoginVM {
     }
     
     func login(email: String, password: String, callback: ViewModelRequestCallback) {
+        if let error = errorMessage(email: email, password: password) {
+            callback?(false, error)
+            return
+        }
+        
         ApiHelper.shared.localRequest(fileName: "user.json", callback: { json, isSuccess, message in
             if isSuccess {
                 let user = User(fromJson: json)
-                UserSession.shared.setProfile(user)
+                UserSession.shared.profile = user
             }
             callback?(isSuccess, message)
         })

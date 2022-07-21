@@ -15,7 +15,7 @@ import UIKit
 import MMKV
 import SwiftyJSON
 
-class UserSession {
+class UserSession: ObservableObject {
     static let shared = UserSession()
     
     private var profileKey = "profileKey"
@@ -23,20 +23,23 @@ class UserSession {
     
     private var userStandard = MMKV.default()
     
-    func clearData() {
-        userStandard?.clearAll()
-    }
-    
-    /// Set and store new token registration id for push notification
-    ///
-    /// - Parameter string: token string
-    func setRegid(string: String) {
-        userStandard?.set(string, forKey: regidKey)
-    }
-    
     /// Getting stored token registration id for push notification
-    var regid: String {
-        return userStandard?.string(forKey: regidKey) ?? ""
+    @Published var regid: String = "" {
+        didSet {
+            userStandard?.set(regid, forKey: regidKey)
+        }
+    }
+
+    /// Getting stored profile data
+    @Published var profile: User? {
+        didSet {
+            setObject(profile, forKey: profileKey)
+        }
+    }
+    
+    init() {
+        regid = userStandard?.string(forKey: regidKey) ?? ""
+        profile = getObject(forKey: profileKey)
     }
     
     // TODO: Example usage to save logged in user session
@@ -45,26 +48,27 @@ class UserSession {
         profile != nil
     }
     
-    /// Remove data information of logged out user
-    func setLoggedOut() {
-        userStandard?.removeValue(forKey: profileKey)
+    func clearData() {
+        profile = nil
+        regid = ""
+        userStandard?.clearAll()
     }
     
-    /// Set and store new profile data
-    ///
-    /// - Parameter profile: new profile data
-    func setProfile(_ profile: User) {
-        guard let jsonStr = profile.toJson().rawString() else { fatalError("Converting JSON to raw string failed") }
+    private func setObject(_ object: ModelData?, forKey key: String) {
+        guard let object = object else {
+            userStandard?.removeValue(forKey: key)
+            return
+        }
+        guard let jsonStr = object.toJson()?.rawString() else { fatalError("Converting JSON to raw string failed") }
         guard let chiperStr = jsonStr.encrypt else { fatalError("Failed to encrypt string") }
-        userStandard?.set(chiperStr, forKey: profileKey)
+        userStandard?.set(chiperStr, forKey: key)
     }
-
-    /// Getting stored profile data
-    var profile: User? {
-        if let chiperStr = userStandard?.string(forKey: profileKey) {
+    
+    private func getObject<T: ModelData>(forKey key: String) -> T? {
+        if let chiperStr = userStandard?.string(forKey: key) {
             guard let plainStr = chiperStr.decrypt else { return nil }
             guard let jsonData = plainStr.data(using: .utf8), let json = try? JSON(data: jsonData) else { return nil }
-            return plainStr.isEmpty ? nil : User(fromJson: json)
+            return plainStr.isEmpty ? nil : T(fromJson: json)
         }
         return nil
     }
