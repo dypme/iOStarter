@@ -162,16 +162,16 @@ class CameraController: UIViewController {
     private var focusView = FocusView()
     
     // MARK: Settings Property
-    private var isAllowSwitchCamera: Bool              = true
-    private var isAllowFlashlight: Bool                = true
+    private var isAllowSwitchCamera: Bool = true
+    private var isAllowFlashlight: Bool = true
     private var cameraDevice: AVCaptureDevice.Position = .back
-    private var isFullscreenCamera: Bool       = false
+    private var isFullscreenCamera: Bool = false
     
     private var isTakingPhoto: Bool = false
     
     // MARK: Flash property
     private var currentBrightness: CGFloat = 0.0
-    private var isFlashOn: Bool            = false {
+    private var isFlashOn: Bool = false {
         didSet {
             if isFlashOn {
                 flashBtn.setImage(Asset.icCameraFlashOn.image, for: UIControl.State())

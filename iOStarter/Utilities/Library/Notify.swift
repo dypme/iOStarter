@@ -236,12 +236,10 @@ class Notify: UIView {
         }
         
         if let window = UIApplication.shared.keyWindow {
-            if let window = UIApplication.shared.keyWindow {
-                if direction == .top {
-                    window.windowLevel = UIWindow.Level.statusBar + 1
-                } else {
-                    window.windowLevel = UIWindow.Level.normal
-                }
+            if direction == .top {
+                window.windowLevel = UIWindow.Level.statusBar + 1
+            } else {
+                window.windowLevel = UIWindow.Level.normal
             }
             
             Notify.shared?.hideNotify()

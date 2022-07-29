@@ -15,25 +15,16 @@ import Foundation
 extension String {
     /// Check email validity
     var isValidEmail: Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self)
     }
     
     /// Check phone number validity
     var isValidPhone: Bool {
-        do {
-            let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
-            let matches = detector.matches(in: self, options: [], range: NSMakeRange(0, self.count))
-            if let res = matches.first {
-                return res.resultType == .phoneNumber && res.range.location == 0 && res.range.length == self.count && res.phoneNumber == self
-            } else {
-                return false
-            }
-        } catch {
-            return false
-        }
+        let phoneRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
+        return phoneTest.evaluate(with: self)
     }
     
     var isValidPassword: Bool {
@@ -43,6 +34,10 @@ extension String {
         return minCharacters && containsNumber && containsAlphanumberic
     }
     
+    var isNotEmpty: Bool {
+        !self.isEmpty
+    }
+    
     /// Change date format to new format date
     ///
     /// - Parameters:
@@ -50,10 +45,9 @@ extension String {
     ///   - new: Format that will change
     /// - Returns: New format date
     func dateChange(from old: String, to new: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = LocalizeHelper.shared.locale
-        dateFormatter.dateFormat = old
-        if let date = dateFormatter.date(from: self) {
+        if let date = self.date(format: old) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = LocalizeHelper.shared.locale
             dateFormatter.dateFormat = new
             return dateFormatter.string(from: date)
         }

@@ -37,7 +37,6 @@ extension UITextField {
             NSAttributedString.Key.foregroundColor: color.withAlphaComponent(0.6),
             NSAttributedString.Key.font: self.font!
             ] as [NSAttributedString.Key : Any]
-        self.attributedPlaceholder = NSAttributedString(string: self.placeholder!,
-                                                             attributes: attributeString)
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes: attributeString)
     }
 }

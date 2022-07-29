@@ -20,8 +20,11 @@ class ToastView: UIView {
     
     private var isKeyboardVisible = false
     private var keyboardFrame = CGRect.zero
+    private var text: String
     
-    init() {
+    init(text: String) {
+        self.text = text
+        
         super.init(frame: .zero)
         
         let keyboardState = KeyboardStateListener.shared
@@ -36,7 +39,7 @@ class ToastView: UIView {
     /// Show your toast information
     ///
     /// - Parameter text: Text inside toast
-    func show(text: String) {
+    func show() {
         guard let view = UIApplication.shared.keyWindow else { return }
         let width = view.frame.width - 64
         let font = UIFont.systemFont(ofSize: 14)
@@ -151,6 +154,6 @@ extension NSObject {
     ///
     /// - Parameter text: Text inside toast
     func presentToast(message: String) {
-        ToastView().show(text: message)
+        ToastView(text: message).show()
     }
 }

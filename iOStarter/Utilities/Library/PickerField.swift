@@ -163,18 +163,17 @@ class PickerField: UIView {
     ///   - data: Data for using in picker
     ///   - picker: Custom picker
     ///   - callback: Action when selected picker
-    func setPicker(data: [String], picker: UIPickerView = UIPickerView(), completion callback: ((String, Int) -> Void)? = nil) {
+    func setPicker(data: [String], completion callback: ((String, Int) -> Void)? = nil) {
         removePicker()
         
         self.type = .picker
-        self.picker = picker
-        
+        self.picker = UIPickerView()
         self.picker.delegate = self
         self.picker.dataSource = self
         
         self.data = data
         self.pickerCallback = callback
-        picker.reloadAllComponents()
+        self.picker.reloadAllComponents()
         
         setupField()
         reloadPicker()
@@ -422,11 +421,16 @@ extension PickerField: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let label = UILabel()
+        label.frame.size.height = 40
         label.font = appearance.pickerFont
         label.textColor = appearance.pickerColor
         label.textAlignment = .center
         label.text = data[row]
         return label
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        40
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {

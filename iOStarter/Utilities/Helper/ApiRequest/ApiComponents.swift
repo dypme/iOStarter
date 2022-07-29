@@ -16,23 +16,23 @@ import Alamofire
 class ApiComponents {
     private(set) var url: URL
     var method: HTTPMethod
-    private var parametersArr: [ApiParameter]
+    private var params: [ApiParameter]
     
     init(path: String, method: HTTPMethod, parameters: [ApiParameter] = []) {
         self.url = URL(string: ApiHelper.shared.BASE_URL + path)!
         self.method = method
-        self.parametersArr = parameters
+        self.params = parameters
     }
     
     init(url: URL, method: HTTPMethod, parameters: [ApiParameter] = []) {
         self.url = url
         self.method = method
-        self.parametersArr = parameters
+        self.params = parameters
     }
     
     var parameters: Parameters {
         var params = Parameters()
-        parametersArr.forEach { param in
+        params.forEach { param in
             params.updateValue(param.value, forKey: param.key)
         }
         return params
@@ -40,7 +40,7 @@ class ApiComponents {
     
     var uploadParameters: UploadParameters {
         var params = UploadParameters()
-        parametersArr.forEach { param in
+        self.params.forEach { param in
             params.updateValue(param.value, forKey: param.key, mimeType: param.mimeType)
         }
         return params

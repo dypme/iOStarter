@@ -83,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     /// Setup notification settings
     func setupNotification(application: UIApplication) {
-        NotificationHelper.shared.setupNotif(delegate: self, application: application)
+        NotificationHelper.shared.setupNotif(application: application)
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

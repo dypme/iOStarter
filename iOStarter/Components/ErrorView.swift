@@ -29,35 +29,22 @@ class ErrorView: UIView {
         return label
     }()
     
-    private var refreshBtn: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.setTitle(L10n.Button.refresh, for: UIControl.State())
-        button.setTitleColor(UIColor.white, for: UIControl.State())
-        button.backgroundColor = .red
-        return button
-    }()
-    
     private var image: UIImage?
     private var message: String
-    private var tapReload: (() -> Void)?
     
     /// Initialize error view
     /// - Parameters:
     ///   - image: image for error view
     ///   - message: Text to inform user what error happen
     ///   - action: Action to reload fetch data while error occur
-    init(image: UIImage? = nil, message: String, reloadAction action: (() -> Void)? = nil, tag: Int = 1431) {
+    init(image: UIImage? = nil, message: String, tag: Int = 1431) {
         self.image = image
         self.message = message
-        self.tapReload = action
         
         super.init(frame: .zero)
         
         self.tag = tag
         
-        setupMethod()
         setupView()
         setupLayout()
     }
@@ -67,7 +54,7 @@ class ErrorView: UIView {
     }
     
     private func setupLayout() {
-        let hStackView = UIStackView(arrangedSubviews: [imageView, messageLbl, refreshBtn])
+        let hStackView = UIStackView(arrangedSubviews: [imageView, messageLbl])
         hStackView.translatesAutoresizingMaskIntoConstraints = false
         hStackView.axis = .vertical
         hStackView.alignment = .center
@@ -84,28 +71,15 @@ class ErrorView: UIView {
         
         imageView.widthAnchor.constraint(lessThanOrEqualToConstant: 130).isActive = true
         imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 130).isActive = true
-        
-        refreshBtn.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        refreshBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
-    /// Setup add function/ action in object (ex: add button action, add delegate, add gesture)
-    func setupMethod() {
-        refreshBtn.addTarget(self, action: #selector(reload(_:)), for: .touchUpInside)
-    }
-    
-    func setupView() {
+    private func setupView() {
         imageView.image = image
         imageView.isHidden = image == nil
         
         messageLbl.text = message
         
-        refreshBtn.isHidden = tapReload == nil
-        
-        self.isUserInteractionEnabled = !refreshBtn.isHidden
         self.backgroundColor = .clear
-        
-        refreshBtn.rounded(value: 20)
     }
     
     private func setContentConstraint(in view: UIView) {
@@ -125,14 +99,6 @@ class ErrorView: UIView {
         view.addSubview(self)
         setContentConstraint(in: view)
     }
-    
-    /// Reload button function action
-    ///
-    /// - Parameter button: Sender button
-    @objc func reload(_ button: UIButton) {
-        self.removeFromSuperview()
-        tapReload?()
-    }
 
 }
 
@@ -145,22 +111,17 @@ extension UIView {
     ///   - message: Text to inform user what error happen
     ///   - tapReload: Action to reload fetch data while error occur
     ///   - tag: Mark of error view in superview
-    func setErrorView(image: UIImage? = nil, message: String, tapReload: (() -> Void)?, tag: Int = 1431) {
-        let topView = self.superview ?? self
-        
-        let errorView = ErrorView(image: image, message: message, reloadAction: tapReload, tag: tag)
-        
-        if !topView.subviews.contains(where: { $0.tag == tag }) {
-            errorView.show(in: topView)
+    func setErrorView(image: UIImage? = nil, message: String, tag: Int = 1431) {
+        let errorView = ErrorView(image: image, message: message, tag: tag)
+        if !self.subviews.contains(where: { $0.tag == tag }) {
+            errorView.show(in: self)
         }
     }
     
     /// Stop animating activity indicator in superview of current view
     /// - Parameter tag: Mark of error view in superview
     func removeErrorView(tag: Int = 1431) {
-        let topView = self.superview ?? self
-        
-        if let errorView = topView.subviews.first(where: { $0.tag == tag }) as? ErrorView {
+        if let errorView = self.subviews.first(where: { $0.tag == tag }) as? ErrorView {
             errorView.removeFromSuperview()
         }
     }

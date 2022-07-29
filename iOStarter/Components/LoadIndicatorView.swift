@@ -15,8 +15,9 @@ import UIKit
 class LoadIndicatorView: UIView {
 
     static let shared: LoadIndicatorView = {
+        // MARK: For deprecated keyWindow can use this property window
         guard let window = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).flatMap({ $0.windows }).first(where: { $0.isKeyWindow }) else { fatalError("View not loaded") }
-        let loadingView = LoadIndicatorView(topView: window, tag: 1323)
+        let loadingView = LoadIndicatorView(parentView: window, tag: 1323)
         loadingView.isUserInteractionEnabled = true
         loadingView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         loadingView.activityId.color = UIColor.white
@@ -31,7 +32,7 @@ class LoadIndicatorView: UIView {
         return indicator
     }()
     
-    private var topView: UIView?
+    private var parentView: UIView?
     
     init() {
         super.init(frame: .zero)
@@ -44,10 +45,10 @@ class LoadIndicatorView: UIView {
         setupView()
     }
     
-    convenience init(topView: UIView, tag: Int = 1328) {
+    convenience init(parentView: UIView, tag: Int = 1328) {
         self.init()
         
-        self.topView = topView
+        self.parentView = parentView
         self.tag = tag
     }
     
@@ -70,14 +71,14 @@ class LoadIndicatorView: UIView {
         activityId.stopAnimating()
         activityId.startAnimating()
         
-        if let topView = self.topView {
-            topView.addSubview(self)
+        if let parentView = self.parentView {
+            parentView.addSubview(self)
             
             self.translatesAutoresizingMaskIntoConstraints = false
-            self.topAnchor.constraint(equalTo: topView.topAnchor).isActive = true
-            self.leadingAnchor.constraint(equalTo: topView.leadingAnchor).isActive = true
-            self.trailingAnchor.constraint(equalTo: topView.trailingAnchor).isActive = true
-            self.bottomAnchor.constraint(equalTo: topView.bottomAnchor).isActive = true
+            self.topAnchor.constraint(equalTo: parentView.topAnchor).isActive = true
+            self.leadingAnchor.constraint(equalTo: parentView.leadingAnchor).isActive = true
+            self.trailingAnchor.constraint(equalTo: parentView.trailingAnchor).isActive = true
+            self.bottomAnchor.constraint(equalTo: parentView.bottomAnchor).isActive = true
         }
     }
     
@@ -92,19 +93,15 @@ class LoadIndicatorView: UIView {
 extension UIView {
     /// Start animating activity indicator in superview of current view
     func startAnimatingIndicator(tag: Int = 1328) {
-        let topView = self.superview ?? self
-        
-        let activityId = LoadIndicatorView(topView: topView, tag: tag)
-        if !topView.subviews.contains(where: { $0.tag == tag }) {
+        let activityId = LoadIndicatorView(parentView: self, tag: tag)
+        if !self.subviews.contains(where: { $0.tag == tag }) {
             activityId.startAnimating()
         }
     }
     
     /// Stop animating activity indicator in superview of current view
     func stopAnimatingIndicator(tag: Int = 1328) {
-        let topView = self.superview ?? self
-        
-        if let activityId = topView.subviews.first(where: { $0.tag == tag }) as? LoadIndicatorView {
+        if let activityId = self.subviews.first(where: { $0.tag == tag }) as? LoadIndicatorView {
             activityId.stopAnimating()
         }
     }

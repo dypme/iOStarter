@@ -17,19 +17,19 @@ import FirebaseMessaging
 import SwiftyJSON
 import AVKit
 
-class NotificationHelper {
+class NotificationHelper: NSObject {
     static var shared = NotificationHelper()
     
     private var player: AVAudioPlayer?
     
     /// Setup all need for notification first
-    func setupNotif(delegate: AppDelegate, application: UIApplication) {
-        UNUserNotificationCenter.current().delegate = delegate
+    func setupNotif(application: UIApplication) {
+        UNUserNotificationCenter.current().delegate = self
         let options: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: options, completionHandler: { (_, _) in })
         application.registerForRemoteNotifications()
         
-        Messaging.messaging().delegate = delegate
+        Messaging.messaging().delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.refreshFcmToken), name: NSNotification.Name.MessagingRegistrationTokenRefreshed, object: nil)
     }
     
@@ -130,7 +130,7 @@ class NotificationHelper {
     
 }
 
-extension AppDelegate : UNUserNotificationCenterDelegate {
+extension NotificationHelper : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
         
@@ -148,7 +148,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 }
 
 // TODO: Adjust this when not use firebase
-extension AppDelegate : MessagingDelegate {
+extension NotificationHelper : MessagingDelegate {
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
         print("Firebase refresh registration token:", fcmToken)
         NotificationHelper.shared.refreshFcmToken()

@@ -28,8 +28,7 @@ extension UIView {
     
     /// Make view rounded with maximum radius
     func circle() {
-        self.layoutIfNeeded()
-        self.layer.cornerRadius = min(self.frame.size.width, self.frame.size.height) / 2
+        self.rounded(value: min(self.frame.size.width, self.frame.size.height) / 2)
     }
     
     /// Make view rounded with specific radius value
@@ -45,7 +44,7 @@ extension UIView {
     /// - Parameters:
     ///   - corners: Corners that will rounded
     ///   - radius: Radius of rounded
-    func roundCorners(_ corners: UIRectCorner, radius: CGFloat = 10) {
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat = 8) {
         self.layoutIfNeeded()
         let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let maskLayer = CAShapeLayer()
@@ -78,6 +77,10 @@ extension UIView {
     func border(color: UIColor = UIColor.black, width: CGFloat = 1) {
         self.layer.borderColor = color.cgColor
         self.layer.borderWidth = width
+    }
+    
+    func removeBorder() {
+        self.layer.borderWidth = 0
     }
     
     /// Unlinks all view from its superview and its window, and removes all from the responder chain

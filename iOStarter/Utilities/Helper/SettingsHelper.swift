@@ -24,22 +24,23 @@ class SettingsHelper {
     
     static func setupSettings() {
         clearData()
-        clearCache(isForce: false)
+        clearCache()
         setSettingsInformation()
     }
     
     private class func clearData() {
         if UserDefaults.standard.bool(forKey: SettingsBundleKeys.clearDataKey) {
             UserDefaults.standard.set(false, forKey: SettingsBundleKeys.clearDataKey)
+            UserDefaults.standard.set(true, forKey: SettingsBundleKeys.clearCacheKey)
             
-            clearCache(isForce: true)
+            clearCache()
             UserSession.shared.clearData()
 //            DatabaseHelper.shared.deleteAllData()
         }
     }
     
-    private class func clearCache(isForce: Bool) {
-        if UserDefaults.standard.bool(forKey: SettingsBundleKeys.clearCacheKey) || isForce {
+    private class func clearCache() {
+        if UserDefaults.standard.bool(forKey: SettingsBundleKeys.clearCacheKey) {
             UserDefaults.standard.set(false, forKey: SettingsBundleKeys.clearCacheKey)
             
             HTTPCookieStorage.shared.cookies?.forEach({ (cookie) in
