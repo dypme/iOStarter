@@ -34,8 +34,8 @@ struct LoginView: View {
                     if isSuccess {
                         presentationMode.wrappedValue.dismiss()
                     } else {
-                        ToastView()
-                            .show(text: message)
+                        ToastView(text: message)
+                            .show()
                     }
                 }
             }

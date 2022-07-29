@@ -431,11 +431,11 @@
 		E2FD8DB127FECB5B003F5BA4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				E2FD8DBA27FECB5B003F5BA4 /* CameraController */,
 				E2FD8DB227FECB5B003F5BA4 /* Notify.swift */,
 				E2FD8DB427FECB5B003F5BA4 /* ToastView.swift */,
 				E2FD8DB627FECB5B003F5BA4 /* CheckBox.swift */,
 				E2FD8DB827FECB5B003F5BA4 /* PickerField.swift */,
-				E2FD8DBA27FECB5B003F5BA4 /* CameraController */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -1024,7 +1024,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOStarter/iOStarter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3.0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "iOStarter/Supporting Files/Info.plist";
@@ -1033,7 +1033,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dypme.starter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1051,7 +1051,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iOStarter/iOStarter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3.0;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "iOStarter/Supporting Files/Info.plist";
@@ -1060,7 +1060,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dypme.starter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

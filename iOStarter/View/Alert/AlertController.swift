@@ -151,7 +151,7 @@ class AlertController: ViewController {
         window.addSubview(self.view)
         
         if parentController == nil {
-            parentController = UIApplication.shared.currentActiveController()
+            parentController = window.rootViewController?.currentActiveController()
         }
         if let alerts = parentController?.children.compactMap({ $0 as? AlertController }) {
             alerts.forEach { (controller) in
