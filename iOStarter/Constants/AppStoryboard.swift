@@ -15,47 +15,47 @@ internal enum StoryboardScene {
   internal enum Auth: StoryboardType {
     internal static let storyboardName = "Auth"
 
-    internal static let initialScene = InitialSceneType<iOStarter.LoginVC>(storyboard: Auth.self)
+    internal static let initialScene = InitialSceneType<iOStarter.LoginVC>(storyboard: Self.self)
   }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
 
-    internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: LaunchScreen.self)
+    internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: Self.self)
   }
   internal enum Main: StoryboardType {
     internal static let storyboardName = "Main"
 
-    internal static let initialScene = InitialSceneType<iOStarter.TabBarMenuVC>(storyboard: Main.self)
+    internal static let initialScene = InitialSceneType<iOStarter.TabBarMenuVC>(storyboard: Self.self)
 
-    internal static let tabBarMenuVC = SceneType<iOStarter.TabBarMenuVC>(storyboard: Main.self, identifier: "TabBarMenuVC")
+    internal static let tabBarMenuVC = SceneType<iOStarter.TabBarMenuVC>(storyboard: Self.self, identifier: "TabBarMenuVC")
   }
   internal enum Menu: StoryboardType {
     internal static let storyboardName = "Menu"
 
-    internal static let initialScene = InitialSceneType<iOStarter.DetailVC>(storyboard: Menu.self)
+    internal static let initialScene = InitialSceneType<iOStarter.DetailVC>(storyboard: Self.self)
 
-    internal static let detailVC = SceneType<iOStarter.DetailVC>(storyboard: Menu.self, identifier: "DetailVC")
+    internal static let detailVC = SceneType<iOStarter.DetailVC>(storyboard: Self.self, identifier: "DetailVC")
 
-    internal static let gridNavigation = SceneType<UIKit.UINavigationController>(storyboard: Menu.self, identifier: "GridNavigation")
+    internal static let gridNavigation = SceneType<UIKit.UINavigationController>(storyboard: Self.self, identifier: "GridNavigation")
 
-    internal static let gridVC = SceneType<iOStarter.GridVC>(storyboard: Menu.self, identifier: "GridVC")
+    internal static let gridVC = SceneType<iOStarter.GridVC>(storyboard: Self.self, identifier: "GridVC")
 
-    internal static let homeNavigation = SceneType<UIKit.UINavigationController>(storyboard: Menu.self, identifier: "HomeNavigation")
+    internal static let homeNavigation = SceneType<UIKit.UINavigationController>(storyboard: Self.self, identifier: "HomeNavigation")
 
-    internal static let tableNavigation = SceneType<UIKit.UINavigationController>(storyboard: Menu.self, identifier: "TableNavigation")
+    internal static let tableNavigation = SceneType<UIKit.UINavigationController>(storyboard: Self.self, identifier: "TableNavigation")
 
-    internal static let tableVC = SceneType<iOStarter.TableVC>(storyboard: Menu.self, identifier: "TableVC")
+    internal static let tableVC = SceneType<iOStarter.TableVC>(storyboard: Self.self, identifier: "TableVC")
   }
   internal enum Profile: StoryboardType {
     internal static let storyboardName = "Profile"
 
-    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Profile.self)
+    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Self.self)
 
-    internal static let notLoginNavigation = SceneType<UIKit.UINavigationController>(storyboard: Profile.self, identifier: "NotLoginNavigation")
+    internal static let notLoginNavigation = SceneType<UIKit.UINavigationController>(storyboard: Self.self, identifier: "NotLoginNavigation")
 
-    internal static let profileNavigation = SceneType<UIKit.UINavigationController>(storyboard: Profile.self, identifier: "ProfileNavigation")
+    internal static let profileNavigation = SceneType<UIKit.UINavigationController>(storyboard: Self.self, identifier: "ProfileNavigation")
 
-    internal static let profileVC = SceneType<iOStarter.ProfileVC>(storyboard: Profile.self, identifier: "ProfileVC")
+    internal static let profileVC = SceneType<iOStarter.ProfileVC>(storyboard: Self.self, identifier: "ProfileVC")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
