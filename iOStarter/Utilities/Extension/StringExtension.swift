@@ -51,7 +51,7 @@ extension String {
             dateFormatter.dateFormat = new
             return dateFormatter.string(from: date)
         }
-        return ""
+        return self
     }
     
     /// Convert string format date to Date data type

@@ -14,12 +14,12 @@ import Foundation
 
 extension Int {
     /// Change integer data type into string format decimal
-    var asDecimal: String {
+    var asDecimalFormatter: String {
         let formatter = NumberFormatter()
         formatter.locale = LocalizeHelper.shared.locale
         formatter.numberStyle = .decimal
         let string = formatter.string(from: NSNumber(integerLiteral: self))
-        return string!
+        return string ?? String(describing: self)
     }
     
     /// Change integer into boolean data type

@@ -57,4 +57,12 @@ extension UIViewController {
         }
         return self.presentedViewController!.currentActiveController()
     }
+    
+    var presentedControlers: [UIViewController] {
+        if let presented = self.presentedViewController {
+            return [presented] + presented.presentedControlers
+        } else {
+            return []
+        }
+    }
 }

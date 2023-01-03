@@ -32,9 +32,9 @@ extension UITextField {
     /// Set placeholder color of UITextField
     ///
     /// - Parameter color: Color of placeholder
-    func placeholderColor(color: UIColor) {
+    func setPlaceholderColor(color: UIColor) {
         let attributeString = [
-            NSAttributedString.Key.foregroundColor: color.withAlphaComponent(0.6),
+            NSAttributedString.Key.foregroundColor: color,
             NSAttributedString.Key.font: self.font!
             ] as [NSAttributedString.Key : Any]
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder!, attributes: attributeString)

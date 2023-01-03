@@ -12,7 +12,7 @@
 
 import Foundation
 
-class ErrorConstant {
+class ErrorString {
     /// Silahkan lengkapi data yang dibutuhkan
     static let completeForm = L10n.Error.completeForm
     

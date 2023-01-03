@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '13.0'
+platform :ios, '14.0'
 
 def shared_pods
     
@@ -13,7 +13,7 @@ def shared_pods
     pod 'SwiftyJSON'
     
     # Image downloading/ caching. Source: https://github.com/onevcat/Kingfisher
-    pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher.git', :branch => 'version6-xcode13'
+    pod 'Kingfisher'
     
     # Asset tool generator to swift file. Source: https://github.com/SwiftGen/SwiftGen
     pod 'SwiftGen'

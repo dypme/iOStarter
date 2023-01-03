@@ -17,7 +17,7 @@ import UIKit
 class CheckBox: UIButton {
     
     /// Closure action when checkbox on tap
-    private var onTap: ((_ checkBox: CheckBox, _ state: Bool) -> Void)? = nil
+    private var onTap: ((_ checkBox: CheckBox, _ isChecked: Bool) -> Void)? = nil
     
     /// Boolean value for detect state of checkbox
     @IBInspectable
@@ -105,6 +105,16 @@ class CheckBox: UIButton {
         
         self.titleLabel?.adjustsFontSizeToFitWidth = true
         self.titleLabel?.numberOfLines = numberOfLinesText
+    }
+    
+    static func bindAsRadioButton(of checkBoxes: [CheckBox], callback: ((_ checkBox: CheckBox, _ isChecked: Bool) -> ())?) {
+        checkBoxes.forEach { checkBox in
+            checkBox.setOnTap { checkBox, state in
+                checkBoxes.forEach({ $0.setState(in: false) })
+                checkBox.setState(in: true)
+                callback?(checkBox, state)
+            }
+        }
     }
     
 }

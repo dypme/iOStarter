@@ -23,6 +23,11 @@ extension URL {
     }
 }
 
+struct File {
+    let data: Data?
+    let path: String
+}
+
 class DirectoryHelper {
     /// Durectory of files
     private static var directory: URL {
@@ -35,19 +40,19 @@ class DirectoryHelper {
     ///
     /// - Parameter name: Name of file
     /// - Returns: File data and file url
-    static func file(name: String) -> (data: Data?, url: String) {
+    static func file(name: String) -> File? {
         let fileUrl  = directory.appendingPathComponent(name)
         
         let fileManager = FileManager.default
         if fileManager.fileExists(atPath: fileUrl.path) {
             do {
                 let file = try Data(contentsOf: fileUrl)
-                return (file, fileUrl.absoluteString)
+                return File(data: file, path: fileUrl.absoluteString)
             } catch {
-                return (nil, "File not found in directory")
+                return nil
             }
         } else {
-            return (nil, "File not found in directory")
+            return nil
         }
     }
     
@@ -55,18 +60,16 @@ class DirectoryHelper {
     ///
     /// - Parameter url: url of file
     /// - Returns: File data and full file path
-    static func file(from url: URL) -> (data: Data?, url: String) {
-        file(name: url.fileNameFormat)
+    static func file(from url: URL) -> File? {
+        return file(name: url.fileNameFormat)
     }
 }
 
-class DownloadHelper {
+class DownloadManager {
     static var queue: [(url: URL, data: Data?)] = []
     
     /// Data for resuming paused download data
-    private var resumeData: Data?
-    /// Result of download data
-    private var downloadData: Data?
+    private var downloadedData: Data?
     
     /// Url to download with regenerate to valid download url
     private var downloadUrl: URL? {
@@ -101,18 +104,14 @@ class DownloadHelper {
     /// - Parameters:
     ///   - progress: Download progress closure
     ///   - completion: Complete download progress closure
-    func fetch(progress: ((Progress) -> Void)? = nil, completion: @escaping ((Data?, String) -> Void)) {
+    func fetch(progress: ((Progress) -> Void)? = nil) async -> File? {
         guard let downloadUrl = self.downloadUrl else {
-            completion(nil, "")
-            return
+            return nil
         }
         
         // Receive from local file
-        let localFile = DirectoryHelper.file(from: downloadUrl)
-        let isFileLocalExist = localFile.data != nil || downloadData != nil
-        if isFileLocalExist && !isForceDownload  {
-            completion(localFile.data, localFile.url)
-            return
+        if let localFile = DirectoryHelper.file(from: downloadUrl), let data = localFile.data, !isForceDownload {
+            return File(data: data, path: localFile.path)
         }
         
         let destination: DownloadRequest.Destination = { _, _ in
@@ -122,41 +121,32 @@ class DownloadHelper {
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         
-        let request: DownloadRequest?
-        if let data = DownloadHelper.queue.first(where: { $0.url == downloadUrl }) {
-            self.resumeData = data.data
+        if let data = DownloadManager.queue.first(where: { $0.url == downloadUrl }) {
+            self.downloadedData = data.data
         } else {
-            DownloadHelper.queue.append((downloadUrl, self.resumeData))
-        }
-        let session = ApiHelper.shared.afManager
-        if let resumeData = resumeData {
-            request = session?.download(resumingWith: resumeData, to: destination).downloadProgress { (progressDownload) in
-                progress?(progressDownload)
-            }
-        } else {
-            request = session?.download(downloadUrl, to: destination).downloadProgress { (progressDownload) in
-                progress?(progressDownload)
-            }
+            DownloadManager.queue.append((downloadUrl, self.downloadedData))
         }
         
-        request?.responseData { response in
-            switch response.result {
-            case .success(let data):
-                self.downloadData = data
-                
-                if let index = DownloadHelper.queue.firstIndex(where: { $0.url == downloadUrl }) {
-                    DownloadHelper.queue.remove(at: index)
-                }
-                
-                let localFile = DirectoryHelper.file(from: downloadUrl)
-                completion(localFile.data, localFile.url)
-            case .failure:
-                self.resumeData = response.resumeData
-                
-                if let index = DownloadHelper.queue.firstIndex(where: { $0.url == downloadUrl }) {
-                    DownloadHelper.queue[index].data = self.resumeData
-                }
+        let request: DownloadRequest
+        let session = ApiManager.shared.sessionManager
+        if let downloadedData = downloadedData {
+            request = session.download(resumingWith: downloadedData, to: destination)
+        } else {
+            request = session.download(downloadUrl, to: destination)
+        }
+        request.downloadProgress(closure: { progress?($0) })
+        
+        let downloadTask = request.serializingData()
+        do {
+            let data = try await downloadTask.value
+            if let index = DownloadManager.queue.firstIndex(where: { $0.url == downloadUrl }) {
+                DownloadManager.queue.remove(at: index)
             }
+            
+            let localFile = DirectoryHelper.file(from: downloadUrl)
+            return localFile
+        } catch {
+            return nil
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  SettingsHelper.swift
+//  SettingsManager.swift
 //  iOStarter
 //
 //  Created by Macintosh on 07/04/22.
@@ -14,7 +14,7 @@ import Foundation
 import Kingfisher
 //import RealmSwift
 
-class SettingsHelper {
+class SettingsManager {
     private struct SettingsBundleKeys {
         static let fullVersionKey = "settings_full_version"
         static let copyrightKey = "settings_copyright"

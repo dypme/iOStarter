@@ -87,11 +87,7 @@ class NotificationHelper: NSObject {
     func notificationDidReceive(data: [AnyHashable : Any], withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("Notification will present in foreground")
         exampleAction()
-        if #available(iOS 14.0, *) {
-            completionHandler([.banner, .badge, .sound])
-        } else {
-            completionHandler([.alert, .badge, .sound])
-        }
+        completionHandler([.banner, .badge, .sound])
     }
     
     /// Trigger action when notification content-available = true in state background or active

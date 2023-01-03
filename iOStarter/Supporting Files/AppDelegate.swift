@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setApp() {
         MMKV.initialize(rootDir: nil)
         
-        SettingsHelper.setupSettings()
+        SettingsManager.setupSettings()
         
         KeyboardStateListener.shared.start()
         IQKeyboardManager.shared.enable = true

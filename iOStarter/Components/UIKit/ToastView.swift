@@ -15,7 +15,7 @@ import UIKit
 class ToastView: UIView {
     private var padding: CGFloat = 20
     private var bottomPadding: CGFloat {
-        isKeyboardVisible ? 0 : UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+        isKeyboardVisible ? 0 : UIApplication.shared.activeWindow?.safeAreaInsets.bottom ?? 0
     }
     
     private var isKeyboardVisible = false
@@ -40,12 +40,12 @@ class ToastView: UIView {
     ///
     /// - Parameter text: Text inside toast
     func show() {
-        guard let view = UIApplication.shared.keyWindow else { return }
+        guard let view = UIApplication.shared.activeWindow else { return }
         let width = view.frame.width - 64
         let font = UIFont.systemFont(ofSize: 14)
         let height = calculateHeight(withConstrainedWidth: width, font: font, string: text)
         let label = UILabel(frame: CGRect(x: 12, y: 12, width: width, height: height))
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.text = text
         label.textColor = UIColor.white
         label.font = font

@@ -54,7 +54,7 @@ class UserSession: ObservableObject {
         userStandard?.clearAll()
     }
     
-    private func setObject(_ object: ModelData?, forKey key: String) {
+    private func setObject(_ object: BaseModel?, forKey key: String) {
         guard let object = object else {
             userStandard?.removeValue(forKey: key)
             return
@@ -64,7 +64,7 @@ class UserSession: ObservableObject {
         userStandard?.set(chiperStr, forKey: key)
     }
     
-    private func getObject<T: ModelData>(forKey key: String) -> T? {
+    private func getObject<T: BaseModel>(forKey key: String) -> T? {
         if let chiperStr = userStandard?.string(forKey: key) {
             guard let plainStr = chiperStr.decrypt else { return nil }
             guard let jsonData = plainStr.data(using: .utf8), let json = try? JSON(data: jsonData) else { return nil }

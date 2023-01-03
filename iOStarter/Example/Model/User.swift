@@ -13,7 +13,7 @@
 import Foundation
 import SwiftyJSON
 
-class User: ModelData {
+class User: BaseModel {
     var email: String = ""
     var firstName: String = ""
     var gender: String = ""

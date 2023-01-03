@@ -19,7 +19,7 @@ class ApiComponents {
     private var params: [ApiParameter]
     
     init(path: String, method: HTTPMethod, parameters: [ApiParameter] = []) {
-        self.url = URL(string: ApiHelper.shared.BASE_URL + path)!
+        self.url = URL(string: ApiManager.shared.BASE_URL + path)!
         self.method = method
         self.params = parameters
     }

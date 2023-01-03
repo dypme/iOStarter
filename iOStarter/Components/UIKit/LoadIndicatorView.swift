@@ -15,8 +15,7 @@ import UIKit
 class LoadIndicatorView: UIView {
 
     static let shared: LoadIndicatorView = {
-        // MARK: For deprecated keyWindow can use this property window
-        guard let window = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).flatMap({ $0.windows }).first(where: { $0.isKeyWindow }) else { fatalError("View not loaded") }
+        guard let window = UIApplication.shared.activeWindow else { fatalError("View not loaded") }
         let loadingView = LoadIndicatorView(parentView: window, tag: 1323)
         loadingView.isUserInteractionEnabled = true
         loadingView.backgroundColor = UIColor.black.withAlphaComponent(0.6)

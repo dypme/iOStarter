@@ -1,5 +1,5 @@
 //
-//  ViewModelItem.swift
+//  BaseModel.swift
 //  iOStarter
 //
 //  Created by Macintosh on 07/04/22.
@@ -11,11 +11,14 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-class ViewModelItem<T: NSObject>: ObservableObject {
-    @Published var data: T
+class BaseModel: NSObject {
+    required init(fromJson json: JSON) {
+        
+    }
     
-    required init(data: T) {
-        self.data = data
+    func toJson() -> JSON? {
+        nil
     }
 }

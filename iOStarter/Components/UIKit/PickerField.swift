@@ -19,8 +19,8 @@ class PickerField: UIView {
     ///
     /// - Parameter textField: Textfield for store input picker
     init(textField: UITextField) {
-        super.init(frame: .zero)
         self.textField = textField
+        super.init(frame: .zero)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,60 +47,65 @@ class PickerField: UIView {
     fileprivate var selectedRow: Int = 0
     
     /// Action when selected picker
-    private var pickerCallback: ((String, Int) -> Void)? = nil
+    private var pickerCallback: ((_ text: String, _ index: Int) -> Void)? = nil
     
     /// Action when selected date picker
-    private var dateCallback: ((Date) -> Void)? = nil
+    private var dateCallback: ((_ date: Date) -> Void)? = nil
     
     /// Textfield that input from picker
-    var textField: UITextField!
+    let textField: UITextField
+    
+    /// Get callback update action although selected data same as before
+    var isAutoUpdate: Bool = true
+    
     /// View that block user to interaction in behind input picker
-    private var blockerView: UIView!
+    private var overlayView: UIView!
     
     /// Start to create input picker field
     @objc private func textFieldDidBeginEditing() {
         if picker != nil || datePicker != nil {
-            setup()
-            addBlocker()
+            build()
+            addOverlay()
         }
     }
     
     /// Stop input field
     @objc private func textFieldDidEndEditing() {
         verifyData()
-        removeBlocker()
+        removeOverlay()
     }
     
     /// Create blocker view
-    private func addBlocker() {
-        if appearance.isHiddenBlocker {
+    private func addOverlay() {
+        if appearance.isHiddenOverlay {
             return
         }
         
-        let window = UIApplication.shared.keyWindow!
-        blockerView = UIView(frame: window.frame)
-        blockerView.isUserInteractionEnabled = true
-        blockerView.setTapGesture(target: self, action: #selector(cancel))
-        blockerView.backgroundColor = appearance.blockerColor.withAlphaComponent(0.63)
-        window.addSubview(blockerView)
-        
-        blockerView.alpha = 0.0
-        UIView.animate(withDuration: 0.25) {
-            self.blockerView.alpha = 1.0
+        if let window = UIApplication.shared.activeWindow {
+            overlayView = UIView(frame: window.frame)
+            overlayView.isUserInteractionEnabled = true
+            overlayView.setTapGesture(target: self, action: #selector(cancel))
+            overlayView.backgroundColor = appearance.overlayColor.withAlphaComponent(0.63)
+            window.addSubview(overlayView)
+            
+            overlayView.alpha = 0.0
+            UIView.animate(withDuration: 0.25) {
+                self.overlayView.alpha = 1.0
+            }
         }
     }
     
     /// Remove blocker view
-    private func removeBlocker() {
-        if appearance.isHiddenBlocker {
+    private func removeOverlay() {
+        if appearance.isHiddenOverlay {
             return
         }
         
         UIView.animate(withDuration: 0.25, animations: {
-            self.blockerView.alpha = 0.0
+            self.overlayView.alpha = 0.0
         }) { (finished) in
             if finished {
-                self.blockerView.removeFromSuperview()
+                self.overlayView.removeFromSuperview()
             }
         }
     }
@@ -137,19 +142,19 @@ class PickerField: UIView {
     ///   - datePicker: Custom date picker
     ///   - mode: Date picker mode for use in input field
     ///   - callback: Action when selected date picker
-    func setDatePicker(_ datePicker: UIDatePicker? = nil, mode: UIDatePicker.Mode? = nil, completion callback: ((Date) -> Void)? = nil) {
+    func setDatePicker(_ customDatePicker: UIDatePicker? = nil, mode: UIDatePicker.Mode? = nil, completion callback: ((_ date: Date) -> Void)? = nil) {
         removePicker()
         
         self.type = .date
         
-        let newDatePicker = UIDatePicker()
-        newDatePicker.locale = LocalizeHelper.shared.locale
+        let datePicker = UIDatePicker()
+        datePicker.locale = LocalizeHelper.shared.locale
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
         
-        self.datePicker = datePicker ?? newDatePicker
+        self.datePicker = customDatePicker ?? datePicker
         self.datePicker.datePickerMode = mode ?? self.datePicker.datePickerMode
-        if #available(iOS 13.4, *) {
-            self.datePicker.preferredDatePickerStyle = .wheels
-        }
+        self.datePicker.preferredDatePickerStyle = .wheels
+        
         
         self.dateCallback = callback
         
@@ -163,7 +168,7 @@ class PickerField: UIView {
     ///   - data: Data for using in picker
     ///   - picker: Custom picker
     ///   - callback: Action when selected picker
-    func setPicker(data: [String], completion callback: ((String, Int) -> Void)? = nil) {
+    func setPicker(data: [String], completion callback: ((_ text: String, _ index: Int) -> Void)? = nil) {
         removePicker()
         
         self.type = .picker
@@ -182,7 +187,7 @@ class PickerField: UIView {
     /// Reload picker data and setting
     func reloadPicker() {
         if picker != nil || datePicker != nil {
-            setup()
+            build()
         }
     }
     
@@ -211,32 +216,37 @@ class PickerField: UIView {
     /// - Parameter date: Date that want select
     func selectDate(_ date: Date) {
         if type == .date {
-            if isAutoUpdate {
-                datePicker.setDate(date, animated: false)
-                if datePicker.datePickerMode == .date {
-                    self.textField.text = datePicker.date.pickerFieldString(format: appearance.dateFormat)
-                } else if datePicker.datePickerMode == .time {
-                    self.textField.text = datePicker.date.pickerFieldString(format: appearance.timeFormat)
-                } else if datePicker.datePickerMode == .dateAndTime {
-                    self.textField.text = datePicker.date.pickerFieldString(format: appearance.dateFormat + " " + appearance.timeFormat)
-                }
-            }
+            datePicker.setDate(date, animated: true)
+            updateSelectedDate()
         } else {
             print("Your picker type not date, please change type first")
+        }
+    }
+    
+    @objc private func datePickerValueChanged() {
+        if isAutoUpdate {
+            updateSelectedDate()
+        }
+    }
+    
+    private func updateSelectedDate() {
+        if datePicker.datePickerMode == .date {
+            self.textField.text = datePicker.date.pickerFieldString(format: appearance.dateFormat)
+        } else if datePicker.datePickerMode == .time {
+            self.textField.text = datePicker.date.pickerFieldString(format: appearance.timeFormat)
+        } else if datePicker.datePickerMode == .dateAndTime {
+            self.textField.text = datePicker.date.pickerFieldString(format: appearance.dateFormat + " " + appearance.timeFormat)
         }
     }
     
     /// Select picker with specific index
     ///
     /// - Parameter index: Index position that want select
-    func selectPicker(index: Int) {
+    func selectPicker(at index: Int) {
         if type == .picker {
             if !data.isEmpty {
-                if isAutoUpdate {
-                    selectedRow = index
-                    picker.selectRow(index, inComponent: 0, animated: false)
-                    self.textField.text = data[index]
-                }
+                picker.selectRow(index, inComponent: 0, animated: false)
+                updateSelectedPicker(at: index)
             }
         } else {
             print("Your picker type not picker, please change type first")
@@ -247,26 +257,20 @@ class PickerField: UIView {
     ///
     /// - Parameter data: Specific data that want select
     func selectPicker(data aData: String) {
-        if type == .picker {
-            if !data.isEmpty {
-                if isAutoUpdate {
-                    guard let index = data.firstIndex(of: aData) else {
-                        print("Your select data not contains in master data")
-                        return
-                    }
-                    
-                    selectedRow = index
-                    picker.selectRow(index, inComponent: 0, animated: false)
-                    self.textField.text = data[index]
-                }
-            }
-        } else {
-            print("Your picker type not picker, please change type first")
+        guard let index = data.firstIndex(of: aData) else {
+            print("Your select data not contains in master data")
+            return
         }
+        selectPicker(at: index)
+    }
+    
+    fileprivate func updateSelectedPicker(at index: Int) {
+        selectedRow = index
+        self.textField.text = data[index]
     }
     
     /// Setup all input picker for show
-    private func setup() {
+    private func build() {
         if data.isEmpty && type == .picker {
             textField.inputAccessoryView = nil
             textField.inputView = nil
@@ -274,16 +278,15 @@ class PickerField: UIView {
         }
         
         let tintColor: UIColor = appearance.backgroundColor
-        let currentWindow = UIScreen.main.bounds
+        let currentScreen = UIScreen.main.bounds
         
-        self.frame = CGRect(x: 0, y: 0, width: currentWindow.width, height: 215)
+        self.frame = CGRect(x: 0, y: 0, width: currentScreen.width, height: 215)
         self.backgroundColor = tintColor
         
         switch type {
         case .date:
             datePicker.frame = self.frame
             datePicker.tintColor = tintColor
-            datePicker.setValue(appearance.pickerColor, forKeyPath: "textColor")
             self.addSubview(datePicker) // add date picker to UIView
         default:
             picker.frame = self.frame
@@ -291,12 +294,12 @@ class PickerField: UIView {
             self.addSubview(picker) // add picker to UIView
         }
         
-        let toolBarView = UIView(frame: CGRect(x: -1, y: 0, width: currentWindow.width + 2, height: 50))
+        let toolBarView = UIView(frame: CGRect(x: -1, y: 0, width: currentScreen.width + 2, height: 50))
         toolBarView.layer.borderWidth = 0.6
         toolBarView.layer.borderColor = UIColor.lightGray.cgColor
         toolBarView.backgroundColor = appearance.toolbarBackgroundColor
         
-        let titleLabel = UILabel(frame: CGRect(x: 80, y: 0, width: currentWindow.width - 160, height: 50))
+        let titleLabel = UILabel(frame: CGRect(x: 80, y: 0, width: currentScreen.width - 160, height: 50))
         titleLabel.contentScaleFactor = 0.7
         titleLabel.textAlignment = .center
         titleLabel.font = appearance.toolbarTitleFont
@@ -304,7 +307,7 @@ class PickerField: UIView {
         titleLabel.text = textField.placeholder
         toolBarView.addSubview(titleLabel)
         
-        let doneButton = UIButton(frame: CGRect(x: currentWindow.maxX - 80, y: 0, width: 80, height: 50))
+        let doneButton = UIButton(frame: CGRect(x: currentScreen.maxX - 80, y: 0, width: 80, height: 50))
         doneButton.setTitleColor(appearance.selectColor, for: UIControl.State())
         doneButton.setTitle(appearance.selectText, for: UIControl.State())
         doneButton.titleLabel?.font = appearance.toolbarFont
@@ -331,33 +334,14 @@ class PickerField: UIView {
     @objc private func done() {
         switch type {
         case .date:
-            if isAutoUpdate {
-                selectDate(datePicker.date)
-                dateCallback?(datePicker.date)
-            }
+            selectDate(datePicker.date)
+            dateCallback?(datePicker.date)
         default:
-            if isAutoUpdate {
-                selectPicker(index: selectedRow)
-                pickerCallback?(data[selectedRow], selectedRow)
-            }
+            selectPicker(at: selectedRow)
+            pickerCallback?(data[selectedRow], selectedRow)
         }
         
         textField.resignFirstResponder()
-    }
-    
-    /// Checking picker need to always update
-    private var isAutoUpdate: Bool {
-        switch type {
-        case .date:
-            if self.textField.text!.lowercased() == datePicker.date.pickerFieldString(format: appearance.dateFormat).lowercased() && !appearance.isAutoUpdate {
-                return false
-            }
-        default:
-            if self.textField.text!.lowercased() == data[selectedRow].lowercased() && !appearance.isAutoUpdate {
-                return false
-            }
-        }
-        return true
     }
 }
 
@@ -392,13 +376,10 @@ extension PickerField {
         /// Format selected time that show in field
         var timeFormat: String = "HH:mm"
         
-        /// Get callback update action although selected data same as before
-        var isAutoUpdate: Bool = false
-        
         /// Blocker background color
-        var blockerColor = UIColor.black
+        var overlayColor = UIColor.black
         /// A Boolean value that determines whether the input view is contain blocker.
-        var isHiddenBlocker = false
+        var isHiddenOverlay = false
     }
 }
 
@@ -417,6 +398,9 @@ extension PickerField: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.selectedRow = row
+        if isAutoUpdate {
+            updateSelectedPicker(at: selectedRow)
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
