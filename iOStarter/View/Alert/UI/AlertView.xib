@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlertController" customModule="iOStarter" customModuleProvider="target">
             <connections>
-                <outlet property="actionButton" destination="zb6-We-rDL" id="m9P-4B-NTL"/>
                 <outlet property="alertView" destination="XGl-TN-DV4" id="bgd-5o-C88"/>
+                <outlet property="cancelButton" destination="zb6-We-rDL" id="WNC-So-V4Z"/>
                 <outlet property="imageView" destination="udF-nl-qFv" id="P2u-4Y-EiN"/>
                 <outlet property="messageLabel" destination="ORJ-Ni-X7C" id="9bs-T8-qbj"/>
+                <outlet property="submitButton" destination="ESg-qD-VQU" id="ax3-PF-HyN"/>
                 <outlet property="titleLabel" destination="1cr-ES-ea6" id="7dt-HV-pe4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGl-TN-DV4">
-                    <rect key="frame" x="62" y="338.5" width="290" height="229.5"/>
+                    <rect key="frame" x="62" y="340.5" width="290" height="229.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="42D-FH-AFe">
                             <rect key="frame" x="16" y="20" width="258" height="144.5"/>
@@ -51,10 +52,19 @@
                             <rect key="frame" x="0.0" y="184.5" width="290" height="45"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb6-We-rDL">
-                                    <rect key="frame" x="0.0" y="0.0" width="290" height="45"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="145" height="45"/>
                                     <constraints>
                                         <constraint firstAttribute="width" priority="750" constant="110" id="IkW-pG-nPf"/>
                                         <constraint firstAttribute="height" constant="45" id="gbi-8w-7XL"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <state key="normal" title="Cancel"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESg-qD-VQU">
+                                    <rect key="frame" x="145" y="0.0" width="145" height="45"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" priority="750" constant="110" id="P0w-Pt-NJp"/>
+                                        <constraint firstAttribute="height" constant="45" id="fgk-bZ-OBb"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="OK"/>

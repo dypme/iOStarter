@@ -21,11 +21,13 @@ class AlertAppearance {
     var cancelText = L10n.Alert.cancelButton
     var cancelTextColor = UIColor(red: 0, green: 122/255, blue: 255/255, alpha: 1)
     var cancelColor = UIColor.white
-    var actionText = L10n.Alert.actionButton
-    var actionTextColor = UIColor(red: 0, green: 122/255, blue: 255/255, alpha: 1)
-    var actionColor = UIColor.white
+    var isCancelButtonHidden = false
+    var submitText = L10n.Alert.actionButton
+    var submitTextColor = UIColor(red: 0, green: 122/255, blue: 255/255, alpha: 1)
+    var submitColor = UIColor.white
+    var isSubmitButtonHidden = false
     var buttonFont = UIFont.systemFont(ofSize: 17)
-    var backgroundColor = UIColor.white
-    var overlayColor = UIColor.black.withAlphaComponent(0.4)
+    var alertColor = UIColor.white
+    var overlayColor = UIColor.black.withAlphaComponent(0.5)
     var isBlurContainer = false
 }

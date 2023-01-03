@@ -14,44 +14,53 @@ import UIKit
 
 class AlertSheetController: AlertController {
     
-    /// Please use init(image:, title:, message:, actionText:)
-    override init(image: UIImage?, title: String?, message: String?, nibName: String = "AlertSheetView") {
+    override var shouldResignOnTouchOutside: Bool {
+        didSet {
+            overlayView?.isUserInteractionEnabled = shouldResignOnTouchOutside
+            alertView?.gestureRecognizers?.forEach({ (gesture) in
+                gesture.isEnabled = shouldResignOnTouchOutside
+            })
+        }
+    }
+    
+    var panGestureEnabled: Bool = true
+    private var bottomSafeAreaView: UIView!
+    
+    override init(image: UIImage? = nil, title: String? = nil, message: String? = nil, nibName: String = "AlertSheetView") {
         super.init(image: image, title: title, message: message, nibName: nibName)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func setupMethod() {
         super.setupMethod()
         
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture(_:)))
-        alertView.addGestureRecognizer(panGesture)
+        if panGestureEnabled {
+            let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture(_:)))
+            alertView.addGestureRecognizer(panGesture)
+        }
     }
     
     override func setupView() {
         super.setupView()
         
-        let bottomView = UIView(frame: CGRect(x: 0, y: 40, width: alertView.frame.width, height: alertView.frame.height + 80))
-        bottomView.backgroundColor = appearance.backgroundColor
-        let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
-        bottomView.frame.size.height += bottomPadding
-        alertView.addSubview(bottomView)
-        alertView.sendSubviewToBack(bottomView)
+        alertView.gestureRecognizers?.forEach({ (gesture) in
+            gesture.isEnabled = shouldResignOnTouchOutside
+        })
+        
+        let safeAreaBottomInset = UIApplication.shared.activeWindow?.safeAreaInsets.bottom ?? 0
+        bottomSafeAreaView = UIView(frame: CGRect(x: 0, y: 0, width: alertView.frame.width, height: safeAreaBottomInset + 20))
+        bottomSafeAreaView.backgroundColor = appearance.alertColor
+        alertView.addSubview(bottomSafeAreaView)
+        alertView.sendSubviewToBack(bottomSafeAreaView)
     }
     
-    /// Make animation when alert view show
-    override func showAnimation() {
-        let bottomFrame = alertView.frame.height
-        let bottomSafeArea = view.safeAreaInsets.bottom
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        overlayView.alpha = 0
-        self.alertView.transform = CGAffineTransform(translationX: 0, y: bottomFrame)
-        UIView.animate(withDuration: 0.24) {
-            self.overlayView.alpha = 1
-            self.alertView.transform = CGAffineTransform(translationX: 0, y: -bottomSafeArea)
-        }
+        bottomSafeAreaView?.frame.origin = CGPoint(x: 0, y: alertView.frame.height - 20)
     }
     
     @objc private func panGesture(_ recognizer: UIPanGestureRecognizer) {
@@ -68,7 +77,7 @@ class AlertSheetController: AlertController {
             let velocity = recognizer.velocity(in: self.view)
             
             if velocity.y > 250 {
-                close()
+                self.dismiss(animated: true)
             } else if velocity.y < -250 {
                 UIView.animate(withDuration: 0.24) {
                     self.alertView.transform = CGAffineTransform(translationX: 0, y: 0)
@@ -77,7 +86,7 @@ class AlertSheetController: AlertController {
                 let halfH = alertView.frame.height / 2
                 let remainH = view.frame.height - alertView.frame.minY
                 if halfH > remainH {
-                    close()
+                    self.dismiss(animated: true)
                 } else {
                     UIView.animate(withDuration: 0.24) {
                         self.alertView.transform = CGAffineTransform(translationX: 0, y: 0)
@@ -86,26 +95,30 @@ class AlertSheetController: AlertController {
             }
         }
     }
-    
-    /// Make animation when alert view close
-    @objc override func close() {
-        let bottomFrame = alertView.frame.height
-        
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
-            self.overlayView.alpha = 0
-            self.alertView.transform = CGAffineTransform(translationX: 0, y: bottomFrame)
-        }, completion: { (finished) in
-            self.removeFromParent()
-            self.view.removeFromSuperview()
-        })
-    }
-
 }
 
-extension UIViewController {
-    func presentAlertSheet(image: UIImage?, title: String?, message: String?, shouldResignOnTouchOutside: Bool, with action: (() -> ())?) {
+extension AlertSheetController {
+    override func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        AlertSheetPresentAnimationController()
+    }
+    
+    override func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        AlertSheetDismissAnimationController()
+    }
+}
+
+
+extension NSObject {
+    func presentAlertSheet(image: UIImage? = nil, title: String?, message: String?, submitText: String = "OK", action: (() -> Void)? = nil) {
         let alert = AlertSheetController(image: image, title: title, message: message)
-        alert.shouldResignOnTouchOutside = shouldResignOnTouchOutside
-        alert.show(withAction: action)
+        alert.appearance.isCancelButtonHidden = true
+        alert.appearance.submitText = submitText
+        alert.show(action: action)
+    }
+    
+    func presentConfirmationAlertSheet(image: UIImage? = nil, title: String?, message: String?, submitText: String = AlertAppearance().submitText, action: (() -> Void)? = nil) {
+        let alert = AlertSheetController(image: image, title: title, message: message)
+        alert.appearance.submitText = submitText
+        alert.show(action: action)
     }
 }

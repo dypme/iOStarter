@@ -18,50 +18,56 @@ class AlertController: ViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var submitButton: UIButton!
     
     private(set) var overlayView: UIView!
     var shouldResignOnTouchOutside: Bool = true {
         didSet {
             overlayView?.isUserInteractionEnabled = shouldResignOnTouchOutside
-            alertView?.gestureRecognizers?.forEach({ (gesture) in
-                gesture.isEnabled = shouldResignOnTouchOutside
-            })
         }
     }
     
-    var appearance = AlertAppearance()
+    let appearance = AlertAppearance()
     
-    private var tapAction: (() -> ())?
+    private(set) var action: (() -> Void)?
     
-    private var parentController: UIViewController?
-    func setParentController(_ controller: UIViewController) {
-        parentController = controller
-    }
+    private(set) var image: UIImage? = nil
+    private(set) var message: String?
     
-    private var image: UIImage?
-    private var message: String?
-    
-    init(image: UIImage?, title: String?, message: String?, nibName: String = "AlertView") {
+    init(image: UIImage? = nil, title: String? = nil, message: String? = nil, nibName: String = "AlertView") {
         super.init(nibName: nibName, bundle: nil)
         
         self.image = image
         self.title = title
         self.message = message
+        
+        transitioningDelegate = self
+        modalPresentationStyle = .overFullScreen
+        modalPresentationCapturesStatusBarAppearance = true
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        fatalError("init(nibName:bundle:) has not been implemented")
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func setupMethod() {
         super.setupMethod()
         
-        actionButton?.addTarget(self, action: #selector(action(_:)), for: .touchUpInside)
+        cancelButton?.addTarget(self, action: #selector(action(_:)), for: .touchUpInside)
+        submitButton?.addTarget(self, action: #selector(action(_:)), for: .touchUpInside)
         
         overlayView = UIView(frame: self.view.frame)
         overlayView.backgroundColor  = .clear
@@ -69,56 +75,92 @@ class AlertController: ViewController {
         view.addSubview(overlayView)
         view.sendSubviewToBack(overlayView)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(close))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(action(_:)))
         overlayView.addGestureRecognizer(tapGesture)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
-    func setupAppearance() {
-        alertView.layer.cornerRadius = 15
-        alertView.backgroundColor = appearance.backgroundColor
+    override func setupView() {
+        super.setupView()
+        
+        alertView.layer.cornerRadius = 20
+        overlayView.isUserInteractionEnabled = shouldResignOnTouchOutside
+        
+        cancelButton?.circle()
+        submitButton?.circle()
+        
+        imageView?.image = image
+        imageView?.isHidden = image == nil
+        
+        titleLabel?.text     = title
+        titleLabel?.isHidden = title == nil
+        messageLabel?.text   = message
+        messageLabel?.isHidden = message == nil
+        
+        setupAppearance()
+    }
+    
+    private func setupAppearance() {
+        if appearance.isBlurContainer {
+            let blurEffect = UIBlurEffect(style: .light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = self.alertView.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            alertView.addSubview(blurEffectView)
+            alertView.sendSubviewToBack(blurEffectView)
+        }
+        
+        alertView.backgroundColor = appearance.alertColor
         
         titleLabel?.textColor   = appearance.titleColor
         titleLabel?.font        = appearance.titleFont
         messageLabel?.textColor = appearance.messageColor
         messageLabel?.font      = appearance.messageFont
         
-        actionButton.setTitle(appearance.actionText, for: UIControl.State())
-        actionButton.setTitleColor(appearance.actionTextColor, for: UIControl.State())
-        actionButton.backgroundColor = appearance.actionColor
-        actionButton.titleLabel?.font = appearance.buttonFont
+        cancelButton?.setTitleColor(appearance.cancelTextColor, for: UIControl.State())
+        cancelButton?.setTitle(appearance.cancelText, for: UIControl.State())
+        cancelButton?.isHidden = appearance.isCancelButtonHidden
+        cancelButton?.backgroundColor = appearance.cancelColor
+        cancelButton?.titleLabel?.font  = appearance.buttonFont
         
-        overlayView.backgroundColor          = appearance.overlayColor
-        overlayView.isUserInteractionEnabled = shouldResignOnTouchOutside
+        submitButton?.setTitleColor(appearance.submitTextColor, for: UIControl.State())
+        submitButton?.setTitle(appearance.submitText, for: UIControl.State())
+        submitButton?.isHidden = appearance.isSubmitButtonHidden
+        submitButton?.backgroundColor = appearance.submitColor
+        submitButton?.titleLabel?.font  = appearance.buttonFont
         
-        alertView.gestureRecognizers?.forEach({ (gesture) in
-            gesture.isEnabled = shouldResignOnTouchOutside
-        })
-        
-        view.backgroundColor = .clear
+        view.backgroundColor = appearance.overlayColor
     }
     
-    override func setupView() {
-        super.setupView()
-        
-        imageView?.image = image
-        imageView?.isHidden = image == nil
-        titleLabel?.text       = title
-        titleLabel?.isHidden   = title == nil
-        messageLabel?.text     = message
-        messageLabel?.isHidden = message == nil
-        
-        if appearance.isBlurContainer {
-            let blurEffect                  = UIBlurEffect(style: .light)
-            let blurEffectView              = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.frame            = self.alertView.bounds
-            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            alertView.addSubview(blurEffectView)
-            alertView.sendSubviewToBack(blurEffectView)
+    /// Show alert in view
+    ///
+    /// - Parameters:
+    ///   - title: title in alert view (optional)
+    ///   - message: message in alert view
+    ///   - isCancelable: pass true to add cancelable button to dismiss without call oke function
+    ///   - action: action when tap ok button (optional)
+    func show(action: (() -> Void)? = nil) {
+        self.action = action
+        let root = UIApplication.shared.activeWindow?.rootViewController
+        let presented = root?.presentedControlers.last(where: { ($0 is AlertController) == false })
+        let active = presented ?? root
+        active?.present(self, animated: true)
+    }
+    
+    /// Submit close and call action
+    func submit() {
+        self.dismiss(animated: true)
+        action?()
+    }
+    
+    /// Close action
+    @objc func action(_ sender: AnyObject) {
+        if let button = sender as? UIButton, button == submitButton {
+            submit()
+            return
         }
-        
-        setupAppearance()
+        self.dismiss(animated: true)
     }
     
     @objc func keyboardNotification(notification: NSNotification) {
@@ -141,60 +183,30 @@ class AlertController: ViewController {
                            completion: nil)
         }
     }
-    
-    /// Show alert in view
-    func show(withAction action: (() -> ())? = nil) {
-        self.tapAction = action
-        
-        guard let window = UIApplication.shared.keyWindow else { return }
-        self.view.frame  = window.frame
-        window.addSubview(self.view)
-        
-        if parentController == nil {
-            parentController = window.rootViewController?.currentActiveController()
-        }
-        if let alerts = parentController?.children.compactMap({ $0 as? AlertController }) {
-            alerts.forEach { (controller) in
-                controller.close()
-            }
-        }
-        parentController?.addChild(self)
-        parentController?.view.endEditing(true)
-        
-        showAnimation()
-    }
-    
-    /// Make animation when alert view show
-    func showAnimation() {
-        alertView.transform = CGAffineTransform(scaleX: 1.23, y: 1.23)
-        view.alpha = 0
-        UIView.animate(withDuration: 0.2) {
-            self.view.alpha = 1
-            self.alertView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        }
-    }
-    
-    /// Close action
-    @objc private func action(_ button: UIButton) {
-        tapAction?()
-        close()
-    }
-    
-    /// Make animation when alert view close
-    @objc func close() {
-        UIView.animate(withDuration: 0.2, animations: {
-            self.view.alpha = 0
-        }) { (finished) in
-            self.removeFromParent()
-            self.view.removeFromSuperview()
-        }
-    }
 }
 
-extension UIViewController {
-    func presentAlert(image: UIImage?, title: String?, message: String?, shouldResignOnTouchOutside: Bool, with action: (() -> ())?) {
-        let alert = AlertSheetController(image: image, title: title, message: message)
-        alert.shouldResignOnTouchOutside = shouldResignOnTouchOutside
-        alert.show(withAction: action)
+extension AlertController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        AlertPresentAnimationController()
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        AlertDismissAnimationController()
+    }
+
+}
+
+extension NSObject {
+    func presentAlert(image: UIImage? = nil, title: String?, message: String?, submitText: String = "OK", action: (() -> Void)? = nil) {
+        let alert = AlertController(image: image, title: title, message: message)
+        alert.appearance.isCancelButtonHidden = true
+        alert.appearance.submitText = submitText
+        alert.show(action: action)
+    }
+    
+    func presentConfirmationAlert(image: UIImage? = nil, title: String?, message: String?, submitText: String = AlertAppearance().submitText, action: (() -> Void)? = nil) {
+        let alert = AlertController(image: image, title: title, message: message)
+        alert.appearance.submitText = submitText
+        alert.show(action: action)
     }
 }

@@ -79,10 +79,8 @@
 		E2FD8DD827FECB5C003F5BA4 /* AlertAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD8DD727FECB5C003F5BA4 /* AlertAppearance.swift */; };
 		E2FD8DDA27FECB5C003F5BA4 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD8DD927FECB5C003F5BA4 /* AlertController.swift */; };
 		E2FD8DDC27FECB5C003F5BA4 /* AlertSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD8DDB27FECB5C003F5BA4 /* AlertSheetController.swift */; };
-		E2FD8DE327FECB5C003F5BA4 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FD8DE227FECB5C003F5BA4 /* AlertView.xib */; };
-		E2FD8DE527FECB5C003F5BA4 /* AlertSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FD8DE427FECB5C003F5BA4 /* AlertSheetView.xib */; };
-		E2FD8DE727FECB5C003F5BA4 /* ConfirmAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FD8DE627FECB5C003F5BA4 /* ConfirmAlertView.xib */; };
-		E2FD8DE927FECB5C003F5BA4 /* ConfirmAlertSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FD8DE827FECB5C003F5BA4 /* ConfirmAlertSheetView.xib */; };
+		E2FD8DE727FECB5C003F5BA4 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FD8DE627FECB5C003F5BA4 /* AlertView.xib */; };
+		E2FD8DE927FECB5C003F5BA4 /* AlertSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FD8DE827FECB5C003F5BA4 /* AlertSheetView.xib */; };
 		E2FD8DEC27FECB5C003F5BA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2FD8DEB27FECB5C003F5BA4 /* LaunchScreen.storyboard */; };
 		E2FD8DEE27FECB5C003F5BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2FD8DED27FECB5C003F5BA4 /* Main.storyboard */; };
 		E2FD8DF027FECB5C003F5BA4 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2FD8DEF27FECB5C003F5BA4 /* Menu.storyboard */; };
@@ -187,10 +185,8 @@
 		E2FD8DD727FECB5C003F5BA4 /* AlertAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAppearance.swift; sourceTree = "<group>"; };
 		E2FD8DD927FECB5C003F5BA4 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		E2FD8DDB27FECB5C003F5BA4 /* AlertSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSheetController.swift; sourceTree = "<group>"; };
-		E2FD8DE227FECB5C003F5BA4 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
-		E2FD8DE427FECB5C003F5BA4 /* AlertSheetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertSheetView.xib; sourceTree = "<group>"; };
-		E2FD8DE627FECB5C003F5BA4 /* ConfirmAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmAlertView.xib; sourceTree = "<group>"; };
-		E2FD8DE827FECB5C003F5BA4 /* ConfirmAlertSheetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmAlertSheetView.xib; sourceTree = "<group>"; };
+		E2FD8DE627FECB5C003F5BA4 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		E2FD8DE827FECB5C003F5BA4 /* AlertSheetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertSheetView.xib; sourceTree = "<group>"; };
 		E2FD8DEB27FECB5C003F5BA4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2FD8DED27FECB5C003F5BA4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E2FD8DEF27FECB5C003F5BA4 /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
@@ -515,7 +511,6 @@
 			isa = PBXGroup;
 			children = (
 				E2FD8DD627FECB5C003F5BA4 /* Alert */,
-				E2FD8DE127FECB5C003F5BA4 /* AlertView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -523,6 +518,7 @@
 		E2FD8DD627FECB5C003F5BA4 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
+				E2FD8DE127FECB5C003F5BA4 /* UI */,
 				634E92542963EA0000100E3D /* AlertAnimation.swift */,
 				634E92562963EA9A00100E3D /* AlertSheetAnimation.swift */,
 				E2FD8DD727FECB5C003F5BA4 /* AlertAppearance.swift */,
@@ -532,16 +528,15 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
-		E2FD8DE127FECB5C003F5BA4 /* AlertView */ = {
+		E2FD8DE127FECB5C003F5BA4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				E2FD8DE227FECB5C003F5BA4 /* AlertView.xib */,
-				E2FD8DE427FECB5C003F5BA4 /* AlertSheetView.xib */,
-				E2FD8DE627FECB5C003F5BA4 /* ConfirmAlertView.xib */,
-				E2FD8DE827FECB5C003F5BA4 /* ConfirmAlertSheetView.xib */,
+				E2FD8DE627FECB5C003F5BA4 /* AlertView.xib */,
+				E2FD8DE827FECB5C003F5BA4 /* AlertSheetView.xib */,
 			);
-			path = AlertView;
-			sourceTree = "<group>";
+			name = UI;
+			path = iOStarter/View/Alert/UI;
+			sourceTree = SOURCE_ROOT;
 		};
 		E2FD8DEA27FECB5C003F5BA4 /* Storyboard */ = {
 			isa = PBXGroup;
@@ -690,22 +685,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2FD8DE327FECB5C003F5BA4 /* AlertView.xib in Resources */,
 				E2FD8D7C27FECB5B003F5BA4 /* user.json in Resources */,
 				E2FD8DF027FECB5C003F5BA4 /* Menu.storyboard in Resources */,
 				E2FD8D6727FECB5B003F5BA4 /* Settings.bundle in Resources */,
 				E2FD8DEE27FECB5C003F5BA4 /* Main.storyboard in Resources */,
 				E2FD8D5F27FECB5B003F5BA4 /* GoogleService-Info.plist in Resources */,
 				E2FD8DF227FECB5C003F5BA4 /* Auth.storyboard in Resources */,
-				E2FD8DE927FECB5C003F5BA4 /* ConfirmAlertSheetView.xib in Resources */,
+				E2FD8DE927FECB5C003F5BA4 /* AlertSheetView.xib in Resources */,
 				E2FD8D8027FECB5B003F5BA4 /* Colors.xcassets in Resources */,
 				E2FD8D7A27FECB5B003F5BA4 /* items.json in Resources */,
 				E2FD8D7E27FECB5B003F5BA4 /* Assets.xcassets in Resources */,
-				E2FD8DE527FECB5C003F5BA4 /* AlertSheetView.xib in Resources */,
 				E2FD8DF427FECB5C003F5BA4 /* Profile.storyboard in Resources */,
 				E2FD8DF927FECB5C003F5BA4 /* Localizable.strings in Resources */,
 				E2FD8DEC27FECB5C003F5BA4 /* LaunchScreen.storyboard in Resources */,
-				E2FD8DE727FECB5C003F5BA4 /* ConfirmAlertView.xib in Resources */,
+				E2FD8DE727FECB5C003F5BA4 /* AlertView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
