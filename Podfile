@@ -44,8 +44,6 @@ def shared_pods
     # Image/ video preview. Original source: https://github.com/hyperoslo/Lightbox
     pod 'Lightbox', :git => 'https://github.com/dypme/Lightbox.git'
     
-    pod 'WaterfallGrid', '~> 1.0.0'
-
 end
 
 target 'iOStarter' do

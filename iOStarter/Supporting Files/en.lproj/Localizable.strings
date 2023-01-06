@@ -25,8 +25,10 @@
 "error.chooseData" = "Please choose %@.";
 
 "menu.home" = "Home";
-"menu.list" = "List %@";
+"menu.list" = "List";
+"menu.grid" = "Grid";
 "menu.profile" = "Profile";
+"menu.components" = "Components";
 
 "title.home" = "Home";
 "title.example" = "Example";

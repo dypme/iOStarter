@@ -20,7 +20,6 @@ import Firebase
 
 import MMKV
 
-@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -57,28 +56,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearance.backgroundColor = UIColor.white
         let attrTitle = [
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16),
-            NSAttributedString.Key.foregroundColor: Colors.primaryBlack.color
+            NSAttributedString.Key.foregroundColor: Asset.Colors.primaryBlack.color
         ]
         navigationBarAppearance.titleTextAttributes = attrTitle
-        navigationBarAppearance.tintColor = Colors.primaryBlack.color
+        navigationBarAppearance.tintColor = Asset.Colors.primaryBlack.color
         navigationBarAppearance.setBackgroundImage(UIImage(), for: .default)
-        navigationBarAppearance.backIndicatorImage = Asset.icBack.image
-        navigationBarAppearance.backIndicatorTransitionMaskImage = Asset.icBack.image
         
-        if #available(iOS 13.0, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.backgroundColor = navigationBarAppearance.backgroundColor
-            appearance.titleTextAttributes = attrTitle
-            appearance.shadowColor = .clear
-            appearance.shadowImage = navigationBarAppearance.shadowImage
-            appearance.setBackIndicatorImage(
-                navigationBarAppearance.backIndicatorImage,
-                transitionMaskImage: navigationBarAppearance.backIndicatorTransitionMaskImage
-            )
-
-            UINavigationBar.appearance().standardAppearance = appearance
-            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        }
+        // TODO: Change navigation bar back icon if needed or remove if want default
+        navigationBarAppearance.backIndicatorImage = UIImage(systemName: "arrow.backward")
+        navigationBarAppearance.backIndicatorTransitionMaskImage = UIImage(systemName: "arrow.backward")
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = navigationBarAppearance.backgroundColor
+        appearance.titleTextAttributes = attrTitle
+        appearance.shadowColor = .clear
+        appearance.shadowImage = navigationBarAppearance.shadowImage
+        
+        // TODO: Change back title appearance if needed or remove if want default
+        let backAppearance = appearance.backButtonAppearance
+        backAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        backAppearance.highlighted.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        backAppearance.focused.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        backAppearance.disabled.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        
+        appearance.setBackIndicatorImage(
+            navigationBarAppearance.backIndicatorImage,
+            transitionMaskImage: navigationBarAppearance.backIndicatorTransitionMaskImage
+        )
+        
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
     
     /// Setup notification settings

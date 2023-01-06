@@ -99,7 +99,7 @@ class CameraController: UIViewController {
         let statusFrame = UIApplication.shared.statusBarFrame
         let button = UIButton(type: .system)
         button.frame = CGRect(x: 15, y: statusFrame.height, width: 30, height: 30)
-        button.setImage(Asset.icCameraClose.image, for: UIControl.State())
+        button.setImage(UIImage(systemName: "xmark"), for: UIControl.State())
         button.tintColor = .white
         button.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         button.clipsToBounds = true
@@ -110,7 +110,7 @@ class CameraController: UIViewController {
     private(set) var takeBtn: UIButton = {
         let button = UIButton(type: .system)
         button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        button.setImage(Asset.icCameraTakeWhite.image, for: UIControl.State())
+        button.setImage(UIImage(systemName: "camera.circle.fill"), for: UIControl.State())
         button.tintColor = .white
         button.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         button.clipsToBounds = true
@@ -130,7 +130,7 @@ class CameraController: UIViewController {
     private(set) var flashBtn: UIButton = {
         let button = UIButton(type: .system)
         button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        button.setImage(Asset.icCameraFlashOn.image, for: UIControl.State())
+        button.setImage(UIImage(systemName: "bolt.fill"), for: UIControl.State())
         button.tintColor = .white
         button.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         button.clipsToBounds = true
@@ -141,7 +141,7 @@ class CameraController: UIViewController {
     private var switchCameraBtn: UIButton = {
         let button = UIButton(type: .system)
         button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        button.setImage(Asset.icCameraFlipWhite.image, for: UIControl.State())
+        button.setImage(UIImage(systemName: "arrow.triangle.2.circlepath.camera.fill"), for: UIControl.State())
         button.tintColor = .white
         button.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         button.clipsToBounds = true
@@ -174,9 +174,9 @@ class CameraController: UIViewController {
     private var isFlashOn: Bool = false {
         didSet {
             if isFlashOn {
-                flashBtn.setImage(Asset.icCameraFlashOn.image, for: UIControl.State())
+                flashBtn.setImage(UIImage(systemName: "bolt.fill"), for: UIControl.State())
             } else {
-                flashBtn.setImage(Asset.icCameraFlashOff.image, for: UIControl.State())
+                flashBtn.setImage(UIImage(systemName: "bolt.slash.fill"), for: UIControl.State())
             }
         }
     }

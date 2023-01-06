@@ -150,7 +150,6 @@ PODS:
   - PromisesObjC (2.1.1)
   - SwiftGen (6.6.2)
   - SwiftyJSON (5.0.1)
-  - WaterfallGrid (1.0.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -168,7 +167,6 @@ DEPENDENCIES:
   - NVActivityIndicatorView
   - SwiftGen
   - SwiftyJSON
-  - WaterfallGrid (~> 1.0.0)
 
 SPEC REPOS:
   trunk:
@@ -198,7 +196,6 @@ SPEC REPOS:
     - PromisesObjC
     - SwiftGen
     - SwiftyJSON
-    - WaterfallGrid
 
 EXTERNAL SOURCES:
   Lightbox:
@@ -237,8 +234,7 @@ SPEC CHECKSUMS:
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   SwiftGen: 1366a7f71aeef49954ca5a63ba4bef6b0f24138c
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
-  WaterfallGrid: 0554a759d9a8aa136fc1769480ddb01bc6fb94b9
 
-PODFILE CHECKSUM: f0d3ac15a0475f13c78c99de3778cf0616c01382
+PODFILE CHECKSUM: c38de0f8e6024b30676e16ce27a67583a53bad4b
 
 COCOAPODS: 1.11.3

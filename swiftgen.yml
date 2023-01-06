@@ -6,24 +6,12 @@ xcassets:
       outputs:
         - templateName: swift5
           output: AppAssets.swift
-    - inputs: Resources/Colors.xcassets
-      outputs:
-        - templateName: swift5
-          output: AppColors.swift
-          params:
-           enumName: Colors
            
 fonts:
     inputs: Resources/fonts
     outputs:
         templateName: swift5
         output: AppFont.swift
-        
-ib:
-    inputs: Storyboard
-    outputs:
-        templateName: scenes-swift5
-        output: AppStoryboard.swift
         
 strings:
   inputs: Supporting Files/en.lproj

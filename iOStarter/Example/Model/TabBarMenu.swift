@@ -12,12 +12,13 @@
 
 import Foundation
 
-class TabBarMenu {
+class TabBarMenu: Hashable, Identifiable {
     enum TabBarMenuType: Int {
         case home
         case table
         case collection
         case profile
+        case components
     }
     
     let type: TabBarMenuType
@@ -29,11 +30,26 @@ class TabBarMenu {
         case .home:
             self.name = L10n.Menu.home
         case .table:
-            self.name = L10n.Menu.list("1")
+            self.name = L10n.Menu.list
         case .collection:
-            self.name = L10n.Menu.list("2")
+            self.name = L10n.Menu.grid
         case .profile:
             self.name = L10n.Menu.profile
+        case .components:
+            self.name = L10n.Menu.components
         }
     }
+    
+    var id: TabBarMenuType {
+        type
+    }
+    
+    static func == (lhs: TabBarMenu, rhs: TabBarMenu) -> Bool {
+        lhs.type == rhs.type
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        return hasher.combine(id)
+    }
+    
 }

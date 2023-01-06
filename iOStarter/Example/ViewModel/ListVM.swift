@@ -11,9 +11,10 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-class ListVM: ViewModelList<Item, ItemVM> {
-    func fetch(isLoadMore: Bool, viewDidUpdate: ViewUpdateCallback, fetchDidFinish: ViewModelRequestCallback) {
+class ListVM: BaseViewModelList<Item, ItemVM> {
+    func fetch(isLoadMore: Bool) {
         if isLoading {
             return
         }
@@ -21,20 +22,23 @@ class ListVM: ViewModelList<Item, ItemVM> {
             offset = 0
         }
         isLoading = true
-        viewDidUpdate?(backgroundView, footerView)
-        ApiHelper.shared.localRequest(fileName: "items.json", callback: { json, isSuccess, message in
-            if isSuccess {
-                let newDatas = json.arrayValue.map({ Item(fromJson: $0) })
-                if isLoadMore {
-                    self.datas.append(contentsOf: newDatas)
-                } else {
-                    self.datas = newDatas
-                }
+        
+        guard let url = Bundle.main.url(forResource: "items.json", withExtension: nil) else {
+            isLoading = false
+            return
+        }
+        do {
+            let data = try Data(contentsOf: url)
+            let json = try JSON(data: data)
+            let newDatas = json.arrayValue.map({ Item(fromJson: $0) })
+            if isLoadMore {
+                self.datas.append(contentsOf: newDatas)
+            } else {
+                self.datas = newDatas
             }
-            
-            self.isLoading = false
-            fetchDidFinish?(isSuccess, message)
-            viewDidUpdate?(self.backgroundView, self.footerView)
-        })
+        } catch {
+            print("Error parse JSON:", error.localizedDescription)
+        }
+        isLoading = false
     }
 }

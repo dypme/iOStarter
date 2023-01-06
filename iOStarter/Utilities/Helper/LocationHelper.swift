@@ -13,16 +13,19 @@
 import Foundation
 import CoreLocation
 import UIKit
+import MapKit
 
 protocol LocationHelperDelegate: AnyObject {
     func locationHelper(_ helper: LocationHelper, didUpdateLocation location: CLLocation?)
 }
 
-class LocationHelper: NSObject {
+class LocationHelper: NSObject, ObservableObject {
     static let shared = LocationHelper()
     
     private var locationManager = CLLocationManager()
-    @objc dynamic var location: CLLocation?
+    @objc dynamic var location = CLLocation()
+    @Published var region = MKCoordinateRegion()
+    
     
     weak var delegate: LocationHelperDelegate?
     
@@ -32,28 +35,40 @@ class LocationHelper: NSObject {
     }
     
     /// Start updating location, location always updating after you start in every view, so if you want to update location in specific view don't forget call stop function
-    func start() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+    @discardableResult func start() -> Self {
+        let helper = self
+        helper.locationManager.delegate = self
+        helper.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        helper.locationManager.requestWhenInUseAuthorization()
+        helper.locationManager.startUpdatingLocation()
+        return helper
     }
     
     /// Stop updating location
-    func stop() {
-        locationManager.stopUpdatingLocation()
+    @discardableResult func stop() -> Self {
+        let helper = self
+        helper.locationManager.stopUpdatingLocation()
+        return helper
     }
     
     /// Restart update location
-    @objc func refresh() {
-        stop()
-        start()
+    @discardableResult @objc func refresh() -> Self {
+        let helper = self
+            .stop()
+            .start()
+        return helper
     }
 }
 
 extension LocationHelper: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.location = manager.location
+        if let location = manager.location {
+            self.location = location
+            self.region = MKCoordinateRegion(
+                center: location.coordinate,
+                latitudinalMeters: 750, longitudinalMeters: 750
+            )
+        }
         delegate?.locationHelper(self, didUpdateLocation: self.location)
     }
 }
