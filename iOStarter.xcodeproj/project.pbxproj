@@ -16,6 +16,7 @@
 		634E92572963EA9A00100E3D /* AlertSheetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E92562963EA9A00100E3D /* AlertSheetAnimation.swift */; };
 		63AAAE28296529860072D0EA /* ComponentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AAAE27296529860072D0EA /* ComponentUI.swift */; };
 		63B71C342967D1FF00A2ED4E /* MapUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B71C332967D1FF00A2ED4E /* MapUI.swift */; };
+		63B71C362967FE8B00A2ED4E /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B71C352967FE8B00A2ED4E /* CameraView.swift */; };
 		63E9C2E5296674F400A4B8EE /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9C2E4296674F400A4B8EE /* WebView.swift */; };
 		63E9C2E72966817D00A4B8EE /* WebContentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9C2E62966817D00A4B8EE /* WebContentUI.swift */; };
 		DA6213020C8123554D8B4CFB /* Pods_iOStarter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0F49E707A3C637E9A03641 /* Pods_iOStarter.framework */; };
@@ -104,6 +105,7 @@
 		634E92562963EA9A00100E3D /* AlertSheetAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSheetAnimation.swift; sourceTree = "<group>"; };
 		63AAAE27296529860072D0EA /* ComponentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentUI.swift; sourceTree = "<group>"; };
 		63B71C332967D1FF00A2ED4E /* MapUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUI.swift; sourceTree = "<group>"; };
+		63B71C352967FE8B00A2ED4E /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		63E9C2E4296674F400A4B8EE /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		63E9C2E62966817D00A4B8EE /* WebContentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentUI.swift; sourceTree = "<group>"; };
 		AA0F49E707A3C637E9A03641 /* Pods_iOStarter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOStarter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -558,6 +560,7 @@
 			children = (
 				E2FD8DBB27FECB5B003F5BA4 /* CameraController.swift */,
 				E2FD8DBD27FECB5B003F5BA4 /* ZoomSlider.swift */,
+				63B71C352967FE8B00A2ED4E /* CameraView.swift */,
 			);
 			path = CameraController;
 			sourceTree = "<group>";
@@ -861,6 +864,7 @@
 				630B512529628E240021E780 /* ApiInterceptor.swift in Sources */,
 				E2FD8DCA27FECB5B003F5BA4 /* BaseViewModelList.swift in Sources */,
 				E2FD8DC327FECB5B003F5BA4 /* LoadIndicatorView.swift in Sources */,
+				63B71C362967FE8B00A2ED4E /* CameraView.swift in Sources */,
 				E2FD8DD227FECB5C003F5BA4 /* TableViewController.swift in Sources */,
 				E2FD8D9327FECB5B003F5BA4 /* DownloadManager.swift in Sources */,
 				E2FD8D9927FECB5B003F5BA4 /* LocationHelper.swift in Sources */,
@@ -1053,6 +1057,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = JB73KN4XYE;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "iOStarter/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1080,6 +1085,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = JB73KN4XYE;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "iOStarter/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

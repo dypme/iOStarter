@@ -52,14 +52,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func configureNavigationBar() {
         let navigationBarAppearance = UINavigationBar.appearance()
         navigationBarAppearance.shadowImage = UIImage()
-        navigationBarAppearance.barTintColor = UIColor.white
-        navigationBarAppearance.backgroundColor = UIColor.white
+//        navigationBarAppearance.barTintColor = UIColor.white
+//        navigationBarAppearance.backgroundColor = UIColor.white
         let attrTitle = [
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16),
-            NSAttributedString.Key.foregroundColor: Asset.Colors.primaryBlack.color
+//            NSAttributedString.Key.foregroundColor: Asset.Colors.primaryBlack.color
         ]
         navigationBarAppearance.titleTextAttributes = attrTitle
-        navigationBarAppearance.tintColor = Asset.Colors.primaryBlack.color
+//        navigationBarAppearance.tintColor = Asset.Colors.primaryBlack.color
         navigationBarAppearance.setBackgroundImage(UIImage(), for: .default)
         
         // TODO: Change navigation bar back icon if needed or remove if want default

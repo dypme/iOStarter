@@ -20,7 +20,6 @@ struct DetailUI: View {
                 .font(.system(size: 20, weight: .bold))
             Text(viewModel.detail)
                 .font(.system(size: 16))
-                .foregroundColor(Color.accentColor)
             Spacer()
         }
         .padding(.horizontal, 12)

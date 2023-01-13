@@ -15,24 +15,41 @@ struct ComponentUI: View {
     @State private var date = Date()
     @State private var progress = 0.0
     @State private var text = ""
+    @State private var isCameraPresented = false
+    @State private var image: UIImage? = nil
     
     private var pickers = ["One", "Two", "Three"]
     
     var body: some View {
         List {
-            buildSlider()
-            buildPicker()
-            buildToggle()
-            buildDatePicker()
-            buildProgressIndicator()
-            buildTextEditor()
+            Group {
+                buildSlider()
+                buildPicker()
+                buildToggle()
+                buildDatePicker()
+                buildProgressIndicator()
+                buildTextEditor()
+            }
             NavigationLink(destination: MapUI()) {
                 Text("Open maps...")
-                    .foregroundColor(.blue)
             }
             NavigationLink(destination: WebContentUI()) {
                 Text("Open webview...")
-                    .foregroundColor(.blue)
+            }
+            if let image = image {
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            }
+            Button {
+                isCameraPresented = true
+            } label: {
+                Text("Open camera...")
+            }
+        }.fullScreenCover(isPresented: $isCameraPresented) {
+            CameraView(position: .back, isSquare: true) { image in
+                self.image = image
+                self.isCameraPresented = false
             }
         }
     }

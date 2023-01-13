@@ -17,11 +17,9 @@ struct GridRow: View {
             KFImage(viewModel.imageUrl)
                 .fitToAspectRatio(16/9)
             Text(viewModel.name)
-                .foregroundColor(.black)
                 .font(.system(size: 20, weight: .bold))
                 .lineLimit(1)
             Text(viewModel.detail)
-                .foregroundColor(.black)
                 .font(.system(size: 16))
                 .lineLimit(2)
         }

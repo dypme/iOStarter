@@ -96,9 +96,8 @@ class CameraController: UIViewController {
     
     // MARK: Property
     private(set) var closeBtn: UIButton = {
-        let statusFrame = UIApplication.shared.statusBarFrame
         let button = UIButton(type: .system)
-        button.frame = CGRect(x: 15, y: statusFrame.height, width: 30, height: 30)
+        button.frame = CGRect(x: 15, y: 0, width: 30, height: 30)
         button.setImage(UIImage(systemName: "xmark"), for: UIControl.State())
         button.tintColor = .white
         button.backgroundColor = UIColor.black.withAlphaComponent(0.4)
@@ -109,8 +108,10 @@ class CameraController: UIViewController {
     
     private(set) var takeBtn: UIButton = {
         let button = UIButton(type: .system)
-        button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        button.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         button.setImage(UIImage(systemName: "camera.circle.fill"), for: UIControl.State())
+        button.contentVerticalAlignment = .fill
+        button.contentHorizontalAlignment = .fill
         button.tintColor = .white
         button.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         button.clipsToBounds = true
@@ -162,10 +163,10 @@ class CameraController: UIViewController {
     private var focusView = FocusView()
     
     // MARK: Settings Property
-    private var isAllowSwitchCamera: Bool = true
-    private var isAllowFlashlight: Bool = true
-    private var cameraDevice: AVCaptureDevice.Position = .back
-    private var isFullscreenCamera: Bool = false
+    private var isEnableSwitchCamera: Bool = true
+    private var isEnableFlashlight: Bool = true
+    private var cameraPosition: AVCaptureDevice.Position = .back
+    private var isSquare: Bool = false
     
     private var isTakingPhoto: Bool = false
     
@@ -229,15 +230,15 @@ class CameraController: UIViewController {
         return .portrait
     }
     
-    init(camera: AVCaptureDevice.Position, isFullscreenCamera: Bool, isAllowSwitchCamera: Bool, isAllowFlashlight: Bool) {
+    init(position: AVCaptureDevice.Position, isSquare: Bool, enableSwitchCamera: Bool = true, enableFlashlight: Bool = true) {
         super.init(nibName: nil, bundle: nil)
         
         self.modalPresentationStyle = .fullScreen
         
-        self.cameraDevice = camera
-        self.isFullscreenCamera = isFullscreenCamera
-        self.isAllowSwitchCamera = isAllowSwitchCamera
-        self.isAllowFlashlight = isAllowFlashlight
+        self.cameraPosition = position
+        self.isSquare = isSquare
+        self.isEnableSwitchCamera = enableSwitchCamera
+        self.isEnableFlashlight = enableFlashlight
         
         setPropertyConstraints()
     }
@@ -274,9 +275,9 @@ class CameraController: UIViewController {
         view.addSubview(switchCameraBtn)
         view.addSubview(zoomSlider)
         
-        let statusBarFrame = UIApplication.shared.statusBarFrame
+        let statusBarHeight = UIApplication.shared.activeWindow?.safeAreaInsets.top ?? 0
         
-        closeBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: statusBarFrame.height).isActive = true
+        closeBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: statusBarHeight).isActive = true
         closeBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
         closeBtn.widthAnchor.constraint(equalToConstant: 30).isActive = true
         closeBtn.heightAnchor.constraint(equalToConstant: 30).isActive = true
@@ -286,16 +287,16 @@ class CameraController: UIViewController {
         takeBtn.widthAnchor.constraint(equalToConstant: 50).isActive = true
         takeBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        if isFullscreenCamera {
-            photoPreviewImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            photoPreviewImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            photoPreviewImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            photoPreviewImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        } else {
+        if isSquare {
             photoPreviewImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
             photoPreviewImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
             photoPreviewImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             photoPreviewImageView.heightAnchor.constraint(equalTo: photoPreviewImageView.widthAnchor).isActive = true
+        } else {
+            photoPreviewImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+            photoPreviewImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            photoPreviewImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+            photoPreviewImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         }
 
         flashBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
@@ -365,16 +366,16 @@ class CameraController: UIViewController {
     private func setupView() {
         view.backgroundColor = .black
         
-        switchCameraBtn.isHidden = !isAllowSwitchCamera
+        switchCameraBtn.isHidden = !isEnableSwitchCamera
         
-        guard let device = cameraDevice.captureDevice else { return }
-        flashBtn.isHidden = !(isAllowFlashlight && device.hasFlash)
+        guard let device = cameraPosition.captureDevice else { return }
+        flashBtn.isHidden = !(isEnableFlashlight && device.hasFlash)
     }
     
     private func sessionPrepare() {
         session = AVCaptureSession()
         
-        guard let session = session, let captureDevice = cameraDevice.captureDevice else { return }
+        guard let session = session, let captureDevice = cameraPosition.captureDevice else { return }
         
         session.sessionPreset = AVCaptureSession.Preset.photo
         
@@ -417,7 +418,7 @@ class CameraController: UIViewController {
         if let cameraInput = session?.inputs.first {
             session?.removeInput(cameraInput)
         }
-        if let newCamera = cameraDevice.captureDevice {
+        if let newCamera = cameraPosition.captureDevice {
             do {
                 let deviceInput = try AVCaptureDeviceInput(device: newCamera)
                 
@@ -478,7 +479,7 @@ class CameraController: UIViewController {
     }
     
     @objc func setDefaultFocusAndExposure() {
-        if let device = cameraDevice.captureDevice {
+        if let device = cameraPosition.captureDevice {
             do {
                 try device.lockForConfiguration()
                 device.isSubjectAreaChangeMonitoringEnabled = true
@@ -498,7 +499,7 @@ class CameraController: UIViewController {
             let screenSize = photoPreviewImageView.bounds.size
             let focusPoint = CGPoint(x: touchPoint.location(in: photoPreviewImageView).y / screenSize.height, y: 1.0 - touchPoint.location(in: photoPreviewImageView).x / screenSize.width)
 
-            if let device = cameraDevice.captureDevice {
+            if let device = cameraPosition.captureDevice {
                 do {
                     try device.lockForConfiguration()
                     if device.isFocusPointOfInterestSupported {
@@ -527,15 +528,11 @@ class CameraController: UIViewController {
         motionManager.stopDeviceMotionUpdates()
         session?.stopRunning()
         
-        if let navController = self.navigationController {
-            navController.popViewController(animated: true)
-        } else {
-            self.dismiss(animated: true, completion: nil)
-        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc func switchCamera() {
-        cameraDevice = cameraDevice == .front ? .back : .front
+        cameraPosition = cameraPosition == .front ? .back : .front
 
         reconfigSession()
     }
@@ -547,7 +544,7 @@ class CameraController: UIViewController {
     func enableFlash(_ isEnable: Bool) {
         self.isFlashOn = isEnable
         
-        if cameraDevice == .front {
+        if cameraPosition == .front {
             UIScreen.main.brightness = isEnable ? 1.0 : currentBrightness
             return
         }
@@ -557,7 +554,7 @@ class CameraController: UIViewController {
     @objc func zoomCameraPreview(_ slider: ZoomSlider) {
         let zoomLevel = slider.value
         
-        guard let device = cameraDevice.captureDevice else { return }
+        guard let device = cameraPosition.captureDevice else { return }
         
         do {
             try device.lockForConfiguration()
@@ -617,7 +614,7 @@ class CameraController: UIViewController {
                     takeAction = action
                     
                     let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey : AVVideoCodecType.jpeg])
-                    if cameraDevice.captureDevice?.hasFlash == true {
+                    if cameraPosition.captureDevice?.hasFlash == true {
                         settings.flashMode = isFlashOn ? .on : .off
                     }
                     photoOutput.capturePhoto(with: settings, delegate: self)
@@ -641,7 +638,7 @@ class CameraController: UIViewController {
         flashView.alpha = 0.0
         flashView.backgroundColor = .white
         
-        if cameraDevice == .front {
+        if cameraPosition == .front {
             self.view.addSubview(flashView)
             
             UIView.animate(withDuration: 0.15, animations: {
@@ -678,7 +675,7 @@ class CameraController: UIViewController {
         previewLayer?.connection?.isEnabled = isRunning
         
         if isRunning {
-            if isFlashOn && cameraDevice == .front {
+            if isFlashOn && cameraPosition == .front {
                 UIScreen.main.brightness = 1.0
             }
         } else {
