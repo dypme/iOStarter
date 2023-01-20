@@ -14,17 +14,17 @@ struct TabBarMenuUI: View {
     @State private var selectedTab: TabBarMenu = TabBarMenu(type: .home)
     
     var body: some View {
-        NavigationView {
-            TabView(selection: $selectedTab) {
-                ForEach(viewModel.menus, id: \.self) { menu in
+        TabView(selection: $selectedTab) {
+            ForEach(viewModel.menus, id: \.self) { menu in
+                NavigationView {
                     menuView(type: menu.type)
-                        .tabItem {
-                            Text(menu.name)
-                        }
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationTitle(menu.name)
+                }
+                .tabItem {
+                    Label(menu.name, systemImage: menu.systemImage)
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle(selectedTab.name)
         }
     }
     

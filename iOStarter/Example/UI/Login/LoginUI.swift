@@ -33,6 +33,7 @@ struct LoginUI: View {
             Button(L10n.close) {
                 presentationMode.wrappedValue.dismiss()
             }
+            .frame(maxWidth: .infinity, maxHeight: 24)
         }
         .textFieldStyle(.roundedBorder)
         .padding()

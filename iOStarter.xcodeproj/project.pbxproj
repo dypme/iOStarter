@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630225B5297A472100938A83 /* TextComponentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630225B4297A472100938A83 /* TextComponentUI.swift */; };
+		630225B7297A4D4700938A83 /* IndicatorComponentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630225B6297A4D4700938A83 /* IndicatorComponentUI.swift */; };
+		630225B9297A509900938A83 /* ImageComponentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630225B8297A509900938A83 /* ImageComponentUI.swift */; };
+		630225BB297A6B9100938A83 /* ShapeComponentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630225BA297A6B9100938A83 /* ShapeComponentUI.swift */; };
 		630B512529628E240021E780 /* ApiInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B512429628E240021E780 /* ApiInterceptor.swift */; };
 		630B5127296298370021E780 /* ApiLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B5126296298370021E780 /* ApiLogger.swift */; };
 		630B512B2962C7B40021E780 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B512A2962C7B40021E780 /* ApiResponse.swift */; };
@@ -14,9 +18,12 @@
 		634E924F2963D86200100E3D /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E924E2963D86200100E3D /* UIApplicationExtensions.swift */; };
 		634E92552963EA0000100E3D /* AlertAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E92542963EA0000100E3D /* AlertAnimation.swift */; };
 		634E92572963EA9A00100E3D /* AlertSheetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E92562963EA9A00100E3D /* AlertSheetAnimation.swift */; };
+		6353F24E297134020057EAD9 /* OtherComponentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6353F24D297134020057EAD9 /* OtherComponentUI.swift */; };
 		63AAAE28296529860072D0EA /* ComponentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AAAE27296529860072D0EA /* ComponentUI.swift */; };
 		63B71C342967D1FF00A2ED4E /* MapUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B71C332967D1FF00A2ED4E /* MapUI.swift */; };
 		63B71C362967FE8B00A2ED4E /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B71C352967FE8B00A2ED4E /* CameraView.swift */; };
+		63BC21B72979383A005BDBB5 /* ButtonComponentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC21B62979383A005BDBB5 /* ButtonComponentUI.swift */; };
+		63BC21B929794A70005BDBB5 /* ControlComponentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC21B829794A70005BDBB5 /* ControlComponentUI.swift */; };
 		63E9C2E5296674F400A4B8EE /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9C2E4296674F400A4B8EE /* WebView.swift */; };
 		63E9C2E72966817D00A4B8EE /* WebContentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E9C2E62966817D00A4B8EE /* WebContentUI.swift */; };
 		DA6213020C8123554D8B4CFB /* Pods_iOStarter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0F49E707A3C637E9A03641 /* Pods_iOStarter.framework */; };
@@ -96,6 +103,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		630225B4297A472100938A83 /* TextComponentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextComponentUI.swift; sourceTree = "<group>"; };
+		630225B6297A4D4700938A83 /* IndicatorComponentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndicatorComponentUI.swift; sourceTree = "<group>"; };
+		630225B8297A509900938A83 /* ImageComponentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageComponentUI.swift; sourceTree = "<group>"; };
+		630225BA297A6B9100938A83 /* ShapeComponentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeComponentUI.swift; sourceTree = "<group>"; };
 		630B512429628E240021E780 /* ApiInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInterceptor.swift; sourceTree = "<group>"; };
 		630B5126296298370021E780 /* ApiLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiLogger.swift; sourceTree = "<group>"; };
 		630B512A2962C7B40021E780 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
@@ -103,9 +114,12 @@
 		634E924E2963D86200100E3D /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		634E92542963EA0000100E3D /* AlertAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAnimation.swift; sourceTree = "<group>"; };
 		634E92562963EA9A00100E3D /* AlertSheetAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSheetAnimation.swift; sourceTree = "<group>"; };
+		6353F24D297134020057EAD9 /* OtherComponentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherComponentUI.swift; sourceTree = "<group>"; };
 		63AAAE27296529860072D0EA /* ComponentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentUI.swift; sourceTree = "<group>"; };
 		63B71C332967D1FF00A2ED4E /* MapUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUI.swift; sourceTree = "<group>"; };
 		63B71C352967FE8B00A2ED4E /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		63BC21B62979383A005BDBB5 /* ButtonComponentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponentUI.swift; sourceTree = "<group>"; };
+		63BC21B829794A70005BDBB5 /* ControlComponentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlComponentUI.swift; sourceTree = "<group>"; };
 		63E9C2E4296674F400A4B8EE /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		63E9C2E62966817D00A4B8EE /* WebContentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebContentUI.swift; sourceTree = "<group>"; };
 		AA0F49E707A3C637E9A03641 /* Pods_iOStarter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOStarter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +287,15 @@
 			isa = PBXGroup;
 			children = (
 				63AAAE27296529860072D0EA /* ComponentUI.swift */,
+				63BC21B62979383A005BDBB5 /* ButtonComponentUI.swift */,
+				63BC21B829794A70005BDBB5 /* ControlComponentUI.swift */,
+				630225B4297A472100938A83 /* TextComponentUI.swift */,
+				630225B6297A4D4700938A83 /* IndicatorComponentUI.swift */,
+				630225B8297A509900938A83 /* ImageComponentUI.swift */,
+				630225BA297A6B9100938A83 /* ShapeComponentUI.swift */,
+				6353F24D297134020057EAD9 /* OtherComponentUI.swift */,
+				63B71C332967D1FF00A2ED4E /* MapUI.swift */,
+				63E9C2E62966817D00A4B8EE /* WebContentUI.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -405,8 +428,6 @@
 				63D27F3A29642A01000D8234 /* Profile */,
 				63AAAE26296529660072D0EA /* Component */,
 				E2E1E7B3286AB29F006146F8 /* DetailUI.swift */,
-				63E9C2E62966817D00A4B8EE /* WebContentUI.swift */,
-				63B71C332967D1FF00A2ED4E /* MapUI.swift */,
 				E2173294286EAA0300F12A3F /* NoLoginUI.swift */,
 			);
 			path = UI;
@@ -840,7 +861,9 @@
 				E2FD8D8927FECB5B003F5BA4 /* ApiParameter.swift in Sources */,
 				E2FD8D9727FECB5B003F5BA4 /* LocalizeHelper.swift in Sources */,
 				E2E1E7B4286AB29F006146F8 /* DetailUI.swift in Sources */,
+				63BC21B72979383A005BDBB5 /* ButtonComponentUI.swift in Sources */,
 				E2FD8DDC27FECB5C003F5BA4 /* AlertSheetController.swift in Sources */,
+				630225BB297A6B9100938A83 /* ShapeComponentUI.swift in Sources */,
 				631216192963FFB000C117A1 /* iOStarterApp.swift in Sources */,
 				E2CA1B4D286D88A000CBA9DA /* FitToAspectRatio.swift in Sources */,
 				E2FD8DA227FECB5B003F5BA4 /* IntExtension.swift in Sources */,
@@ -848,13 +871,16 @@
 				E2FD8DB527FECB5B003F5BA4 /* ToastView.swift in Sources */,
 				E2FD8D6A27FECB5B003F5BA4 /* AppAssets.swift in Sources */,
 				630B5127296298370021E780 /* ApiLogger.swift in Sources */,
+				630225B5297A472100938A83 /* TextComponentUI.swift in Sources */,
 				E2173293286EA79400F12A3F /* HomeUI.swift in Sources */,
 				E2CA1B4A286D683100CBA9DA /* GridRow.swift in Sources */,
 				E2FD8DBC27FECB5B003F5BA4 /* CameraController.swift in Sources */,
 				634E92572963EA9A00100E3D /* AlertSheetAnimation.swift in Sources */,
 				E2FD8DCC27FECB5B003F5BA4 /* BaseViewModel.swift in Sources */,
 				E2FD8DDA27FECB5C003F5BA4 /* AlertController.swift in Sources */,
+				630225B9297A509900938A83 /* ImageComponentUI.swift in Sources */,
 				E2FD8E0A27FECB5C003F5BA4 /* ListVM.swift in Sources */,
+				63BC21B929794A70005BDBB5 /* ControlComponentUI.swift in Sources */,
 				E2173295286EAA0300F12A3F /* NoLoginUI.swift in Sources */,
 				E2FD8D7427FECB5B003F5BA4 /* AppError.swift in Sources */,
 				63B71C342967D1FF00A2ED4E /* MapUI.swift in Sources */,
@@ -905,7 +931,9 @@
 				E2FD8D9E27FECB5B003F5BA4 /* BoolExtension.swift in Sources */,
 				E2FD8D9527FECB5B003F5BA4 /* KeyboardStateListener.swift in Sources */,
 				E2381BC528852FA400E5C871 /* ProfileUI.swift in Sources */,
+				6353F24E297134020057EAD9 /* OtherComponentUI.swift in Sources */,
 				E2FD8DFE27FECB5C003F5BA4 /* UserSession.swift in Sources */,
+				630225B7297A4D4700938A83 /* IndicatorComponentUI.swift in Sources */,
 				E2FD8D7227FECB5B003F5BA4 /* AppStrings.swift in Sources */,
 				E2FD8D6E27FECB5B003F5BA4 /* AppFont.swift in Sources */,
 				E2CA1B48286D665B00CBA9DA /* GridUI.swift in Sources */,

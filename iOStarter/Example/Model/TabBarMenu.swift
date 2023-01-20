@@ -23,20 +23,26 @@ class TabBarMenu: Hashable, Identifiable {
     
     let type: TabBarMenuType
     let name: String
+    let systemImage: String
     
     init(type: TabBarMenuType) {
         self.type = type
         switch type {
         case .home:
             self.name = L10n.Menu.home
+            self.systemImage = "house.fill"
         case .table:
             self.name = L10n.Menu.list
+            self.systemImage = "list.dash"
         case .collection:
             self.name = L10n.Menu.grid
-        case .profile:
-            self.name = L10n.Menu.profile
+            self.systemImage = "rectangle.grid.3x2.fill"
         case .components:
             self.name = L10n.Menu.components
+            self.systemImage = "folder.fill"
+        case .profile:
+            self.name = L10n.Menu.profile
+            self.systemImage = "person.fill"
         }
     }
     
