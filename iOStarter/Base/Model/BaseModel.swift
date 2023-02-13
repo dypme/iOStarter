@@ -14,7 +14,7 @@ import Foundation
 import SwiftyJSON
 
 class BaseModel: NSObject {
-    required init(fromJson json: JSON) {
+    required init(fromJson json: JSON!) {
         
     }
     

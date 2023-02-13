@@ -21,7 +21,7 @@ class User: BaseModel {
     var image: String = ""
     var lastName: String = ""
 
-    required init(fromJson json: JSON) {
+    required init(fromJson json: JSON!) {
         super.init(fromJson: json)
         
         email = json["email"].stringValue

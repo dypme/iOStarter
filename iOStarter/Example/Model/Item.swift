@@ -19,7 +19,7 @@ class Item: BaseModel, Identifiable {
     var image: String = ""
     var name: String = ""
 
-    required init(fromJson json: JSON) {
+    required init(fromJson json: JSON!) {
         super.init(fromJson: json)
         detail = json["detail"].stringValue
         id = json["id"].intValue

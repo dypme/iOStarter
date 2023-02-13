@@ -112,10 +112,10 @@ extension UIView {
     ///   - tapReload: Action to reload fetch data while error occur
     ///   - tag: Mark of error view in superview
     func setErrorView(image: UIImage? = nil, message: String, tag: Int = 1431) {
+        removeErrorView(tag: tag)
+        
         let errorView = ErrorView(image: image, message: message, tag: tag)
-        if !self.subviews.contains(where: { $0.tag == tag }) {
-            errorView.show(in: self)
-        }
+        errorView.show(in: self)
     }
     
     /// Stop animating activity indicator in superview of current view

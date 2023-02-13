@@ -13,7 +13,7 @@
 import UIKit
 
 class CollectionViewController: ViewController {
-
+    
     @IBOutlet weak private(set) var collectionView: UICollectionView!
     
     private(set) var refreshControl = UIRefreshControl()
@@ -43,9 +43,34 @@ class CollectionViewController: ViewController {
     @objc func fetch(isLoadMore: Bool = false) {
         
     }
+    
+    var backgroundView: UIView? {
+        if collectionView(collectionView, numberOfItemsInSection: 0) <= 0 {
+            if isLoading {
+                return LoadIndicatorView()
+            }
+            return ErrorView(message: L10n.Error.dataNotFound)
+        }
+        return nil
+    }
+    
+    /// Footer view of table view
+    var footerView: UIView? {
+        if isAllowLoadMore {
+            let frame = CGRect(x: 0, y: 0, width: collectionView.frame.width, height: 50)
+            let loadingView = LoadIndicatorView()
+            loadingView.frame = frame
+            return loadingView
+        }
+        return UIView(frame: .zero)
+    }
 }
 
 extension CollectionViewController {
+    @objc open var isLoading: Bool {
+        false
+    }
+    
     /// Indicate that list can load more
     @objc open var isAllowLoadMore: Bool {
         false

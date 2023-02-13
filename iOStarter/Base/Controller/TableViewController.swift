@@ -42,9 +42,34 @@ class TableViewController: ViewController {
         
     }
     
+    var backgroundView: UIView? {
+        if tableView(tableView, numberOfRowsInSection: 0) <= 0 {
+            if isLoading {
+                return LoadIndicatorView()
+            }
+            return ErrorView(message: L10n.Error.dataNotFound)
+        }
+        return nil
+    }
+    
+    /// Footer view of table view
+    var footerView: UIView? {
+        if isAllowLoadMore {
+            let frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50)
+            let loadingView = LoadIndicatorView()
+            loadingView.frame = frame
+            return loadingView
+        }
+        return UIView(frame: .zero)
+    }
+    
 }
 
 extension TableViewController {
+    /// Indicate that list can load more
+    @objc open var isLoading: Bool {
+        false
+    }
     /// Indicate that list can load more
     @objc open var isAllowLoadMore: Bool {
         false
