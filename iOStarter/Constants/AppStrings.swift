@@ -37,10 +37,10 @@ internal enum L10n {
     internal static let refresh = L10n.tr("Localizable", "button.refresh", fallback: "Refresh")
   }
   internal enum Description {
-    /// Are You sure want to logout?
-    internal static let confirmLogout = L10n.tr("Localizable", "description.confirmLogout", fallback: "Are You sure want to logout?")
     /// Hallo, please login first
-    internal static let login = L10n.tr("Localizable", "description.login", fallback: "Hallo, please login first")
+    internal static let pleaseLoginFirst = L10n.tr("Localizable", "description.pleaseLoginFirst", fallback: "Hallo, please login first")
+    /// Are You sure want to logout?
+    internal static let wantLogout = L10n.tr("Localizable", "description.wantLogout", fallback: "Are You sure want to logout?")
   }
   internal enum Error {
     /// Please choose %@.
@@ -49,6 +49,8 @@ internal enum L10n {
     }
     /// Please complete required form.
     internal static let completeForm = L10n.tr("Localizable", "error.completeForm", fallback: "Please complete required form.")
+    /// Data not found
+    internal static let dataNotFound = L10n.tr("Localizable", "error.dataNotFound", fallback: "Data not found")
     /// Please use a valid email.
     internal static let emailValidity = L10n.tr("Localizable", "error.emailValidity", fallback: "Please use a valid email.")
     /// Please input %@.

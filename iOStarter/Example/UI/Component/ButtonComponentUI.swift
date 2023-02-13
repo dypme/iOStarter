@@ -18,7 +18,6 @@ struct ButtonComponentUI: View {
             buildStandardButton()
             buildLinkButton()
             buildMenuButton()
-            buildCustomButton()
         })
         .navigationTitle(Text("Buttons"))
     }
@@ -123,21 +122,6 @@ struct ButtonComponentUI: View {
             }
         } header: {
             Text("Menu")
-        }
-    }
-    
-    @ViewBuilder
-    func buildCustomButton() -> some View {
-        Section {
-            Button {
-                
-            } label: {
-                Label("Sign in with Apple", systemImage: "apple.logo")
-            }
-            .buttonStyle(AppButtonStyle())
-
-        } header: {
-            Text("App custom style")
         }
     }
 }

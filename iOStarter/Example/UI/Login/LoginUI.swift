@@ -21,15 +21,14 @@ struct LoginUI: View {
             VStack(alignment: .leading, spacing: 5) {
                 Text(L10n.login)
                     .font(.system(size: 20, weight: .bold))
-                Text(L10n.Description.login)
+                Text(L10n.Description.pleaseLoginFirst)
                     .font(.system(size: 16))
             }
             TextField("Email", text: $email)
             SecureField(L10n.password, text: $password)
-            Button(L10n.login) {
+            AppButton(action: {
                 viewModel.login(email: email, password: password)
-            }
-            .buttonStyle(AppButtonStyle())
+            }, text: L10n.login)
             Button(L10n.close) {
                 presentationMode.wrappedValue.dismiss()
             }

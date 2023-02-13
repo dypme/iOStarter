@@ -23,6 +23,7 @@
 "error.passwordValidity" = "Kata sandi minimal 1 angka dan 8 karakter";
 "error.inputData" = "Silahkan masukkan %@.";
 "error.chooseData" = "Silahkan pilih %@.";
+"error.dataNotFound" = "Data tidak ditemukan";
 
 "menu.home" = "Beranda";
 "menu.list" = "List";
@@ -35,8 +36,8 @@
 "title.notLogin" = "Belum Masuk";
 "title.profile" = "Profil";
 
-"description.login" = "Halo, silahkan masuk lebih dulu";
-"description.confirmLogout" = "Apakah Anda yakin ingin keluar?";
+"description.pleaseLoginFirst" = "Halo, silahkan masuk lebih dulu";
+"description.wantLogout" = "Apakah Anda yakin ingin keluar?";
 
 "halloWorld" = "Halo Dunia";
 "login" = "Masuk";

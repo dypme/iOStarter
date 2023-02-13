@@ -32,6 +32,9 @@ struct ComponentUI: View {
             NavigationLink(destination: OtherComponentUI()) {
                 Label("Others", systemImage: "ellipsis")
             }
+            NavigationLink(destination: AppComponentsUI()) {
+                Label("App", systemImage: "iphone.homebutton")
+            }
         }
     }
 }

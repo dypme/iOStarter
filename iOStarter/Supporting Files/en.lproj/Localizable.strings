@@ -23,6 +23,7 @@
 "error.passwordValidity" = "Password must be at least 1 numeric and 8 characters";
 "error.inputData" = "Please input %@.";
 "error.chooseData" = "Please choose %@.";
+"error.dataNotFound" = "Data not found";
 
 "menu.home" = "Home";
 "menu.list" = "List";
@@ -35,8 +36,8 @@
 "title.notLogin" = "Not Login";
 "title.profile" = "Profile";
 
-"description.login" = "Hallo, please login first";
-"description.confirmLogout" = "Are You sure want to logout?";
+"description.pleaseLoginFirst" = "Hallo, please login first";
+"description.wantLogout" = "Are You sure want to logout?";
 
 "halloWorld" = "Hallo World";
 "login" = "Login";
