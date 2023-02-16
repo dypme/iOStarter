@@ -1,58 +1,55 @@
 //
-//  UITextFieldRepresentable.swift
+//  UITextViewRepresentable.swift
 //  iOStarter
 //
-//  Created by MBP2022_1 on 30/01/23.
+//  Created by MBP2022_1 on 16/02/23.
 //  Copyright © 2023 dypme. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import SwiftUI
+import KMPlaceholderTextView
 
-struct UITextFieldRepresentable: UIViewRepresentable {
-    typealias UIViewType = UITextField
+struct UITextViewRepresentable: UIViewRepresentable {
+    typealias UIViewType = KMPlaceholderTextView
     
     private let placeholder: String
     @Binding private var text: String
     private let onEditingChanged: ((Bool) -> ())?
-    private let onReturn: (() -> ())?
     
     private var textColor = UIColor.black
     private var font = UIFont.systemFont(ofSize: 14)
-    private var isSecureTextEntry = false
     private var keyboardType: UIKeyboardType = .default
     private var autocapitalizationType: UITextAutocapitalizationType = .none
     
-    init(placeholder: String, text: Binding<String>, onEditingChanged: ((_ isEditing: Bool) -> ())? = nil, onReturn: (() -> ())? = nil) {
+    init(placeholder: String, text: Binding<String>, onEditingChanged: ((_ isEditing: Bool) -> ())? = nil) {
         self.placeholder = placeholder
         self.onEditingChanged = onEditingChanged
-        self.onReturn = onReturn
         self._text = text
     }
     
-    func makeUIView(context: Context) -> UITextField {
-        let field = UITextField()
+    func makeUIView(context: Context) -> KMPlaceholderTextView {
+        let field = KMPlaceholderTextView()
         field.placeholder = placeholder
         field.text = text
         
         field.font = font
         field.textColor = textColor
-        field.isSecureTextEntry = isSecureTextEntry
         field.keyboardType = keyboardType
         field.autocapitalizationType = autocapitalizationType
         
-        field.delegate = context.coordinator
-        field.addTarget(context.coordinator, action: #selector(Coordinator.textEditingChanged(_:)), for: .editingChanged)
+        field.textContainer.lineFragmentPadding = 0
+        field.textContainerInset = UIEdgeInsets.zero
+        field.contentInset = UIEdgeInsets.zero
         
-        field.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        field.delegate = context.coordinator
         return field
     }
     
-    func updateUIView(_ uiView: UITextField, context: Context) {
+    func updateUIView(_ uiView: KMPlaceholderTextView, context: Context) {
         uiView.text = text
         uiView.font = font
         uiView.textColor = textColor
-        uiView.isSecureTextEntry = isSecureTextEntry
         uiView.keyboardType = keyboardType
         uiView.autocapitalizationType = autocapitalizationType
     }
@@ -61,34 +58,29 @@ struct UITextFieldRepresentable: UIViewRepresentable {
         Coordinator(self)
     }
     
-    class Coordinator: NSObject, UITextFieldDelegate {
-        let parent: UITextFieldRepresentable
+    class Coordinator: NSObject, UITextViewDelegate {
+        let parent: UITextViewRepresentable
         
-        init(_ parent: UITextFieldRepresentable) {
+        init(_ parent: UITextViewRepresentable) {
             self.parent = parent
         }
         
-        func textFieldDidBeginEditing(_ textField: UITextField) {
+        func textViewDidBeginEditing(_ textView: UITextView) {
             parent.onEditingChanged?(true)
         }
         
-        func textFieldDidEndEditing(_ textField: UITextField) {
+        func textViewDidEndEditing(_ textView: UITextView) {
             parent.onEditingChanged?(false)
         }
         
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            parent.onReturn?()
-            return true
-        }
-        
-        @objc func textEditingChanged(_ textField: UITextField) {
-            parent.text = textField.text ?? ""
+        func textViewDidChange(_ textView: UITextView) {
+            parent.text = textView.text ?? ""
         }
     }
     
 }
 
-extension UITextFieldRepresentable {
+extension UITextViewRepresentable {
     func textColor(_ color: UIColor) -> Self {
         var field = self
         field.textColor = color
@@ -98,12 +90,6 @@ extension UITextFieldRepresentable {
     func font(_ font: UIFont) -> Self {
         var field = self
         field.font = font
-        return field
-    }
-    
-    func isSecureTextEntry(_ bool: Bool) -> Self {
-        var field = self
-        field.isSecureTextEntry = bool
         return field
     }
     

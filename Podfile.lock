@@ -125,6 +125,7 @@ PODS:
     - GoogleUtilities/Logger
   - IQKeyboardManagerSwift (6.5.10)
   - Kingfisher (7.4.1)
+  - KMPlaceholderTextView (1.4.0)
   - L10n-swift (5.10.2):
     - L10n-swift/Core (= 5.10.2)
     - L10n-swift/Extension (= 5.10.2)
@@ -166,6 +167,7 @@ DEPENDENCIES:
   - Firebase/Performance
   - IQKeyboardManagerSwift
   - Kingfisher
+  - KMPlaceholderTextView
   - L10n-swift
   - LicensePlist
   - Lightbox (from `https://github.com/dypme/Lightbox.git`)
@@ -195,6 +197,7 @@ SPEC REPOS:
     - GoogleUtilities
     - IQKeyboardManagerSwift
     - Kingfisher
+    - KMPlaceholderTextView
     - L10n-swift
     - LicensePlist
     - MMKV
@@ -234,6 +237,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: bad72cb363809015b1f7f19beb1f1cd23c589f95
   IQKeyboardManagerSwift: 52962c76ab33532f15ad9f3ff4e5715eda5335bb
   Kingfisher: cd762a593a61b2fbecf7645c00f9a801a3ebfc9c
+  KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
   L10n-swift: 55773890db57d1efe367434751018ab6ceb058b0
   LicensePlist: 804d60431859ef6ee6b2aa2dd0eb2c09d0418edd
   Lightbox: 6ba09c9fd7770cade809a3425bd4a63b681e8f8e
@@ -247,6 +251,6 @@ SPEC CHECKSUMS:
   SwiftNotificationCenter: 760386da2ce03d3594cb5e96d1e22ec80b44b46f
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 82639d25862e727e5c06a5f2cc987ecb88c557e9
+PODFILE CHECKSUM: 92982393c84a8e815f04e8ad71ac0286ddfb690e
 
 COCOAPODS: 1.11.3

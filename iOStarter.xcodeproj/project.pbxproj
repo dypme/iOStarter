@@ -42,6 +42,9 @@
 		63B71C342967D1FF00A2ED4E /* MapUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B71C332967D1FF00A2ED4E /* MapUI.swift */; };
 		63B71C362967FE8B00A2ED4E /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B71C352967FE8B00A2ED4E /* CameraView.swift */; };
 		63B8BBA9299DC42900C5CA39 /* NotificationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8BBA8299DC42900C5CA39 /* NotificationProtocol.swift */; };
+		63B8BBAB299DCBC100C5CA39 /* AppTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8BBAA299DCBC100C5CA39 /* AppTextView.swift */; };
+		63B8BBAD299DDB1200C5CA39 /* UITextViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8BBAC299DDB1200C5CA39 /* UITextViewRepresentable.swift */; };
+		63B8BBAF299DE60C00C5CA39 /* AppSearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B8BBAE299DE60B00C5CA39 /* AppSearchField.swift */; };
 		63BC21B72979383A005BDBB5 /* ButtonComponentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC21B62979383A005BDBB5 /* ButtonComponentUI.swift */; };
 		63BC21B929794A70005BDBB5 /* ControlComponentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC21B829794A70005BDBB5 /* ControlComponentUI.swift */; };
 		63CC248F2999EACE00297CC3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63CC248E2999EACE00297CC3 /* LaunchScreen.xib */; };
@@ -161,6 +164,9 @@
 		63B71C332967D1FF00A2ED4E /* MapUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUI.swift; sourceTree = "<group>"; };
 		63B71C352967FE8B00A2ED4E /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		63B8BBA8299DC42900C5CA39 /* NotificationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationProtocol.swift; sourceTree = "<group>"; };
+		63B8BBAA299DCBC100C5CA39 /* AppTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextView.swift; sourceTree = "<group>"; };
+		63B8BBAC299DDB1200C5CA39 /* UITextViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewRepresentable.swift; sourceTree = "<group>"; };
+		63B8BBAE299DE60B00C5CA39 /* AppSearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearchField.swift; sourceTree = "<group>"; };
 		63BC21B62979383A005BDBB5 /* ButtonComponentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponentUI.swift; sourceTree = "<group>"; };
 		63BC21B829794A70005BDBB5 /* ControlComponentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlComponentUI.swift; sourceTree = "<group>"; };
 		63CC248E2999EACE00297CC3 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -504,6 +510,9 @@
 				E25B74EE2873DBD400802E43 /* AppButton.swift */,
 				630E5F0E29821DCE006807B5 /* AppTextField.swift */,
 				63EE72292987ABC200E58601 /* UITextFieldRepresentable.swift */,
+				63B8BBAA299DCBC100C5CA39 /* AppTextView.swift */,
+				63B8BBAC299DDB1200C5CA39 /* UITextViewRepresentable.swift */,
+				63B8BBAE299DE60B00C5CA39 /* AppSearchField.swift */,
 				63E9C2E4296674F400A4B8EE /* WebView.swift */,
 			);
 			path = SwiftUI;
@@ -963,9 +972,11 @@
 				63B8BBA9299DC42900C5CA39 /* NotificationProtocol.swift in Sources */,
 				E2FD8D8927FECB5B003F5BA4 /* ApiParameter.swift in Sources */,
 				E2FD8D9727FECB5B003F5BA4 /* LocalizeHelper.swift in Sources */,
+				63B8BBAB299DCBC100C5CA39 /* AppTextView.swift in Sources */,
 				E2E1E7B4286AB29F006146F8 /* DetailUI.swift in Sources */,
 				63BC21B72979383A005BDBB5 /* ButtonComponentUI.swift in Sources */,
 				633C2C3C299C6E75009346A3 /* GridVC.swift in Sources */,
+				63B8BBAD299DDB1200C5CA39 /* UITextViewRepresentable.swift in Sources */,
 				E2FD8DDC27FECB5C003F5BA4 /* AlertSheetController.swift in Sources */,
 				632D4A40299B485100364461 /* TabBarMenuVC.swift in Sources */,
 				630225BB297A6B9100938A83 /* ShapeComponentUI.swift in Sources */,
@@ -986,6 +997,7 @@
 				632D4A44299B491700364461 /* HomeVC.swift in Sources */,
 				E2FD8DCC27FECB5B003F5BA4 /* BaseViewModel.swift in Sources */,
 				E2FD8DDA27FECB5C003F5BA4 /* AlertController.swift in Sources */,
+				63B8BBAF299DE60C00C5CA39 /* AppSearchField.swift in Sources */,
 				630225B9297A509900938A83 /* ImageComponentUI.swift in Sources */,
 				630E5F0F29821DCE006807B5 /* AppTextField.swift in Sources */,
 				E2FD8E0A27FECB5C003F5BA4 /* ListVM.swift in Sources */,

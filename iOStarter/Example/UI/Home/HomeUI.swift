@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct HomeUI: View {
+    @State private var text = ""
+    
     var body: some View {
         Text(L10n.halloWorld)
             .font(.system(size: 30, weight: .bold))

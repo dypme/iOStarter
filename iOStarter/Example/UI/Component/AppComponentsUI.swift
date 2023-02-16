@@ -14,7 +14,8 @@ struct AppComponentsUI: View {
     var body: some View {
         List {
             buildCustomButton()
-            buildCustomField()
+            buildCustomTextField()
+            buildCustomTextView()
         }
     }
     
@@ -33,7 +34,7 @@ struct AppComponentsUI: View {
     }
     
     @ViewBuilder
-    func buildCustomField() -> some View {
+    func buildCustomTextField() -> some View {
         Section {
             AppTextField(placeholder: "Email", text: $text, icon: Image(systemName: "envelope.fill"), errorText: text.isValidEmail || text.isEmpty ? nil : "Email not valid") {
                 
@@ -41,8 +42,23 @@ struct AppComponentsUI: View {
             AppTextField(placeholder: "Password", text: $text, isSecure: true) {
                 
             }
+            AppSearchField(text: $text)
         } header: {
-            Text("App TextaField")
+            Text("App TextField")
+        }
+    }
+    
+    @ViewBuilder
+    func buildCustomTextView() -> some View {
+        Section {
+            AppTextView(placeholder: "Email", text: $text, icon: Image(systemName: "envelope.fill"), errorText: text.isValidEmail || text.isEmpty ? nil : "Email not valid") {
+
+            }
+            AppTextView(placeholder: "Password", text: $text) {
+                
+            }
+        } header: {
+            Text("App TextView")
         }
     }
 }

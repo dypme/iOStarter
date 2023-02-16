@@ -49,6 +49,9 @@ def shared_pods
     # A Protocol-Oriented NotificationCenter which is type safe, thread safe and with memory safety.. Source: https://github.com/100mango/SwiftNotificationCenter
     pod 'SwiftNotificationCenter'
     
+    # A UITextView subclass that adds support for multiline placeholder written in Swift. Source: https://github.com/MoZhouqi/KMPlaceholderTextView
+    pod 'KMPlaceholderTextView'
+    
 end
 
 target 'iOStarter' do

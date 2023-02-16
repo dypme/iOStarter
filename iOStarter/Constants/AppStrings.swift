@@ -26,6 +26,8 @@ internal enum L10n {
   internal static let logout = L10n.tr("Localizable", "logout", fallback: "Logout")
   /// Password
   internal static let password = L10n.tr("Localizable", "password", fallback: "Password")
+  /// Search
+  internal static let search = L10n.tr("Localizable", "search", fallback: "Search")
   internal enum Alert {
     /// OK
     internal static let actionButton = L10n.tr("Localizable", "alert.actionButton", fallback: "OK")

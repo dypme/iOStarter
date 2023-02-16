@@ -1,42 +1,35 @@
 //
-//  AppTextField.swift
+//  AppTextEditor.swift
 //  iOStarter
 //
-//  Created by MBP2022_1 on 26/01/23.
+//  Created by MBP2022_1 on 16/02/23.
 //  Copyright © 2023 dypme. All rights reserved.
 //
 
 import SwiftUI
 
-struct AppTextField<Content: View>: View {
+struct AppTextView<Content: View>: View {
     
     let placeholder: String
     let text: Binding<String>
     let icon: Image?
     let trailingView: Content
     let errorText: String?
-    let isSecure: Bool
     
     @State private var isEditing = false
-    @State private var isSecureTextEntry: Bool
     
-    private let textFieldHeight: CGFloat = 50
+    private let textFieldHeight: CGFloat = 150
     private let textColor = UIColor.black
     private let normalColor = Color.primary
     private let activeColor = Color.accentColor
     private let font = UIFont.systemFont(ofSize: 14)
     
-    private let onReturn: (() -> ())?
-    
-    init(placeholder: String, text: Binding<String>, isSecure: Bool = false, icon: Image? = nil, errorText: String? = nil, @ViewBuilder trailingView: (() -> Content), onReturn: (() -> ())? = nil) {
+    init(placeholder: String, text: Binding<String>, icon: Image? = nil, errorText: String? = nil, @ViewBuilder trailingView: (() -> Content)) {
         self.placeholder = placeholder
         self.text = text
-        self.isSecure = isSecure
-        self._isSecureTextEntry = State(initialValue: isSecure)
         self.icon = icon
         self.trailingView = trailingView()
         self.errorText = errorText
-        self.onReturn = onReturn
     }
     
     private var isPlaceholderFloating: Bool {
@@ -46,14 +39,10 @@ struct AppTextField<Content: View>: View {
     var body: some View {
         VStack(spacing: 4) {
             ZStack(alignment: .topLeading) {
-                HStack {
+                HStack(alignment: .top) {
                     icon
                     textFieldView
-                    if isSecure {
-                        visibilityButton
-                    } else {
-                        trailingView
-                    }
+                    trailingView
                 }
                 .padding()
                 .overlay(
@@ -74,12 +63,11 @@ struct AppTextField<Content: View>: View {
     
     @ViewBuilder
     private var textFieldView: some View {
-        UITextFieldRepresentable(placeholder: placeholder, text: text, onEditingChanged: { isEditing in
+        UITextViewRepresentable(placeholder: placeholder, text: text) { isEditing in
             self.isEditing = isEditing
-        }, onReturn: onReturn)
+        }
         .font(font)
         .textColor(textColor)
-        .isSecureTextEntry(isSecureTextEntry)
     }
     
     @ViewBuilder
@@ -104,29 +92,21 @@ struct AppTextField<Content: View>: View {
             .padding([.leading, .trailing], 20)
     }
     
-    @ViewBuilder
-    private var visibilityButton: some View {
-        Button {
-            isSecureTextEntry.toggle()
-        } label: {
-            isSecureTextEntry ? Image(systemName: "eye.slash.fill") : Image(systemName: "eye.fill")
-        }
-    }
 }
 
-struct AppTextFieldView_Previews: View {
+struct AppTextViewView_Previews: View {
     @State private var text = ""
     
     var body: some View {
-        AppTextField(placeholder: "Placeholder", text: $text, icon: Image(systemName: "magnifyingglass")) {
+        AppTextView(placeholder: "Placeholder", text: $text, trailingView: {
             
-        }
+        })
     }
 }
 
-struct AppTextField_Previews: PreviewProvider {
+struct AppTextView_Previews: PreviewProvider {
     static var previews: some View {
-        AppTextFieldView_Previews()
+        AppTextViewView_Previews()
             .previewLayout(.fixed(width: 300, height: 300))
     }
 }
