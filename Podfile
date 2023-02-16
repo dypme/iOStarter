@@ -17,6 +17,8 @@ def shared_pods
     
     # Asset tool generator to swift file. Source: https://github.com/SwiftGen/SwiftGen
     pod 'SwiftGen'
+    # A Swift mixin. Source: https://github.com/AliSoftware/Reusable
+    pod 'Reusable'
     
     pod 'Firebase/Messaging'
     pod 'Firebase/Crashlytics'
@@ -43,6 +45,9 @@ def shared_pods
     
     # Image/ video preview. Original source: https://github.com/hyperoslo/Lightbox
     pod 'Lightbox', :git => 'https://github.com/dypme/Lightbox.git'
+    
+    # A Protocol-Oriented NotificationCenter which is type safe, thread safe and with memory safety.. Source: https://github.com/100mango/SwiftNotificationCenter
+    pod 'SwiftNotificationCenter'
     
 end
 

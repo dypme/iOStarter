@@ -11,8 +11,6 @@
 //
 
 import Foundation
-import UIKit
-import SwiftUI
 
 class TabBarMenuVM: ObservableObject {
     @Published private(set) var menus = [TabBarMenu]()

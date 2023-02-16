@@ -90,3 +90,16 @@ extension UIView {
         }
     }
 }
+
+@IBDesignable
+extension UIView {
+    @IBInspectable
+    public var cornerRadius: CGFloat {
+        set (radius) {
+            self.layer.cornerRadius = radius
+        }
+        get {
+            return self.layer.cornerRadius
+        }
+    }
+}

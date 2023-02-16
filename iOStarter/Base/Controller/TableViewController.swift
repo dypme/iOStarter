@@ -18,6 +18,18 @@ class TableViewController: ViewController {
     
     private(set) var refreshControl = UIRefreshControl()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        registerCell()
+        setupMethod()
+        setupView()
+    }
+    
+    func registerCell() {
+        
+    }
+    
     override func setupMethod() {
         super.setupMethod()
         
@@ -33,12 +45,12 @@ class TableViewController: ViewController {
         tableView.addSubview(refreshControl)
     }
     
-    @objc override func fetch() {
-        fetch(isLoadMore: false)
+    @objc override func fetch() async {
+        await fetch(isLoadMore: false)
     }
     
     /// Fetch list data
-    @objc func fetch(isLoadMore: Bool = false) {
+    @objc func fetch(isLoadMore: Bool = false) async {
         
     }
     
@@ -83,7 +95,7 @@ extension TableViewController {
 
 extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        fatalError("Number items method not defined")
+        0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,7 +113,9 @@ extension TableViewController: UITableViewDelegate {
         let h = size.height
         if y > (h + loadMoreDistance) {
             if isAllowLoadMore {
-                fetch(isLoadMore: true)
+                Task {
+                    await fetch(isLoadMore: true)
+                }
             }
         }
     }

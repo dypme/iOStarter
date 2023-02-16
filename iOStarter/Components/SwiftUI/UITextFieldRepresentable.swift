@@ -1,5 +1,5 @@
 //
-//  CustomTextField.swift
+//  UITextFieldRepresentable.swift
 //  iOStarter
 //
 //  Created by MBP2022_1 on 30/01/23.
@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct CustomTextField: UIViewRepresentable {
+struct UITextFieldRepresentable: UIViewRepresentable {
     typealias UIViewType = UITextField
     
     private let placeholder: String
@@ -58,9 +58,9 @@ struct CustomTextField: UIViewRepresentable {
     }
     
     class Coordinator: NSObject, UITextFieldDelegate {
-        let parent: CustomTextField
+        let parent: UITextFieldRepresentable
         
-        init(_ parent: CustomTextField) {
+        init(_ parent: UITextFieldRepresentable) {
             self.parent = parent
         }
         
@@ -79,7 +79,7 @@ struct CustomTextField: UIViewRepresentable {
     
 }
 
-extension CustomTextField {
+extension UITextFieldRepresentable {
     func textColor(_ color: UIColor) -> Self {
         var field = self
         field.textColor = color

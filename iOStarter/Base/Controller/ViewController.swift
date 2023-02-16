@@ -23,7 +23,9 @@ class ViewController: UIViewController {
         
         setupMethod()
         setupView()
-        fetch()
+        Task {
+            await fetch()
+        }
     }
     
     /// Setup add function/ action in object (ex: add button action, add delegate, add gesture)
@@ -36,7 +38,7 @@ class ViewController: UIViewController {
         navigationItem.backBarButtonItem = backBarButton
     }
     
-    @objc func fetch() {
+    @objc func fetch() async {
         
     }
 }

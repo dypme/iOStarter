@@ -71,7 +71,7 @@ struct AppTextField<Content: View>: View {
     
     @ViewBuilder
     private var textFieldView: some View {
-        CustomTextField(placeholder: placeholder, text: text) { isEditing in
+        UITextFieldRepresentable(placeholder: placeholder, text: text) { isEditing in
             self.isEditing = isEditing
         }
         .font(font)

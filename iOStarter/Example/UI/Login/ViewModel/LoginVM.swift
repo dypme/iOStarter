@@ -12,6 +12,7 @@
 
 import Foundation
 import SwiftyJSON
+import SwiftNotificationCenter
 
 class LoginVM {
     func errorMessage(email: String, password: String) -> String? {
@@ -28,10 +29,6 @@ class LoginVM {
     }
     
     func login(email: String, password: String) {
-        if let error = errorMessage(email: email, password: password) {
-            return
-        }
-        
         guard let url = Bundle.main.url(forResource: "user.json", withExtension: nil) else {
             return
         }
@@ -40,6 +37,9 @@ class LoginVM {
             let json = try JSON(data: data)
             let user = User(fromJson: json)
             UserSession.shared.profile = user
+            Broadcaster.notify(UserSessionUpdate.self) {
+                $0.updateUserLoggedIn()
+            }
         } catch {
             print("Error parse JSON:", error.localizedDescription)
         }

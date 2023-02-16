@@ -11,6 +11,7 @@
 //
 
 import Foundation
+import SwiftNotificationCenter
 
 class ProfileVM: ObservableObject {
     @Published private var user: User
@@ -44,5 +45,8 @@ class ProfileVM: ObservableObject {
     
     func setLogout() {
         UserSession.shared.profile = nil
+        Broadcaster.notify(UserSessionUpdate.self) {
+            $0.updateUserLoggedIn()
+        }
     }
 }

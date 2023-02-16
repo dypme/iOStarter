@@ -18,6 +18,18 @@ class CollectionViewController: ViewController {
     
     private(set) var refreshControl = UIRefreshControl()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        registerCell()
+        setupMethod()
+        setupView()
+    }
+    
+    func registerCell() {
+        
+    }
+    
     override func setupMethod() {
         super.setupMethod()
         
@@ -33,14 +45,12 @@ class CollectionViewController: ViewController {
         collectionView.addSubview(refreshControl)
     }
     
-    @objc override func fetch() {
-        super.fetch()
-        
-        fetch(isLoadMore: false)
+    @objc override func fetch() async {
+        await fetch(isLoadMore: false)
     }
     
     /// Fetch list data
-    @objc func fetch(isLoadMore: Bool = false) {
+    @objc func fetch(isLoadMore: Bool = false) async {
         
     }
     
@@ -64,6 +74,18 @@ class CollectionViewController: ViewController {
         }
         return UIView(frame: .zero)
     }
+    
+    func fitItemSize(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumSize: CGSize, minimumColumn: Int) -> CGSize {
+        let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout
+        let horizontalMargin = (flowLayout?.sectionInset.left ?? 0) + (flowLayout?.sectionInset.right ?? 0)
+        let spacing = flowLayout?.minimumInteritemSpacing ?? 0.0
+        
+        let contentWidth = (collectionView.frame.width - horizontalMargin)
+        let maxItem = CGFloat(max(minimumColumn, Int(contentWidth / minimumSize.width)))
+        let newWidth = (contentWidth - (spacing * (maxItem - 1))) / maxItem
+        let newHeight = minimumSize.height * newWidth / minimumSize.width
+        return CGSize(width: newWidth, height: newHeight)
+    }
 }
 
 extension CollectionViewController {
@@ -84,7 +106,7 @@ extension CollectionViewController {
 
 extension CollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        fatalError("Number items method not defined")
+        0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -102,7 +124,9 @@ extension CollectionViewController: UICollectionViewDelegate {
         let h = size.height
         if y > (h + loadMoreDistance) {
             if isAllowLoadMore {
-                fetch(isLoadMore: true)
+                Task {
+                    await fetch(isLoadMore: true)
+                }
             }
         }
     }

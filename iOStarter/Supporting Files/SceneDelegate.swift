@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
         
-        mainController = UIHostingController(rootView: TabBarMenuUI())
+        mainController = TabBarMenuVC()
         window?.rootViewController = mainController
     }
 
