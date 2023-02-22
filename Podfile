@@ -52,6 +52,11 @@ def shared_pods
     # A UITextView subclass that adds support for multiline placeholder written in Swift. Source: https://github.com/MoZhouqi/KMPlaceholderTextView
     pod 'KMPlaceholderTextView'
     
+    pod 'MaterialComponents/TextControls+FilledTextAreas'
+    pod 'MaterialComponents/TextControls+FilledTextFields'
+    pod 'MaterialComponents/TextControls+OutlinedTextAreas'
+    pod 'MaterialComponents/TextControls+OutlinedTextFields'
+    
 end
 
 target 'iOStarter' do

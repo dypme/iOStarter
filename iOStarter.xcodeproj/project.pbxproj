@@ -16,6 +16,12 @@
 		630B512B2962C7B40021E780 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B512A2962C7B40021E780 /* ApiResponse.swift */; };
 		630E5F0B29821A26006807B5 /* AppComponentsUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630E5F0A29821A26006807B5 /* AppComponentsUI.swift */; };
 		630E5F0F29821DCE006807B5 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630E5F0E29821DCE006807B5 /* AppTextField.swift */; };
+		6310DE7A29A3289500F5EB76 /* UIAppSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6310DE7929A3289500F5EB76 /* UIAppSearchBar.swift */; };
+		631691B7299F5B3D0059570C /* UIAppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631691B6299F5B3D0059570C /* UIAppTextField.swift */; };
+		631691B9299F67B20059570C /* UIAppTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631691B8299F67B20059570C /* UIAppTextView.swift */; };
+		632807CA299F20F40025E980 /* UIAppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632807C9299F20F40025E980 /* UIAppButton.swift */; };
+		632CCD7229A5AB830011E694 /* ComponentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632CCD7029A5AB830011E694 /* ComponentVC.swift */; };
+		632CCD7329A5AB830011E694 /* ComponentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 632CCD7129A5AB830011E694 /* ComponentVC.xib */; };
 		632D4A3A299B352C00364461 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D4A38299B352C00364461 /* LoginVC.swift */; };
 		632D4A3B299B352C00364461 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 632D4A39299B352C00364461 /* LoginVC.xib */; };
 		632D4A40299B485100364461 /* TabBarMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D4A3E299B485100364461 /* TabBarMenuVC.swift */; };
@@ -138,6 +144,12 @@
 		630B512A2962C7B40021E780 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		630E5F0A29821A26006807B5 /* AppComponentsUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponentsUI.swift; sourceTree = "<group>"; };
 		630E5F0E29821DCE006807B5 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
+		6310DE7929A3289500F5EB76 /* UIAppSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAppSearchBar.swift; sourceTree = "<group>"; };
+		631691B6299F5B3D0059570C /* UIAppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAppTextField.swift; sourceTree = "<group>"; };
+		631691B8299F67B20059570C /* UIAppTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAppTextView.swift; sourceTree = "<group>"; };
+		632807C9299F20F40025E980 /* UIAppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAppButton.swift; sourceTree = "<group>"; };
+		632CCD7029A5AB830011E694 /* ComponentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentVC.swift; sourceTree = "<group>"; };
+		632CCD7129A5AB830011E694 /* ComponentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComponentVC.xib; sourceTree = "<group>"; };
 		632D4A38299B352C00364461 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		632D4A39299B352C00364461 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		632D4A3E299B485100364461 /* TabBarMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarMenuVC.swift; sourceTree = "<group>"; };
@@ -303,6 +315,10 @@
 				E2FD8DB627FECB5B003F5BA4 /* CheckBox.swift */,
 				E2FD8DB827FECB5B003F5BA4 /* PickerField.swift */,
 				E2FD8DC227FECB5B003F5BA4 /* LoadIndicatorView.swift */,
+				632807C9299F20F40025E980 /* UIAppButton.swift */,
+				631691B6299F5B3D0059570C /* UIAppTextField.swift */,
+				631691B8299F67B20059570C /* UIAppTextView.swift */,
+				6310DE7929A3289500F5EB76 /* UIAppSearchBar.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -368,6 +384,8 @@
 			isa = PBXGroup;
 			children = (
 				63AAAE27296529860072D0EA /* ComponentUI.swift */,
+				632CCD7029A5AB830011E694 /* ComponentVC.swift */,
+				632CCD7129A5AB830011E694 /* ComponentVC.xib */,
 				63BC21B62979383A005BDBB5 /* ButtonComponentUI.swift */,
 				63BC21B829794A70005BDBB5 /* ControlComponentUI.swift */,
 				630225B4297A472100938A83 /* TextComponentUI.swift */,
@@ -846,6 +864,7 @@
 				632D4A41299B485100364461 /* TabBarMenuVC.xib in Resources */,
 				6383D9A9299C873F00E94A2D /* DetailVC.xib in Resources */,
 				632D4A45299B491700364461 /* HomeVC.xib in Resources */,
+				632CCD7329A5AB830011E694 /* ComponentVC.xib in Resources */,
 				6383D9AD299C8AA200E94A2D /* NoLoginVC.xib in Resources */,
 				632D4A3B299B352C00364461 /* LoginVC.xib in Resources */,
 				E2FD8D7C27FECB5B003F5BA4 /* user.json in Resources */,
@@ -1000,9 +1019,11 @@
 				63B8BBAF299DE60C00C5CA39 /* AppSearchField.swift in Sources */,
 				630225B9297A509900938A83 /* ImageComponentUI.swift in Sources */,
 				630E5F0F29821DCE006807B5 /* AppTextField.swift in Sources */,
+				6310DE7A29A3289500F5EB76 /* UIAppSearchBar.swift in Sources */,
 				E2FD8E0A27FECB5C003F5BA4 /* ListVM.swift in Sources */,
 				63BC21B929794A70005BDBB5 /* ControlComponentUI.swift in Sources */,
 				E2173295286EAA0300F12A3F /* NoLoginUI.swift in Sources */,
+				631691B9299F67B20059570C /* UIAppTextView.swift in Sources */,
 				E2FD8D7427FECB5B003F5BA4 /* AppError.swift in Sources */,
 				63B71C342967D1FF00A2ED4E /* MapUI.swift in Sources */,
 				E24E62392817D4EE0032E0BE /* ApiPath.swift in Sources */,
@@ -1015,6 +1036,7 @@
 				E2FD8DD227FECB5C003F5BA4 /* TableViewController.swift in Sources */,
 				E2FD8D9327FECB5B003F5BA4 /* DownloadManager.swift in Sources */,
 				E2FD8D9927FECB5B003F5BA4 /* LocationHelper.swift in Sources */,
+				632807CA299F20F40025E980 /* UIAppButton.swift in Sources */,
 				E2FD8D8B27FECB5B003F5BA4 /* UploadParameter.swift in Sources */,
 				E2FD8DA427FECB5B003F5BA4 /* StringExtension.swift in Sources */,
 				63CC24912999F00E00297CC3 /* SceneDelegate.swift in Sources */,
@@ -1056,6 +1078,7 @@
 				E2FD8D9527FECB5B003F5BA4 /* KeyboardStateListener.swift in Sources */,
 				E2381BC528852FA400E5C871 /* ProfileUI.swift in Sources */,
 				630E5F0B29821A26006807B5 /* AppComponentsUI.swift in Sources */,
+				632CCD7229A5AB830011E694 /* ComponentVC.swift in Sources */,
 				6353F24E297134020057EAD9 /* OtherComponentUI.swift in Sources */,
 				E2FD8DFE27FECB5C003F5BA4 /* UserSession.swift in Sources */,
 				630225B7297A4D4700938A83 /* IndicatorComponentUI.swift in Sources */,
@@ -1067,6 +1090,7 @@
 				E2FD8E1027FECB5C003F5BA4 /* ProfileVM.swift in Sources */,
 				E2FD8DA027FECB5B003F5BA4 /* DateExtension.swift in Sources */,
 				634E92552963EA0000100E3D /* AlertAnimation.swift in Sources */,
+				631691B7299F5B3D0059570C /* UIAppTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

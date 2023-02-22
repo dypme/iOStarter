@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComponentVC" customModule="iOStarter" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="I8n-JU-owd">
+                    <rect key="frame" x="20" y="88.999999999999972" width="353" height="368.33333333333326"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08w-XK-N3e" customClass="UIAppTextField" customModule="iOStarter" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="353" height="82"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="TextField"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="helperText" value="Input text"/>
+                                <userDefinedRuntimeAttribute type="image" keyPath="icon" value="envelope.fill" catalog="system"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TC5-Sx-msf" customClass="UIAppTextView" customModule="iOStarter" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="102" width="353" height="126.33333333333331"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="TextView"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="helperText" value="Input text"/>
+                                <userDefinedRuntimeAttribute type="image" keyPath="icon" value="pencil" catalog="system"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLb-NC-fp3" customClass="UIAppSearchBar" customModule="iOStarter" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="248.33333333333331" width="353" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Search..."/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6p-II-SQT" customClass="UIAppButton" customModule="iOStarter" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="318.33333333333331" width="353" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Submit"/>
+                                <userDefinedRuntimeAttribute type="image" keyPath="trailingIcon" value="chevron.right" catalog="system"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="I8n-JU-owd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="SvJ-Qk-5Ef"/>
+                <constraint firstItem="I8n-JU-owd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="fAI-G6-OxJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="I8n-JU-owd" secondAttribute="trailing" constant="20" id="i9m-te-TmI"/>
+            </constraints>
+            <point key="canvasLocation" x="-33" y="20"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="08w-XK-N3e">
+            <size key="intrinsicContentSize" width="-1" height="50"/>
+        </designable>
+        <designable name="TC5-Sx-msf">
+            <size key="intrinsicContentSize" width="-1" height="100"/>
+        </designable>
+        <designable name="XLb-NC-fp3">
+            <size key="intrinsicContentSize" width="-1" height="50"/>
+        </designable>
+        <designable name="l6p-II-SQT">
+            <size key="intrinsicContentSize" width="-1" height="50"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <image name="envelope.fill" catalog="system" width="128" height="93"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

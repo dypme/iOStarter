@@ -29,8 +29,17 @@ class ErrorView: UIView {
         return label
     }()
     
-    private var image: UIImage?
-    private var message: String
+    private var image: UIImage? {
+        set {
+            imageView.image = newValue
+            imageView.isHidden = newValue == nil
+        }
+        get { imageView.image }
+    }
+    private var message: String? {
+        set { messageLbl.text = newValue }
+        get { messageLbl.text }
+    }
     
     /// Initialize error view
     /// - Parameters:
@@ -38,10 +47,10 @@ class ErrorView: UIView {
     ///   - message: Text to inform user what error happen
     ///   - action: Action to reload fetch data while error occur
     init(image: UIImage? = nil, message: String, tag: Int = 1431) {
+        super.init(frame: .zero)
+        
         self.image = image
         self.message = message
-        
-        super.init(frame: .zero)
         
         self.tag = tag
         
@@ -74,11 +83,6 @@ class ErrorView: UIView {
     }
     
     private func setupView() {
-        imageView.image = image
-        imageView.isHidden = image == nil
-        
-        messageLbl.text = message
-        
         self.backgroundColor = .clear
     }
     

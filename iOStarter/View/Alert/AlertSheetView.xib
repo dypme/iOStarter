@@ -24,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLN-7n-rrV" customClass="View" customModule="iOStarter" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pLN-7n-rrV">
                     <rect key="frame" x="0.0" y="632.5" width="414" height="229.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="drX-hT-dlU">
@@ -82,16 +82,6 @@
                         <constraint firstAttribute="trailing" secondItem="rt4-bO-cYa" secondAttribute="trailing" id="Ro7-K2-UGZ"/>
                         <constraint firstItem="rt4-bO-cYa" firstAttribute="leading" secondItem="pLN-7n-rrV" secondAttribute="leading" id="ile-aR-ZAm"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedTopLeft" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedTopRight" value="YES"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="15"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                            <color key="value" red="0.64705882349999999" green="0.68235294120000001" blue="0.75294117650000003" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="ucT-Df-NZX"/>

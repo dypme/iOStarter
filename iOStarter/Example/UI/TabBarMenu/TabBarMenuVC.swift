@@ -40,8 +40,8 @@ class TabBarMenuVC: UITabBarController {
                 } else {
                     vc = NoLoginVC()
                 }
-            default:
-                return nil
+            case .components:
+                vc = ComponentVC()
             }
             vc.navigationItem.title = menu.name
             vc.tabBarItem.image = UIImage(systemName: menu.systemImage)
