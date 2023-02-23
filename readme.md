@@ -1,7 +1,7 @@
 
 # iOStarter
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/dypme/iOStarter/blob/master/LICENSE)
-[![GitHub Release](https://img.shields.io/github/release/dypme/iOStarter.svg?style=flat)](https://github.com/dypme/iOStarter/releases)
+[![MIT License](https://img.shields.io/github/license/dypme/iOStarter)](https://github.com/dypme/iOStarter/blob/master/LICENSE)
+[![GitHub Release](https://img.shields.io/github/v/release/dypme/iOStarter)](https://github.com/dypme/iOStarter/releases)
 ![Platform](https://img.shields.io/badge/platform-iOS-lightgrey)
 [![Swift 5.x](https://img.shields.io/badge/language-swift%205.x-orange)](https://developer.apple.com/swift)
 
@@ -10,7 +10,7 @@ Creating a new project from the Xcode default template is very painful. We need 
 
 ## Installation
 1. Download template (iOStarter.xctemplate) from release page and extract it
-2. Run `make install_templates` in terminal
+2. Run `make install` in terminal
 3. New project template will show in Project Templates section when You create new project.
 4. Don't forget to run `pod install`
 
@@ -37,3 +37,7 @@ Check it in utilities folder. I think all useful function in this starter has be
 <br>[Lightbox](https://github.com/dypme/Lightbox)
 <br>[LicensePlist](https://github.com/mono0926/LicensePlist)
 <br>[Firebase](https://github.com/firebase/firebase-ios-sdk)
+<br>[Reusable](https://github.com/AliSoftware/Reusable)
+<br>[SwiftNotificationCenter](https://github.com/100mango/SwiftNotificationCenter)
+<br>[KMPlaceholderTextView](https://github.com/MoZhouqi/KMPlaceholderTextView)
+<br>[MaterialComponents/TextControls](https://github.com/material-components/material-components-ios/tree/develop/components/TextControls)
