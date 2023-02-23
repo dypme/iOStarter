@@ -36,13 +36,19 @@ class CollectionViewController: ViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        refreshControl.addTarget(self, action: #selector(fetch), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
     override func setupView() {
         super.setupView()
         
         collectionView.addSubview(refreshControl)
+    }
+    
+    @objc private func refresh() {
+        Task {
+            await fetch()
+        }
     }
     
     @objc override func fetch() async {
@@ -54,21 +60,28 @@ class CollectionViewController: ViewController {
         
     }
     
-    var backgroundView: UIView? {
+    var loadingView: UIView? {
         if collectionView(collectionView, numberOfItemsInSection: 0) <= 0 {
-            if isLoading {
-                return LoadIndicatorView()
-            }
+            let loadingView = LoadIndicatorView()
+            loadingView.startAnimating()
+            return loadingView
+        }
+        return nil
+    }
+    
+    var errorView: UIView? {
+        if collectionView(collectionView, numberOfItemsInSection: 0) <= 0 {
             return ErrorView(message: L10n.Error.dataNotFound)
         }
         return nil
     }
     
     /// Footer view of table view
-    var footerView: UIView? {
+    var loadMoreView: UIView? {
         if isAllowLoadMore {
             let frame = CGRect(x: 0, y: 0, width: collectionView.frame.width, height: 50)
             let loadingView = LoadIndicatorView()
+            loadingView.startAnimating()
             loadingView.frame = frame
             return loadingView
         }
@@ -100,7 +113,7 @@ extension CollectionViewController {
     
     /// Distance from bottom to trigger load more
     @objc open var loadMoreDistance: CGFloat {
-        40
+        50
     }
 }
 
@@ -112,6 +125,8 @@ extension CollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         fatalError("Cell collectionView not set")
     }
+    
+    
 }
 
 extension CollectionViewController: UICollectionViewDelegate {

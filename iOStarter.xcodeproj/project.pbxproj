@@ -803,11 +803,11 @@
 			buildPhases = (
 				076D8546EF86B361753266A3 /* [CP] Check Pods Manifest.lock */,
 				E2FD8D5427FECB5B003F5BA4 /* SwiftGen */,
+				E2FD8D5927FECB5B003F5BA4 /* LicensePlist */,
 				E2FD8D5527FECB5B003F5BA4 /* Sources */,
 				E2FD8D5627FECB5B003F5BA4 /* Frameworks */,
 				E2FD8D5727FECB5B003F5BA4 /* Resources */,
 				E2FD8D5827FECB5B003F5BA4 /* Crashlytics */,
-				E2FD8D5927FECB5B003F5BA4 /* LicensePlist */,
 				E3FC8D3F2B67683D222EFF0E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -946,7 +946,7 @@
 		};
 		E2FD8D5927FECB5B003F5BA4 /* LicensePlist */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -958,7 +958,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n    Pods/LicensePlist/license-plist --output-path Settings.bundle --prefix com.iOStarter.LicensePlist --add-version-numbers --suppress-opening-directory --force \nfi\n";
 		};
@@ -1231,7 +1231,7 @@
 			baseConfigurationReference = B25E3B36AB6BD6CB2B4B1E78 /* Pods-iOStarter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = Colors/AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = colors/AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iOStarter/iOStarter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1259,7 +1259,7 @@
 			baseConfigurationReference = B325AEF17A65AAE03EDBE58F /* Pods-iOStarter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = Colors/AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = colors/AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iOStarter/iOStarter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

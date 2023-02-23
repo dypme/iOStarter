@@ -31,7 +31,9 @@ struct ListUI: View {
             }
         }
         .onAppear {
-            viewModel.fetch(isLoadMore: false)
+            Task {
+                await viewModel.fetch(isLoadMore: false)
+            }
         }
     }
 }

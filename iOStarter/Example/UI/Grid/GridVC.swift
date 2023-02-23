@@ -18,7 +18,10 @@ class GridVC: CollectionViewController {
     }
     
     override func fetch(isLoadMore: Bool = false) async {
-        viewModel.fetch(isLoadMore: isLoadMore)
+        collectionView.backgroundView = loadingView
+        await viewModel.fetch(isLoadMore: isLoadMore)
+        refreshControl.endRefreshing()
+        collectionView.backgroundView = errorView
         collectionView.reloadData()
     }
 }

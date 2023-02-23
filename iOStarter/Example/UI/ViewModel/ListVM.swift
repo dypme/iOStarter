@@ -14,7 +14,7 @@ import Foundation
 import SwiftyJSON
 
 class ListVM: BaseViewModelList<Item, ItemVM> {
-    func fetch(isLoadMore: Bool) {
+    func fetch(isLoadMore: Bool) async {
         if isLoading {
             return
         }
@@ -23,6 +23,7 @@ class ListVM: BaseViewModelList<Item, ItemVM> {
         }
         isLoading = true
         
+        // Dummy datas
         guard let url = Bundle.main.url(forResource: "items.json", withExtension: nil) else {
             isLoading = false
             return
@@ -40,5 +41,15 @@ class ListVM: BaseViewModelList<Item, ItemVM> {
             print("Error parse JSON:", error.localizedDescription)
         }
         isLoading = false
+        
+        // Example usage of get data
+//        let response = await ApiManager.shared.request(to: .exampleGet)
+//        let newDatas = response.json.arrayValue.map({ Item(fromJson: $0) })
+//        if isLoadMore {
+//            self.datas.append(contentsOf: newDatas)
+//        } else {
+//            self.datas = newDatas
+//        }
+//        isLoading = false
     }
 }

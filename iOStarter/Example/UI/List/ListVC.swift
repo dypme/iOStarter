@@ -17,7 +17,11 @@ class ListVC: TableViewController {
     }
     
     override func fetch(isLoadMore: Bool = false) async {
-        viewModel.fetch(isLoadMore: isLoadMore)
+        tableView.backgroundView = loadingView
+        await viewModel.fetch(isLoadMore: isLoadMore)
+        refreshControl.endRefreshing()
+        tableView.backgroundView = errorView
+        tableView.tableFooterView = loadMoreView
         tableView.reloadData()
     }
     

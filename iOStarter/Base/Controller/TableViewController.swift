@@ -36,13 +36,19 @@ class TableViewController: ViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        refreshControl.addTarget(self, action: #selector(fetch), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
     override func setupView() {
         super.setupView()
         
         tableView.addSubview(refreshControl)
+    }
+    
+    @objc private func refresh() {
+        Task {
+            await fetch()
+        }
     }
     
     @objc override func fetch() async {
@@ -54,21 +60,28 @@ class TableViewController: ViewController {
         
     }
     
-    var backgroundView: UIView? {
+    var loadingView: UIView? {
         if tableView(tableView, numberOfRowsInSection: 0) <= 0 {
-            if isLoading {
-                return LoadIndicatorView()
-            }
+            let loadingView = LoadIndicatorView()
+            loadingView.startAnimating()
+            return loadingView
+        }
+        return nil
+    }
+    
+    var errorView: UIView? {
+        if tableView(tableView, numberOfRowsInSection: 0) <= 0 {
             return ErrorView(message: L10n.Error.dataNotFound)
         }
         return nil
     }
     
     /// Footer view of table view
-    var footerView: UIView? {
+    var loadMoreView: UIView? {
         if isAllowLoadMore {
             let frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 50)
             let loadingView = LoadIndicatorView()
+            loadingView.startAnimating()
             loadingView.frame = frame
             return loadingView
         }
@@ -89,7 +102,7 @@ extension TableViewController {
     
     /// Distance from bottom to trigger load more
     @objc open var loadMoreDistance: CGFloat {
-        40
+        50
     }
 }
 
