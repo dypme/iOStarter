@@ -92,10 +92,6 @@ class TableViewController: ViewController {
 
 extension TableViewController {
     /// Indicate that list can load more
-    @objc open var isLoading: Bool {
-        false
-    }
-    /// Indicate that list can load more
     @objc open var isAllowLoadMore: Bool {
         false
     }

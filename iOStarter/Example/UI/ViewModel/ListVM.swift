@@ -43,13 +43,6 @@ class ListVM: BaseViewModelList<Item, ItemVM> {
         isLoading = false
         
         // Example usage of get data
-//        let response = await ApiManager.shared.request(to: .exampleGet)
-//        let newDatas = response.json.arrayValue.map({ Item(fromJson: $0) })
-//        if isLoadMore {
-//            self.datas.append(contentsOf: newDatas)
-//        } else {
-//            self.datas = newDatas
-//        }
-//        isLoading = false
+//        await super.fetch(isLoadMore: isLoadMore, path: .exampleGet)
     }
 }
