@@ -40,6 +40,7 @@
 		634E92552963EA0000100E3D /* AlertAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E92542963EA0000100E3D /* AlertAnimation.swift */; };
 		634E92572963EA9A00100E3D /* AlertSheetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E92562963EA9A00100E3D /* AlertSheetAnimation.swift */; };
 		6353F24E297134020057EAD9 /* OtherComponentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6353F24D297134020057EAD9 /* OtherComponentUI.swift */; };
+		635AD41E29C4216A0095C17E /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635AD41D29C4216A0095C17E /* UIWindowExtension.swift */; };
 		6383D9A8299C873F00E94A2D /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6383D9A6299C873F00E94A2D /* DetailVC.swift */; };
 		6383D9A9299C873F00E94A2D /* DetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6383D9A7299C873F00E94A2D /* DetailVC.xib */; };
 		6383D9AC299C8AA200E94A2D /* NoLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6383D9AA299C8AA200E94A2D /* NoLoginVC.swift */; };
@@ -168,6 +169,7 @@
 		634E92542963EA0000100E3D /* AlertAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAnimation.swift; sourceTree = "<group>"; };
 		634E92562963EA9A00100E3D /* AlertSheetAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSheetAnimation.swift; sourceTree = "<group>"; };
 		6353F24D297134020057EAD9 /* OtherComponentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherComponentUI.swift; sourceTree = "<group>"; };
+		635AD41D29C4216A0095C17E /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		6383D9A6299C873F00E94A2D /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		6383D9A7299C873F00E94A2D /* DetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailVC.xib; sourceTree = "<group>"; };
 		6383D9AA299C8AA200E94A2D /* NoLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLoginVC.swift; sourceTree = "<group>"; };
@@ -693,6 +695,7 @@
 				E2FD8DAD27FECB5B003F5BA4 /* UIViewExtension.swift */,
 				E2FD8DAF27FECB5B003F5BA4 /* UIViewControllerExtension.swift */,
 				634E924E2963D86200100E3D /* UIApplicationExtension.swift */,
+				635AD41D29C4216A0095C17E /* UIWindowExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1033,6 +1036,7 @@
 				E2FD8DCA27FECB5B003F5BA4 /* BaseViewModelList.swift in Sources */,
 				E2FD8DC327FECB5B003F5BA4 /* LoadIndicatorView.swift in Sources */,
 				63B71C362967FE8B00A2ED4E /* CameraView.swift in Sources */,
+				635AD41E29C4216A0095C17E /* UIWindowExtension.swift in Sources */,
 				E2FD8DD227FECB5C003F5BA4 /* TableViewController.swift in Sources */,
 				E2FD8D9327FECB5B003F5BA4 /* DownloadManager.swift in Sources */,
 				E2FD8D9927FECB5B003F5BA4 /* LocationHelper.swift in Sources */,

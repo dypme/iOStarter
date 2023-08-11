@@ -24,6 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         mainController = TabBarMenuVC()
         window?.rootViewController = mainController
+        
+        // TODO: Reminder remove this function when ready to release app.
+        // Add Development indicator in top right of app. Objective add this indicator for accident of development app submitted to app store and prevent apple to approve it
+        window?.addDevelopmentIndicator()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
