@@ -587,7 +587,7 @@
 				E2FD8D5E27FECB5B003F5BA4 /* GoogleService-Info.plist */,
 				E2AAB63527FFE92000F19FBE /* iOStarter.entitlements */,
 				E2FD8D6627FECB5B003F5BA4 /* Settings.bundle */,
-				E2FD8D6827FECB5B003F5BA4 /* Constants */,
+				E2FD8D6827FECB5B003F5BA4 /* Gen */,
 				E2FD8D7527FECB5B003F5BA4 /* Resources */,
 				E2FD8D8127FECB5B003F5BA4 /* Utilities */,
 				E2FD8DBF27FECB5B003F5BA4 /* Components */,
@@ -601,7 +601,7 @@
 			path = iOStarter;
 			sourceTree = "<group>";
 		};
-		E2FD8D6827FECB5B003F5BA4 /* Constants */ = {
+		E2FD8D6827FECB5B003F5BA4 /* Gen */ = {
 			isa = PBXGroup;
 			children = (
 				E2FD8D6927FECB5B003F5BA4 /* AppAssets.swift */,
@@ -609,7 +609,7 @@
 				E2FD8D7127FECB5B003F5BA4 /* AppStrings.swift */,
 				E2FD8D7327FECB5B003F5BA4 /* AppError.swift */,
 			);
-			path = Constants;
+			path = Gen;
 			sourceTree = "<group>";
 		};
 		E2FD8D7527FECB5B003F5BA4 /* Resources */ = {

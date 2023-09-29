@@ -12,6 +12,8 @@
 
 import Foundation
 
+typealias ViewModelApiResponse = (isSuccess: Bool, message: String)
+
 class BaseViewModelList<T: BaseModel, V: BaseViewModel<T>>: ObservableObject {
     @Published var datas = [T]()
     

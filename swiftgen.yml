@@ -1,5 +1,5 @@
 input_dir: iOStarter/
-output_dir: iOStarter/Constants/
+output_dir: iOStarter/Gen/
 
 xcassets:
     - inputs: Resources/Assets.xcassets
@@ -12,6 +12,8 @@ fonts:
     outputs:
         templateName: swift5
         output: AppFont.swift
+        params:
+            fontAliasName: MyFont
         
 strings:
   inputs: Supporting Files/en.lproj
